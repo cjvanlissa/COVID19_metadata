@@ -31,6 +31,32 @@ The following data sets have been processed:
 | Risk level   | Health infrastructure per country data       | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | In progress |
 | Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | In progress |
 
+## Standards for data
+
+Every source is condensed into one data file in `.csv` format, according
+to these specifications:
+
+  - Data should be available on the country- or community-and-country
+    level.
+  - Recent data are the focus; if multi-year data is available, older
+    years *can* be dropped
+  - All variable names should be lower case
+  - Mandatory variables are `country` (plain text country), and
+    `countryiso3` (ISO3 country code)
+  - Data should be in long format: One row per country
+
+## Standards for data dictionary
+
+A `data_dictionary.csv` is available for each data set, *unless the file
+contents are immediately clear from the file*. This data dictionary
+includes:
+
+  - `variable`: The name of the variable in the data file
+  - `description`: The description of this variable
+
+Any other important information per variable can be included in this
+dictionary, such as sources, weights, etc.
+
 ## News
 
 The following issues are ongoing:
