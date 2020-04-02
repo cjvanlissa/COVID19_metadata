@@ -3,6 +3,7 @@ title: "README"
 author: "Caspar J. van Lissa"
 date: "4/1/2020"
 output: github_document
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -28,9 +29,40 @@ df <- data.frame(
 knitr::kable(df)
 ```
 
+## Available data sets
+
+The following data sets have been processed:
+
+```{r, echo = FALSE}
+
+dat <- structure(list(
+  Category = c("Risk level", "Risk level", "Policies", "Preparedness", "Preparedness", "Preparedness", "COVID19", "Economic"),
+  Information = c("Hospital data per country", "Health infrastructure per country data", "Tracking global response to covid19 database", "Pandemic preperadness score data", "GHS index database ", "Health security database", "Number of cases and fatalities", "World Development Indicators"),
+  Source = c("WHO Health workforce/facilities database", "OECD Health care resources database", "Oxford Tracker for Regulation Policies", "GHS index", "GHS Index", "GHS index", "CSSE Global Cases", "World Bank"), 
+    URL = c("https://apps.who.int/gho/data/node.main.HWF", "https://stats.oecd.org/index.aspx?queryid=30183", 
+    "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker", 
+    "https://www.ghsindex.org/", "https://www.ghsindex.org/", 
+    "https://www.ghsindex.org/", "https://github.com/CSSEGISandData/COVID-19",
+    "https://datacatalog.worldbank.org/dataset/world-development-indicators"),
+  Progress = c("In progress", "In progress", "Done", "Done", "Done", "Done", "Done", "In progress")), class = "data.frame", row.names = c(NA, -8L))
+
+dat$Source <- paste0('<a href = "', dat$URL, '">', dat$Source, '</a>')
+dat <- dat[order(dat$Progress), ]
+rownames(dat) <- NULL
+dat$URL <- NULL
+knitr::kable(dat)
+```
+
+## News
+
+The following issues are ongoing:
+
+* Adding more databases; feel free to make a suggest or request a database [here](https://github.com/cjvanlissa/COVID19_metadata/issues) 
+* Linking databases by ISO3 country codes
+
 ## License
 
-This project is under a GNU GPL v3 open source license (see the LICENSE file).
+This project is under a GNU GPL v3 open source license (see the LICENSE file). Individual data sources have different licenses; always check the license before publishing based on these data.
 
 ## Contributing and Contact Information
 

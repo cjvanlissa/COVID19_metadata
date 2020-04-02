@@ -16,10 +16,35 @@ pandemic, made interoperable for secondary analysis.
 | scripts | (R)-scripts                                                                                                                                                           | Human editable |
 | doc     | Documentation for your contribution, ideally in Rmarkdown format. Rmarkdown can contain code chunks. Elaborate functions should be relegated to the ‘scripts’ folder. | Human editable |
 
+## Available data sets
+
+The following data sets have been processed:
+
+| Category     | Information                                  | Source                                                                                                                                                 | Progress    |
+| :----------- | :------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
+| Policies     | Tracking global response to covid19 database | <a href = "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker">Oxford Tracker for Regulation Policies</a> | Done        |
+| Preparedness | Pandemic preperadness score data             | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | Done        |
+| Preparedness | GHS index database                           | <a href = "https://www.ghsindex.org/">GHS Index</a>                                                                                                    | Done        |
+| Preparedness | Health security database                     | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | Done        |
+| COVID19      | Number of cases and fatalities               | <a href = "https://github.com/CSSEGISandData/COVID-19">CSSE Global Cases</a>                                                                           | Done        |
+| Risk level   | Hospital data per country                    | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | In progress |
+| Risk level   | Health infrastructure per country data       | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | In progress |
+| Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | In progress |
+
+## News
+
+The following issues are ongoing:
+
+  - Adding more databases; feel free to make a suggest or request a
+    database
+    [here](https://github.com/cjvanlissa/COVID19_metadata/issues)
+  - Linking databases by ISO3 country codes
+
 ## License
 
 This project is under a GNU GPL v3 open source license (see the LICENSE
-file).
+file). Individual data sources have different licenses; always check the
+license before publishing based on these data.
 
 ## Contributing and Contact Information
 
