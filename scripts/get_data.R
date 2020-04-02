@@ -1,6 +1,7 @@
-library(gerTRUE)
+library(gert)
 library(rio)
 library(readxl)
+library(countrycode)
 
 get_csse <- function(){
   olddir <- getwd()
@@ -61,7 +62,8 @@ get_GHS <- function(){
   
   ### Tidying up the tibble ###
   names(preparedness_score) <- c("country", "score", "category")
-
+  preparedness_score$countryiso3 <- countrycode(preparedness_score$country, origin = "country.name", destination = "iso3c")
+  preparedness_score <- preparedness_score[, c(1, 4, 2:3)]
   ###INDICATORS###
   #the indicators were organized hierarchically as such:
   #Categories
@@ -89,7 +91,8 @@ get_GHS <- function(){
   
   question_weights[c(2:3,5)] <- NULL
   question_weights <- question_weights[!is.na(question_weights$`Weight %`),]
-  names(question_weights)[1] <- "question_code"
+  names(question_weights)[1] <- "indicator"
+  question_weights$indicator <- gsub("_", "\\.", gsub("^.+?(?=\\d)", "Q", question_weights$indicator, perl = TRUE))
   
   ## equal number of rows means I didn't mess something up
   if(!nrow(question_weights)==nrow(per_country_questions)) stop("Number of rows in question_weights is not the same as in per_country_questions. Cannot merge.")
@@ -158,6 +161,8 @@ get_GHS <- function(){
                                      per_country_questions[, 2:3])
   indicator_dictionary$Description <- gsub("^.+?\\) ", "", indicator_dictionary$Variable)
   indicator_dictionary$Variable <- paste0("Q", gsub("^(.+?)\\).*$", "\\1", indicator_dictionary$Variable))
+  if(!all(indicator_dictionary$Variable == question_weights$indicator)) stop("Could not merge dictionary and weights.")
+  indicator_dictionary$weight_percent <- question_weights$`Weight %`
   write.csv(indicator_dictionary, file.path("data", "GHS", "indicator_dictionary.csv"), row.names = FALSE)
   per_country_questions[1:3] <- NULL
   countries <- names(per_country_questions)
@@ -170,13 +175,14 @@ get_GHS <- function(){
 
   #names(table(tmp))[which(is.na(as.numeric(names(table(tmp)))))] 
   #any(is.na(as.numeric(names(table(tmp)))))
-  indicators <- data.frame(Country = countries,
+  indicators <- data.frame(country = countries,
                                       tmp, stringsAsFactors = FALSE)
   names(indicators)[-1] <- indicator_dictionary$Variable
   
-  
+  head(indicators$country)
+  indicators$countryiso3 <- countrycode(indicators$country, origin = "country.name", destination = "iso3c")
+  indicators <- indicators[, c(1,ncol(indicators), 2:(ncol(indicators)-1))]
   write.csv(indicators, file.path("data", "GHS", "preparedness_indicators.csv"), row.names = FALSE)
   write.csv(preparedness_score, file.path("data", "GHS", "preparedness.csv"), row.names = FALSE)
-  write.csv(question_weights, file.path("data", "GHS", "question_weights.csv"), row.names = FALSE)
   file.remove(f, funzipped)
 }
