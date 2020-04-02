@@ -51,6 +51,7 @@ get_csse <- function(){
   dt[, id := NULL]
 
   dt[, countryiso3 := countrycode(country, origin = "country.name", destination = "iso3c")]
+  setcolorder(dt, c(1, ncol(dt), 2:(ncol(dt)-1)))
   
   # Go back to original directory
   setwd(olddir)
