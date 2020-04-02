@@ -8,6 +8,7 @@ library(dplyr)
 library(tibble)
 library(purrr)
 library(data.table)
+
 get_csse <- function(){
   # Go to temporary directory for git repository
   olddir <- getwd()
@@ -63,7 +64,20 @@ get_csse <- function(){
 
 get_OxCGRT <- function(){
   df <- rio::import("https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx")
-  write.csv(df, file.path("data", "OxCGRT_Oxford_regulation_policies.csv"), row.names = FALSE)
+  names(df) <- tolower(names(df))
+  df <- df[, -grep("_notes", names(df))]
+  dict <- data.frame(variable = grep("^s\\d", names(df), value = TRUE))
+  dict$description <- gsub("^.+_(?!isgen)", "", dict$variable, perl = TRUE)
+  dict$variable <- gsub("_(?!isgen).*", "", dict$variable, perl = TRUE)
+  names(df) <- gsub("_(?!isgen).*", "", names(df), perl = TRUE)
+  head(df)
+  names(df)
+  ox <- pivot_longer(df, cols = 4:ncol(df))
+  ox <- pivot_wider(ox, id_cols = c("countryname", "countrycode"), names_from = c("name", "date"))
+  
+  if(!dir.exists(file.path("data", "OxCGRT"))) dir.create(file.path("data", "OxCGRT"))
+  write.csv(ox, file.path("data", "OxCGRT", "OxCGRT_Oxford_regulation_policies.csv"), row.names = FALSE)
+  write.csv(dict, file.path("data", "OxCGRT", "data_dictionary.csv"), row.names = FALSE)
 }
 
 
@@ -232,6 +246,31 @@ get_GHS <- function(){
 
 get_wb_wdi <- function(){
   # Download and unzip
+  funzipped <- unzip_from_web(this_url = "http://databank.worldbank.org/data/download/WDI_csv.zip")
+  
+  # Read files into objects with same name
+  for(this_file in funzipped){
+    eval(parse(text = paste0(gsub("-", "_", gsub("^.+\\/(.+)\\.csv$", "\\1", this_file)), " <- read.csv('", this_file, "', stringsAsFactors = FALSE)")))
+  }
+  names(WDIData)[1] <- "country"
+  wdi <- WDIData[, c("country", "Indicator.Code", grep("^X201[6789]", names(WDIData), value = TRUE))]
+  wdi <- pivot_longer(wdi, cols = grep("^X201[6789]", names(wdi), value = TRUE))
+  wdi <- pivot_wider(wdi, id_cols = "country", names_from = c("Indicator.Code", "name"))
+  names(wdi) <- gsub("_X", "_", names(wdi))
+  wdi$countryiso3 <- countrycode(wdi$country, origin = "country.name", destination = "iso3c")
+  wdi <- wdi[, c(1, ncol(wdi), 2:(ncol(wdi)-1))]
+  
+  if(!dir.exists(file.path("data", "WB_WDI"))) dir.create(file.path("data", "WB_WDI"))
+  
+  write.csv(data_dict(WDIData[!duplicated(WDIData$Indicator.Code), ], "Indicator.Code", "Indicator.Name"), file.path("data", "WB_WDI", "data_dictionary.csv"), row.names = FALSE)
+  write.csv(wdi, file.path("data", "WB_WDI", "wdi.csv"), row.names = FALSE)
+  file.remove(funzipped)
+}
+
+get_wb_gov <- function(){
+  # Download and unzip
+  Policy	Government effectiveness	https://govdata360-backend.worldbank.org/api/v1/datasets/51/dump.csv
+  
   funzipped <- unzip_from_web(this_url = "http://databank.worldbank.org/data/download/WDI_csv.zip")
   
   # Read files into objects with same name
