@@ -269,27 +269,24 @@ get_wb_wdi <- function(){
 
 get_wb_gov <- function(){
   # Download and unzip
-  Policy	Government effectiveness	https://govdata360-backend.worldbank.org/api/v1/datasets/51/dump.csv
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/51/dump.csv")
+  names(df) <- tolower(names(df))
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  dict <- dict[!duplicated(dict$variable), ]
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  dict <- dict[, c(1, 4)]
   
-  funzipped <- unzip_from_web(this_url = "http://databank.worldbank.org/data/download/WDI_csv.zip")
+  gov <- select(df, 2, 1, variable, `2013`:`2018`)
+  names(gov)[1:2] <- c("country" , "countryiso3")
   
-  # Read files into objects with same name
-  for(this_file in funzipped){
-    eval(parse(text = paste0(gsub("-", "_", gsub("^.+\\/(.+)\\.csv$", "\\1", this_file)), " <- read.csv('", this_file, "', stringsAsFactors = FALSE)")))
-  }
-  names(WDIData)[1] <- "country"
-  wdi <- WDIData[, c("country", "Indicator.Code", grep("^X201[6789]", names(WDIData), value = TRUE))]
-  wdi <- pivot_longer(wdi, cols = grep("^X201[6789]", names(wdi), value = TRUE))
-  wdi <- pivot_wider(wdi, id_cols = "country", names_from = c("Indicator.Code", "name"))
-  names(wdi) <- gsub("_X", "_", names(wdi))
-  wdi$countryiso3 <- countrycode(wdi$country, origin = "country.name", destination = "iso3c")
-  wdi <- wdi[, c(1, ncol(wdi), 2:(ncol(wdi)-1))]
+  gov <- pivot_longer(gov, cols = grep("^20", names(gov), value = TRUE))
+  gov <- pivot_wider(gov, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
   
-  if(!dir.exists(file.path("data", "WB_WDI"))) dir.create(file.path("data", "WB_WDI"))
+  if(!dir.exists(file.path("data", "WB_GOV"))) dir.create(file.path("data", "WB_GOV"))
   
-  write.csv(data_dict(WDIData[!duplicated(WDIData$Indicator.Code), ], "Indicator.Code", "Indicator.Name"), file.path("data", "WB_WDI", "data_dictionary.csv"), row.names = FALSE)
-  write.csv(wdi, file.path("data", "WB_WDI", "wdi.csv"), row.names = FALSE)
-  file.remove(funzipped)
+  write.csv(dict, file.path("data", "WB_GOV", "data_dictionary.csv"), row.names = FALSE)
+  write.csv(gov, file.path("data", "WB_GOV", "wb_government_effectiveness.csv"), row.names = FALSE)
 }
 
 unzip_from_web <- function(this_url){
