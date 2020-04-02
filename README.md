@@ -6,7 +6,10 @@ Caspar J. van Lissa
 # COVID-19 Metadata
 
 A collection of relevant country/city level metadata about the COVID-19
-pandemic, made interoperable for secondary analysis.
+pandemic, made interoperable for secondary analysis. Curated by [Data
+scientists Against Corona](https://dataversuscorona.com/),
+collaborators: *Caspar van Lissa*, *Tim Draws*, *Andrii Grygoryshyn*,
+and *Konstantin Tomić*.
 
 ## Folder structure:
 
