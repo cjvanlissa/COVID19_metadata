@@ -1,0 +1,10 @@
+Category,Information,Source,URL,Progress,Folder
+Risk level,Hospital data per country,WHO Health workforce/facilities database,https://apps.who.int/gho/data/node.main.HWF,In progress,
+Risk level,Health infrastructure per country data,OECD Health care resources database,https://stats.oecd.org/index.aspx?queryid=30183,In progress,
+Policies,Government effectiveness,World Bank,https://datacatalog.worldbank.org/government-effectiveness-estimate-0,Done,WB_GOV
+Policies,Tracking global response to covid19 database,Oxford Tracker for Regulation Policies,https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker,Done,Ox_CGRT
+Preparedness,Pandemic preperadness score data,GHS index,https://www.ghsindex.org/,Done,GHS
+Preparedness,GHS index database ,GHS Index,https://www.ghsindex.org/,Done,GHS
+Preparedness,Health security database,GHS index,https://www.ghsindex.org/,Done,GHS
+COVID19,Number of cases and fatalities,CSSE Global Cases,https://github.com/CSSEGISandData/COVID-19,Done,CSSE
+Economic,World Development Indicators,World Bank,https://datacatalog.worldbank.org/dataset/world-development-indicators,Done,WB_WDI

@@ -23,16 +23,17 @@ and *Konstantin Tomić*.
 
 The following data sets have been processed:
 
-| Category     | Information                                  | Source                                                                                                                                                 | Progress    |
-| :----------- | :------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
-| Policies     | Tracking global response to covid19 database | <a href = "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker">Oxford Tracker for Regulation Policies</a> | Done        |
-| Preparedness | Pandemic preperadness score data             | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | Done        |
-| Preparedness | GHS index database                           | <a href = "https://www.ghsindex.org/">GHS Index</a>                                                                                                    | Done        |
-| Preparedness | Health security database                     | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | Done        |
-| COVID19      | Number of cases and fatalities               | <a href = "https://github.com/CSSEGISandData/COVID-19">CSSE Global Cases</a>                                                                           | Done        |
-| Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | Done        |
-| Risk level   | Hospital data per country                    | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | In progress |
-| Risk level   | Health infrastructure per country data       | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | In progress |
+| Category     | Information                                  | Source                                                                                                                                                 | Folder             |
+| :----------- | :------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
+| Policies     | Government effectiveness                     | <a href = "https://datacatalog.worldbank.org/government-effectiveness-estimate-0">World Bank</a>                                                       | WB\_GOV            |
+| Policies     | Tracking global response to covid19 database | <a href = "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker">Oxford Tracker for Regulation Policies</a> | Ox\_CGRT           |
+| Preparedness | Pandemic preperadness score data             | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | GHS                |
+| Preparedness | GHS index database                           | <a href = "https://www.ghsindex.org/">GHS Index</a>                                                                                                    | GHS                |
+| Preparedness | Health security database                     | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | GHS                |
+| COVID19      | Number of cases and fatalities               | <a href = "https://github.com/CSSEGISandData/COVID-19">CSSE Global Cases</a>                                                                           | CSSE               |
+| Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | WB\_WDI            |
+| Risk level   | Hospital data per country                    | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | <i>In progress</i> |
+| Risk level   | Health infrastructure per country data       | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | <i>In progress</i> |
 
 ## Standards for data
 
