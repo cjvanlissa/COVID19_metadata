@@ -2,6 +2,7 @@ library(gert)
 library(rio)
 library(readxl)
 library(countrycode)
+library(tidyr)
 
 get_csse <- function(){
   olddir <- getwd()
@@ -22,13 +23,8 @@ get_OxCGRT <- function(){
 
 
 get_GHS <- function(){
-  f <- file.path(tempdir(), 'ghs.zip')
-  download.file("https://www.ghsindex.org/wp-content/uploads/2019/10/Global-Health-Security-Index-2019-Final-October-2019.zip", destfile = f, mode = "wb")
-
-  utils::unzip(zipfile = f, files = "Global Health Security Index 2019 Final (October 2019).xlsm", exdir = tempdir())
   
-  funzipped <- file.path(tempdir(), "Global Health Security Index 2019 Final (October 2019).xlsm")
-  #file.exists(funzipped)
+  funzipped <- unzip_from_web("https://www.ghsindex.org/wp-content/uploads/2019/10/Global-Health-Security-Index-2019-Final-October-2019.zip")
   
   # Most prepared
   # Score 66.7 to => 100
@@ -157,11 +153,11 @@ get_GHS <- function(){
   question_weights[,c(2:3,5)] <- NULL
   names(question_weights)[1] <- "question_code"
   
-  indicator_dictionary <- data.frame(Variable = per_country_questions$Indicators,
+  indicator_dictionary <- data.frame(variable = per_country_questions$Indicators,
                                      per_country_questions[, 2:3])
-  indicator_dictionary$Description <- gsub("^.+?\\) ", "", indicator_dictionary$Variable)
-  indicator_dictionary$Variable <- paste0("Q", gsub("^(.+?)\\).*$", "\\1", indicator_dictionary$Variable))
-  if(!all(indicator_dictionary$Variable == question_weights$indicator)) stop("Could not merge dictionary and weights.")
+  indicator_dictionary$description <- gsub("^.+?\\) ", "", indicator_dictionary$variable)
+  indicator_dictionary$variable <- paste0("Q", gsub("^(.+?)\\).*$", "\\1", indicator_dictionary$variable))
+  if(!all(indicator_dictionary$variable == question_weights$indicator)) stop("Could not merge dictionary and weights.")
   indicator_dictionary$weight_percent <- question_weights$`Weight %`
   write.csv(indicator_dictionary, file.path("data", "GHS", "indicator_dictionary.csv"), row.names = FALSE)
   per_country_questions[1:3] <- NULL
@@ -177,12 +173,54 @@ get_GHS <- function(){
   #any(is.na(as.numeric(names(table(tmp)))))
   indicators <- data.frame(country = countries,
                                       tmp, stringsAsFactors = FALSE)
-  names(indicators)[-1] <- indicator_dictionary$Variable
+  names(indicators)[-1] <- indicator_dictionary$variable
   
   head(indicators$country)
   indicators$countryiso3 <- countrycode(indicators$country, origin = "country.name", destination = "iso3c")
   indicators <- indicators[, c(1,ncol(indicators), 2:(ncol(indicators)-1))]
   write.csv(indicators, file.path("data", "GHS", "preparedness_indicators.csv"), row.names = FALSE)
   write.csv(preparedness_score, file.path("data", "GHS", "preparedness.csv"), row.names = FALSE)
-  file.remove(f, funzipped)
+  file.remove(funzipped)
+}
+
+
+
+get_wb_wdi <- function(){
+  # Download and unzip
+  funzipped <- unzip_from_web(this_url = "http://databank.worldbank.org/data/download/WDI_csv.zip")
+  
+  # Read files into objects with same name
+  for(this_file in funzipped){
+    eval(parse(text = paste0(gsub("-", "_", gsub("^.+\\/(.+)\\.csv$", "\\1", this_file)), " <- read.csv('", this_file, "', stringsAsFactors = FALSE)")))
+  }
+  names(WDIData)[1] <- "country"
+  wdi <- WDIData[, c("country", "Indicator.Code", grep("^X201[6789]", names(WDIData), value = TRUE))]
+  wdi <- pivot_longer(wdi, cols = grep("^X201[6789]", names(wdi), value = TRUE))
+  wdi <- pivot_wider(wdi, id_cols = "country", names_from = c("Indicator.Code", "name"))
+  names(wdi) <- gsub("_X", "_", names(wdi))
+  wdi$countryiso3 <- countrycode(wdi$country, origin = "country.name", destination = "iso3c")
+  wdi <- wdi[, c(1, ncol(wdi), 2:(ncol(wdi)-1))]
+  
+  if(!dir.exists(file.path("data", "WB_WDI"))) dir.create(file.path("data", "WB_WDI"))
+  
+  write.csv(data_dict(WDIData[!duplicated(WDIData$Indicator.Code), ], "Indicator.Code", "Indicator.Name"), file.path("data", "WB_WDI", "data_dictionary.csv"), row.names = FALSE)
+  write.csv(wdi, file.path("data", "WB_WDI", "wdi.csv"), row.names = FALSE)
+  file.remove(funzipped)
+}
+
+unzip_from_web <- function(this_url){
+  timeout_option <- getOption('timeout')
+  options(timeout=500)
+  f <- file.path(tempdir(), 'tmp.zip')
+  download.file(this_url, destfile = f, mode = "wb", method = "libcurl")
+  results <- utils::unzip(zipfile = f, exdir = tempdir())
+  file.remove(f)
+  options(timeout=ttimeout_option)
+  return(results)
+}
+
+data_dict <- function(df, item, description, others = NULL){
+  dict <- df[, c(item, description, others)]
+  names(dict)[1:2] <- c("variable", "description")
+  dict
 }
