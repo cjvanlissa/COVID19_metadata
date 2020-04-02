@@ -11,6 +11,20 @@ scientists Against Corona](https://dataversuscorona.com/),
 collaborators: *Caspar van Lissa*, *Tim Draws*, *Andrii Grygoryshyn*,
 and *Konstantin Tomić*.
 
+## Available data sets
+
+The following data sets have been processed:
+
+| Category     | Information                            | Source                                                                                                                                                 | Folder             | License                            | Reference                                                                               |
+| :----------- | :------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- | :--------------------------------- | :-------------------------------------------------------------------------------------- |
+| Policies     | Government effectiveness               | <a href = "www.govindicators.org">Worldwide Governance Indicators</a>                                                                                  | WB\_GOV            | CC-BY 3.0                          |                                                                                         |
+| Policies     | COVID-19 specific regulation policies  | <a href = "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker">Oxford Tracker for Regulation Policies</a> | Ox\_CGRT           | CC-BY 4.0                          | Hale, Thomas and Samuel Webster (2020)                                                  |
+| Preparedness | Global Health Security Index           | <a href = "https://www.ghsindex.org/">Nuclear Threat Initiative</a>                                                                                    | GHS                | CC BY-NC-ND 4.0                    |                                                                                         |
+| COVID19      | Number of cases and fatalities         | <a href = "https://systems.jhu.edu/">CSSE Global Cases</a>                                                                                             | CSSE               | Copyright (academic use permitted) | <a href = "https://doi.org/10.1016/S1473-3099(20)30120-1">Dong, Du, & Gardner, 2020</a> |
+| Economic     | World Development Indicators           | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | WB\_WDI            | CC-BY 4.0                          |                                                                                         |
+| Risk level   | Hospital data per country              | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | <i>In progress</i> |                                    |                                                                                         |
+| Risk level   | Health infrastructure per country data | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | <i>In progress</i> |                                    |                                                                                         |
+
 ## Folder structure:
 
 | Folder  | Description                                                                                                                                                           | Permissions    |
@@ -18,22 +32,6 @@ and *Konstantin Tomić*.
 | data    | Metadata sources in .csv format (intermediate formats are acceptable until they can be made tidy).                                                                    | Do not edit    |
 | scripts | (R)-scripts                                                                                                                                                           | Human editable |
 | doc     | Documentation for your contribution, ideally in Rmarkdown format. Rmarkdown can contain code chunks. Elaborate functions should be relegated to the ‘scripts’ folder. | Human editable |
-
-## Available data sets
-
-The following data sets have been processed:
-
-| Category     | Information                                  | Source                                                                                                                                                 | Folder             |
-| :----------- | :------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------- |
-| Policies     | Government effectiveness                     | <a href = "https://datacatalog.worldbank.org/government-effectiveness-estimate-0">World Bank</a>                                                       | WB\_GOV            |
-| Policies     | Tracking global response to covid19 database | <a href = "https://www.bsg.ox.ac.uk/research/research-projects/oxford-covid-19-government-response-tracker">Oxford Tracker for Regulation Policies</a> | Ox\_CGRT           |
-| Preparedness | Pandemic preperadness score data             | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | GHS                |
-| Preparedness | GHS index database                           | <a href = "https://www.ghsindex.org/">GHS Index</a>                                                                                                    | GHS                |
-| Preparedness | Health security database                     | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | GHS                |
-| COVID19      | Number of cases and fatalities               | <a href = "https://github.com/CSSEGISandData/COVID-19">CSSE Global Cases</a>                                                                           | CSSE               |
-| Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | WB\_WDI            |
-| Risk level   | Hospital data per country                    | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | <i>In progress</i> |
-| Risk level   | Health infrastructure per country data       | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | <i>In progress</i> |
 
 ## Standards for data
 

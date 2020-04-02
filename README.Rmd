@@ -14,6 +14,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 A collection of relevant country/city level metadata about the COVID-19 pandemic, made interoperable for secondary analysis. Curated by [Data scientists Against Corona](https://dataversuscorona.com/), collaborators: *Caspar van Lissa*, *Tim Draws*, *Andrii Grygoryshyn*, and *Konstantin Tomić*.
 
+## Available data sets
+
+The following data sets have been processed:
+
+```{r, echo = FALSE}
+dat <- read.csv("datasets.csv", stringsAsFactors = FALSE)
+dat$Source <- paste0('<a href = "', dat$URL, '">', dat$Source, '</a>')
+dat <- dat[order(dat$Progress), ]
+rownames(dat) <- NULL
+dat$Folder[dat$Progress == "In progress"] <- "<i>In progress</i>"
+dat$Progress <- dat$URL <- NULL
+knitr::kable(dat)
+```
+
 ## Folder structure:
 
 ```{r, echo = FALSE}
@@ -27,20 +41,6 @@ df <- data.frame(
                   "Human editable")
   )
 knitr::kable(df)
-```
-
-## Available data sets
-
-The following data sets have been processed:
-
-```{r, echo = FALSE}
-dat <- read.csv("datasets.csv", stringsAsFactors = FALSE)
-dat$Source <- paste0('<a href = "', dat$URL, '">', dat$Source, '</a>')
-dat <- dat[order(dat$Progress), ]
-rownames(dat) <- NULL
-dat$Folder[dat$Progress == "In progress"] <- "<i>In progress</i>"
-dat$Progress <- dat$URL <- NULL
-knitr::kable(dat)
 ```
 
 ## Standards for data
