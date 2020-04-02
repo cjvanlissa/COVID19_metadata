@@ -3,16 +3,60 @@ library(rio)
 library(readxl)
 library(countrycode)
 library(tidyr)
-
+library(readr)
+library(dplyr)
+library(tibble)
+library(purrr)
+library(data.table)
 get_csse <- function(){
+  # Go to temporary directory for git repository
   olddir <- getwd()
   git_dir <- file.path(tempdir(), 'CSSE')
   gert::git_clone("https://github.com/CSSEGISandData/COVID-19.git", git_dir)
   setwd(file.path(git_dir, "csse_covid_19_data", "csse_covid_19_daily_reports"))
-  olddir <- "C:/Git_Repositories/psycorona/PsyCorona_phase3"
   f <- list.files(pattern = "csv")
-  file.copy(from = f, file.path(olddir, "data", "CSSE", f))
+  # File parsing
+  parsed_files <- lapply(f, function(this_file){
+    regional <- read_csv(this_file)
+    names(regional) <- tolower(names(regional))
+    names(regional)[c(grep("province", names(regional)), grep("country", names(regional)))] <- c("region", "country")
+    regional <- regional[, c("country", "region", "confirmed", "deaths", "recovered")]
+    regional[is.na(regional$region), ]
+    national
+    regional %>%
+      group_by(country) %>%
+      summarise(region = NA,
+                confirmed = mean(confirmed, na.rm = TRUE),
+                deaths = mean(deaths, na.rm = TRUE),
+                recovered = mean(recovered, na.rm = TRUE)) -> national
+    if(!ncol(national)==ncol(regional)) browser()
+    out <- rbind(national, regional)
+    names(out) <- gsub("(confirmed|deaths|recovered)", paste0("\\1\\.", substring(gsub("-", "_", this_file), first = 1, last = 10)), names(out))
+    out$id <- paste(out$country, out$region, sep = "_")
+    out[!duplicated(out$id), ]
+    })
+  unique_ids <- unique(unlist(lapply(parsed_files, `[[`, "id")))
+  dt <- data.table(id = unique_ids)
+  dt[, country := gsub("_.*$", "", id)]
+  dt[, region := gsub("^.+?_", "", id)]
+  dt[region == "NA", region := NA]
+
+  # Merge without running into memory problems
+  for(this_file in parsed_files){
+    set(x = dt,
+        i = match(this_file$id, dt$id),
+        j = names(this_file)[3:5],
+        value = this_file[, 3:5])
+  }
+  dt[, id := NULL]
+
+  dt[, countryiso3 := countrycode(country, origin = "country.name", destination = "iso3c")]
+  
+  # Go back to original directory
   setwd(olddir)
+  if(!dir.exists(file.path("data", "CSSE"))) dir.create(file.path("data", "CSSE"))
+  write.csv(dt, file.path("data", "CSSE", "CSSE.csv"), row.names = FALSE)
+  # Remove git repository
   unlink(git_dir, recursive = TRUE)
 }
 
