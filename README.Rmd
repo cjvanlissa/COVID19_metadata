@@ -51,7 +51,8 @@ Every source is condensed into one data file in `.csv` format, according to thes
 * Recent data are the focus; if multi-year data is available, older years *can* be dropped
 * All variable names should be lower case
 * Mandatory variables are `country` (plain text country), and `countryiso3` (ISO3 country code)
-* Data should be in long format: One row per country
+* Optionally, a `region` variable can be added
+* Data should be in wide format: One row per country, one column per variable
 
 ## Standards for data dictionary
 

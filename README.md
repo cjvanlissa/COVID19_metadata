@@ -45,7 +45,9 @@ to these specifications:
   - All variable names should be lower case
   - Mandatory variables are `country` (plain text country), and
     `countryiso3` (ISO3 country code)
-  - Data should be in long format: One row per country
+  - Optionally, a `region` variable can be added
+  - Data should be in wide format: One row per country, one column per
+    variable
 
 ## Standards for data dictionary
 
