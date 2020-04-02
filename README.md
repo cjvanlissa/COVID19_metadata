@@ -27,9 +27,9 @@ The following data sets have been processed:
 | Preparedness | GHS index database                           | <a href = "https://www.ghsindex.org/">GHS Index</a>                                                                                                    | Done        |
 | Preparedness | Health security database                     | <a href = "https://www.ghsindex.org/">GHS index</a>                                                                                                    | Done        |
 | COVID19      | Number of cases and fatalities               | <a href = "https://github.com/CSSEGISandData/COVID-19">CSSE Global Cases</a>                                                                           | Done        |
+| Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | Done        |
 | Risk level   | Hospital data per country                    | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | In progress |
 | Risk level   | Health infrastructure per country data       | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | In progress |
-| Economic     | World Development Indicators                 | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | In progress |
 
 ## Standards for data
 

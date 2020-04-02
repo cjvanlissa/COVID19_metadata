@@ -44,7 +44,7 @@ dat <- structure(list(
     "https://www.ghsindex.org/", "https://www.ghsindex.org/", 
     "https://www.ghsindex.org/", "https://github.com/CSSEGISandData/COVID-19",
     "https://datacatalog.worldbank.org/dataset/world-development-indicators"),
-  Progress = c("In progress", "In progress", "Done", "Done", "Done", "Done", "Done", "In progress")), class = "data.frame", row.names = c(NA, -8L))
+  Progress = c("In progress", "In progress", "Done", "Done", "Done", "Done", "Done", "Done")), class = "data.frame", row.names = c(NA, -8L))
 
 dat$Source <- paste0('<a href = "', dat$URL, '">', dat$Source, '</a>')
 dat <- dat[order(dat$Progress), ]
