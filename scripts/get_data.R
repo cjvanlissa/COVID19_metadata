@@ -1,4 +1,4 @@
-library(gert)
+library(gerTRUE)
 library(rio)
 library(readxl)
 
@@ -25,13 +25,158 @@ get_GHS <- function(){
   download.file("https://www.ghsindex.org/wp-content/uploads/2019/10/Global-Health-Security-Index-2019-Final-October-2019.zip", destfile = f, mode = "wb")
 
   utils::unzip(zipfile = f, files = "Global Health Security Index 2019 Final (October 2019).xlsm", exdir = tempdir())
-  # THis doesn't work
-  browser()
-  tmp <- read_excel(file.path(tempdir(), "Global Health Security Index 2019 Final (October 2019).xlsm"))
   
-  #write.csv(df, file.path("data", "OxCGRT_Oxford_regulation_policies.csv"), row.names = FALSE)
-  file.remove(f, file.path(tempdir(), "Global Health Security Index 2019 Final (October 2019).xlsm"))
+  funzipped <- file.path(tempdir(), "Global Health Security Index 2019 Final (October 2019).xlsm")
+  #file.exists(funzipped)
+  
+  # Most prepared
+  # Score 66.7 to => 100
+  most_prepared <- readxl::read_excel(path = funzipped, sheet = 4, range = "E47:F59",
+                                    col_names = FALSE, progress = TRUE)
+  
+  # More prepared
+  # Score 33.4 to => 66.6
+  more_prepared <- readxl::read_excel(path = funzipped, sheet = 4, range = "H47:I155",
+                                    col_names = FALSE, progress = TRUE)
+  
+  # Least prepared
+  # Score 0 to => 33.3
+  least_prepared <- readxl::read_excel(path = funzipped, sheet = 4, range = "K47:L119",
+                                     col_names = FALSE, progress = TRUE)
+  
+  #adding names of tibbles as variable because I'm going to merge them later
+  name.as.variable.df <-  function (df)
+  {
+    name=deparse(substitute(df)) #outputs the name of whatever df is
+    df[,ncol(df)+1] <- name 
+    return(df)
+  }
+  
+  most_prepared <- name.as.variable.df(most_prepared)
+  more_prepared <- name.as.variable.df(more_prepared)
+  least_prepared <- name.as.variable.df(least_prepared)
+  
+  #merging into one big tibble
+  preparedness_score <- rbind(most_prepared, more_prepared, least_prepared)
+  
+  ### Tidying up the tibble ###
+  names(preparedness_score) <- c("country", "score", "category")
+
+  ###INDICATORS###
+  #the indicators were organized hierarchically as such:
+  #Categories
+  #Indicators
+  #Sub-indicators
+  #Questions
+  #So the question 6.4.1a) is from category 6, indicator 4, subindicator 1 question a)
+  #Seeing as this info is contained within the question code, here I loaded only the questions
+  
+  per_country_questions <- readxl::read_excel(path = funzipped, sheet = 13, range = "N10:HC276",
+                                            col_names = TRUE, progress = TRUE, na = "-")
+  
+  #NOTE: varible containing question string is confusingly named Indicators.
+  #per_country_questions$Indicators
+  
+  #dropping empty rows (those corresponding to higher hieracrchical levels)
+  missing <- rowSums(is.na(per_country_questions))
+  per_country_questions <- per_country_questions[!missing == max(missing), ]
+  
+  #preparedness score is a weighted sum of questions.
+  #here I obtain the weights for each question
+  
+  question_weights <- readxl::read_excel(path = funzipped, sheet = 14, range = "C183:H408",
+                                       col_names = TRUE, progress = TRUE)
+  
+  question_weights[c(2:3,5)] <- NULL
+  question_weights <- question_weights[!is.na(question_weights$`Weight %`),]
+  names(question_weights)[1] <- "question_code"
+  
+  ## equal number of rows means I didn't mess something up
+  if(!nrow(question_weights)==nrow(per_country_questions)) stop("Number of rows in question_weights is not the same as in per_country_questions. Cannot merge.")
+  
+  #question_weights column QUESTIONS is the same as per_country_questions column indicators
+  if(!all(question_weights$QUESTIONS==per_country_questions$Indicators)) stop("question_weights column QUESTIONS is not the same as per_country_questions column indicators. Cannot merge.")
+  
+  #Realised my mistake. Questions are weighted as percents of subindicator.
+  #for the absolute weighting I have to obtain weighting for all higher levels.
+  
+  #Have to redo the question weights. Same code as above
+  question_weights <- readxl::read_excel(path = funzipped, sheet = 14, range = "C183:H408",
+                                       col_names = TRUE, progress = TRUE)
+  
+  question_weights <- question_weights[!is.na(question_weights$`Weight %`), ]
+  
+  
+  #Subindicator weights here. Same deal as with questions.
+  subind_weights <- readxl::read_excel(path = funzipped, sheet = 14, range = "C62:H181",
+                                     col_names = TRUE, progress = TRUE)
+  subind_weights <- subind_weights[!is.na(subind_weights$`Weight %`),]
+  
+  #Indicator weights here. Same deal as with questions.
+  ind_weights <- readxl::read_excel(path = funzipped, sheet = 14, range = "C20:H60",
+                                  col_names = TRUE, progress = TRUE)
+  
+  ind_weights <- ind_weights[!is.na(ind_weights$`Weight %`),]
+  #Category weights here. Same deal as with questions.
+  cat_weights <- readxl::read_excel(path = funzipped, sheet = 14, range = "C12:H18",
+                                  col_names = TRUE, progress = TRUE)
+  cat_weights <- cat_weights[!is.na(cat_weights$`Weight %`),]
+  #to get absolute weights for each question I have to multiply the weight
+  #by all the weights above it
+  
+  #takes weights from a lower level and multiplies them by weights from the higher level
+  abs_weights <- function(lvl, lvl_up)
+  {
+    nms=(lvl_up[,1])
+    for (i in 1:nrow(nms))
+    {
+      lvl_up_w=as.numeric(lvl_up[i,6])
+      this_nm=as.character(nms[i,])
+      is_lvl=grep(pattern = this_nm, x = lvl$...1)
+      lvl[is_lvl,6]=lvl[is_lvl,6]*lvl_up_w
+    }
+    return(lvl)
+  }
+  
+  #sanity check. sums to 1, so it's ok!
+  if(!sum(abs_weights(lvl = ind_weights, lvl_up = cat_weights)[,6]) == 1) stop("Weights do not sum to 1.")
+  
+  ind_weights <- abs_weights(lvl = ind_weights, lvl_up = cat_weights)
+  subind_weights <- abs_weights(subind_weights, ind_weights)
+  question_weights <- abs_weights(question_weights,subind_weights)
+  
+  #It worked! The absolute weighting in the question weights now
+  #represents the percent contribution it has to the sum score.
+  #These weights can be linearly transformed (intercept and slope) as needed
+  #sum(question_weights$`Weight %`)
+  
+  #Tidying up the question weights tibble
+  question_weights[,c(2:3,5)] <- NULL
+  names(question_weights)[1] <- "question_code"
+  
+  indicator_dictionary <- data.frame(Variable = per_country_questions$Indicators,
+                                     per_country_questions[, 2:3])
+  indicator_dictionary$Description <- gsub("^.+?\\) ", "", indicator_dictionary$Variable)
+  indicator_dictionary$Variable <- paste0("Q", gsub("^(.+?)\\).*$", "\\1", indicator_dictionary$Variable))
+  write.csv(indicator_dictionary, file.path("data", "GHS", "indicator_dictionary.csv"), row.names = FALSE)
+  per_country_questions[1:3] <- NULL
+  countries <- names(per_country_questions)
+  
+  tmp <- t(per_country_questions)
+  dims <- dim(tmp)
+  tmp <- gsub(",", "", tmp)
+  tmp <- as.numeric(tmp)
+  tmp <- matrix(tmp, nrow = dims[1])
+
+  #names(table(tmp))[which(is.na(as.numeric(names(table(tmp)))))] 
+  #any(is.na(as.numeric(names(table(tmp)))))
+  indicators <- data.frame(Country = countries,
+                                      tmp, stringsAsFactors = FALSE)
+  names(indicators)[-1] <- indicator_dictionary$Variable
+  
+  
+  write.csv(indicators, file.path("data", "GHS", "preparedness_indicators.csv"), row.names = FALSE)
+  write.csv(preparedness_score, file.path("data", "GHS", "preparedness.csv"), row.names = FALSE)
+  write.csv(question_weights, file.path("data", "GHS", "question_weights.csv"), row.names = FALSE)
+  file.remove(f, funzipped)
 }
-
-
-zip.file.extract
