@@ -8,50 +8,50 @@ library(countrycode)
 #############################################################################################
 # Hospitals
 WHO_hospitals = read_csv("https://apps.who.int/gho/athena/data/GHO/DEVICES00,DEVICES01,DEVICES02,DEVICES03,DEVICES04,DEVICES05?filter=COUNTRY:*;REGION:*&x-sideaxis=COUNTRY;YEAR&x-topaxis=GHO&profile=crosstable&format=csv")
-head(WHO_hospitals)
+#head(WHO_hospitals)
 
 # Nurses
 WHO_nurses = read_csv("https://apps.who.int/gho/athena/data/GHO/HWF_0006,HWF_0007,HWF_0008,HWF_0009?filter=COUNTRY:*&x-sideaxis=COUNTRY;YEAR&x-topaxis=GHO&profile=crosstable&format=csv")
-head(WHO_nurses)
+#head(WHO_nurses)
 
 # Doctors
 WHO_doctors = read_csv("https://apps.who.int/gho/athena/data/GHO/HWF_0001,HWF_0002,HWF_0003,HWF_0004,HWF_0005,HWF_0025?filter=COUNTRY:*&x-sideaxis=COUNTRY;YEAR&x-topaxis=GHO;SEX&profile=crosstable&format=csv")
-head(WHO_doctors)
+#head(WHO_doctors)
 
 # Ambient air pollution 
 # Description: https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4674
 WHO_pollution_2016 = read_csv("https://apps.who.int/gho/athena/data/GHO/SDGPM25?filter=COUNTRY:*&x-sideaxis=COUNTRY&x-topaxis=GHO;YEAR;RESIDENCEAREATYPE&profile=crosstable&format=csv")
-head(WHO_pollution_2016)
+#head(WHO_pollution_2016)
 
 # Deaths attributable to ambient air pollution 
 # Description: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/ambient-air-pollution-attributable-deaths
 WHO_air_poluttion_deaths = read_csv("https://apps.who.int/gho/athena/data/GHO/AIR_5,AIR_41,AIR_42?filter=COUNTRY:*;REGION:*&x-sideaxis=COUNTRY;ENVCAUSE&x-topaxis=GHO;YEAR;AGEGROUP;SEX&profile=crosstable&format=csv")
-head(WHO_air_poluttion_deaths)
+#head(WHO_air_poluttion_deaths)
 
 # Ambient air pollution attributable DALYs (Number of disability-adjusted life years), 
 # Description: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/ambient-air-pollution-attributable-dalys
 WHO_air_poluttion_DALYs = read_csv("https://apps.who.int/gho/athena/data/GHO/AIR_8,AIR_9,AIR_90,AIR_7?filter=COUNTRY:*;REGION:*&x-sideaxis=COUNTRY;ENVCAUSE&x-topaxis=GHO;YEAR;AGEGROUP;SEX&profile=crosstable&format=csv")
-head(WHO_air_poluttion_DALYs)
+#head(WHO_air_poluttion_DALYs)
 
 # Ambient air pollution attributable YLLs (Number of years life lost)
 # Description: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/ambient-air-pollution-attributable-ylls
 WHO_air_polution_YLLs = read_csv("https://apps.who.int/gho/athena/data/GHO/AIR_45?filter=COUNTRY:*;REGION:*&x-sideaxis=COUNTRY;ENVCAUSE&x-topaxis=GHO;YEAR;SEX&profile=crosstable&format=csv")
-head(WHO_air_polution_YLLs)
+#head(WHO_air_polution_YLLs)
 
 # Deaths attributable to household air pollution
 # Description: https://www.who.int/data/gho/indicator-metadata-registry/imr-details/2256
 WHO_household_air_poluttion_deaths = read_csv("https://apps.who.int/gho/athena/data/GHO/AIR_11,AIR_51,AIR_52?filter=COUNTRY:*&x-sideaxis=COUNTRY;ENVCAUSE;GHECAUSES&x-topaxis=GHO;YEAR;AGEGROUP;SEX&profile=crosstable&format=csv")
-head(WHO_household_air_poluttion_deaths)
+#head(WHO_household_air_poluttion_deaths)
 
 # DALYs attributable to household air pollution 
 # Description: https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4491
 WHO_household_air_poluttion_DALYs = read_csv("https://apps.who.int/gho/athena/data/GHO/AIR_15,AIR_17,AIR_39?filter=COUNTRY:*&x-sideaxis=COUNTRY;ENVCAUSE&x-topaxis=GHO;YEAR;AGEGROUP;SEX&profile=crosstable&format=csv")
-head(WHO_household_air_poluttion_DALYs)
+##head(WHO_household_air_poluttion_DALYs)
 
 # EXPENDITURE (Current health expenditure (CHE) as percentage of gross domestic product (GDP) (%))
 # Description: https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4950
 WHO_health_exp <- read_csv("https://apps.who.int/gho/athena/data/GHO/GHED_CHEGDP_SHA2011?filter=REGION:*;COUNTRY:*&x-sideaxis=COUNTRY&x-topaxis=GHO;YEAR&profile=crosstable&format=csv")
-head(WHO_health_exp)
+#head(WHO_health_exp)
 #############################################################################################
 
 
@@ -59,8 +59,10 @@ head(WHO_health_exp)
 # Downloading OECD data 
 #############################################################################################
 # I wasn't able to open the data directly from the download link so I had to download the CSVs onto my computer first
+# CJ: Need to use the API for this https://data.oecd.org/api/sdmx-json-documentation/
 # HOSPITALS 
 # link for the download https://stats.oecd.org/Download.ashx?type=csv&Delimiter=%2c&IncludeTimeSeriesIdentifiers=False&LabelType=CodeAndLabel&LanguageCode=en
+
 OECD_hospitals = read_csv("data/WHO_OECD/oecd_1_raw.csv")
 # HOSPITAL BEDS https://stats.oecd.org/Download.ashx?type=csv&Delimiter=%2c&IncludeTimeSeriesIdentifiers=False&LabelType=CodeAndLabel&LanguageCode=en
 OECD_hospital_beds <- read_csv("data/WHO_OECD/oecd_2_raw.csv")

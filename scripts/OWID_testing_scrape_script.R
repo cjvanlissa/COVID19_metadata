@@ -42,7 +42,8 @@ scrape_tests_data <- function(html_adress = "https://ourworldindata.org/coronavi
 scraped_data <- scrape_tests_data("https://ourworldindata.org/coronavirus-testing-source-data")
 
 # Write the data
-write_csv(scraped_data, "data/OWID_Tests/OurWorldInData_Tests.csv")
+
+checkfilewrite(scraped_data, "OWID_Tests", "OurWorldInData_Tests.csv")
   
 
 

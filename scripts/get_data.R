@@ -23,7 +23,6 @@ get_csse <- function(){
     names(regional)[c(grep("province", names(regional)), grep("country", names(regional)))] <- c("region", "country")
     regional <- regional[, c("country", "region", "confirmed", "deaths", "recovered")]
     regional[is.na(regional$region), ]
-    national
     regional %>%
       group_by(country) %>%
       summarise(region = NA,
@@ -56,8 +55,7 @@ get_csse <- function(){
   
   # Go back to original directory
   setwd(olddir)
-  if(!dir.exists(file.path("data", "CSSE"))) dir.create(file.path("data", "CSSE"))
-  write.csv(dt, file.path("data", "CSSE", "CSSE.csv"), row.names = FALSE)
+  checkfilewrite(dt, "CSSE", "CSSE.csv")
   # Remove git repository
   unlink(git_dir, recursive = TRUE)
 }
@@ -74,10 +72,8 @@ get_OxCGRT <- function(){
   names(df)
   ox <- pivot_longer(df, cols = 4:ncol(df))
   ox <- pivot_wider(ox, id_cols = c("countryname", "countrycode"), names_from = c("name", "date"))
-  
-  if(!dir.exists(file.path("data", "OxCGRT"))) dir.create(file.path("data", "OxCGRT"))
-  write.csv(ox, file.path("data", "OxCGRT", "OxCGRT_Oxford_regulation_policies.csv"), row.names = FALSE)
-  write.csv(dict, file.path("data", "OxCGRT", "data_dictionary.csv"), row.names = FALSE)
+  checkfilewrite(ox, "OxCGRT","OxCGRT_Oxford_regulation_policies.csv")
+  checkfilewrite(dict, "OxCGRT","data_dictionary.csv")
 }
 
 
@@ -321,4 +317,9 @@ checkfilewrite <- function(df, the_dir, the_file){
       file.rename(file.path("data", the_dir, "XXXTMPXXX.csv"), file.path("data", the_dir, the_file))
     }
   }
+}
+
+initialize_database <- function(){
+  get_csse()
+  get_OxCGRT()
 }
