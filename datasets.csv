@@ -1,4 +1,5 @@
 Category,Information,Source,URL,Progress,Folder,License,Reference
+Mobility,Google mobility data,Google,https://www.google.com/covid19/mobility/,In progress,,,
 Risk level,Hospital data per country,WHO Health workforce/facilities database,https://apps.who.int/gho/data/node.main.HWF,In progress,,,
 Risk level,Health infrastructure per country data,OECD Health care resources database,https://stats.oecd.org/index.aspx?queryid=30183,In progress,,,
 Policies,Government effectiveness,Worldwide Governance Indicators,www.govindicators.org,Done,WB_GOV,CC-BY 3.0,
