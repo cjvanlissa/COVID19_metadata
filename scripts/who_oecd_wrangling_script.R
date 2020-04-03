@@ -1,4 +1,5 @@
 library(tidyverse)
+library(countrycode)
 
 # TODO: MANUALLY ADD HOSPITALS TO LARGE POPULATION COUNTRIES WHERE MISSING? (some countries with large populations 
 # are still missing number of hospitals eg. Brazil, China, Russia ...
@@ -605,11 +606,11 @@ ci_remover <- function(string){
   return(as.numeric(gsub( " .*$", "", as.character(string))))
 }
 
-colnames(joined_data_pollution_5)[45] <- "Tempchange"
+colnames(joined_data_pollution_5)[41] <- "Tempchange"
 WHO_pollution_dat_no_ws <-  joined_data_pollution_5 %>% mutate_at(vars(matches('yll')), white_space_remover)
 
 WHO_pollution_dat_no_ci <-  WHO_pollution_dat_no_ws %>% mutate_at(vars(-matches("yll|countr")), ci_remover)
-colnames(WHO_pollution_dat_no_ci)[45] <- "t.ap.yll.2016.Total"
+colnames(WHO_pollution_dat_no_ci)[41] <- "t.ap.yll.2016.Total"
 
 # make all column names lowercase
 colnames(WHO_pollution_dat_no_ci) <- tolower(colnames(WHO_pollution_dat_no_ci))
