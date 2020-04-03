@@ -305,3 +305,20 @@ data_dict <- function(df, item, description, others = NULL){
   names(dict)[1:2] <- c("variable", "description")
   dict
 }
+
+checkfilewrite <- function(df, the_dir, the_file){
+  if(!dir.exists(file.path("data", the_dir))) dir.create(file.path("data", the_dir))
+  if(!file.exists(file.path("data", the_dir, the_file))){
+    write.csv(df, file.path("data", the_dir, the_file), row.names = FALSE)
+  } else {
+    old_sum <- tools::md5sum(file.path("data", the_dir, the_file))
+    write.csv(df, file.path("data", the_dir, "XXXTMPXXX.csv"), row.names = FALSE)
+    new_sum <- tools::md5sum(file.path("data", the_dir, "XXXTMPXXX.csv"))
+    if(old_sum == new_sum){
+      file.remove(file.path("data", the_dir, "XXXTMPXXX.csv"))
+    } else {
+      file.remove(file.path("data", the_dir, the_file))
+      file.rename(file.path("data", the_dir, "XXXTMPXXX.csv"), file.path("data", the_dir, the_file))
+    }
+  }
+}

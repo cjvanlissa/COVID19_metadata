@@ -1,0 +1,2684 @@
+"retail_recreation","grocery_pharmacy","parks","transit_stations","workplaces","residential","country","countryiso3"
+-38,-21,-13,-34,-33,10,"Afghanistan","AFG"
+-61,-40,-39,-57,-11,22,"Angola","AGO"
+-46,-21,-30,-67,-48,17,"Antigua and Barbuda","ATG"
+-86,-61,-89,-80,-57,27,"Argentina","ARG"
+-90,-48,-91,-82,-69,31,"Buenos Aires",NA
+-88,-60,-91,-79,-60,26,"Buenos Aires Province",NA
+-71,-46,-78,-81,-35,29,"Catamarca Province",NA
+-79,-63,-83,-92,-48,24,"Chaco Province",NA
+-92,-91,-94,-93,-62,28,"Chubut Province",NA
+-88,-66,-90,-91,-57,30,"Cordoba",NA
+-80,-63,-88,-89,-47,25,"Corrientes",NA
+-87,-65,-93,-90,-54,29,"Entre Rios",NA
+-76,-53,-82,-71,-37,21,"Formosa Province","TWN"
+-80,-55,-83,-92,-44,27,"Jujuy",NA
+-88,-72,-88,-87,-56,28,"La Pampa",NA
+-70,-46,-84,-86,-40,26,"La Rioja Province",NA
+-81,-56,-84,-72,-49,29,"Mendoza Province",NA
+-83,-66,-85,-92,-51,27,"Misiones Province",NA
+-96,-95,-95,-92,-72,33,"Neuquen",NA
+-90,-72,-92,-96,-55,29,"Río Negro",NA
+-82,-55,-84,-76,-47,26,"Salta Province",NA
+-76,-50,-80,-87,-46,28,"San Juan Province",NA
+-85,-60,-89,-91,-56,29,"San Luis Province",NA
+-83,-62,-88,-91,-56,24,"Santa Cruz Province",NA
+-87,-63,-89,-77,-57,29,"Santa Fe Province",NA
+-75,-49,-75,-90,-46,25,"Santiago del Estero Province",NA
+-87,-63,-89,-92,-59,24,"Tierra del Fuego Province",NA
+-81,-53,-78,-90,-51,28,"Tucumán",NA
+-88,-66,-80,-88,-72,20,"Aruba","ABW"
+-45,-19,-35,-58,-33,13,"Australia","AUS"
+-40,-3,38,-52,-31,11,"Australian Capital Territory","AUS"
+-44,-13,-27,-57,-35,14,"New South Wales",NA
+-35,-13,-20,-55,-23,12,"Northern Territory",NA
+-40,-19,-33,-57,-30,12,"Queensland",NA
+-43,-15,-33,-55,-28,12,"South Australia","AUS"
+-50,-30,-70,-62,-28,13,"Tasmania",NA
+-51,-26,-55,-68,-37,16,"Victoria",NA
+-40,-16,-37,-55,-26,13,"Western Australia","AUS"
+-87,-64,-43,-71,-51,14,"Austria","AUT"
+-83,-36,19,-43,-49,16,"Burgenland",NA
+-85,-62,-45,-59,-48,13,"Carinthia",NA
+-82,-36,8,-74,-45,13,"Lower Austria","AUT"
+-93,-86,-73,-81,-59,15,"Salzburg",NA
+-86,-61,-42,-71,-47,13,"Styria",NA
+-95,-86,-82,-85,-65,16,"Tyrol",NA
+-86,-44,-19,-67,-47,13,"Upper Austria","AUT"
+-85,-52,-44,-71,-52,15,"Vienna",NA
+-90,-70,-68,-79,-54,14,"Vorarlberg",NA
+-45,-22,-40,-38,-25,16,"Bahrain","BHR"
+-68,-46,-26,-66,-60,24,"Bangladesh","BGD"
+-70,-47,-60,-77,-52,15,"Barbados","BRB"
+-81,-57,NA,-83,-51,17,"Christ Church",NA
+-35,NA,-53,NA,-29,NA,"Saint George",NA
+-76,-50,NA,NA,-56,NA,"Saint James",NA
+NA,NA,NA,NA,-36,NA,"Saint John",NA
+-70,-48,-70,-73,-55,14,"Saint Michael",NA
+-74,-18,NA,NA,-31,NA,"Saint Peter",NA
+-72,-49,NA,NA,-49,NA,"Saint Philip",NA
+-13,NA,NA,NA,-29,NA,"Saint Thomas",NA
+-14,5,41,-7,3,-2,"Belarus","BLR"
+-84,-53,-66,-76,-52,17,"Belgium","BEL"
+-89,-65,-64,-82,-62,19,"Brussels",NA
+-82,-46,-65,-74,-50,17,"Flanders",NA
+-84,-62,-72,-77,-52,16,"Wallonia",NA
+-63,-49,-38,-68,-42,13,"Belize","BLZ"
+-16,0,10,-14,2,5,"Benin","BEN"
+-93,-94,-89,-92,-72,35,"Bolivia","BOL"
+-76,-50,-22,-59,-50,13,"Bosnia and Herzegovina","BIH"
+-12,-2,7,-20,-3,13,"Botswana","BWA"
+-71,-35,-70,-62,-34,17,"Brazil","BRA"
+-68,-28,-63,-56,-36,20,"Federal District",NA
+-68,-20,-56,-75,-22,11,"State of Acre",NA
+-77,-43,-79,-76,-35,17,"State of Alagoas",NA
+-71,-27,-51,-73,-28,11,"State of Amapá",NA
+-64,-28,-62,-46,-26,13,"State of Amazonas",NA
+-73,-42,-71,-73,-33,17,"State of Bahia",NA
+-76,-34,-71,-68,-33,16,"State of Ceará",NA
+-68,-35,-69,-69,-31,16,"State of Espírito Santo",NA
+-67,-27,-44,-50,-28,15,"State of Goiás",NA
+-63,-27,-48,-66,-20,11,"State of Maranhão",NA
+-63,-30,-44,-59,-22,11,"State of Mato Grosso",NA
+-68,-33,-56,-68,-26,14,"State of Mato Grosso do Sul",NA
+-66,-29,-46,-57,-30,15,"State of Minas Gerais",NA
+-75,-42,-70,-64,-34,17,"State of Paraná",NA
+-76,-36,-73,-64,-33,17,"State of Paraíba",NA
+-61,-25,-53,-64,-19,12,"State of Pará",NA
+-74,-35,-72,-59,-35,17,"State of Pernambuco",NA
+-71,-39,-49,-76,-27,18,"State of Piauí",NA
+-74,-36,-74,-66,-33,19,"State of Rio Grande do Norte",NA
+-75,-39,-73,-67,-36,20,"State of Rio Grande do Sul",NA
+-72,-32,-74,-61,-37,17,"State of Rio de Janeiro",NA
+-63,-27,-42,-71,-23,12,"State of Rondônia",NA
+-68,-25,-51,-72,-24,12,"State of Roraima",NA
+-80,-49,-84,-76,-40,20,"State of Santa Catarina",NA
+-78,-46,-77,-83,-36,18,"State of Sergipe",NA
+-72,-36,-71,-62,-37,17,"State of São Paulo",NA
+-61,-31,-35,-71,-19,11,"State of Tocantins",NA
+-66,-36,-32,-58,-29,11,"Bulgaria","BGR"
+-74,-47,-32,-55,-43,10,"Blagoevgrad Province",NA
+-65,-38,-40,-51,-35,11,"Burgas",NA
+-61,-33,-38,NA,-19,18,"Dobrich Province",NA
+-61,-34,-16,NA,-17,17,"Gabrovo",NA
+-66,-43,-14,-67,-27,13,"Haskovo Province",NA
+-58,-44,-42,NA,-20,14,"Jambol",NA
+-71,-48,-27,-76,-39,12,"Kardzhali Province",NA
+-57,-39,-35,-46,-24,19,"Kyustendil Province",NA
+-64,-32,-16,NA,-21,18,"Lovec",NA
+-41,-37,-18,-58,-13,11,"Montana Province",NA
+-68,-38,-29,-69,-32,13,"Pazardzhik",NA
+-58,-31,-37,NA,-21,21,"Pernik",NA
+-64,-37,-16,NA,-22,14,"Pleven Province",NA
+-68,-38,-33,-54,-29,12,"Plovdiv Province",NA
+-48,-66,NA,NA,-10,11,"Razgrad",NA
+-58,-36,-14,-43,-25,11,"Ruse",NA
+-63,-29,-26,-70,-20,20,"Shumen Province",NA
+-37,-23,NA,NA,-12,-3,"Silistra",NA
+-61,-36,-40,-51,-25,19,"Sliven Province",NA
+-66,-59,-42,NA,-41,2,"Smoljan",NA
+-70,-35,-42,-62,-34,15,"Sofia City Province",NA
+-60,-35,-28,NA,-31,14,"Sofia Province",NA
+-63,-38,-27,-10,-29,10,"Stara Zagora",NA
+-63,-31,NA,NA,-19,2,"Targovishte Province",NA
+-72,-36,-54,-76,-34,12,"Varna",NA
+-68,-37,-24,-56,-28,13,"Veliko Tarnovo Province",NA
+-59,-29,NA,NA,-25,NA,"Vidin",NA
+-53,-31,-3,-49,-18,21,"Vraca",NA
+-34,-25,-22,-53,-3,15,"Burkina Faso","BFA"
+-43,-29,-31,-57,-15,12,"Cambodia","KHM"
+-26,-20,-19,-23,-3,9,"Cameroon","CMR"
+-59,-35,-16,-66,-44,14,"Canada","CAN"
+-60,-48,-57,-88,-40,19,"Cape Verde","CPV"
+-73,-55,-72,-64,-42,24,"Chile","CHL"
+-86,-68,-80,-82,-58,26,"Colombia","COL"
+-68,-41,-71,-68,-39,21,"Costa Rica","CRI"
+-82,-57,-45,-74,-50,15,"Croatia","HRV"
+-85,-58,-23,-70,-46,20,"Bjelovar Bilogora County",NA
+-81,-59,NA,-83,-51,23,"Brod Posavina County",NA
+-85,-61,-51,-76,-51,16,"City of Zagreb",NA
+-78,-54,-29,-66,-52,22,"Dubrovnik Neretva County",NA
+-74,-55,-35,-76,-45,15,"Istria County",NA
+-83,-56,-16,-66,-48,30,"Karlovac County",NA
+-81,-58,NA,NA,-44,25,"Koprivnica Križevci County",NA
+-87,-63,NA,-72,-48,34,"Krapina Zagorje County",NA
+-73,-44,-58,-83,-46,NA,"Lika Senj County",NA
+-86,-64,NA,-84,-54,27,"Medimurje County",NA
+-83,-54,-14,-73,-47,17,"Osijek Baranja County",NA
+-83,-58,NA,-75,-49,0,"Požega Slavonia County",NA
+-82,-58,-47,-81,-48,15,"Primorje Gorski Kotar County",NA
+-76,-61,-51,-71,-43,27,"Sisak Moslavina County",NA
+-83,-52,-33,-76,-55,17,"Split Dalmatia County",NA
+-86,-61,-62,-83,-50,30,"Varaždin County",NA
+-80,-53,NA,-79,-46,1,"Virovitica Podravina County",NA
+-81,-52,NA,-70,-48,24,"Vukovar Srijem County",NA
+-77,-51,-19,-75,-47,25,"Zadar County",NA
+-85,-59,-64,-72,-53,15,"Zagreb County",NA
+-78,-47,-12,-67,-48,15,"Šibenik Knin County",NA
+-73,-26,-24,-61,-31,11,"Czechia","CZE"
+-67,-20,9,-37,-29,11,"Central Bohemian Region","CZE"
+-78,-30,-33,-69,-32,11,"Hradec Králové Region",NA
+-75,-38,-53,-70,-36,10,"Karlovy Vary Region",NA
+-75,-24,-45,-66,-36,10,"Liberec Region",NA
+-72,-21,-14,-63,-27,10,"Moravian Silesian Region",NA
+-72,-27,-15,-74,-27,10,"Olomouc Region",NA
+-74,-27,-1,-73,-28,10,"Pardubice Region",NA
+-74,-29,-8,-55,-30,10,"Plzen Region",NA
+-77,-30,-58,-71,-38,15,"Prague",NA
+-72,-27,-17,-60,-29,9,"South Bohemian Region","CZE"
+-70,-24,5,-50,-28,11,"South Moravian Region",NA
+-74,-21,27,-55,-28,10,"Vysocina Region",NA
+-71,-25,1,-65,-29,9,"Zlin Region",NA
+-71,-25,-28,-56,-26,9,"Ústí nad Labem Region",NA
+-35,-21,-21,-33,-9,14,"Côte d Ivoire","CIV"
+-37,-22,35,-60,-28,9,"Denmark","DNK"
+-48,-24,13,-67,-33,10,"Capital Region of Denmark","DNK"
+-34,-23,71,-55,-26,9,"Central Denmark Region","DNK"
+-34,-16,32,-54,-26,8,"North Denmark Region","DNK"
+-28,-17,54,-55,-25,8,"Region Zealand",NA
+-30,-22,23,-59,-28,9,"Region of Southern Denmark","DNK"
+-80,-63,-73,-84,-56,23,"Dominican Republic","DOM"
+-84,-66,-80,-80,-61,26,"Ecuador","ECU"
+-50,-24,-40,-52,-35,15,"Egypt","EGY"
+-81,-62,-72,-73,-50,23,"El Salvador","SLV"
+-60,-28,4,-51,-32,10,"Estonia","EST"
+-61,-29,2,-57,-34,11,"Harju County",NA
+NA,NA,NA,NA,-68,NA,"Hiiu County",NA
+-50,-22,-23,-35,-28,12,"Ida Viru County",NA
+-41,-23,NA,NA,-39,NA,"Järva County",NA
+-45,-24,NA,NA,-42,NA,"Jõgeva County",NA
+-53,-32,NA,NA,-47,NA,"Lääne County",NA
+-55,-20,NA,-41,-20,5,"Lääne Viru County",NA
+-67,-31,-17,-53,-36,20,"Pärnu County",NA
+-77,-24,NA,NA,-48,NA,"Põlva County",NA
+-72,-23,NA,NA,-47,NA,"Rapla County",NA
+-80,-40,NA,-80,-57,NA,"Saare County",NA
+-65,-30,-13,-54,-35,23,"Tartu County",NA
+-58,-30,NA,NA,-40,NA,"Valga County",NA
+-58,-26,NA,-42,-13,NA,"Viljandi County",NA
+-82,-20,NA,NA,-46,NA,"Võru County",NA
+-39,-25,-13,-59,-6,12,"Fiji","FJI"
+-52,-21,48,-59,-25,9,"Finland","FIN"
+-48,-22,60,-70,-23,8,"Central Finland","FIN"
+-44,-13,NA,-63,-21,15,"Central Ostrobothnia",NA
+-54,-24,44,-64,-21,13,"Kainuu",NA
+-52,-21,65,-64,-17,8,"Kymenlaakso",NA
+-62,-30,40,-71,-31,7,"Lapland",NA
+-54,-20,61,-54,-24,14,"North Karelia",NA
+-51,-24,73,-55,-24,8,"Northern Ostrobothnia",NA
+-56,-20,47,-53,-22,7,"Northern Savonia",NA
+-44,-16,70,-50,-21,8,"Ostrobothnia",NA
+-53,-21,42,-53,-26,9,"Pirkanmaa",NA
+-56,-22,84,-54,-25,8,"Päijänne Tavastia",NA
+-49,-22,34,-48,-19,8,"Satakunta",NA
+-55,-26,46,-64,-25,15,"South Karelia",NA
+-49,-20,50,-51,-20,9,"Southern Ostrobothnia",NA
+-55,-18,59,-66,-23,14,"Southern Savonia",NA
+-54,-22,15,-51,-25,9,"Southwest Finland","FIN"
+-53,-24,43,-62,-22,9,"Tavastia Proper",NA
+-50,-20,39,-64,-28,10,"Uusimaa",NA
+-88,-72,-82,-87,-56,18,"France","FRA"
+-87,-74,-80,-89,-56,19,"Auvergne Rhône Alpes",NA
+-87,-77,-77,-88,-54,18,"Bourgogne Franche Comté",NA
+-87,-76,-83,-88,-53,18,"Brittany",NA
+-86,-75,-79,-88,-53,17,"Centre Val de Loire",NA
+-84,-67,-74,-83,-54,21,"Corsica",NA
+-89,-77,-81,-89,-59,17,"Grand Est",NA
+-88,-72,-84,-87,-56,17,"Hauts de France","FRA"
+-86,-73,-78,-88,-53,17,"Normandy",NA
+-86,-76,-80,-86,-53,18,"Nouvelle Aquitaine",NA
+-86,-72,-73,-86,-53,18,"Occitanie",NA
+-88,-78,-80,-90,-54,18,"Pays de la Loire",NA
+-87,-68,-83,-85,-55,18,"Provence Alpes Côte d Azur",NA
+-91,-69,-89,-87,-63,20,"Île de France","FRA"
+-39,-24,-25,-47,-15,15,"Gabon","GAB"
+-67,-36,-24,-53,-38,12,"Georgia","GEO"
+-77,-51,-49,-68,-39,11,"Germany","DEU"
+-79,-49,-55,-71,-43,12,"Baden Württemberg",NA
+-80,-49,-50,-73,-43,12,"Bavaria",NA
+-83,-55,-63,-70,-44,12,"Berlin",NA
+-75,-52,-53,-63,-31,9,"Brandenburg",NA
+-79,-54,-22,-74,-40,10,"Bremen",NA
+-80,-50,-34,-72,-42,12,"Hamburg",NA
+-74,-40,-26,-72,-41,10,"Hesse",NA
+-76,-52,-42,-64,-36,10,"Lower Saxony",NA
+-74,-48,-50,-64,-32,8,"Mecklenburg Vorpommern",NA
+-77,-51,-50,-70,-38,11,"North Rhine Westphalia",NA
+-74,-40,-38,-71,-39,10,"Rhineland Palatinate",NA
+-77,-56,-29,-71,-39,10,"Saarland",NA
+-78,-51,-50,-66,-34,10,"Saxony",NA
+-74,-48,-56,-65,-27,8,"Saxony Anhalt",NA
+-70,-53,-27,-58,-36,10,"Schleswig Holstein",NA
+-75,-44,-50,-63,-32,8,"Thuringia",NA
+-15,8,-15,-15,3,9,"Ghana","GHA"
+-80,-41,-55,-76,-53,20,"Greece","GRC"
+-67,-39,-53,-69,-39,19,"Guatemala","GTM"
+-50,-11,-25,NA,-27,NA,"Guinea Bissau","GNB"
+-34,-31,-19,-48,-14,7,"Haiti","HTI"
+-81,-64,-59,-74,-46,20,"Honduras","HND"
+-35,-7,-43,-45,-24,16,"Hong Kong","HKG"
+-66,-43,-7,-53,-32,10,"Hungary","HUN"
+-70,-45,27,-45,-30,9,"Baranya",NA
+-59,-47,19,-38,-28,8,"Borsod Abaúj Zemplén",NA
+-74,-40,-38,-67,-39,12,"Budapest",NA
+-62,-42,10,-47,-27,9,"Bács Kiskun",NA
+-54,-39,15,-43,-23,7,"Békés County",NA
+-66,-40,-12,-39,-28,10,"Csongrád",NA
+-58,-43,24,-48,-30,9,"Fejér",NA
+-71,-48,-6,-51,-42,11,"Gyor Moson Sopron",NA
+-63,-46,34,-52,-28,9,"Hajdú Bihar",NA
+-62,-48,-35,-48,-34,12,"Heves County",NA
+-52,-38,32,-49,-25,8,"Jász Nagykun Szolnok",NA
+-57,-40,51,-46,-28,9,"Komárom Esztergom",NA
+-51,-40,-29,-30,-24,15,"Nógrád County",NA
+-56,-42,57,-34,-31,10,"Pest County",NA
+-58,-44,1,-44,-30,10,"Somogy County",NA
+-57,-52,4,-43,-25,7,"Szabolcs Szatmár Bereg",NA
+-50,-44,NA,-44,-28,18,"Tolna County",NA
+-68,-50,19,-55,-38,13,"Vas County",NA
+-57,-44,5,-43,-33,9,"Veszprém",NA
+-66,-52,-25,-48,-35,11,"Zala County",NA
+-77,-65,-57,-71,-47,22,"India","IND"
+-47,-27,-52,-54,-15,15,"Indonesia","IDN"
+-64,-42,-48,-61,-55,21,"Iraq","IRQ"
+-83,-37,-59,-78,-52,19,"Ireland","IRL"
+-83,-35,-52,-64,-48,9,"County Carlow",NA
+-81,-39,-41,-57,-45,21,"County Cavan",NA
+-78,-30,-54,-74,-49,25,"County Clare",NA
+-81,-40,-54,-73,-51,19,"County Cork",NA
+-81,-39,-49,-56,-47,21,"County Donegal",NA
+-85,-35,-64,-82,-58,21,"County Dublin",NA
+-82,-36,-60,-68,-51,21,"County Galway",NA
+-83,-44,-54,-76,-53,22,"County Kerry",NA
+-84,-36,-66,-71,-51,21,"County Kildare",NA
+-82,-37,-65,-77,-47,23,"County Kilkenny",NA
+-79,-40,NA,-77,-48,22,"County Laois",NA
+-93,-41,NA,NA,-50,NA,"County Leitrim",NA
+-82,-35,-57,-74,-46,21,"County Limerick",NA
+-77,-40,NA,NA,-45,NA,"County Longford",NA
+-84,-39,-67,-84,-49,24,"County Louth",NA
+-85,-44,-31,-78,-47,22,"County Mayo",NA
+-80,-33,-54,-59,-49,21,"County Meath",NA
+-80,-43,NA,-58,-49,18,"County Monaghan",NA
+-79,-38,-40,-65,-47,22,"County Offaly",NA
+-86,-38,NA,NA,-43,18,"County Roscommon",NA
+-89,-44,-48,-69,-44,9,"County Sligo",NA
+-80,-36,-61,-73,-46,21,"County Tipperary",NA
+-87,-45,-75,-77,-46,20,"County Waterford",NA
+-85,-48,-45,-75,-52,24,"County Westmeath",NA
+-83,-42,-70,-71,-52,22,"County Wexford",NA
+-89,-40,-79,-76,-53,27,"County Wicklow",NA
+-67,-13,-56,-61,-59,30,"Israel","ISR"
+-94,-85,-90,-87,-63,24,"Italy","ITA"
+-94,-84,-89,-90,-63,24,"Abruzzo",NA
+-95,-88,-91,-86,-67,36,"Aosta",NA
+-94,-85,-88,-88,-64,25,"Apulia",NA
+-91,-84,-77,-86,-58,22,"Basilicata",NA
+-94,-92,-85,-90,-63,22,"Calabria",NA
+-94,-78,-91,-89,-67,23,"Campania",NA
+-96,-94,-88,-88,-65,24,"Emilia Romagna",NA
+-95,-94,-90,-83,-59,24,"Friuli Venezia Giulia",NA
+-94,-76,-90,-88,-62,24,"Lazio",NA
+-94,-80,-91,-85,-60,23,"Liguria",NA
+-95,-81,-91,-89,-65,24,"Lombardy",NA
+-95,-88,-91,-86,-64,26,"Marche",NA
+-91,-82,-84,-80,-60,29,"Molise",NA
+-94,-82,-89,-85,-59,23,"Piedmont",NA
+-94,-92,-87,-81,-56,22,"Sardinia",NA
+-95,-93,-91,-89,-68,25,"Sicily",NA
+-96,-94,-93,-86,-65,25,"Trentino South Tyrol",NA
+-94,-84,-91,-85,-62,25,"Tuscany",NA
+-95,-89,-86,-81,-61,25,"Umbria",NA
+-96,-95,-91,-89,-62,25,"Veneto",NA
+-53,-36,-50,-50,-29,12,"Jamaica","JAM"
+-26,-7,-25,-41,-9,7,"Japan","JPN"
+-14,1,-11,-35,-5,6,"Aichi",NA
+-1,5,19,-20,0,3,"Akita",NA
+-11,1,11,-20,0,3,"Aomori",NA
+-43,-21,-61,-53,-15,11,"Chiba",NA
+-5,5,29,-12,0,3,"Ehime",NA
+-13,5,-18,-19,-2,6,"Fukui",NA
+-13,6,34,-34,-3,4,"Fukuoka",NA
+-21,-7,-51,-35,-4,7,"Fukushima",NA
+-14,3,-25,-32,-4,6,"Gifu",NA
+-33,-15,-55,-49,-8,9,"Gunma",NA
+-7,7,15,-24,-1,3,"Hiroshima",NA
+-7,3,-2,-27,-5,3,"Hokkaido",NA
+-12,5,-10,-31,-4,5,"Hyogo",NA
+-31,-16,-60,-51,-10,10,"Ibaraki",NA
+-8,8,-23,-30,-1,4,"Ishikawa",NA
+-5,5,6,-19,1,3,"Iwate",NA
+-7,4,19,-22,-1,3,"Kagawa",NA
+-5,4,16,-15,4,2,"Kagoshima",NA
+-55,-31,-66,-55,-23,13,"Kanagawa",NA
+-3,3,23,-7,0,2,"Kochi",NA
+-13,4,36,-14,-1,4,"Kumamoto",NA
+-10,7,12,-32,-3,4,"Kyoto",NA
+-9,4,-20,-33,-1,5,"Mie",NA
+-14,0,-37,-35,-2,5,"Miyagi",NA
+-7,7,4,-15,2,3,"Miyazaki",NA
+-31,-11,-56,-44,-4,8,"Nagano",NA
+-3,8,30,-12,3,2,"Nagasaki",NA
+-7,11,10,-27,-5,4,"Nara",NA
+-11,3,-22,-35,-3,5,"Niigata",NA
+-8,5,22,-17,-1,3,"Oita",NA
+-7,7,17,-18,0,3,"Okayama",NA
+-9,0,-14,-27,1,3,"Okinawa",NA
+-21,3,-8,-39,-7,6,"Osaka",NA
+-4,6,48,-19,0,3,"Saga",NA
+-51,-28,-61,-53,-20,12,"Saitama",NA
+-6,7,-8,-25,-2,4,"Shiga",NA
+1,6,45,4,5,1,"Shimane",NA
+-17,-4,-47,-38,-6,7,"Shizuoka",NA
+-33,-16,-61,-46,-9,10,"Tochigi",NA
+-4,3,27,-13,0,3,"Tokushima",NA
+-63,-32,-66,-59,-27,14,"Tokyo",NA
+1,9,15,-13,2,2,"Tottori",NA
+-6,7,-19,-26,0,4,"Toyama",NA
+-6,8,16,-21,-2,4,"Wakayama",NA
+-3,6,-12,-27,-1,3,"Yamagata",NA
+-4,9,49,-6,1,3,"Yamaguchi",NA
+-29,-13,-56,-51,-9,8,"Yamanashi",NA
+-74,-52,-59,-89,-73,27,"Jordan","JOR"
+-45,-24,-20,-32,-17,9,"Kazakhstan","KAZ"
+-45,-33,-20,-39,-22,17,"Kenya","KEN"
+-56,-30,-48,-49,-42,23,"Kuwait","KWT"
+-52,-28,-40,-37,-34,20,"Al Ahmadi Governorate",NA
+-65,-34,-56,-53,-50,21,"Al Asimah Governate",NA
+-50,-31,-47,-55,-37,24,"Al Farwaniyah Governorate",NA
+-46,-30,-38,-18,-32,19,"Al Jahra Governorate",NA
+-61,-28,-53,-40,-52,26,"Hawalli Governorate",NA
+-56,-34,-51,-42,-52,21,"Mubarak Al Kabeer Governorate",NA
+-74,-64,-32,-70,-43,15,"Kyrgyzstan","KGZ"
+-45,-23,-18,-47,-9,11,"Laos","LAO"
+-50,-22,-18,-48,-25,7,"Latvia","LVA"
+-73,-48,-59,-84,-41,15,"Lebanon","LBN"
+-49,-28,-32,-52,-36,21,"Libya","LBY"
+-90,-22,NA,-58,-37,NA,"Liechtenstein","LIE"
+-72,-38,-28,-63,-33,11,"Lithuania","LTU"
+-71,-36,0,-70,-32,17,"Alytus County",NA
+-74,-40,-48,-68,-33,11,"Kaunas County",NA
+-73,-31,-43,-59,-36,11,"Klaipeda County",NA
+-64,-39,-35,-41,-27,18,"Marijampole County",NA
+-70,-36,-32,-63,-26,7,"Panevežys County",NA
+-60,-31,NA,-46,-23,15,"Taurage County",NA
+-67,-40,-18,-44,-24,17,"Telšiai County",NA
+-63,-22,1,-35,-23,16,"Utena County",NA
+-74,-41,-22,-67,-40,12,"Vilnius County",NA
+-73,-39,-41,-38,-30,7,"Šiauliai County",NA
+-90,-70,-66,-78,-60,23,"Luxembourg","LUX"
+-81,-58,-68,-83,-52,31,"Malaysia","MYS"
+-25,-18,-12,-36,0,9,"Mali","MLI"
+-76,-38,-45,-57,-49,19,"Malta","MLT"
+-89,-86,-88,-89,-69,24,"Mauritius","MUS"
+-45,-19,-46,-47,-20,11,"Mexico","MEX"
+-67,-44,-43,-68,-37,12,"Moldova","MDA"
+-16,5,5,-16,-2,2,"Mongolia","MNG"
+-26,-13,-22,-29,1,10,"Mozambique","MOZ"
+-46,-29,-19,-35,-10,12,"Myanmar  Burma ","MMR"
+-56,-42,-39,-74,-28,16,"Namibia","NAM"
+-78,-69,-55,-74,-72,28,"Nepal","NPL"
+-65,-29,-30,-68,-35,11,"Netherlands","NLD"
+-61,-30,-27,-58,-29,9,"Drenthe",NA
+-56,-25,-5,-63,-34,10,"Flevoland",NA
+-57,-28,-11,-51,-28,9,"Friesland",NA
+-66,-28,-29,-62,-33,10,"Gelderland",NA
+-65,-31,2,-63,-33,10,"Groningen",NA
+-76,-34,-59,-65,-38,12,"Limburg",NA
+-68,-28,-33,-71,-34,12,"North Brabant",NA
+-66,-31,-35,-78,-40,12,"North Holland",NA
+-67,-29,-25,-66,-34,11,"Overijssel",NA
+-60,-26,-22,-64,-35,11,"South Holland",NA
+-60,-32,-17,-70,-36,11,"Utrecht",NA
+-69,-40,-46,-57,-31,10,"Zeeland",NA
+-91,-54,-78,-84,-59,22,"New Zealand","NZL"
+-89,-55,-70,-83,-64,25,"Auckland",NA
+-92,-51,-86,-83,-52,22,"Bay Of Plenty",NA
+-90,-56,-83,-90,-60,22,"Canterbury",NA
+-100,-48,-88,NA,-47,NA,"Gisborne",NA
+-94,-53,-78,-84,-51,31,"Hawke s Bay",NA
+-93,-50,-76,-84,-54,33,"Manawatu Wanganui",NA
+-92,-60,-83,-91,-25,0,"Marlborough",NA
+-100,-60,-81,NA,-61,4,"Nelson",NA
+-93,-55,-86,-86,-52,32,"Northland",NA
+-95,-62,-82,-91,-64,39,"Otago",NA
+-96,-53,-83,NA,-48,17,"Southland",NA
+-95,-52,-86,NA,-51,17,"Taranaki",NA
+-90,-67,-89,NA,-54,NA,"Tasman",NA
+-94,-55,-84,-82,-57,23,"Waikato",NA
+-93,-54,-63,-84,-62,20,"Wellington",NA
+-100,-61,-87,NA,-54,NA,"West Coast",NA
+-45,-25,-31,-38,-17,11,"Nicaragua","NIC"
+-23,-15,-19,-25,-1,9,"Niger","NER"
+-39,-25,-24,-34,-11,15,"Nigeria","NGA"
+-74,-41,-44,-69,-51,18,"North Macedonia","MKD"
+-65,-32,-5,-57,-34,11,"Norway","NOR"
+-59,-21,-1,-39,-31,9,"Agder",NA
+-66,-37,-8,-54,-32,10,"Innlandet",NA
+-73,-38,-40,-67,-29,10,"Møre og Romsdal",NA
+-61,-18,24,-71,-24,8,"Nordland",NA
+-68,-26,-7,-64,-45,14,"Oslo",NA
+-61,-38,4,-58,-35,11,"Rogaland",NA
+-74,-46,-24,-71,-32,10,"Troms Og Finnmark",NA
+-74,-41,-15,-68,-37,13,"Trondelag",NA
+-59,-23,13,-52,-30,10,"Vestfold Og Telemark",NA
+-71,-47,-31,-66,-36,12,"Vestland",NA
+-56,-21,24,-59,-33,11,"Viken",NA
+-52,-35,-41,-64,-34,17,"Oman","OMN"
+-70,-55,-45,-62,-41,18,"Pakistan","PAK"
+-84,-61,-78,-77,-59,31,"Panama","PAN"
+-20,-9,-12,-46,11,12,"Papua New Guinea","PNG"
+-68,-52,-71,-76,-30,23,"Paraguay","PRY"
+-82,-57,-76,-83,-55,29,"Peru","PER"
+-81,-59,-59,-82,-54,26,"Philippines","PHL"
+-78,-59,-59,-71,-36,13,"Poland","POL"
+-80,-61,-62,-73,-37,13,"Greater Poland Voivodeship","POL"
+-79,-63,-73,-78,-33,12,"Kuyavian Pomeranian Voivodeship",NA
+-84,-65,-69,-78,-41,14,"Lesser Poland Voivodeship","POL"
+-82,-65,-71,-77,-38,13,"Lower Silesian Voivodeship",NA
+-71,-44,-25,-71,-32,12,"Lublin Voivodeship",NA
+-77,-65,-55,-72,-37,12,"Lubusz Voivodeship",NA
+-77,-54,-60,-70,-35,13,"Masovian Voivodeship",NA
+-79,-62,-55,-72,-37,12,"Opole Voivodeship",NA
+-71,-46,-11,-71,-36,13,"Podkarpackie Voivodeship",NA
+-75,-47,-17,-60,-32,11,"Podlaskie Voivodeship",NA
+-82,-64,-78,-78,-38,14,"Pomeranian Voivodeship",NA
+-77,-58,-50,-65,-35,13,"Silesian Voivodeship",NA
+-74,-44,-26,-67,-34,12,"Swietokrzyskie",NA
+-77,-60,-63,-73,-35,11,"Warmian Masurian Voivodeship",NA
+-80,-66,-76,-69,-39,12,"West Pomeranian Voivodeship",NA
+-74,-55,-49,-66,-29,13,"Lódz Voivodeship",NA
+-83,-59,-80,-78,-53,22,"Portugal","PRT"
+-83,-61,-84,-83,-53,24,"Aveiro District",NA
+-83,-56,-66,-87,-47,18,"Azores",NA
+-83,-59,-60,NA,-40,24,"Beja District",NA
+-83,-60,-82,-76,-52,24,"Braga",NA
+-85,-66,-57,-78,-52,18,"Bragança District",NA
+-81,-61,-65,-76,-48,31,"Castelo Branco District",NA
+-83,-61,-80,-77,-48,23,"Coimbra District",NA
+-83,-60,-78,-82,-54,21,"Faro District",NA
+-86,-64,-75,-68,-46,28,"Guarda District",NA
+-85,-62,-85,-81,-50,23,"Leiria District",NA
+-84,-58,-82,-79,-56,22,"Lisbon",NA
+-89,-63,-86,-77,-60,27,"Madeira",NA
+-85,-63,-70,NA,-42,24,"Portalegre District",NA
+-84,-59,-82,-79,-54,23,"Porto District",NA
+-83,-59,-77,-81,-46,20,"Santarém District",NA
+-82,-56,-78,-74,-54,20,"Setubal",NA
+-85,-68,-76,-76,-51,26,"Viana do Castelo District",NA
+-86,-64,-71,-72,-52,33,"Vila Real District",NA
+-82,-60,-65,-61,-48,22,"Viseu District",NA
+-83,-59,-78,-77,-48,29,"Évora District",NA
+-77,-51,-75,-79,-48,21,"Puerto Rico","PRI"
+-51,-25,-34,-52,-31,22,"Qatar","QAT"
+-81,-53,-60,-72,-39,15,"Romania","ROU"
+-83,-58,-49,-62,-45,12,"Alba County",NA
+-81,-55,-45,-69,-38,15,"Arad County",NA
+-79,-54,-45,-73,-36,15,"Arge U 0219  County",NA
+-80,-55,-47,-77,-38,15,"Bacau County",NA
+-80,-59,-39,-64,-38,14,"Bihor County",NA
+-82,-64,-64,-64,-43,17,"Bistri U 021B a Nasaud County",NA
+-77,-51,-6,-67,-38,14,"Boto U 0219 ani County",NA
+-85,-61,-79,-79,-43,17,"Bra U 0219 ov County",NA
+-78,-47,-71,-70,-31,15,"Braila County",NA
+-85,-50,-86,-74,-45,18,"Bucharest",NA
+-76,-56,-50,-59,-29,15,"Buzau County",NA
+-77,-56,-53,-69,-41,19,"Cara U 0219  Severin County",NA
+-85,-62,-66,-77,-45,17,"Cluj County",NA
+-80,-49,-72,-69,-37,16,"Constan U 021B a County",NA
+-85,-61,-60,-61,-36,20,"Covasna County",NA
+-65,-50,-53,-60,-24,14,"Calara U 0219 i County",NA
+-78,-53,-58,-67,-32,14,"Dolj County",NA
+-76,-52,-50,-61,-32,14,"Dâmbovi U 021B a County",NA
+-80,-51,-66,-71,-38,16,"Gala U 021B i",NA
+-63,-38,-37,-45,-19,14,"Giurgiu County",NA
+-73,-48,-50,-67,-36,15,"Gorj County",NA
+-79,-65,-60,-60,-40,18,"Harghita County",NA
+-82,-53,-66,-67,-44,14,"Hunedoara County",NA
+-62,-49,-47,-63,-28,17,"Ialomi U 021B a County",NA
+-82,-53,-57,-73,-39,17,"Ia U 0219 i County",NA
+-78,-47,-61,-78,-39,16,"Ilfov County",NA
+-81,-58,-44,-67,-44,13,"Maramure U 0219  County",NA
+-78,-48,-51,-64,-33,20,"Mehedin U 021B i County",NA
+-81,-58,-61,-68,-37,14,"Mure U 0219  County",NA
+-80,-55,-62,-79,-39,16,"Neam U 021B  County",NA
+-70,-46,-53,-66,-35,13,"Olt County",NA
+-81,-56,-72,-73,-36,14,"Prahova",NA
+-82,-58,-39,-72,-40,13,"Satu Mare County",NA
+-83,-63,-70,-73,-42,15,"Sibiu",NA
+-85,-65,-49,-78,-48,17,"Suceava County",NA
+-82,-50,-55,-64,-36,16,"Salaj",NA
+-56,-47,-21,-55,-24,13,"Teleorman County",NA
+-83,-54,-71,-74,-42,16,"Timi U 0219  County",NA
+-79,-53,-60,-71,-33,16,"Tulcea County",NA
+-76,-53,-28,-68,-37,13,"Vaslui County",NA
+-81,-56,-36,-74,-37,17,"Vrancea County",NA
+-78,-52,-50,-66,-36,14,"Vâlcea County",NA
+-56,-57,-18,-75,-31,22,"Rwanda","RWA"
+-96,-88,-92,-82,-53,NA,"Réunion","REU"
+-54,-24,-49,-75,-45,23,"Saudi Arabia","SAU"
+-44,-31,-28,-50,-10,12,"Senegal","SEN"
+-28,-6,-12,-40,-15,15,"Singapore","SGP"
+-82,-89,-9,-61,-38,10,"Slovakia","SVK"
+-81,-88,5,-59,-36,9,"Banská Bystrica Region",NA
+-83,-91,-3,-64,-40,12,"Bratislava Region",NA
+-81,-90,67,-60,-34,9,"Košice Region",NA
+-81,-90,29,-58,-36,9,"Nitra Region",NA
+-82,-90,-55,-71,-41,10,"Prešov Region",NA
+-78,-88,3,-57,-40,9,"Trencín Region",NA
+-81,-89,45,-62,-38,10,"Trnava Region",NA
+-83,-88,-25,-68,-41,10,"Žilina Region",NA
+-88,-92,-43,-54,-45,13,"Slovenia","SVN"
+-90,-95,-53,-69,-45,27,"Administrative unit Maribor",NA
+-86,-41,NA,-65,-56,NA,"Ajdovšcina",NA
+-91,-55,NA,NA,-57,NA,"Brežice",NA
+-88,-94,-58,-52,-39,11,"Celje",NA
+-83,NA,NA,NA,-53,NA,"Cerknica",NA
+-89,-89,NA,-55,-39,22,"Domžale",NA
+-70,NA,NA,NA,-45,NA,"Dravograd",NA
+-88,-33,NA,NA,-48,NA,"Gornja Radgona",NA
+-90,-43,NA,NA,-38,2,"Grosuplje",NA
+-66,-45,NA,NA,-55,NA,"Idrija",NA
+-80,NA,NA,NA,-55,NA,"Ilirska Bistrica",NA
+-84,-33,NA,NA,-63,NA,"Izola",NA
+-90,-53,-67,-61,-53,NA,"Jesenice",NA
+-95,-47,NA,NA,-39,2,"Kamnik",NA
+-92,-85,-63,-73,-47,13,"Koper",NA
+-73,-51,NA,NA,-52,NA,"Kocevje",NA
+-90,-91,NA,-75,-52,30,"Kranj",NA
+-71,-54,NA,NA,-36,NA,"Krško",NA
+-80,-51,NA,NA,-53,NA,"Laško",NA
+-89,-41,NA,NA,-51,NA,"Lenart",NA
+-78,-55,NA,NA,-48,NA,"Lendava",NA
+-77,-35,NA,NA,-53,NA,"Litija",NA
+-87,-91,-51,-58,-44,15,"Ljubljana",NA
+-88,-48,NA,NA,-52,NA,"Ljutomer",NA
+-88,-47,NA,-81,-53,NA,"Logatec",NA
+NA,NA,NA,NA,-58,NA,"Metlika",NA
+-80,-45,NA,NA,-53,NA,"Mozirje",NA
+NA,NA,NA,NA,-53,NA,"Municipality of Hrastnik",NA
+-90,-39,NA,-44,-50,1,"Murska Sobota",NA
+-89,-49,NA,-60,-52,2,"Nova Gorica",NA
+-90,-45,NA,NA,-37,19,"Novo Mesto",NA
+-61,-50,NA,NA,-59,NA,"Ormož",NA
+-83,NA,NA,NA,-55,NA,"Pesnica",NA
+-90,-81,-53,NA,-61,NA,"Piran",NA
+-73,-46,NA,-51,-51,NA,"Postojna",NA
+-95,-92,NA,-61,-37,18,"Ptuj",NA
+-81,-45,NA,NA,-49,NA,"Radlje ob Dravi",NA
+-94,-50,-62,-61,-61,NA,"Radovljica",NA
+-76,-41,NA,NA,-30,NA,"Ravne na Koroškem",NA
+NA,NA,NA,NA,-52,NA,"Ribnica",NA
+-78,NA,NA,NA,-52,NA,"Ruše",NA
+-85,-40,NA,NA,-51,NA,"Sevnica",NA
+-95,-57,NA,NA,-44,NA,"Sežana",NA
+-86,-57,NA,NA,-58,NA,"Slovenj Gradec",NA
+-100,-49,NA,NA,-36,NA,"Slovenska Bistrica",NA
+-91,-36,NA,NA,-48,NA,"Slovenske Konjice",NA
+-68,-49,NA,NA,-54,NA,"Tolmin",NA
+-86,-41,NA,NA,-50,NA,"Trbovlje",NA
+-92,-49,NA,NA,-57,NA,"Trebnje",NA
+-84,-44,NA,NA,-54,NA,"Tržic",NA
+-93,-58,NA,-59,-47,0,"Velenje",NA
+-88,-42,NA,NA,-50,NA,"Vrhnika",NA
+-76,-45,NA,NA,-59,NA,"Zagorje ob Savi",NA
+-70,-47,NA,NA,-47,NA,"Crnomelj",NA
+-74,-44,NA,NA,-54,NA,"Šentjur",NA
+-90,-43,NA,-63,-64,1,"Škofja Loka",NA
+-82,-60,2,NA,-58,NA,"Šmarje pri Jelšah",NA
+-100,-42,NA,NA,-41,0,"Žalec",NA
+-79,-60,-55,-80,-49,24,"South Africa","ZAF"
+-19,11,51,-17,-12,6,"South Korea","KOR"
+-94,-76,-89,-88,-64,22,"Spain","ESP"
+-94,-81,-88,-90,-65,21,"Andalusia",NA
+-92,-75,-87,-90,-64,20,"Aragon",NA
+-94,-78,-88,-80,-63,23,"Asturias",NA
+-92,-68,-90,-88,-61,22,"Balearic Islands",NA
+-94,-77,-93,-88,-63,22,"Basque Country",NA
+-94,-75,-92,-87,-66,20,"Canary Islands",NA
+-94,-76,-92,-89,-61,23,"Cantabria",NA
+-94,-78,-84,-89,-62,22,"Castile and León",NA
+-93,-77,-84,-89,-63,21,"Castile La Mancha",NA
+-94,-75,-90,-88,-64,21,"Catalonia",NA
+-89,-78,-91,NA,-64,4,"Ceuta",NA
+-94,-72,-92,-89,-65,22,"Community of Madrid",NA
+-93,-75,-79,-87,-60,22,"Extremadura",NA
+-92,-77,-84,-88,-59,24,"Galicia",NA
+-94,-75,-90,-90,-65,23,"La Rioja",NA
+-92,-86,-90,-87,-59,-2,"Melilla",NA
+-93,-77,-88,-90,-61,23,"Navarre",NA
+-94,-85,-90,-86,-63,24,"Region of Murcia",NA
+-95,-84,-92,-90,-66,22,"Valencian Community",NA
+-86,-87,-57,-78,-50,32,"Sri Lanka","LKA"
+-24,-10,43,-36,-18,5,"Sweden","SWE"
+-6,-5,26,-23,-18,9,"Blekinge County",NA
+-34,-15,1,-30,-17,5,"Dalarna County",NA
+-27,-10,10,-27,-14,5,"Gavleborg County",NA
+-12,-6,NA,-45,-10,7,"Gotland County",NA
+-13,-7,74,-25,-14,5,"Halland County",NA
+-41,-25,3,-46,-16,8,"Jamtland County",NA
+-24,-7,30,-29,-23,6,"Jonkoping County",NA
+-11,-5,21,-27,-13,5,"Kalmar County",NA
+-19,-6,-51,-35,-17,8,"Kronoberg County",NA
+-30,-14,60,-38,-15,2,"Norrbotten County",NA
+-23,-8,23,-43,-16,6,"Skåne County",NA
+-31,-14,24,-45,-21,7,"Stockholm County",NA
+-18,-7,46,-41,-19,5,"Södermanland County",NA
+-27,-9,35,-36,-18,7,"Uppsala County",NA
+-28,-11,0,-25,-13,5,"Varmland County",NA
+-27,-10,34,-32,-18,3,"Västerbotten County",NA
+-26,-9,-14,-26,-17,4,"Västernorrland County",NA
+-18,-7,-25,-32,-17,5,"Västmanland County",NA
+-24,-9,38,-34,-18,6,"Västra Götaland County",NA
+-18,-7,59,-28,-18,5,"Örebro County",NA
+-18,-12,60,-33,-17,5,"Östergötland County",NA
+-81,-51,-41,-68,-46,15,"Switzerland","CHE"
+-75,-35,-14,-56,-41,13,"Aargau",NA
+-77,3,NA,-60,-29,NA,"Appenzell Ausserrhoden",NA
+-57,NA,NA,NA,-29,NA,"Appenzell Innerrhoden",NA
+-89,-41,-65,-76,-48,25,"Basel City",NA
+-77,-21,-25,-61,-40,23,"Basel Landschaft",NA
+-80,-53,-36,-68,-43,14,"Canton of Bern",NA
+-75,-2,NA,-67,-45,27,"Canton of Zug",NA
+-82,-44,-41,-62,-42,20,"Fribourg",NA
+-82,-60,-40,-84,-54,21,"Geneva",NA
+-92,-19,NA,-48,-33,NA,"Glarus",NA
+-89,-78,-59,-78,-57,20,"Grisons",NA
+-91,-32,NA,-64,-43,14,"Jura",NA
+-82,-38,-50,-66,-40,16,"Lucerne",NA
+-78,-48,-18,-58,-46,28,"Neuchâtel",NA
+-74,-2,-73,-78,-46,NA,"Nidwalden",NA
+-63,-16,-49,-79,-40,NA,"Obwalden",NA
+-90,-50,NA,-61,-41,2,"Schaffhausen",NA
+-72,-55,-45,-66,-44,23,"Schwyz",NA
+-77,-35,-13,-63,-38,15,"Solothurn",NA
+-80,-44,-29,-58,-42,14,"St  Gallen",NA
+-79,-30,-44,-61,-40,15,"Thurgau",NA
+-85,-69,-51,-64,-49,21,"Ticino",NA
+-89,-13,NA,-78,-44,NA,"Uri",NA
+-87,-67,-61,-75,-57,17,"Valais",NA
+-79,-49,-42,-68,-50,17,"Vaud",NA
+-82,-44,-53,-73,-47,16,"Zurich",NA
+-9,3,17,-24,-1,4,"Taiwan","TWN"
+-8,-8,4,-17,10,-3,"Tajikistan","TJK"
+-16,-8,-7,-11,-9,3,"Tanzania","TZA"
+-55,-27,-54,-61,-21,16,"Thailand","THA"
+-67,-34,-48,-87,-52,19,"The Bahamas","BHS"
+-37,-25,-21,-41,-9,16,"Togo","TGO"
+-29,10,-40,-70,-17,9,"Trinidad and Tobago","TTO"
+-75,-39,-58,-71,-45,17,"Turkey","TUR"
+-50,-36,-16,-59,-23,19,"Uganda","UGA"
+-55,-26,-53,-69,-45,26,"United Arab Emirates","ARE"
+-85,-46,-52,-75,-55,15,"United Kingdom","GBR"
+-86,-41,-46,-73,-58,30,"Aberdeen City",NA
+-80,-46,-45,-58,-52,27,"Aberdeenshire",NA
+-80,-44,-28,-51,-48,20,"Angus council",NA
+-81,-46,-61,-89,-52,29,"Antrim And Newtownabbey",NA
+-78,-39,-57,-57,-56,28,"Ards And North Down",NA
+-88,-45,-34,-57,-52,8,"Argyll and Bute Council",NA
+-82,-45,-66,-65,-47,27,"Armagh City and Banbridge And Craigavon",NA
+-91,-48,-54,-75,-66,30,"Bath and North East Somerset",NA
+-86,-47,-51,-72,-49,28,"Bedford",NA
+-85,-42,-47,-76,-59,17,"Belfast",NA
+-85,-42,NA,-71,-50,25,"Blackburn with Darwen",NA
+-88,-43,-64,-65,-54,22,"Blackpool",NA
+-75,-46,NA,-57,-46,12,"Blaenau Gwent",NA
+-78,-43,-46,-60,-48,25,"Borough of Halton",NA
+-83,-41,-56,-69,-58,31,"Bracknell Forest",NA
+-85,-43,-48,-59,-50,25,"Bridgend County Borough",NA
+-89,-48,-59,-77,-64,30,"Brighton and Hove",NA
+-85,-45,-43,-74,-57,16,"Buckinghamshire",NA
+-78,-41,-52,-54,-47,25,"Caerphilly County Borough",NA
+-87,-48,-51,-79,-54,16,"Cambridgeshire",NA
+-86,-45,-48,-79,-59,17,"Cardiff",NA
+-81,-46,-57,-60,-49,24,"Carmarthenshire",NA
+-87,-41,-66,-64,-55,26,"Causeway Coast and Glens",NA
+-82,-45,-41,-74,-54,20,"Central Bedfordshire",NA
+-84,-54,-60,-69,-57,6,"Ceredigion",NA
+-84,-47,-63,-75,-53,15,"Cheshire East",NA
+-88,-47,-58,-77,-55,15,"Cheshire West and Chester",NA
+-87,-47,-25,-81,-57,18,"City of Bristol",NA
+-89,-39,NA,-53,-49,6,"Clackmannanshire",NA
+-86,-48,-70,-63,-58,22,"Conwy Principal Area",NA
+-85,-53,-54,-66,-56,14,"Cornwall",NA
+-83,-42,-56,-68,-55,14,"County Durham",NA
+-84,-50,-54,-73,-58,15,"Cumbria",NA
+-86,-47,-57,-75,-51,26,"Darlington",NA
+-84,-43,-59,-70,-52,14,"Denbighshire",NA
+-85,-46,-55,-81,-55,19,"Derby",NA
+-86,-43,-55,-66,-55,15,"Derbyshire",NA
+-80,-39,-63,-60,-54,25,"Derry And Strabane",NA
+-87,-51,-54,-73,-54,15,"Devon",NA
+-87,-47,-57,-70,-57,15,"Dorset",NA
+-80,-42,-48,-75,-49,22,"Dumfries and Galloway",NA
+-83,-52,-10,-71,-56,26,"Dundee City Council",NA
+-83,-39,NA,-55,-51,26,"East Ayrshire Council",NA
+-75,-35,NA,-54,-56,19,"East Dunbartonshire Council",NA
+-81,-37,-34,-57,-56,17,"East Lothian Council",NA
+-63,-29,-54,-51,-56,19,"East Renfrewshire Council",NA
+-85,-45,-61,-51,-52,14,"East Riding of Yorkshire",NA
+-87,-46,-60,-68,-57,14,"East Sussex",NA
+-86,-44,-42,-83,-67,18,"Edinburgh",NA
+-84,-49,-58,-85,-56,16,"Essex",NA
+-78,-38,-26,-56,-47,27,"Falkirk",NA
+-86,-47,-55,-54,-52,27,"Fermanagh And Omagh",NA
+-79,-38,-32,-56,-51,14,"Fife",NA
+-80,-44,-48,-60,-54,26,"Flintshire",NA
+-84,-44,-37,-81,-60,16,"Glasgow City",NA
+-86,-48,-49,-73,-55,15,"Gloucestershire",NA
+-87,-48,-59,-80,-62,19,"Greater London",NA
+-84,-46,-44,-80,-54,16,"Greater Manchester",NA
+-87,-55,-62,-65,-56,18,"Gwynedd",NA
+-85,-45,-48,-74,-54,15,"Hampshire",NA
+-86,-44,-64,-70,-51,19,"Hartlepool",NA
+-86,-50,-42,-64,-46,24,"Herefordshire",NA
+-85,-47,-46,-73,-56,16,"Hertfordshire",NA
+-83,-47,-48,-70,-53,24,"Highland Council",NA
+-83,-37,NA,-58,-52,15,"Inverclyde",NA
+-84,-48,-65,-63,-46,7,"Isle of Anglesey",NA
+-88,-47,-57,-76,-54,22,"Isle of Wight",NA
+-86,-49,-62,-68,-53,15,"Kent",NA
+-82,-45,-49,-71,-51,14,"Kingston upon Hull",NA
+-84,-44,-39,-71,-52,14,"Lancashire",NA
+-84,-47,-45,-80,-51,15,"Leicester",NA
+-83,-45,-54,-72,-55,15,"Leicestershire",NA
+-84,-45,-63,-67,-47,13,"Lincolnshire",NA
+-87,-45,-79,-61,-56,30,"Lisburn and Castlereagh",NA
+-79,-39,-41,-90,-49,19,"Luton",NA
+-85,-40,-67,-71,-51,15,"Medway",NA
+-83,-42,-53,-74,-54,15,"Merseyside",NA
+-89,-50,NA,-54,-52,8,"Merthyr Tydfil County Borough",NA
+-81,-37,-52,-56,-56,27,"Mid And East Antrim",NA
+-81,-43,NA,-51,-42,28,"Mid Ulster",NA
+-84,-43,-63,-73,-51,24,"Middlesbrough",NA
+-90,-43,-20,-50,-53,25,"Midlothian",NA
+-85,-49,-53,-79,-55,19,"Milton Keynes",NA
+-85,-56,-61,-58,-47,16,"Monmouthshire",NA
+-88,-45,-42,-63,-54,12,"Moray",NA
+-77,-31,NA,-54,-51,NA,"Na h Eileanan an Iar",NA
+-74,-38,-46,-60,-46,23,"Neath Port Talbot Principle Area",NA
+-83,-47,-49,-66,-52,26,"Newport",NA
+-87,-45,-65,-55,-52,29,"Newry and Mourne And Down",NA
+-87,-52,-69,-68,-53,14,"Norfolk","NFK"
+-79,-37,-12,-59,-51,25,"North Ayrshire Council",NA
+-85,-46,-72,-68,-46,22,"North East Lincolnshire",NA
+-78,-37,NA,-56,-50,13,"North Lanarkshire",NA
+-79,-41,-56,-58,-46,23,"North Lincolnshire",NA
+-84,-50,-52,-88,-54,27,"North Somerset",NA
+-88,-48,-65,-74,-55,15,"North Yorkshire",NA
+-84,-42,-59,-71,-47,14,"Northamptonshire",NA
+-84,-42,-66,-61,-54,14,"Northumberland",NA
+-90,-45,-58,-80,-56,15,"Nottinghamshire",NA
+-85,-40,NA,NA,-61,NA,"Orkney",NA
+-87,-45,-48,-79,-58,17,"Oxfordshire",NA
+-87,-49,-62,-61,-47,18,"Pembrokeshire",NA
+-86,-46,-39,-65,-54,27,"Perth and Kinross",NA
+-80,-45,-36,-77,-43,17,"Peterborough",NA
+-87,-50,-43,-70,-54,18,"Plymouth",NA
+-88,-43,-46,-71,-54,19,"Portsmouth",NA
+-88,-50,-56,-63,-51,23,"Powys",NA
+-89,-50,-41,-84,-55,32,"Reading",NA
+-88,-44,-63,-62,-50,23,"Redcar and Cleveland",NA
+-86,-39,14,-84,-58,29,"Renfrewshire",NA
+-80,-41,-47,-52,-50,19,"Rhondda Cynon Taff",NA
+-100,-37,-70,NA,-57,NA,"Rutland",NA
+-88,-46,-39,-44,-51,20,"Scottish Borders",NA
+-85,-49,NA,-54,-60,NA,"Shetland Islands",NA
+-85,-49,-56,-70,-50,14,"Shropshire",NA
+-80,-45,-45,-78,-54,29,"Slough",NA
+-86,-48,-56,-73,-49,14,"Somerset",NA
+-88,-42,-35,-62,-56,20,"South Ayrshire Council",NA
+-81,-45,-30,-64,-52,20,"South Gloucestershire",NA
+-78,-38,-6,-57,-54,14,"South Lanarkshire",NA
+-86,-43,-47,-71,-53,15,"South Yorkshire",NA
+-87,-41,-57,-71,-54,19,"Southampton",NA
+-89,-39,-63,-79,-57,28,"Southend on Sea",NA
+-85,-44,-54,-73,-54,14,"Staffordshire",NA
+-85,-49,-49,-76,-62,11,"Stirling",NA
+-84,-47,-60,-69,-52,25,"Stockton on Tees",NA
+-84,-44,-41,-70,-49,14,"Stoke on Trent",NA
+-87,-51,-67,-69,-54,15,"Suffolk",NA
+-85,-44,-57,-74,-59,17,"Surrey",NA
+-84,-50,-51,-67,-54,19,"Swansea",NA
+-83,-44,-30,-69,-52,28,"Swindon",NA
+-88,-53,-51,-59,-50,29,"Thurrock",NA
+-86,-44,-58,-68,-55,24,"Torbay",NA
+-82,-37,NA,-54,-53,24,"Torfaen Principal Area",NA
+-85,-47,-58,-74,-57,15,"Tyne and Wear",NA
+-84,-49,-59,-70,-54,27,"Vale of Glamorgan",NA
+-86,-42,-29,-68,-52,27,"Warrington",NA
+-86,-44,-56,-72,-54,15,"Warwickshire",NA
+-88,-49,-41,-82,-58,29,"West Berkshire",NA
+-75,-43,NA,-54,-51,23,"West Dunbartonshire Council",NA
+-74,-29,-29,-52,-50,27,"West Lothian",NA
+-84,-45,-45,-78,-57,15,"West Midlands",NA
+-85,-46,-53,-85,-56,15,"West Sussex",NA
+-84,-44,-49,-74,-55,15,"West Yorkshire",NA
+-84,-45,-56,-70,-54,15,"Wiltshire",NA
+-88,-42,-74,-79,-63,31,"Windsor and Maidenhead",NA
+-81,-52,-26,-66,-61,32,"Wokingham",NA
+-86,-47,-44,-71,-55,14,"Worcestershire",NA
+-83,-43,-45,-64,-48,24,"Wrexham Principal Area",NA
+-90,-50,-64,-84,-65,29,"York",NA
+-47,-22,-19,-51,-38,12,"United States","USA"
+-41,-13,19,-30,-32,9,"Alabama",NA
+-48,-27,18,-55,-33,10,"Alaska",NA
+-49,-25,51,-53,-39,11,"Anchorage",NA
+NA,-26,NA,NA,-19,NA,"Bethel",NA
+-48,-34,NA,-76,-32,12,"Fairbanks North Star",NA
+-61,-34,-34,-66,-31,-1,"Juneau",NA
+-49,-28,NA,NA,-24,14,"Kenai Peninsula Borough",NA
+-48,-38,NA,NA,-32,NA,"Ketchikan Gateway",NA
+-50,NA,NA,NA,-23,NA,"Kodiak Island",NA
+-48,-33,NA,NA,-33,10,"Matanuska Susitna",NA
+NA,NA,NA,NA,-7,NA,"North Slope",NA
+-59,NA,NA,NA,-31,NA,"Sitka",NA
+NA,NA,NA,NA,-35,NA,"Southeast Fairbanks",NA
+NA,NA,NA,NA,-22,NA,"Valdez Cordova",NA
+-40,-17,-7,-41,-33,10,"Arizona",NA
+-38,-13,-35,-8,-27,20,"Apache County",NA
+-37,-21,-14,-23,-29,8,"Cochise County",NA
+-55,-24,-25,-34,-38,12,"Coconino County",NA
+-14,16,95,NA,-28,11,"Gila County",NA
+-21,14,-63,NA,-19,11,"Graham County",NA
+-37,-10,NA,NA,-28,NA,"Greenlee County",NA
+-61,-35,-54,-50,-21,NA,"La Paz County",NA
+-40,-18,-6,-44,-33,10,"Maricopa County",NA
+-36,-13,-13,-23,-37,9,"Mohave County",NA
+-29,-9,11,-12,-28,10,"Navajo County",NA
+-43,-16,-16,-43,-36,10,"Pima County",NA
+-27,-23,1,-28,-31,8,"Pinal County",NA
+-56,-47,-29,-25,-33,18,"Santa Cruz County",NA
+-40,-15,6,-27,-38,9,"Yavapai County",NA
+-45,-21,-17,-53,-27,10,"Yuma County",NA
+-29,-7,81,-22,-27,7,"Arkansas",NA
+-22,-7,NA,NA,-11,NA,"Arkansas County",NA
+-24,-4,NA,NA,-27,NA,"Ashley County",NA
+-30,-2,NA,NA,-26,11,"Baxter County",NA
+-36,-16,56,-65,-34,9,"Benton County",NA
+-25,-17,NA,NA,-32,14,"Boone County",NA
+-28,-17,NA,NA,-37,NA,"Bradley County",NA
+-27,14,NA,NA,-27,-1,"Carroll County",NA
+-19,6,NA,NA,-25,NA,"Chicot County",NA
+-33,2,NA,-23,-22,NA,"Clark County",NA
+-7,-2,NA,NA,-21,NA,"Clay County",NA
+-16,0,NA,NA,-37,NA,"Cleburne County",NA
+NA,NA,NA,NA,-33,NA,"Cleveland County",NA
+-18,-20,NA,NA,-20,NA,"Columbia County",NA
+2,4,NA,-2,-25,NA,"Conway County",NA
+-32,-3,-59,-5,-24,4,"Craighead County",NA
+-16,-1,NA,-11,-21,14,"Crawford County",NA
+-15,-11,NA,-17,-26,15,"Crittenden County",NA
+-49,90,NA,NA,-7,NA,"Cross County",NA
+-17,NA,NA,NA,-32,NA,"Dallas County",NA
+-8,0,NA,NA,-33,NA,"Desha County",NA
+-27,-10,NA,NA,-16,NA,"Drew County",NA
+-32,-15,-21,NA,-31,8,"Faulkner County",NA
+-8,12,NA,8,-16,NA,"Franklin County",NA
+NA,NA,NA,NA,-28,NA,"Fulton County",NA
+-32,-12,17,NA,-32,7,"Garland County",NA
+-10,-17,NA,NA,-26,NA,"Grant County",NA
+-18,-4,NA,NA,-20,12,"Greene County",NA
+-19,-13,NA,NA,-24,NA,"Hempstead County",NA
+5,9,NA,-28,-24,10,"Hot Spring County",NA
+-8,-7,NA,NA,-29,NA,"Howard County",NA
+-27,9,NA,NA,-24,13,"Independence County",NA
+-24,-15,NA,NA,-29,NA,"Izard County",NA
+-10,-12,NA,NA,-14,NA,"Jackson County",NA
+-30,4,NA,-14,-26,11,"Jefferson County",NA
+-24,12,-28,NA,-14,-2,"Johnson County",NA
+-19,-6,NA,NA,-30,NA,"Lawrence County",NA
+-60,-16,NA,NA,-23,NA,"Lincoln County",NA
+-7,5,NA,NA,-34,NA,"Little River County",NA
+-5,13,NA,NA,-18,NA,"Logan County",NA
+-23,-5,NA,NA,-27,15,"Lonoke County",NA
+-10,17,NA,NA,-11,NA,"Madison County",NA
+4,5,NA,NA,-26,NA,"Marion County",NA
+-33,-10,-35,-24,-32,12,"Miller County",NA
+-11,-1,NA,-18,-15,10,"Mississippi County",NA
+-26,-8,NA,NA,-34,NA,"Monroe County",NA
+NA,NA,NA,NA,-33,NA,"Montgomery County",NA
+-61,NA,NA,-23,-21,NA,"Nevada County",NA
+NA,NA,NA,NA,-38,NA,"Newton County",NA
+-9,-21,NA,NA,-16,NA,"Ouachita County",NA
+NA,NA,NA,NA,-35,NA,"Perry County",NA
+-1,-6,NA,NA,-32,NA,"Phillips County",NA
+-30,13,NA,NA,-33,NA,"Pike County",NA
+2,-5,NA,NA,-15,NA,"Poinsett County",NA
+-17,3,NA,NA,-25,NA,"Polk County",NA
+-32,-9,NA,-11,-22,12,"Pope County",NA
+NA,NA,NA,NA,-26,NA,"Prairie County",NA
+-35,-9,73,-38,-30,9,"Pulaski County",NA
+-22,12,NA,NA,-23,NA,"Randolph County",NA
+-26,-13,-52,-10,-33,7,"Saline County",NA
+-39,NA,NA,NA,-27,NA,"Scott County",NA
+NA,NA,NA,NA,-39,NA,"Searcy County",NA
+-36,-11,45,-41,-27,7,"Sebastian County",NA
+-24,-11,NA,NA,-19,NA,"Sevier County",NA
+-17,-7,NA,NA,-26,NA,"Sharp County",NA
+-16,10,NA,-22,-25,NA,"St  Francis County",NA
+-11,-29,NA,NA,-26,NA,"Stone County",NA
+-33,-8,NA,NA,-24,8,"Union County",NA
+-20,NA,NA,NA,-39,NA,"Van Buren County",NA
+-37,-16,37,-10,-34,8,"Washington County",NA
+-27,-12,-19,4,-21,9,"White County",NA
+-11,13,16,NA,-19,NA,"Yell County",NA
+-50,-24,-38,-54,-39,15,"California",NA
+-58,-27,-14,-64,-44,17,"Alameda County",NA
+-41,-20,-50,NA,-44,0,"Amador County",NA
+-45,-16,-23,-45,-34,11,"Butte County",NA
+-42,-12,-28,NA,-39,10,"Calaveras County",NA
+-37,-1,NA,-32,-37,NA,"Colusa County",NA
+-48,-21,-15,-49,-41,15,"Contra Costa County",NA
+-31,-11,-26,NA,-29,NA,"Del Norte County",NA
+-58,-37,-35,-50,-48,13,"El Dorado County",NA
+-40,-14,-27,-43,-31,11,"Fresno County",NA
+-23,-14,-11,-20,-36,2,"Glenn County",NA
+-48,-23,-10,-48,-35,11,"Humboldt County",NA
+-53,-31,-65,-62,-32,16,"Imperial County",NA
+-75,-37,-35,NA,-39,NA,"Inyo County",NA
+-43,-17,-16,-37,-30,11,"Kern County",NA
+-34,-14,-12,-43,-27,10,"Kings County",NA
+-38,-13,-42,-42,-33,16,"Lake County",NA
+-30,-8,NA,NA,-22,NA,"Lassen County",NA
+-51,-27,-48,-54,-41,17,"Los Angeles County",NA
+-39,-25,-20,-30,-30,11,"Madera County",NA
+-61,-30,-59,-61,-42,17,"Marin County",NA
+-75,-23,-72,NA,-45,NA,"Mariposa County",NA
+-47,-29,-39,-44,-32,17,"Mendocino County",NA
+-34,-18,-1,-37,-26,11,"Merced County",NA
+-59,-9,NA,NA,-26,NA,"Modoc County",NA
+-100,-60,-57,NA,-73,NA,"Mono County",NA
+-46,-19,-48,-45,-43,14,"Monterey County",NA
+-53,-34,-24,-45,-51,18,"Napa County",NA
+-56,-26,-48,-73,-41,15,"Nevada County 1",NA
+-52,-24,-31,-55,-44,17,"Orange County",NA
+-52,-27,-2,-55,-44,13,"Placer County",NA
+-30,-8,NA,NA,-25,NA,"Plumas County",NA
+-43,-20,-44,-41,-39,14,"Riverside County",NA
+-45,-21,-1,-57,-37,13,"Sacramento County",NA
+-45,-25,-36,NA,-32,23,"San Benito County",NA
+-45,-23,-36,-42,-34,14,"San Bernardino County",NA
+-50,-26,-51,-64,-41,15,"San Diego County",NA
+-75,-37,-55,-66,-53,21,"San Francisco County",NA
+-41,-16,-16,-31,-30,12,"San Joaquin County",NA
+-56,-29,-27,-58,-45,13,"San Luis Obispo County",NA
+-60,-26,-35,-83,-46,19,"San Mateo County",NA
+-47,-17,-30,-51,-40,13,"Santa Barbara County",NA
+-62,-33,-22,-71,-48,17,"Santa Clara County",NA
+-55,-27,-40,-57,-41,15,"Santa Cruz County 1",NA
+-39,-15,-21,-22,-31,9,"Shasta County",NA
+-35,-20,-6,9,-25,13,"Siskiyou County",NA
+-45,-21,-18,-37,-34,13,"Solano County",NA
+-53,-22,-58,-54,-41,15,"Sonoma County",NA
+-44,-19,-12,-28,-29,11,"Stanislaus County",NA
+-41,-18,-28,-43,-34,13,"Sutter County",NA
+-34,-9,-9,-22,-27,15,"Tehama County",NA
+-65,-20,NA,NA,-28,NA,"Trinity County",NA
+-39,-13,-27,-28,-25,11,"Tulare County",NA
+-48,-17,-67,NA,-38,14,"Tuolumne County",NA
+-46,-24,-24,-40,-39,14,"Ventura County",NA
+-43,-23,2,-34,-37,13,"Yolo County",NA
+-34,-12,24,-34,-38,13,"Yuba County",NA
+-51,-27,-12,-60,-40,13,"Colorado",NA
+-49,-25,-12,-30,-36,13,"Adams County",NA
+-44,-28,NA,NA,-28,NA,"Alamosa County",NA
+-52,-30,14,-36,-40,14,"Arapahoe County",NA
+-60,-28,NA,NA,-44,NA,"Archuleta County",NA
+-59,-32,-7,-44,-47,15,"Boulder County",NA
+-57,-30,9,-46,-41,30,"Broomfield County",NA
+-56,-31,-36,NA,-45,NA,"Chaffee County",NA
+-88,-55,-42,NA,-40,NA,"Clear Creek County",NA
+NA,NA,NA,NA,-29,NA,"Conejos County",NA
+-41,-20,-40,NA,-19,5,"Delta County",NA
+-63,-25,-17,-75,-43,16,"Denver County",NA
+-56,-36,10,-50,-43,14,"Douglas County",NA
+-75,-47,-46,-67,-74,26,"Eagle County",NA
+-45,-22,-1,-55,-40,12,"El Paso County",NA
+-22,-16,NA,NA,-37,0,"Elbert County",NA
+-35,-13,-7,NA,-29,14,"Fremont County",NA
+-51,-35,4,-34,-45,22,"Garfield County",NA
+NA,NA,NA,NA,-67,NA,"Gilpin County",NA
+-85,-49,-84,-43,-60,NA,"Grand County",NA
+-73,-43,-50,NA,-55,NA,"Gunnison County",NA
+-62,-43,NA,NA,-28,NA,"Huerfano County",NA
+-53,-41,-3,-39,-43,14,"Jefferson County 1",NA
+-39,-20,NA,-18,-13,NA,"Kit Carson County",NA
+-58,-28,4,-68,-43,25,"La Plata County",NA
+-82,-33,NA,NA,-57,NA,"Lake County 1",NA
+-53,-27,1,-38,-38,13,"Larimer County",NA
+-40,-23,NA,NA,-21,NA,"Las Animas County",NA
+-33,-31,NA,-31,-30,NA,"Lincoln County 1",NA
+-32,-15,NA,NA,-26,NA,"Logan County 1",NA
+-40,-21,11,-35,-35,9,"Mesa County",NA
+-26,-22,NA,NA,-36,NA,"Moffat County",NA
+-39,-14,NA,NA,-31,-1,"Montezuma County",NA
+-45,-31,NA,NA,-36,17,"Montrose County",NA
+-40,-33,0,-23,-18,14,"Morgan County",NA
+-32,-28,NA,NA,-25,NA,"Otero County",NA
+-28,NA,NA,NA,-56,NA,"Ouray County",NA
+-84,-44,3,NA,-52,NA,"Park County",NA
+-100,-56,NA,-85,-75,NA,"Pitkin County",NA
+-32,-25,NA,-33,-17,NA,"Prowers County",NA
+-42,-21,-45,-32,-29,9,"Pueblo County",NA
+NA,NA,NA,NA,-28,NA,"Rio Blanco County",NA
+-38,-24,NA,NA,-17,NA,"Rio Grande County",NA
+-82,-49,-48,-65,-62,-2,"Routt County",NA
+NA,NA,NA,NA,-44,NA,"Saguache County",NA
+-80,NA,NA,NA,-69,NA,"San Miguel County",NA
+-86,-73,-74,-67,-71,5,"Summit County",NA
+-46,-23,NA,NA,-45,-1,"Teller County",NA
+-42,-26,-4,-32,-33,12,"Weld County",NA
+-33,-22,NA,NA,-30,NA,"Yuma County 1",NA
+-56,-32,-52,-64,-38,15,"Connecticut",NA
+-61,-35,-60,-72,-44,17,"Fairfield County",NA
+-56,-31,-48,-61,-35,13,"Hartford County",NA
+-51,-27,-40,NA,-33,13,"Litchfield County",NA
+-58,-28,-49,-60,-38,15,"Middlesex County",NA
+-56,-31,-52,-62,-36,14,"New Haven County",NA
+-56,-28,-45,-67,-41,15,"New London County",NA
+-59,-33,-38,-38,-37,14,"Tolland County",NA
+-42,-27,-58,-69,-32,12,"Windham County",NA
+-47,-28,-6,-57,-37,12,"Delaware",NA
+-45,-32,2,-50,-35,11,"Kent County",NA
+-48,-31,5,-60,-37,13,"New Castle County",NA
+-46,-23,-5,-40,-36,11,"Sussex County",NA
+-64,-30,-41,-68,-47,14,"District of Columbia",NA
+-50,-26,-48,-63,-41,13,"Florida",NA
+-54,-26,-32,-48,-37,12,"Alachua County",NA
+-23,-8,NA,-45,-27,-3,"Baker County",NA
+-38,-16,-2,-50,-27,8,"Bay County",NA
+-26,0,NA,NA,-26,0,"Bradford County",NA
+-44,-22,-26,-37,-38,11,"Brevard County",NA
+-52,-28,-62,-72,-42,16,"Broward County",NA
+-38,-5,NA,NA,-28,NA,"Calhoun County",NA
+-49,-25,-35,-33,-40,10,"Charlotte County",NA
+-38,-15,-35,NA,-36,9,"Citrus County",NA
+-33,-15,1,NA,-34,10,"Clay County 1",NA
+-56,-29,-62,-56,-44,14,"Collier County",NA
+-36,-8,-41,-25,-25,8,"Columbia County 1",NA
+-35,-21,-28,NA,-26,12,"DeSoto County",NA
+-30,-4,NA,NA,-31,NA,"Dixie County",NA
+-36,-13,-26,-40,-33,10,"Duval County",NA
+-38,-10,-11,-47,-32,9,"Escambia County",NA
+-44,-16,-34,NA,-40,10,"Flagler County",NA
+-56,-12,-14,NA,-30,NA,"Franklin County 1",NA
+-24,-10,NA,-36,-31,14,"Gadsden County",NA
+-26,-1,NA,NA,-24,NA,"Gilchrist County",NA
+-62,NA,-65,-39,-30,NA,"Glades County",NA
+-28,-1,NA,NA,-16,NA,"Gulf County",NA
+-16,-4,NA,-28,-24,NA,"Hamilton County",NA
+-30,-29,-30,NA,-29,NA,"Hardee County",NA
+-34,-10,-42,NA,-28,12,"Hendry County",NA
+-36,-16,-10,-37,-36,10,"Hernando County",NA
+-44,-21,-49,NA,-36,9,"Highlands County",NA
+-52,-30,-53,-67,-42,14,"Hillsborough County",NA
+-19,-12,NA,NA,-18,NA,"Holmes County",NA
+-46,-29,-30,-47,-38,11,"Indian River County","IND"
+-29,-11,NA,-32,-32,12,"Jackson County 1",NA
+-20,-10,NA,NA,-28,NA,"Jefferson County 2",NA
+NA,NA,NA,NA,-28,NA,"Lafayette County",NA
+-42,-24,-24,-57,-41,12,"Lake County 2",NA
+-55,-28,-60,-69,-41,12,"Lee County",NA
+-45,-22,0,-50,-36,11,"Leon County",NA
+-35,-12,-20,NA,-31,12,"Levy County",NA
+NA,-5,NA,NA,-28,NA,"Liberty County",NA
+-41,-2,NA,-26,-31,NA,"Madison County 1",NA
+-48,-22,-28,-63,-36,11,"Manatee County",NA
+-41,-21,-40,-31,-34,9,"Marion County 1",NA
+-50,-28,-28,-59,-37,12,"Martin County",NA
+-57,-35,-77,-71,-46,18,"Miami Dade County",NA
+-74,-47,-76,-76,-55,15,"Monroe County 1",NA
+-40,-18,-24,-68,-34,10,"Nassau County",NA
+-39,-14,-7,-62,-32,9,"Okaloosa County",NA
+-37,-10,-23,-84,-33,11,"Okeechobee County",NA
+-70,-42,-59,-80,-53,17,"Orange County 1",NA
+-64,-40,-49,-65,-54,18,"Osceola County",NA
+-49,-23,-65,-61,-40,15,"Palm Beach County",NA
+-40,-24,-10,-25,-35,11,"Pasco County",NA
+-51,-25,-16,-44,-39,12,"Pinellas County",NA
+-40,-22,-28,-29,-38,11,"Polk County 1",NA
+-23,-15,-20,NA,-33,9,"Putnam County",NA
+-28,-13,17,NA,-32,9,"Santa Rosa County",NA
+-52,-28,-59,-28,-41,11,"Sarasota County",NA
+-48,-21,-19,-74,-42,13,"Seminole County",NA
+-48,-13,-53,-34,-41,11,"St  Johns County",NA
+-40,-14,-22,-52,-34,11,"St  Lucie County",NA
+-50,-21,-31,-36,-45,10,"Sumter County",NA
+-28,-14,0,-42,-27,11,"Suwannee County",NA
+-34,-7,NA,NA,-25,NA,"Taylor County",NA
+-44,-5,NA,NA,-35,NA,"Union County 1",NA
+-42,-19,-10,-39,-38,10,"Volusia County",NA
+-25,-20,20,NA,-20,16,"Wakulla County",NA
+-46,-23,-29,-21,-31,9,"Walton County",NA
+-33,5,NA,NA,-31,NA,"Washington County 1",NA
+-42,-17,-2,-52,-37,11,"Georgia 1","GEO"
+-28,-16,NA,NA,-19,NA,"Appling County",NA
+-29,12,NA,NA,-26,NA,"Atkinson County",NA
+-26,-15,NA,NA,-20,NA,"Bacon County",NA
+-34,-20,NA,NA,-31,13,"Baldwin County",NA
+-35,NA,NA,NA,-19,NA,"Banks County",NA
+-35,-12,-37,NA,-34,11,"Barrow County",NA
+-42,-5,40,-25,-33,9,"Bartow County",NA
+-28,9,NA,NA,-30,NA,"Ben Hill County",NA
+-28,5,NA,NA,-20,NA,"Berrien County",NA
+-43,-16,36,-27,-32,10,"Bibb County",NA
+-31,-8,NA,NA,-37,NA,"Bleckley County",NA
+-27,-4,NA,NA,-28,NA,"Brantley County",NA
+-38,-5,NA,NA,-23,NA,"Brooks County",NA
+-45,-19,-9,-29,-36,18,"Bryan County",NA
+-41,-12,NA,NA,-35,9,"Bulloch County",NA
+-24,-7,-23,NA,-14,NA,"Burke County",NA
+-30,-6,NA,-13,-31,-1,"Butts County",NA
+-35,3,7,-29,-30,16,"Camden County",NA
+-57,-20,NA,NA,-24,NA,"Candler County",NA
+-38,-18,12,-25,-36,10,"Carroll County 1",NA
+-38,-8,14,NA,-33,16,"Catoosa County",NA
+-31,7,NA,NA,-25,NA,"Charlton County",NA
+-50,-24,-32,-48,-41,11,"Chatham County",NA
+-53,-39,NA,NA,-36,NA,"Chattahoochee County",NA
+-15,-2,NA,NA,-42,NA,"Chattooga County",NA
+-39,-20,59,NA,-40,12,"Cherokee County",NA
+-51,-24,-21,-30,-41,12,"Clarke County",NA
+-30,-18,15,-80,-33,11,"Clayton County",NA
+NA,-2,NA,NA,-25,NA,"Clinch County",NA
+-49,-22,-47,-38,-41,13,"Cobb County",NA
+-41,-8,NA,NA,-23,11,"Coffee County",NA
+-31,-6,NA,NA,-25,13,"Colquitt County",NA
+-35,-7,-20,-44,-37,11,"Columbia County 2",NA
+-17,2,NA,-21,-21,NA,"Cook County","COK"
+-46,-16,-56,-15,-35,11,"Coweta County",NA
+NA,NA,NA,NA,-20,NA,"Crawford County 1",NA
+-28,-22,NA,-10,-35,NA,"Crisp County",NA
+-49,-9,NA,-16,-23,NA,"Dade County",NA
+-49,-25,17,NA,-37,0,"Dawson County",NA
+-47,-26,-15,-27,-42,13,"DeKalb County",NA
+-24,-10,NA,NA,-19,-3,"Decatur County",NA
+-26,-5,NA,NA,-26,NA,"Dodge County",NA
+-59,-25,NA,-28,-21,NA,"Dooly County",NA
+-51,-24,-37,-30,-34,11,"Dougherty County",NA
+-40,-26,-2,-28,-37,11,"Douglas County 1",NA
+-73,-23,NA,NA,-27,NA,"Early County",NA
+-28,-7,NA,NA,-33,16,"Effingham County",NA
+-13,3,NA,NA,-25,NA,"Elbert County 1",NA
+-21,17,NA,NA,-9,NA,"Emanuel County",NA
+-22,4,NA,NA,-23,NA,"Evans County",NA
+-45,-21,38,NA,-38,NA,"Fannin County",NA
+-40,-29,25,NA,-43,13,"Fayette County",NA
+-36,-8,28,NA,-28,9,"Floyd County",NA
+-45,-32,3,NA,-42,13,"Forsyth County",NA
+-42,-15,-22,-22,-28,NA,"Franklin County 2",NA
+-54,-26,-44,-47,-43,13,"Fulton County 1",NA
+-45,-31,NA,NA,-33,2,"Gilmer County",NA
+-45,-22,-32,-39,-40,10,"Glynn County",NA
+-30,-8,NA,-20,-33,15,"Gordon County",NA
+-35,-6,NA,NA,-35,-1,"Grady County",NA
+-17,-13,NA,NA,-36,NA,"Greene County 1",NA
+-50,-24,-9,-42,-46,15,"Gwinnett County",NA
+-35,-10,NA,NA,-27,13,"Habersham County",NA
+-39,-19,51,-20,-34,10,"Hall County",NA
+NA,6,NA,NA,-24,NA,"Hancock County",NA
+-27,-6,-29,-22,-33,8,"Haralson County",NA
+-4,9,NA,NA,-41,13,"Harris County",NA
+-18,-6,NA,NA,-17,NA,"Hart County",NA
+NA,2,NA,NA,-31,NA,"Heard County",NA
+-42,-13,22,NA,-41,12,"Henry County",NA
+-39,-15,-6,NA,-36,10,"Houston County",NA
+NA,-2,NA,NA,-26,NA,"Irwin County",NA
+-61,-38,NA,-22,-30,16,"Jackson County 2",NA
+-39,-2,NA,NA,-9,NA,"Jasper County",NA
+-27,-12,NA,NA,-21,NA,"Jeff Davis County",NA
+-28,-3,NA,NA,-13,NA,"Jefferson County 3",NA
+-33,2,NA,NA,-25,NA,"Jenkins County",NA
+NA,-9,NA,NA,-26,NA,"Johnson County 1",NA
+-25,4,NA,NA,-38,8,"Jones County",NA
+-34,-6,NA,NA,-36,NA,"Lamar County",NA
+-43,-6,NA,NA,-35,NA,"Lanier County",NA
+-42,-15,NA,-27,-31,14,"Laurens County",NA
+-45,-21,NA,NA,-28,11,"Lee County 1",NA
+-32,-17,-17,-22,-27,10,"Liberty County 1",NA
+NA,NA,NA,NA,-27,NA,"Lincoln County 2",NA
+NA,NA,NA,NA,-30,NA,"Long County",NA
+-45,-17,-13,-21,-29,8,"Lowndes County",NA
+-35,19,NA,NA,-37,6,"Lumpkin County",NA
+-35,-4,NA,NA,-22,NA,"Macon County",NA
+-51,-17,NA,NA,-24,8,"Madison County 2",NA
+NA,12,NA,NA,-27,NA,"Marion County 2",NA
+-14,4,NA,-21,-18,NA,"McDuffie County",NA
+-49,0,NA,NA,-39,NA,"McIntosh County",NA
+-21,-4,NA,NA,-26,NA,"Meriwether County",NA
+-58,NA,NA,NA,-30,NA,"Miller County 1",NA
+-21,-25,NA,NA,-13,NA,"Mitchell County",NA
+-39,3,11,-35,-32,-2,"Monroe County 2",NA
+NA,-7,NA,NA,-26,NA,"Montgomery County 1",NA
+-33,-14,NA,-27,-30,NA,"Morgan County 1",NA
+-18,1,NA,NA,-25,13,"Murray County",NA
+-44,-8,19,-56,-29,9,"Muscogee County",NA
+-31,-14,-13,NA,-36,10,"Newton County 1",NA
+-46,-7,NA,NA,-37,0,"Oconee County",NA
+NA,0,NA,NA,-41,NA,"Oglethorpe County",NA
+-34,-25,-55,NA,-36,11,"Paulding County",NA
+-39,-16,NA,-24,-33,7,"Peach County",NA
+-27,-16,NA,NA,-30,9,"Pickens County",NA
+-48,-14,NA,NA,-26,NA,"Pierce County",NA
+-38,3,NA,NA,-38,NA,"Pike County 1",NA
+-21,-4,NA,NA,-31,12,"Polk County 2",NA
+-54,-12,NA,NA,-31,NA,"Pulaski County 1",NA
+-3,2,NA,-59,-28,NA,"Putnam County 1",NA
+-42,-2,37,NA,-40,NA,"Rabun County",NA
+-64,NA,NA,NA,-32,NA,"Randolph County 1",NA
+-40,-5,26,-51,-31,8,"Richmond County",NA
+-43,-11,-18,NA,-39,12,"Rockdale County",NA
+NA,NA,NA,NA,-36,NA,"Schley County",NA
+-37,0,NA,NA,-29,NA,"Screven County",NA
+-7,-18,NA,NA,-22,NA,"Seminole County 1",NA
+-27,-13,NA,NA,-31,8,"Spalding County",NA
+-24,-9,NA,NA,-27,1,"Stephens County",NA
+-29,-25,NA,NA,-21,1,"Sumter County 1",NA
+NA,NA,-9,NA,-29,NA,"Talbot County",NA
+-32,3,NA,NA,-23,NA,"Tattnall County",NA
+NA,4,NA,NA,-15,NA,"Taylor County 1",NA
+-55,0,NA,NA,-28,NA,"Telfair County",NA
+-27,-17,NA,NA,-33,NA,"Terrell County",NA
+-35,-9,NA,NA,-28,15,"Thomas County",NA
+-40,-26,NA,-24,-25,14,"Tift County",NA
+-31,-12,NA,NA,-23,-2,"Toombs County",NA
+-38,-3,NA,NA,-22,NA,"Towns County",NA
+NA,-4,NA,NA,-26,NA,"Treutlen County",NA
+-36,-10,NA,-28,-27,10,"Troup County",NA
+-61,23,NA,-22,-23,NA,"Turner County",NA
+NA,NA,NA,NA,-36,NA,"Twiggs County",NA
+-30,11,22,NA,-36,NA,"Union County 2",NA
+-25,-8,NA,NA,-36,-4,"Upson County",NA
+-20,7,-28,NA,-28,15,"Walker County",NA
+-28,7,NA,NA,-35,9,"Walton County 1",NA
+-39,-18,NA,NA,-23,11,"Ware County",NA
+NA,NA,NA,NA,-32,NA,"Warren County",NA
+-12,-31,NA,NA,-13,NA,"Washington County 2",NA
+-30,-8,NA,NA,-33,-2,"Wayne County",NA
+-43,-2,-16,NA,-29,9,"White County 1",NA
+-34,-7,-45,-23,-25,9,"Whitfield County",NA
+NA,13,NA,NA,-24,NA,"Wilcox County",NA
+-31,-14,NA,NA,-22,NA,"Wilkes County",NA
+NA,0,NA,NA,-24,NA,"Wilkinson County",NA
+-28,-9,NA,NA,-28,NA,"Worth County",NA
+-56,-36,-65,-72,-45,16,"Hawaii",NA
+-61,-47,-77,-84,-41,15,"Hawaii County",NA
+-53,-32,-58,-69,-44,16,"Honolulu County",NA
+-69,-53,-74,-83,-48,26,"Kauai County",NA
+-64,-40,-73,-85,-54,17,"Maui County",NA
+-42,-18,25,-34,-38,10,"Idaho",NA
+-49,-23,33,-54,-43,11,"Ada County",NA
+-39,-24,-6,-28,-37,9,"Bannock County",NA
+-53,NA,NA,NA,-36,NA,"Bear Lake County",NA
+-65,4,NA,NA,-35,NA,"Benewah County",NA
+-21,-13,NA,NA,-38,14,"Bingham County",NA
+-83,-48,NA,-49,-62,NA,"Blaine County",NA
+-62,NA,-50,NA,-48,NA,"Boise County",NA
+-40,-34,-22,NA,-38,14,"Bonner County",NA
+-38,-11,59,-21,-34,9,"Bonneville County",NA
+-23,-9,NA,NA,-18,NA,"Boundary County",NA
+-41,-15,35,-15,-37,9,"Canyon County",NA
+-50,-2,NA,NA,-27,NA,"Caribou County",NA
+-7,-10,NA,NA,-26,0,"Cassia County",NA
+-61,0,NA,NA,-28,NA,"Clearwater County",NA
+-35,-9,NA,-25,-29,14,"Elmore County",NA
+-6,-4,NA,NA,-27,NA,"Franklin County 3",NA
+-36,-5,-33,NA,-57,NA,"Fremont County 1",NA
+-20,-25,NA,NA,-34,NA,"Gem County",NA
+-42,-10,NA,NA,-21,NA,"Gooding County",NA
+-60,-12,NA,NA,-46,NA,"Idaho County",NA
+-39,-10,-56,NA,-45,9,"Jefferson County 4",NA
+-8,-44,NA,-13,-27,6,"Jerome County",NA
+-42,-20,26,-18,-40,10,"Kootenai County",NA
+-54,-33,NA,NA,-47,20,"Latah County",NA
+-26,-20,NA,NA,-28,NA,"Lemhi County",NA
+NA,NA,NA,NA,-44,NA,"Lincoln County 3",NA
+-29,-19,NA,NA,-59,20,"Madison County 3",NA
+-43,10,NA,-11,-33,1,"Minidoka County",NA
+-46,-14,-24,-55,-31,18,"Nez Perce County",NA
+NA,NA,NA,NA,-42,NA,"Oneida County",NA
+-14,13,NA,NA,-20,NA,"Owyhee County",NA
+-33,-10,NA,NA,-26,5,"Payette County",NA
+NA,-7,NA,NA,-34,NA,"Power County",NA
+-31,4,NA,NA,-31,NA,"Shoshone County",NA
+-73,-20,NA,NA,-47,NA,"Teton County",NA
+-43,-13,-6,NA,-25,8,"Twin Falls County",NA
+-86,-58,-57,NA,-60,NA,"Valley County",NA
+-23,-15,NA,NA,-39,NA,"Washington County 3",NA
+-53,-24,-29,-55,-39,13,"Illinois",NA
+-42,-15,NA,-30,-27,16,"Adams County 1",NA
+NA,NA,NA,NA,-30,NA,"Alexander County",NA
+-36,-2,NA,-5,-21,NA,"Bond County",NA
+-41,-23,NA,-65,-38,21,"Boone County 1",NA
+-43,-9,NA,NA,-25,3,"Bureau County",NA
+-60,-9,NA,NA,-32,NA,"Carroll County 2",NA
+-21,-10,NA,NA,-6,NA,"Cass County",NA
+-54,-29,44,-48,-40,13,"Champaign County",NA
+-31,-30,NA,NA,-20,9,"Christian County",NA
+-28,NA,NA,-15,-32,NA,"Clark County 1",NA
+-25,NA,NA,NA,-27,NA,"Clay County 2",NA
+-28,-4,NA,NA,-29,14,"Clinton County",NA
+-35,-11,NA,NA,-27,18,"Coles County",NA
+-58,-26,-45,-63,-45,15,"Cook County 1","COK"
+-24,2,NA,NA,-27,NA,"Crawford County 2",NA
+-65,NA,NA,-23,-33,NA,"Cumberland County",NA
+-65,-29,NA,NA,-22,NA,"De Witt County",NA
+-52,-20,NA,NA,-37,14,"DeKalb County 1",NA
+-53,-3,NA,NA,-30,NA,"Douglas County 2",NA
+-60,-29,-42,-51,-45,15,"DuPage County",NA
+-25,-20,NA,NA,-38,NA,"Edgar County",NA
+NA,NA,NA,NA,-39,NA,"Edwards County",NA
+-42,-2,NA,-26,-36,12,"Effingham County 1",NA
+-33,-16,NA,NA,-19,NA,"Fayette County 1",NA
+-59,-18,NA,NA,-22,NA,"Ford County",NA
+-17,9,NA,-34,-28,14,"Franklin County 4",NA
+-37,-19,NA,NA,-26,17,"Fulton County 2",NA
+-46,-2,NA,NA,-21,NA,"Greene County 2",NA
+-43,-24,NA,-22,-34,19,"Grundy County",NA
+-50,NA,NA,NA,-33,NA,"Hamilton County 1",NA
+-44,-16,NA,NA,-24,NA,"Hancock County 1",NA
+NA,NA,NA,NA,-23,NA,"Henderson County",NA
+-44,-18,NA,-35,-31,18,"Henry County 1",NA
+-38,-2,NA,-39,-24,3,"Iroquois County",NA
+-47,-14,22,NA,-33,18,"Jackson County 3",NA
+-41,NA,NA,NA,-27,NA,"Jasper County 1",NA
+-37,-21,NA,-10,-39,14,"Jefferson County 5",NA
+-39,10,NA,NA,-23,NA,"Jersey County","JEY"
+-59,-13,NA,NA,-38,NA,"Jo Daviess County",NA
+-22,NA,-20,NA,-35,NA,"Johnson County 2",NA
+-57,-27,-20,-46,-39,14,"Kane County",NA
+-48,-20,NA,-15,-29,11,"Kankakee County",NA
+-46,-28,-25,NA,-38,17,"Kendall County",NA
+-50,3,NA,-31,-32,16,"Knox County",NA
+-53,0,-62,-18,-32,11,"LaSalle County",NA
+-57,-25,-36,-58,-41,14,"Lake County 3",NA
+-17,NA,NA,NA,-17,NA,"Lawrence County 1",NA
+-39,-18,NA,NA,-24,13,"Lee County 2",NA
+-44,-1,NA,NA,-27,17,"Livingston County",NA
+-40,-31,NA,NA,-25,6,"Logan County 2",NA
+-43,-14,NA,-20,-30,10,"Macon County 1",NA
+-40,1,NA,NA,-30,17,"Macoupin County",NA
+-39,-17,58,-24,-34,10,"Madison County 4",NA
+-39,-5,NA,NA,-33,14,"Marion County 3",NA
+-72,NA,NA,NA,-39,NA,"Marshall County","MHL"
+-32,4,NA,NA,-27,NA,"Mason County",NA
+-48,-18,NA,NA,-22,NA,"Massac County",NA
+-40,-13,NA,NA,-28,0,"McDonough County",NA
+-54,-23,-26,-61,-38,13,"McHenry County",NA
+-53,-28,1,-37,-41,12,"McLean County",NA
+-62,NA,NA,NA,-42,NA,"Menard County",NA
+-63,NA,NA,NA,-33,NA,"Mercer County",NA
+-37,-12,NA,NA,-33,16,"Monroe County 3",NA
+-37,-13,NA,NA,-28,1,"Montgomery County 2",NA
+-39,-3,NA,-14,-34,6,"Morgan County 2",NA
+-56,NA,NA,NA,-26,NA,"Moultrie County",NA
+-46,-9,NA,NA,-27,17,"Ogle County",NA
+-50,-19,-16,-45,-35,11,"Peoria County",NA
+-35,-4,NA,NA,-28,NA,"Perry County 1",NA
+-55,NA,NA,NA,-26,NA,"Piatt County",NA
+-36,-11,NA,NA,-19,NA,"Pike County 2",NA
+NA,NA,NA,NA,-33,NA,"Pulaski County 2",NA
+NA,NA,NA,NA,-38,NA,"Putnam County 2",NA
+-24,9,NA,NA,-24,10,"Randolph County 2",NA
+-32,-11,NA,NA,-19,NA,"Richland County",NA
+-50,0,-55,-57,-36,10,"Rock Island County",NA
+-20,1,NA,NA,-24,NA,"Saline County 1",NA
+-47,-18,31,-38,-36,10,"Sangamon County",NA
+-55,NA,NA,NA,-29,NA,"Schuyler County",NA
+-20,NA,NA,NA,-31,NA,"Shelby County",NA
+-45,-13,52,-26,-34,10,"St  Clair County",NA
+NA,NA,NA,NA,-36,NA,"Stark County",NA
+-44,-27,NA,NA,-30,17,"Stephenson County",NA
+-41,-9,-15,NA,-33,11,"Tazewell County",NA
+-8,-5,NA,NA,-23,NA,"Union County 3",NA
+-39,-15,NA,-31,-26,9,"Vermilion County",NA
+-33,-17,NA,NA,-32,NA,"Wabash County",NA
+-48,0,NA,NA,-20,NA,"Warren County 1",NA
+-58,0,NA,NA,-40,NA,"Washington County 4",NA
+-30,-8,NA,NA,-24,NA,"Wayne County 1",NA
+-23,-7,NA,NA,-23,NA,"White County 2",NA
+-53,-24,NA,NA,-30,18,"Whiteside County",NA
+-54,-27,-36,-28,-36,14,"Will County",NA
+-33,-15,-45,-16,-32,17,"Williamson County",NA
+-47,-30,-40,-40,-36,11,"Winnebago County",NA
+-61,-5,NA,NA,-34,15,"Woodford County",NA
+-48,-25,24,-34,-36,11,"Indiana","IND"
+-43,-25,NA,NA,-33,8,"Adams County 2",NA
+-54,-36,13,-44,-39,12,"Allen County",NA
+-49,-30,10,-28,-45,26,"Bartholomew County",NA
+NA,NA,NA,NA,-42,NA,"Benton County 1",NA
+-51,-17,NA,NA,-24,NA,"Blackford County",NA
+-51,-28,NA,-19,-39,26,"Boone County 2",NA
+-68,-4,NA,NA,-37,NA,"Brown County",NA
+-52,-14,NA,NA,-38,NA,"Carroll County 3",NA
+-38,-17,NA,NA,-34,18,"Cass County 1",NA
+-48,-10,64,-14,-36,10,"Clark County 2",NA
+-33,-35,NA,-21,-32,-1,"Clay County 3",NA
+-36,-30,NA,NA,-30,19,"Clinton County 1",NA
+-58,-16,NA,-38,-36,NA,"Crawford County 3",NA
+-40,-5,NA,NA,-25,8,"Daviess County",NA
+-50,-18,NA,NA,-34,22,"DeKalb County 2",NA
+-35,-11,NA,NA,-42,22,"Dearborn County",NA
+-45,-26,NA,-35,-43,11,"Decatur County 1",NA
+-52,-28,NA,1,-36,10,"Delaware County",NA
+-40,-19,NA,NA,-29,21,"Dubois County",NA
+-43,-35,18,-19,-35,10,"Elkhart County",NA
+-32,-21,NA,NA,-35,6,"Fayette County 2",NA
+-39,-21,NA,NA,-38,21,"Floyd County 1",NA
+-65,-10,NA,NA,-36,NA,"Fountain County",NA
+-38,-28,NA,NA,-36,NA,"Franklin County 5",NA
+-33,-19,NA,-54,-31,NA,"Fulton County 3",NA
+-35,-19,NA,-29,-29,11,"Gibson County",NA
+-46,-17,NA,-13,-22,17,"Grant County 1",NA
+-33,-23,NA,NA,-29,5,"Greene County 3",NA
+-58,-31,38,NA,-47,13,"Hamilton County 2",NA
+-46,9,NA,-12,-38,24,"Hancock County 2",NA
+-44,-8,NA,NA,-30,20,"Harrison County",NA
+-47,-26,-13,-19,-39,12,"Hendricks County",NA
+-32,-19,NA,-28,-31,21,"Henry County 2",NA
+-56,-36,NA,NA,-47,14,"Howard County 1",NA
+-47,-29,NA,-46,-34,21,"Huntington County",NA
+-24,-55,NA,-6,-41,22,"Jackson County 4",NA
+-44,-24,NA,-22,-33,15,"Jasper County 2",NA
+-40,-35,NA,NA,-22,NA,"Jay County",NA
+-37,-1,NA,NA,-23,14,"Jefferson County 6",NA
+-26,-11,NA,NA,-37,12,"Jennings County",NA
+-51,-22,-5,-24,-37,11,"Johnson County 3",NA
+-44,-15,NA,NA,-31,14,"Knox County 1",NA
+-52,-24,NA,NA,-33,23,"Kosciusko County",NA
+-70,-25,-46,-32,-36,9,"LaGrange County",NA
+-49,-24,-23,-43,-32,10,"LaPorte County",NA
+-52,-27,-18,-25,-38,13,"Lake County 4",NA
+-41,-23,NA,NA,-34,17,"Lawrence County 2",NA
+-44,-12,NA,-27,-35,10,"Madison County 5",NA
+-52,-27,17,-49,-38,11,"Marion County 4",NA
+-48,-19,NA,-26,-25,21,"Marshall County 1","MHL"
+-40,-4,NA,NA,-36,NA,"Martin County 1",NA
+-43,-27,NA,NA,-39,16,"Miami County",NA
+-53,-33,39,-40,-42,12,"Monroe County 4",NA
+-40,-25,NA,-35,-31,16,"Montgomery County 3",NA
+-39,-12,NA,NA,-32,20,"Morgan County 3",NA
+-45,NA,NA,NA,-27,NA,"Newton County 2",NA
+-42,-26,NA,NA,-42,23,"Noble County",NA
+NA,NA,NA,NA,-53,NA,"Ohio County",NA
+-41,-19,NA,NA,-45,NA,"Orange County 2",NA
+-30,-21,NA,NA,-29,NA,"Owen County",NA
+-44,-2,NA,NA,-37,NA,"Parke County",NA
+-59,-4,NA,NA,-45,NA,"Perry County 2",NA
+-54,-7,NA,NA,-39,NA,"Pike County 3",NA
+-54,-28,20,-39,-34,13,"Porter County",NA
+-25,6,NA,NA,-22,-1,"Posey County",NA
+-33,-23,NA,NA,-34,NA,"Pulaski County 3",NA
+-45,-31,NA,NA,-26,11,"Putnam County 3",NA
+-24,-14,NA,NA,-28,8,"Randolph County 3",NA
+-46,-18,NA,NA,-27,0,"Ripley County",NA
+-44,-11,NA,NA,-35,NA,"Rush County",NA
+-30,-8,NA,NA,-33,3,"Scott County 1",NA
+-46,-18,NA,-43,-32,21,"Shelby County 1",NA
+-45,15,NA,NA,-24,NA,"Spencer County",NA
+-53,-26,-17,-37,-35,11,"St  Joseph County",NA
+-50,-10,NA,NA,-25,NA,"Starke County",NA
+-49,-32,NA,-29,-37,19,"Steuben County",NA
+-38,-17,NA,NA,-20,NA,"Sullivan County",NA
+NA,-34,NA,NA,-44,NA,"Switzerland County","CHE"
+-57,-37,5,-27,-41,12,"Tippecanoe County",NA
+-46,-22,NA,NA,-33,NA,"Tipton County",NA
+-55,NA,NA,NA,-39,NA,"Union County 4",NA
+-41,-16,-16,-53,-29,10,"Vanderburgh County",NA
+-34,4,NA,-32,-20,NA,"Vermillion County",NA
+-47,-24,-12,-9,-36,9,"Vigo County",NA
+-50,-36,NA,NA,-26,8,"Wabash County 1",NA
+NA,NA,NA,NA,-32,NA,"Warren County 2",NA
+-23,-1,NA,NA,-30,22,"Warrick County",NA
+-27,-22,NA,NA,-25,11,"Washington County 5",NA
+-48,-30,NA,-18,-32,12,"Wayne County 2",NA
+-35,-12,NA,NA,-29,11,"Wells County",NA
+-38,-12,NA,-22,-39,6,"White County 3",NA
+-45,-34,NA,NA,-32,22,"Whitley County",NA
+-43,-10,41,-28,-29,10,"Iowa",NA
+-46,-3,NA,NA,-33,NA,"Adair County",NA
+-57,-27,NA,NA,-22,NA,"Allamakee County",NA
+-21,26,NA,NA,-24,NA,"Appanoose County",NA
+NA,NA,NA,NA,-28,NA,"Audubon County",NA
+-54,-10,NA,NA,-33,8,"Benton County 2",NA
+-46,-23,11,-14,-30,10,"Black Hawk County",NA
+-32,-21,NA,NA,-22,14,"Boone County 3",NA
+-36,-24,NA,NA,-34,-1,"Bremer County",NA
+-39,-13,NA,NA,-23,NA,"Buchanan County",NA
+-28,-6,NA,NA,-13,NA,"Buena Vista County",NA
+NA,-15,NA,NA,-30,NA,"Butler County",NA
+NA,-12,NA,NA,-29,NA,"Calhoun County 1",NA
+-34,-4,NA,NA,-29,NA,"Carroll County 4",NA
+-23,-6,NA,NA,-16,NA,"Cass County 2",NA
+-44,-23,NA,14,-18,NA,"Cedar County",NA
+-46,-13,NA,-44,-29,17,"Cerro Gordo County",NA
+-75,NA,NA,NA,-20,NA,"Cherokee County 1",NA
+-56,-28,NA,NA,-25,NA,"Chickasaw County",NA
+-30,NA,NA,-29,-17,NA,"Clarke County 1",NA
+-27,-18,NA,NA,-17,NA,"Clay County 4",NA
+-61,-12,NA,NA,-19,NA,"Clayton County 1",NA
+-41,18,NA,NA,-24,16,"Clinton County 2",NA
+-34,NA,NA,NA,-23,NA,"Crawford County 4",NA
+-60,-40,NA,NA,-34,25,"Dallas County 1",NA
+-64,NA,NA,NA,-21,NA,"Davis County",NA
+NA,NA,NA,NA,-25,NA,"Decatur County 2",NA
+-40,-20,NA,NA,-22,NA,"Delaware County 1",NA
+-40,-7,NA,-32,-24,14,"Des Moines County",NA
+-29,-2,-50,NA,-20,NA,"Dickinson County",NA
+-53,-9,-25,-63,-34,15,"Dubuque County",NA
+-42,11,NA,NA,-32,NA,"Emmet County",NA
+-36,-11,NA,NA,-20,NA,"Fayette County 3",NA
+-40,-21,NA,-9,-16,NA,"Floyd County 2",NA
+-47,-16,NA,NA,-25,NA,"Franklin County 6",NA
+-65,-9,NA,-16,-15,NA,"Fremont County 2",NA
+-51,2,NA,NA,-31,NA,"Greene County 4",NA
+-70,-33,NA,NA,-29,NA,"Grundy County 1",NA
+NA,NA,NA,NA,-34,NA,"Guthrie County",NA
+-27,-6,NA,-39,-6,NA,"Hamilton County 3",NA
+NA,-22,NA,NA,-34,NA,"Hancock County 3",NA
+-52,15,NA,NA,-25,NA,"Hardin County",NA
+-26,0,NA,NA,-19,NA,"Harrison County 1",NA
+-28,-17,NA,-17,-30,NA,"Henry County 3",NA
+-69,-5,NA,NA,-21,NA,"Howard County 2",NA
+-45,-7,NA,NA,-32,NA,"Humboldt County 1",NA
+-57,NA,NA,NA,-22,NA,"Ida County",NA
+-80,-9,NA,NA,-41,NA,"Iowa County",NA
+-37,-10,NA,NA,-24,NA,"Jackson County 5",NA
+-40,60,NA,5,-22,11,"Jasper County 3",NA
+-40,NA,NA,NA,-34,NA,"Jefferson County 7",NA
+-58,-36,-6,-24,-36,13,"Johnson County 4",NA
+-43,4,NA,NA,-30,NA,"Jones County 1",NA
+-66,NA,NA,NA,-21,NA,"Keokuk County",NA
+-70,47,NA,NA,-21,NA,"Kossuth County",NA
+-24,-13,NA,NA,-14,14,"Lee County 3",NA
+-52,-7,2,-55,-36,11,"Linn County",NA
+NA,NA,NA,NA,-18,NA,"Louisa County",NA
+-59,6,NA,NA,-16,NA,"Lucas County",NA
+-66,NA,NA,NA,-24,NA,"Lyon County",NA
+-53,33,NA,NA,-25,NA,"Madison County 6",NA
+-31,NA,NA,NA,-22,NA,"Mahaska County",NA
+-17,26,NA,NA,-19,13,"Marion County 5",NA
+-36,-15,NA,NA,-29,14,"Marshall County 2","MHL"
+-6,NA,NA,NA,-20,NA,"Mills County",NA
+-73,NA,NA,NA,-28,NA,"Mitchell County 1",NA
+-35,NA,NA,NA,-30,NA,"Monona County",NA
+-51,NA,NA,NA,-26,NA,"Monroe County 5",NA
+-56,2,NA,NA,-23,NA,"Montgomery County 4",NA
+-42,33,NA,NA,-28,16,"Muscatine County",NA
+-22,-6,NA,NA,-4,NA,"O Brien County",NA
+NA,NA,NA,NA,-25,NA,"Osceola County 1",NA
+-35,NA,NA,NA,-22,NA,"Page County",NA
+-73,-55,NA,NA,-30,NA,"Palo Alto County",NA
+-26,6,NA,NA,-30,8,"Plymouth County",NA
+NA,NA,NA,NA,-26,NA,"Pocahontas County",NA
+-44,-9,66,-45,-34,10,"Polk County 3",NA
+-33,2,14,-4,-30,7,"Pottawattamie County",NA
+-36,-15,NA,-18,-28,NA,"Poweshiek County",NA
+NA,NA,NA,NA,-22,NA,"Sac County",NA
+-50,-22,-1,-24,-31,11,"Scott County 2",NA
+-17,-5,NA,NA,-25,NA,"Shelby County 2",NA
+-25,4,NA,NA,-23,19,"Sioux County",NA
+-50,-29,NA,-38,-43,22,"Story County",NA
+-44,-18,NA,NA,-36,NA,"Tama County",NA
+NA,NA,NA,NA,-18,NA,"Taylor County 2",NA
+-14,NA,NA,NA,-29,NA,"Union County 5",NA
+NA,-7,NA,NA,-13,NA,"Van Buren County 1",NA
+-33,8,NA,NA,-18,10,"Wapello County",NA
+-28,-13,NA,NA,-32,15,"Warren County 3",NA
+-41,-19,NA,NA,-30,-3,"Washington County 6",NA
+NA,NA,NA,NA,-25,NA,"Wayne County 3",NA
+-33,22,NA,NA,-24,15,"Webster County",NA
+-53,-18,NA,NA,-36,NA,"Winnebago County 1",NA
+-56,-33,NA,NA,-33,NA,"Winneshiek County",NA
+-34,-3,NA,-13,-26,8,"Woodbury County",NA
+NA,-42,NA,NA,-31,NA,"Worth County 1",NA
+-57,-4,NA,NA,-8,NA,"Wright County",NA
+-36,-14,72,-20,-30,9,"Kansas",NA
+-37,-11,68,-34,-34,9,"Kentucky",NA
+-45,-16,-18,-49,-35,11,"Louisiana",NA
+-24,-5,NA,-36,-21,15,"Acadia Parish",NA
+-34,-19,NA,NA,-33,NA,"Allen Parish",NA
+-45,-21,NA,NA,-34,15,"Ascension Parish",NA
+NA,-8,NA,NA,-36,NA,"Assumption Parish",NA
+-24,-8,NA,NA,-32,-2,"Avoyelles Parish",NA
+-29,-10,NA,NA,-31,3,"Beauregard Parish",NA
+-41,-15,NA,NA,-32,NA,"Bienville Parish",NA
+-49,-19,4,-30,-37,12,"Bossier Parish",NA
+-36,-9,-14,-31,-32,10,"Caddo Parish",NA
+-40,-19,-6,-38,-34,11,"Calcasieu Parish",NA
+-25,NA,NA,NA,-29,NA,"Caldwell Parish",NA
+NA,10,NA,NA,-17,NA,"Cameron Parish",NA
+-64,-20,NA,NA,-38,NA,"Catahoula Parish",NA
+-49,-18,NA,NA,-31,NA,"Claiborne Parish",NA
+-23,-16,NA,NA,-20,NA,"Concordia Parish",NA
+-13,-16,NA,-35,-24,NA,"De Soto Parish",NA
+-48,-16,-26,-44,-34,12,"East Baton Rouge Parish",NA
+-23,-9,NA,NA,-35,NA,"East Feliciana Parish",NA
+-16,-4,NA,NA,-25,NA,"Evangeline Parish",NA
+-28,-8,NA,NA,-22,NA,"Franklin Parish",NA
+NA,-13,NA,NA,-20,NA,"Grant Parish",NA
+-26,-11,-30,NA,-23,16,"Iberia Parish",NA
+-29,-4,NA,-43,-30,NA,"Iberville Parish",NA
+-19,-8,NA,NA,-30,NA,"Jackson Parish",NA
+-40,-12,NA,-47,-33,-1,"Jefferson Davis Parish",NA
+-49,-20,-1,-84,-44,14,"Jefferson Parish",NA
+-27,-9,NA,NA,-31,NA,"La Salle Parish",NA
+-44,-22,15,-42,-31,11,"Lafayette Parish",NA
+-23,-13,NA,-36,-25,12,"Lafourche Parish",NA
+-53,-26,NA,NA,-38,9,"Lincoln Parish",NA
+-40,-12,-13,-16,-32,10,"Livingston Parish",NA
+-17,-8,NA,-37,-20,NA,"Madison Parish",NA
+-24,-8,NA,NA,-23,NA,"Morehouse Parish",NA
+-33,-24,NA,NA,-30,6,"Natchitoches Parish",NA
+-71,-35,-55,-59,-54,16,"Orleans Parish",NA
+-41,-15,-24,-27,-29,9,"Ouachita Parish",NA
+-39,-21,-31,NA,-25,NA,"Plaquemines Parish",NA
+-15,-12,NA,NA,-16,NA,"Pointe Coupee Parish",NA
+-40,-15,-2,-55,-30,10,"Rapides Parish",NA
+-42,NA,NA,NA,-26,NA,"Red River Parish",NA
+-24,-10,NA,-25,-16,NA,"Richland Parish",NA
+-16,-6,NA,NA,-23,NA,"Sabine Parish",NA
+-31,1,-21,NA,-35,23,"St  Bernard Parish",NA
+-39,-13,NA,-18,-35,22,"St  Charles Parish",NA
+NA,-20,NA,NA,-35,NA,"St  Helena Parish","SHN"
+-46,-11,NA,NA,-17,NA,"St  James Parish",NA
+-34,-3,-67,-51,-37,22,"St  John the Baptist Parish",NA
+-28,-16,NA,-40,-28,14,"St  Landry Parish",NA
+-34,-14,-10,-45,-29,19,"St  Martin Parish",NA
+-31,-11,NA,-43,-33,15,"St  Mary Parish",NA
+-45,-19,3,-21,-35,11,"St  Tammany Parish",NA
+-35,-6,-20,-17,-32,10,"Tangipahoa Parish",NA
+-43,-12,25,-42,-32,9,"Terrebonne Parish",NA
+-22,6,NA,NA,-31,NA,"Union Parish",NA
+-21,-3,NA,NA,-29,16,"Vermilion Parish",NA
+-32,-21,NA,NA,-34,19,"Vernon Parish",NA
+-21,-1,NA,NA,-20,2,"Washington Parish",NA
+-27,-19,NA,-19,-31,13,"Webster Parish",NA
+-42,1,NA,-37,-36,NA,"West Baton Rouge Parish",NA
+-23,-29,NA,NA,-22,NA,"West Carroll Parish",NA
+-54,-19,NA,NA,-45,NA,"West Feliciana Parish",NA
+-25,0,NA,NA,-23,NA,"Winn Parish",NA
+-50,-22,-24,-56,-31,10,"Maine",NA
+-49,-21,-26,NA,-30,10,"Androscoggin County",NA
+-28,9,-4,NA,-18,16,"Aroostook County",NA
+-60,-36,-38,-67,-37,13,"Cumberland County 1",NA
+-53,-21,NA,NA,-32,0,"Franklin County 7",NA
+-35,-1,15,NA,-22,17,"Hancock County 4",NA
+-42,-19,-37,-53,-28,10,"Kennebec County",NA
+-35,-24,NA,NA,-30,11,"Knox County 2",NA
+-54,-15,NA,NA,-30,6,"Lincoln County 4",NA
+-53,-27,-55,NA,-38,18,"Oxford County",NA
+-45,-14,4,-29,-31,9,"Penobscot County",NA
+-62,-8,NA,NA,-14,NA,"Piscataquis County",NA
+-48,-11,NA,NA,-34,13,"Sagadahoc County",NA
+-29,-15,-9,NA,-22,17,"Somerset County",NA
+-44,-20,NA,NA,-27,13,"Waldo County",NA
+-42,-8,NA,NA,-24,NA,"Washington County 7",NA
+-55,-23,-48,-64,-36,12,"York County",NA
+-45,-25,29,-51,-39,13,"Maryland",NA
+-39,-17,-8,-32,-31,16,"Allegany County",NA
+-49,-31,33,-76,-42,13,"Anne Arundel County",NA
+-44,-18,12,-34,-37,12,"Baltimore",NA
+-46,-21,10,-39,-36,13,"Baltimore County",NA
+-37,-33,33,NA,-39,23,"Calvert County",NA
+-28,-21,NA,NA,-28,15,"Caroline County",NA
+-43,-35,10,-50,-34,12,"Carroll County 5",NA
+-34,-32,-34,-57,-30,10,"Cecil County",NA
+-41,-18,-42,-28,-39,13,"Charles County",NA
+-29,-6,NA,NA,-28,12,"Dorchester County",NA
+-49,-30,19,-35,-38,13,"Frederick County",NA
+-37,-20,NA,-17,-37,-1,"Garrett County",NA
+-43,-30,50,-62,-32,12,"Harford County",NA
+-57,-45,7,-30,-47,16,"Howard County 3",NA
+-43,-14,NA,NA,-33,NA,"Kent County 1",NA
+-51,-30,44,-50,-45,16,"Montgomery County 5",NA
+-40,-26,37,-50,-40,14,"Prince George s County",NA
+-57,-33,-36,NA,-40,21,"Queen Anne s County",NA
+-41,-7,NA,NA,-36,NA,"Somerset County 1",NA
+-40,-19,32,NA,-34,14,"St  Mary s County",NA
+-42,-23,NA,NA,-38,8,"Talbot County 1",NA
+-42,-20,28,-22,-32,10,"Washington County 8",NA
+-46,-23,NA,-58,-34,10,"Wicomico County",NA
+-47,-21,-24,NA,-39,16,"Worcester County",NA
+-59,-36,-56,-73,-42,16,"Massachusetts",NA
+-57,-28,-38,-67,-41,13,"Barnstable County",NA
+-49,-31,-36,-68,-35,12,"Berkshire County",NA
+-54,-32,-44,-54,-35,13,"Bristol County",NA
+-79,-41,NA,-53,-51,NA,"Dukes County",NA
+-58,-39,-53,-60,-44,16,"Essex County",NA
+-58,-40,-37,-39,-37,22,"Franklin County 8",NA
+-54,-28,-46,-56,-37,12,"Hampden County",NA
+-60,-39,-45,-65,-43,15,"Hampshire County",NA
+-64,-41,-62,-73,-46,18,"Middlesex County 1",NA
+-70,-38,NA,NA,-54,NA,"Nantucket County",NA
+-63,-37,-57,-61,-44,17,"Norfolk County","NFK"
+-57,-32,-34,-54,-37,14,"Plymouth County 1",NA
+-71,-41,-68,-79,-51,18,"Suffolk County",NA
+-55,-36,-60,-66,-38,14,"Worcester County 1",NA
+-58,-28,15,-55,-43,12,"Michigan",NA
+-58,-35,-16,-64,-38,14,"Minnesota",NA
+-63,-46,-65,NA,-41,NA,"Aitkin County",NA
+-55,-34,12,-45,-39,15,"Anoka County",NA
+-51,-21,NA,NA,-35,16,"Becker County",NA
+-52,-29,4,NA,-36,18,"Beltrami County",NA
+-58,-33,NA,NA,-31,18,"Benton County 3",NA
+NA,NA,NA,NA,-35,NA,"Big Stone County",NA
+-65,-38,-40,NA,-35,20,"Blue Earth County",NA
+-31,-39,NA,NA,-19,9,"Brown County 1",NA
+-57,-45,NA,NA,-26,11,"Carlton County",NA
+-53,-39,-41,NA,-46,24,"Carver County",NA
+-67,-22,-18,NA,-45,0,"Cass County 3",NA
+-31,NA,NA,NA,-25,NA,"Chippewa County",NA
+-72,-41,-33,NA,-35,20,"Chisago County",NA
+-44,-25,NA,NA,-34,20,"Clay County 5",NA
+-35,-34,NA,NA,-38,NA,"Clearwater County 1",NA
+-78,-47,NA,NA,-46,NA,"Cook County 2","COK"
+-74,NA,NA,NA,-24,NA,"Cottonwood County",NA
+-55,-31,-33,NA,-37,16,"Crow Wing County",NA
+-57,-37,-16,-43,-41,15,"Dakota County",NA
+-71,-35,NA,NA,-30,4,"Dodge County 1",NA
+-56,-38,-47,-20,-35,17,"Douglas County 3",NA
+-59,-31,NA,NA,-18,NA,"Faribault County",NA
+-74,-25,NA,NA,-28,NA,"Fillmore County",NA
+-47,-29,NA,-20,-32,15,"Freeborn County",NA
+-49,-38,-20,NA,-39,18,"Goodhue County",NA
+NA,NA,NA,NA,-23,NA,"Grant County 2",NA
+-64,-37,-17,-74,-44,16,"Hennepin County",NA
+-85,-30,NA,NA,-28,NA,"Houston County 1",NA
+-45,-32,NA,NA,-44,NA,"Hubbard County",NA
+-53,-40,-36,NA,-32,17,"Isanti County",NA
+-54,-29,NA,NA,-26,17,"Itasca County",NA
+-77,NA,NA,NA,-27,NA,"Jackson County 6",NA
+-59,-39,NA,NA,-38,NA,"Kanabec County",NA
+-51,-25,NA,NA,-29,16,"Kandiyohi County",NA
+-44,-32,NA,NA,-29,NA,"Koochiching County",NA
+NA,NA,NA,NA,-20,NA,"Lac qui Parle County",NA
+-81,-48,-50,NA,-31,NA,"Lake County 5",NA
+-71,NA,NA,NA,NA,NA,"Lake of the Woods County",NA
+-22,-22,NA,NA,-33,17,"Le Sueur County",NA
+NA,NA,NA,NA,-26,NA,"Lincoln County 5",NA
+-51,-33,NA,NA,-25,4,"Lyon County 1",NA
+NA,NA,NA,NA,-52,NA,"Mahnomen County",NA
+NA,NA,NA,NA,-29,NA,"Marshall County 3","MHL"
+-55,-27,NA,NA,-26,NA,"Martin County 2",NA
+-49,-31,NA,NA,-25,16,"McLeod County",NA
+-40,-49,NA,NA,-32,3,"Meeker County",NA
+-49,-30,NA,NA,-39,11,"Mille Lacs County",NA
+-49,-37,-61,NA,-27,13,"Morrison County",NA
+-48,-37,NA,NA,-25,18,"Mower County",NA
+-35,NA,NA,NA,-22,NA,"Murray County 1",NA
+-64,-43,NA,NA,-33,20,"Nicollet County",NA
+-49,-20,NA,-45,-22,NA,"Nobles County",NA
+NA,NA,NA,NA,-23,NA,"Norman County",NA
+-62,-35,-13,-57,-40,15,"Olmsted County",NA
+-45,-15,-2,NA,-30,15,"Otter Tail County",NA
+-39,-21,NA,NA,-40,NA,"Pennington County",NA
+-56,-58,-47,NA,-53,10,"Pine County",NA
+-64,-20,NA,NA,-26,NA,"Pipestone County",NA
+-55,-28,NA,NA,-29,15,"Polk County 4",NA
+-83,NA,NA,NA,-33,NA,"Pope County 1",NA
+-64,-34,-29,-43,-42,15,"Ramsey County",NA
+-49,-2,NA,NA,-38,NA,"Redwood County",NA
+-50,NA,NA,NA,-22,NA,"Renville County",NA
+-51,-28,-48,-43,-39,18,"Rice County",NA
+-65,NA,NA,NA,-26,NA,"Rock County",NA
+-73,-26,NA,NA,-49,NA,"Roseau County",NA
+-55,-41,-19,NA,-42,15,"Scott County 3",NA
+-50,-37,-42,NA,-38,20,"Sherburne County",NA
+-32,NA,NA,NA,-18,NA,"Sibley County",NA
+-64,-41,-35,-56,-37,14,"St  Louis County",NA
+-61,-37,-53,-62,-36,14,"Stearns County",NA
+-53,-27,-60,-44,-33,19,"Steele County",NA
+-63,-26,NA,NA,-28,NA,"Stevens County",NA
+-29,-27,NA,NA,-23,NA,"Swift County",NA
+-46,-20,NA,NA,-28,3,"Todd County",NA
+-75,-25,NA,NA,-28,NA,"Wabasha County",NA
+-46,-27,NA,NA,-28,NA,"Wadena County",NA
+-40,-45,NA,NA,-21,NA,"Waseca County",NA
+-55,-39,-8,-38,-40,16,"Washington County 9",NA
+-57,NA,NA,NA,-7,NA,"Watonwan County",NA
+NA,NA,NA,NA,-28,NA,"Wilkin County",NA
+-52,-35,NA,-49,-23,20,"Winona County",NA
+-55,-37,-25,NA,-35,15,"Wright County 1",NA
+-23,NA,NA,NA,-26,NA,"Yellow Medicine County",NA
+-32,-7,27,-29,-30,9,"Mississippi",NA
+-33,-10,NA,NA,-34,NA,"Adams County 3",NA
+-32,-9,NA,NA,-28,1,"Alcorn County",NA
+-34,-13,NA,NA,-33,NA,"Amite County",NA
+-10,11,NA,NA,-20,NA,"Attala County",NA
+NA,NA,NA,NA,-23,NA,"Benton County 4",NA
+-15,1,NA,NA,-24,NA,"Bolivar County",NA
+-30,2,NA,NA,-32,NA,"Calhoun County 2",NA
+NA,NA,NA,NA,-33,NA,"Carroll County 6",NA
+-18,-16,NA,NA,-35,NA,"Chickasaw County 1",NA
+-22,NA,NA,NA,-9,NA,"Claiborne County",NA
+-31,-10,NA,NA,-25,NA,"Clarke County 2",NA
+-24,8,NA,-34,-33,NA,"Clay County 6",NA
+-19,18,NA,NA,-43,NA,"Coahoma County",NA
+-19,-2,NA,NA,-15,NA,"Copiah County",NA
+-32,-7,NA,NA,-29,NA,"Covington County",NA
+-37,-7,50,-25,-34,10,"DeSoto County 1",NA
+-32,-8,NA,-27,-30,13,"Forrest County",NA
+-28,9,NA,NA,-28,NA,"George County",NA
+NA,-10,NA,NA,-23,NA,"Greene County 5",NA
+-14,10,NA,NA,-15,NA,"Grenada County","GRD"
+-22,-7,NA,NA,-40,16,"Hancock County 5",NA
+-39,-13,51,-41,-44,10,"Harrison County 2",NA
+-28,0,10,-9,-29,9,"Hinds County",NA
+2,13,NA,NA,-30,NA,"Holmes County 1",NA
+NA,-9,NA,NA,-30,NA,"Humphreys County",NA
+-33,14,NA,NA,-28,NA,"Itawamba County",NA
+-28,-9,19,-38,-38,10,"Jackson County 7",NA
+-22,-3,NA,NA,-18,NA,"Jasper County 4",NA
+NA,6,NA,NA,-34,NA,"Jefferson Davis County",NA
+-24,1,NA,NA,-28,11,"Jones County 2",NA
+NA,NA,NA,NA,-26,NA,"Kemper County",NA
+-46,-21,NA,NA,-35,10,"Lafayette County 1",NA
+-52,-11,NA,-44,-25,14,"Lamar County 1",NA
+-38,-14,8,-29,-35,14,"Lauderdale County",NA
+NA,4,NA,NA,-30,NA,"Lawrence County 3",NA
+-21,-23,NA,NA,-26,NA,"Leake County",NA
+-46,-12,NA,-26,-33,19,"Lee County 4",NA
+-7,6,NA,NA,-15,NA,"Leflore County",NA
+-22,-13,NA,NA,-25,NA,"Lincoln County 6",NA
+-33,8,NA,-39,-28,13,"Lowndes County 1",NA
+-33,-11,45,-45,-37,21,"Madison County 7",NA
+-17,-7,NA,NA,-15,NA,"Marion County 6",NA
+-14,4,NA,NA,-22,5,"Marshall County 4","MHL"
+-46,-7,NA,NA,-31,0,"Monroe County 6",NA
+-50,-23,NA,-22,-17,NA,"Montgomery County 6",NA
+-23,-7,NA,NA,-27,NA,"Neshoba County",NA
+-19,-7,NA,NA,-16,NA,"Newton County 3",NA
+-5,10,NA,NA,-19,NA,"Noxubee County",NA
+-44,-20,NA,NA,-32,2,"Oktibbeha County",NA
+-8,7,NA,-28,-22,-3,"Panola County",NA
+-18,0,NA,-24,-28,14,"Pearl River County",NA
+NA,-4,-22,NA,-27,NA,"Perry County 3",NA
+-27,-9,NA,-28,-19,-2,"Pike County 4",NA
+-28,-3,NA,NA,-29,-1,"Pontotoc County",NA
+-23,-3,NA,NA,-25,NA,"Prentiss County",NA
+NA,NA,NA,NA,-32,NA,"Quitman County",NA
+-42,-12,-9,-42,-27,10,"Rankin County",NA
+-27,-1,NA,-9,-17,NA,"Scott County 4",NA
+-25,-3,NA,-40,-20,NA,"Simpson County",NA
+NA,7,NA,NA,-21,NA,"Smith County",NA
+-18,-22,NA,NA,-28,NA,"Stone County 1",NA
+-9,25,NA,-20,-10,NA,"Sunflower County",NA
+NA,-6,NA,NA,-31,NA,"Tallahatchie County",NA
+-24,-1,NA,-8,-28,NA,"Tate County",NA
+-26,-17,NA,NA,-25,NA,"Tippah County",NA
+-2,8,NA,NA,-22,NA,"Tishomingo County",NA
+-50,16,NA,NA,-44,NA,"Tunica County",NA
+-25,-8,NA,-20,-32,NA,"Union County 6",NA
+-47,2,NA,NA,-28,NA,"Walthall County",NA
+-26,-11,-20,NA,-28,15,"Warren County 4",NA
+-22,5,NA,NA,-18,11,"Washington County 10",NA
+-25,11,NA,NA,-21,NA,"Wayne County 4",NA
+-41,-9,NA,NA,-33,NA,"Webster County 1",NA
+NA,-8,NA,NA,-28,NA,"Wilkinson County 1",NA
+-6,-6,NA,NA,-23,NA,"Winston County",NA
+NA,-2,NA,NA,-28,NA,"Yalobusha County",NA
+-19,11,NA,NA,-20,NA,"Yazoo County",NA
+-38,-12,73,-34,-32,9,"Missouri",NA
+-51,-25,28,-37,-37,10,"Montana",NA
+-34,-9,109,-18,-24,8,"Nebraska",NA
+-47,-23,-38,-62,-52,14,"Nevada",NA
+-36,-13,-3,NA,-35,18,"Carson City",NA
+-27,-11,NA,NA,-28,5,"Churchill County",NA
+-48,-26,-47,-66,-56,15,"Clark County 3",NA
+-58,-35,-35,NA,-47,18,"Douglas County 4",NA
+-40,10,7,-11,-35,17,"Elko County",NA
+-46,-1,NA,-40,-20,NA,"Humboldt County 2",NA
+-59,-12,NA,NA,-41,NA,"Lander County",NA
+-14,-5,NA,-10,-27,15,"Lyon County 2",NA
+NA,NA,NA,-29,NA,NA,"Mineral County",NA
+-26,-15,-52,-20,-40,13,"Nye County",NA
+NA,NA,NA,6,-32,NA,"Pershing County",NA
+-73,NA,NA,NA,-38,NA,"Storey County",NA
+-44,-21,6,-64,-42,12,"Washoe County",NA
+-65,-4,NA,-4,-23,NA,"White Pine County",NA
+-58,-35,-63,-63,-38,13,"New Hampshire",NA
+-52,-28,-53,NA,-35,18,"Belknap County",NA
+-69,-30,-66,NA,-51,19,"Carroll County 7",NA
+-51,-36,-46,NA,-34,18,"Cheshire County",NA
+-52,-21,-68,NA,-37,10,"Coos County",NA
+-62,-37,-71,-45,-44,20,"Grafton County",NA
+-62,-37,-55,-57,-38,14,"Hillsborough County 1",NA
+-58,-31,-59,-76,-37,13,"Merrimack County",NA
+-59,-36,-63,-60,-39,14,"Rockingham County",NA
+-51,-38,-53,-39,-38,13,"Strafford County",NA
+-45,-22,NA,NA,-28,16,"Sullivan County 1",NA
+-59,-33,-36,-70,-44,16,"New Jersey","JEY"
+-56,-30,11,-72,-55,16,"Atlantic County",NA
+-66,-37,-64,-64,-50,19,"Bergen County",NA
+-53,-39,7,-53,-38,14,"Burlington County",NA
+-50,-30,-29,-59,-37,13,"Camden County 1",NA
+-49,-27,-14,-59,-41,19,"Cape May County",NA
+-36,-19,-35,-28,-25,10,"Cumberland County 2",NA
+-60,-27,-50,-78,-43,17,"Essex County 1",NA
+-54,-30,-3,-15,-36,13,"Gloucester County",NA
+-62,-38,-69,-72,-51,18,"Hudson County",NA
+-64,-35,21,-31,-42,28,"Hunterdon County",NA
+-55,-25,-27,-74,-43,15,"Mercer County 1",NA
+-64,-41,-31,-77,-44,17,"Middlesex County 2",NA
+-62,-34,-32,-67,-44,17,"Monmouth County",NA
+-63,-39,-43,-64,-47,18,"Morris County",NA
+-55,-31,-25,-58,-42,15,"Ocean County",NA
+-66,-34,-53,-55,-46,16,"Passaic County",NA
+-39,-21,-22,-61,-28,18,"Salem County",NA
+-61,-36,-31,-60,-47,17,"Somerset County 2",NA
+-57,-27,-39,-53,-39,15,"Sussex County 1",NA
+-62,-32,-40,-61,-44,17,"Union County 7",NA
+-47,-37,-35,-40,-35,14,"Warren County 5",NA
+-44,-18,-12,-31,-34,11,"New Mexico","MEX"
+-46,-22,8,-43,-37,11,"Bernalillo County",NA
+-46,-26,-41,-49,-26,12,"Chaves County",NA
+-27,-7,NA,-16,-30,NA,"Cibola County",NA
+-62,-29,NA,-26,-40,NA,"Colfax County",NA
+-38,-17,-32,-38,-25,16,"Curry County",NA
+-41,-19,-15,-34,-33,12,"Doña Ana County",NA
+-38,-20,-39,-35,-20,12,"Eddy County",NA
+-35,-9,NA,NA,-25,2,"Grant County 3",NA
+-39,-30,NA,-9,NA,NA,"Guadalupe County",NA
+-57,NA,NA,-31,NA,NA,"Hidalgo County",NA
+-44,-9,-24,-34,-26,13,"Lea County",NA
+-71,-41,-72,NA,-48,NA,"Lincoln County 7",NA
+-70,-33,NA,NA,-53,NA,"Los Alamos County",NA
+-41,-16,-45,-22,-22,NA,"Luna County",NA
+-41,1,NA,-13,-20,22,"McKinley County",NA
+-39,-25,-58,NA,-36,19,"Otero County 1",NA
+-10,-4,NA,-7,-25,NA,"Quay County",NA
+-30,-20,NA,NA,-37,12,"Rio Arriba County",NA
+-31,-23,NA,NA,-22,NA,"Roosevelt County",NA
+-42,-15,2,-38,-26,10,"San Juan County",NA
+-29,-22,NA,-41,-29,-1,"San Miguel County 1",NA
+-34,-13,3,-28,-42,11,"Sandoval County",NA
+-52,-23,-23,-51,-44,12,"Santa Fe County",NA
+-44,-4,NA,NA,-24,NA,"Sierra County","SLE"
+-42,-8,NA,NA,-36,NA,"Socorro County",NA
+-59,-29,-36,NA,-52,1,"Taos County",NA
+-24,-7,NA,-8,-25,NA,"Torrance County",NA
+NA,NA,NA,-34,NA,NA,"Union County 8",NA
+-38,-8,-10,-21,-33,13,"Valencia County",NA
+-62,-32,-47,-68,-46,16,"New York",NA
+-40,-15,13,-51,-35,10,"North Carolina",NA
+-39,-7,34,-18,-33,9,"Alamance County",NA
+-24,10,NA,NA,-23,12,"Alexander County 1",NA
+-31,-11,NA,NA,-22,NA,"Alleghany County",NA
+-43,2,NA,NA,-21,NA,"Anson County",NA
+-5,1,NA,NA,-29,NA,"Ashe County",NA
+-50,-18,NA,NA,-28,NA,"Avery County",NA
+-22,-7,58,NA,-25,13,"Beaufort County",NA
+105,-3,NA,NA,-20,NA,"Bertie County",NA
+-14,5,-27,NA,-21,12,"Bladen County",NA
+-27,-11,26,-33,-33,8,"Brunswick County",NA
+-60,-30,-9,-70,-45,13,"Buncombe County",NA
+-26,-3,30,NA,-24,7,"Burke County 1",NA
+-50,-26,6,-33,-41,12,"Cabarrus County",NA
+-20,-8,-2,NA,-29,7,"Caldwell County",NA
+-41,NA,NA,NA,-30,NA,"Camden County 2",NA
+-25,-13,-2,NA,-33,8,"Carteret County",NA
+-25,38,NA,NA,-32,NA,"Caswell County",NA
+-41,-8,49,-11,-29,8,"Catawba County",NA
+-21,-20,0,NA,-35,17,"Chatham County 1",NA
+-33,-14,NA,NA,-43,1,"Cherokee County 2",NA
+-11,-1,NA,NA,-12,NA,"Chowan County",NA
+-26,-14,NA,NA,-32,NA,"Clay County 7",NA
+-33,-5,8,NA,-27,7,"Cleveland County 1",NA
+-19,3,NA,NA,-23,10,"Columbus County",NA
+-30,-2,35,-25,-32,7,"Craven County",NA
+-31,-11,18,-32,-34,8,"Cumberland County 3",NA
+-14,-7,NA,NA,-27,8,"Currituck County",NA
+-45,-27,3,NA,-31,12,"Dare County",NA
+-32,-12,60,-18,-31,9,"Davidson County",NA
+-28,-9,NA,-27,-30,14,"Davie County",NA
+-34,-3,NA,-20,-25,11,"Duplin County",NA
+-50,-28,-7,-36,-43,13,"Durham County",NA
+-9,12,NA,NA,-26,12,"Edgecombe County",NA
+-45,-28,57,-17,-39,11,"Forsyth County 1",NA
+-21,-8,NA,NA,-39,16,"Franklin County 9",NA
+-38,-26,-7,NA,-33,10,"Gaston County",NA
+NA,NA,NA,NA,-28,NA,"Gates County",NA
+NA,NA,NA,NA,-30,NA,"Graham County 1",NA
+-18,-14,NA,NA,-32,16,"Granville County",NA
+-37,-6,-14,NA,-31,NA,"Greene County 6",NA
+-47,-29,20,-42,-39,12,"Guilford County",NA
+-23,-8,NA,NA,-20,11,"Halifax County",NA
+-23,-3,0,-9,-32,8,"Harnett County",NA
+-40,-21,24,-19,-35,9,"Haywood County",NA
+-49,-26,25,-46,-38,11,"Henderson County 1",NA
+-46,9,NA,NA,-25,NA,"Hertford County",NA
+-14,3,NA,NA,-29,14,"Hoke County",NA
+-35,-7,38,-15,-31,8,"Iredell County",NA
+-40,-25,17,NA,-51,15,"Jackson County 8",NA
+-36,-14,21,-14,-33,9,"Johnston County",NA
+NA,-8,NA,NA,-22,NA,"Jones County 3",NA
+-25,1,NA,NA,-27,14,"Lee County 5",NA
+-30,-4,NA,NA,-25,12,"Lenoir County",NA
+-16,-2,-31,NA,-32,7,"Lincoln County 8",NA
+-33,-8,-7,NA,-38,13,"Macon County 2",NA
+-38,-20,NA,NA,-28,NA,"Madison County 8",NA
+-21,0,NA,NA,-28,NA,"Martin County 3",NA
+-20,-2,35,-23,-18,12,"McDowell County",NA
+-53,-23,1,-70,-43,13,"Mecklenburg County",NA
+-26,-10,NA,NA,-24,NA,"Mitchell County 2",NA
+-21,24,9,-19,-24,-1,"Montgomery County 7",NA
+-40,-11,21,NA,-39,9,"Moore County",NA
+-32,-1,-39,-16,-29,7,"Nash County",NA
+-43,-17,12,-63,-34,9,"New Hanover County",NA
+-62,22,NA,NA,-18,NA,"Northampton County",NA
+-30,-5,25,-61,-29,7,"Onslow County",NA
+-56,-39,-20,-50,-44,14,"Orange County 3",NA
+-15,15,NA,NA,-29,NA,"Pamlico County",NA
+-24,-9,NA,-49,-31,14,"Pasquotank County",NA
+-17,-2,NA,NA,-27,14,"Pender County",NA
+-47,-10,NA,NA,-24,NA,"Perquimans County",NA
+-21,15,NA,NA,-31,15,"Person County",NA
+-47,-20,6,-38,-32,9,"Pitt County",NA
+-43,-14,NA,NA,-34,NA,"Polk County 5",NA
+-38,-6,-13,NA,-25,8,"Randolph County 4",NA
+-31,-2,NA,NA,-26,10,"Richmond County 1",NA
+-27,-3,NA,-21,-26,6,"Robeson County",NA
+-20,-3,-12,-8,-30,8,"Rockingham County 1",NA
+-38,-6,66,-28,-30,8,"Rowan County",NA
+-34,-8,-10,NA,-29,9,"Rutherford County",NA
+-14,4,NA,NA,-24,11,"Sampson County",NA
+-25,-4,NA,NA,-30,11,"Scotland County",NA
+-18,-13,NA,NA,-32,12,"Stanly County",NA
+-33,-6,-25,NA,-26,12,"Stokes County",NA
+-24,-3,-20,-9,-29,12,"Surry County",NA
+-77,9,-31,NA,-52,NA,"Swain County",NA
+-28,-11,14,NA,-37,6,"Transylvania County",NA
+-33,-18,4,-17,-38,11,"Union County 9",NA
+-24,0,NA,NA,-28,13,"Vance County",NA
+-51,-31,-1,-74,-43,13,"Wake County",NA
+-4,18,NA,NA,-20,NA,"Warren County 6",NA
+-29,8,NA,NA,-15,NA,"Washington County 11",NA
+-55,-38,56,NA,-49,17,"Watauga County",NA
+-30,-5,22,-30,-24,7,"Wayne County 5",NA
+-26,3,-49,NA,-25,10,"Wilkes County 1",NA
+-27,-7,-11,NA,-26,7,"Wilson County",NA
+-47,-7,NA,NA,-31,11,"Yadkin County",NA
+-31,-7,NA,NA,-31,NA,"Yancey County",NA
+-44,-13,73,-36,-24,9,"North Dakota",NA
+-22,NA,NA,NA,-25,NA,"Barnes County",NA
+-39,NA,NA,NA,-35,NA,"Bottineau County",NA
+-44,-14,26,-56,-25,11,"Burleigh County",NA
+-54,-26,69,-34,-30,12,"Cass County 4",NA
+-56,-18,-26,NA,NA,NA,"Dunn County",NA
+-46,-20,-48,-38,-28,20,"Grand Forks County",NA
+-40,-15,NA,-25,-14,NA,"McKenzie County",NA
+-63,NA,NA,NA,-26,NA,"McLean County 1",NA
+NA,10,NA,NA,-27,NA,"Mercer County 2",NA
+-33,2,NA,-12,-24,17,"Morton County",NA
+-35,-14,NA,NA,-27,NA,"Mountrail County",NA
+NA,NA,NA,NA,-22,NA,"Pembina County",NA
+-39,-27,NA,NA,-29,NA,"Ramsey County 1",NA
+NA,NA,NA,NA,-13,NA,"Ransom County",NA
+-42,-4,NA,NA,-23,NA,"Richland County 1",NA
+-33,NA,NA,NA,-37,NA,"Rolette County",NA
+-29,18,NA,NA,-10,14,"Stark County 1",NA
+-25,-15,NA,NA,-15,NA,"Stutsman County",NA
+NA,NA,NA,NA,-31,NA,"Traill County",NA
+-26,NA,NA,NA,-22,NA,"Walsh County",NA
+-38,-12,NA,-35,-23,18,"Ward County",NA
+-30,-6,NA,-25,-21,14,"Williams County",NA
+-43,-19,117,-33,-35,10,"Ohio",NA
+-36,-12,29,-23,-32,9,"Oklahoma",NA
+-3,8,NA,NA,-23,NA,"Adair County 1",NA
+-19,-19,NA,-26,-27,NA,"Atoka County",NA
+-20,-9,NA,-10,-13,NA,"Beckham County",NA
+-12,-1,NA,NA,-23,NA,"Blaine County 1",NA
+-30,-25,NA,-21,-34,15,"Bryan County 1",NA
+-17,-1,NA,-10,-35,NA,"Caddo County",NA
+-33,-20,85,-9,-37,10,"Canadian County",NA
+-27,1,NA,-16,-29,14,"Carter County",NA
+-26,-5,-38,NA,-33,17,"Cherokee County 3",NA
+-22,-6,NA,NA,-21,NA,"Choctaw County",NA
+-46,-22,26,NA,-39,11,"Cleveland County 2",NA
+NA,NA,NA,NA,-28,NA,"Coal County",NA
+-38,-9,66,5,-38,9,"Comanche County",NA
+NA,-23,NA,-43,-33,NA,"Cotton County",NA
+-14,-21,NA,8,-24,NA,"Craig County",NA
+-22,-7,-18,NA,-31,10,"Creek County",NA
+-32,-7,NA,-6,-28,NA,"Custer County",NA
+-16,20,NA,-13,-20,12,"Delaware County 2",NA
+-38,-19,-36,-20,-23,13,"Garfield County 1",NA
+-18,-3,-27,-16,-19,-4,"Garvin County",NA
+-37,2,NA,NA,-37,16,"Grady County 1",NA
+NA,NA,NA,NA,-38,NA,"Greer County",NA
+-17,14,NA,NA,-30,NA,"Haskell County",NA
+-19,8,NA,NA,-29,NA,"Hughes County",NA
+-29,0,NA,NA,-25,9,"Jackson County 9",NA
+NA,5,NA,NA,-41,NA,"Jefferson County 8",NA
+-47,0,NA,NA,-26,NA,"Johnston County 1",NA
+-22,11,NA,-25,-32,13,"Kay County",NA
+-8,NA,NA,NA,-33,NA,"Kingfisher County",NA
+-15,-4,NA,NA,-20,NA,"Kiowa County",NA
+-19,-10,NA,NA,-32,NA,"Latimer County",NA
+-18,-5,NA,NA,-23,10,"Le Flore County",NA
+-29,4,NA,NA,-31,12,"Lincoln County 9",NA
+-18,-3,NA,-16,-26,17,"Logan County 3",NA
+-37,-9,NA,NA,-44,NA,"Love County",NA
+NA,NA,NA,NA,-24,NA,"Major County",NA
+-13,6,NA,NA,-27,NA,"Marshall County 5","MHL"
+-22,-3,NA,-17,-25,14,"Mayes County",NA
+-30,-13,NA,-42,-38,17,"McClain County",NA
+-23,-2,-11,-18,-18,9,"McCurtain County",NA
+-15,25,NA,8,-22,NA,"McIntosh County 1",NA
+-16,7,-22,NA,-30,NA,"Murray County 2",NA
+-30,-10,1,-8,-24,14,"Muskogee County",NA
+-42,-9,NA,-50,-33,NA,"Noble County 1",NA
+-8,-2,NA,-62,-29,NA,"Nowata County",NA
+-32,-4,NA,-20,-31,NA,"Okfuskee County",NA
+-43,-16,24,-37,-35,10,"Oklahoma County",NA
+-21,-6,NA,-17,-25,13,"Okmulgee County",NA
+-25,7,-38,NA,-39,15,"Osage County",NA
+-21,-3,NA,NA,-35,8,"Ottawa County",NA
+-29,-25,NA,NA,-28,NA,"Pawnee County",NA
+-44,-19,22,NA,-41,18,"Payne County",NA
+-40,-2,NA,-42,-24,12,"Pittsburg County",NA
+-31,-15,NA,NA,-34,16,"Pontotoc County 1",NA
+-36,-7,-35,NA,-35,11,"Pottawatomie County",NA
+-18,-1,NA,NA,-17,NA,"Pushmataha County",NA
+-29,-3,-10,NA,-32,11,"Rogers County",NA
+-22,-1,NA,-30,-22,NA,"Seminole County 2",NA
+-26,11,NA,-11,-32,14,"Sequoyah County",NA
+-35,-12,NA,NA,-29,13,"Stephens County 1",NA
+-30,-4,NA,-13,-24,NA,"Texas County",NA
+-12,-8,NA,NA,-30,NA,"Tillman County",NA
+-42,-18,-22,-22,-36,10,"Tulsa County",NA
+-21,7,NA,NA,-35,10,"Wagoner County",NA
+-30,-7,NA,NA,-26,15,"Washington County 12",NA
+NA,-17,NA,NA,-28,NA,"Washita County",NA
+-12,NA,24,NA,-38,NA,"Woods County",NA
+-25,-7,NA,NA,-25,NA,"Woodward County",NA
+-51,-25,-22,-47,-38,12,"Oregon",NA
+-44,-14,NA,-12,-31,NA,"Baker County 1",NA
+-60,-35,-5,-51,-46,25,"Benton County 5",NA
+-51,-23,-15,-44,-38,13,"Clackamas County",NA
+-60,-34,-58,-61,-44,17,"Clatsop County",NA
+-44,-22,2,NA,-34,19,"Columbia County 3",NA
+-45,-24,-48,NA,-38,15,"Coos County 1",NA
+-30,-15,NA,NA,-29,-1,"Crook County",NA
+-48,-26,-24,NA,-35,NA,"Curry County 1",NA
+-50,-24,-10,-66,-42,11,"Deschutes County",NA
+-38,-18,-10,-13,-33,9,"Douglas County 5",NA
+-72,-19,NA,NA,-30,NA,"Grant County 4",NA
+-38,11,NA,NA,-20,NA,"Harney County",NA
+-56,-11,-12,NA,-51,NA,"Hood River County",NA
+-46,-19,12,-49,-34,9,"Jackson County 10",NA
+-38,-13,NA,-32,-36,0,"Jefferson County 9",NA
+-40,-19,27,-33,-30,9,"Josephine County",NA
+-37,-11,21,-14,-33,8,"Klamath County",NA
+-67,NA,NA,NA,-26,NA,"Lake County 6",NA
+-52,-28,-29,-65,-40,12,"Lane County",NA
+-62,-29,-53,NA,-52,17,"Lincoln County 10",NA
+-44,-25,-9,-29,-32,11,"Linn County 1",NA
+-33,-15,NA,2,-23,7,"Malheur County",NA
+-48,-23,-26,-33,-34,12,"Marion County 7",NA
+-51,NA,NA,-7,-19,NA,"Morrow County",NA
+-61,-29,-23,-58,-41,14,"Multnomah County",NA
+-42,-23,-5,NA,-39,13,"Polk County 6",NA
+NA,NA,NA,-37,NA,NA,"Sherman County",NA
+-61,-27,-50,NA,-37,-1,"Tillamook County",NA
+-30,-6,-13,-23,-28,8,"Umatilla County",NA
+-39,-35,NA,-17,-29,0,"Union County 10",NA
+-63,-14,NA,NA,-30,NA,"Wallowa County",NA
+-45,-22,-9,NA,-41,7,"Wasco County",NA
+-53,-31,-6,-47,-41,14,"Washington County 13",NA
+-42,-24,11,-63,-39,12,"Yamhill County",NA
+-50,-27,7,-52,-38,12,"Pennsylvania",NA
+-55,-30,-50,-67,-37,14,"Rhode Island",NA
+-61,-45,NA,NA,-37,22,"Bristol County 1",NA
+-57,-26,-44,-72,-36,13,"Kent County 2",NA
+-57,-32,-60,-24,-39,21,"Newport County",NA
+-57,-29,-50,-65,-36,14,"Providence County",NA
+-53,-34,-59,-8,-40,13,"Washington County 14",NA
+-38,-11,-4,-34,-34,9,"South Carolina",NA
+-35,7,NA,NA,-30,NA,"Abbeville County",NA
+-31,-11,-1,0,-33,8,"Aiken County",NA
+NA,-12,NA,NA,-16,NA,"Allendale County",NA
+-40,-3,-1,-20,-34,8,"Anderson County",NA
+-28,2,NA,NA,-26,NA,"Bamberg County",NA
+-23,11,NA,NA,-24,NA,"Barnwell County",NA
+-38,-16,1,-32,-39,10,"Beaufort County 1",NA
+-32,-10,47,-53,-32,9,"Berkeley County",NA
+-9,13,NA,-47,-32,NA,"Calhoun County 3",NA
+-48,-25,-35,-62,-42,11,"Charleston County",NA
+-37,-3,-7,-20,-24,11,"Cherokee County 4",NA
+-29,4,NA,-25,-25,14,"Chester County",NA
+-34,3,NA,NA,-26,13,"Chesterfield County",NA
+-23,-2,NA,-12,-28,NA,"Clarendon County",NA
+-32,-13,NA,-27,-31,12,"Colleton County",NA
+-20,-2,-36,NA,-22,13,"Darlington County",NA
+-21,3,-41,-21,-19,-2,"Dillon County",NA
+-32,-12,1,-38,-36,9,"Dorchester County 1",NA
+-46,8,NA,NA,-32,NA,"Edgefield County",NA
+0,1,NA,-27,-33,NA,"Fairfield County 1",NA
+-38,-11,-30,-24,-30,8,"Florence County",NA
+-41,-6,58,NA,-30,11,"Georgetown County",NA
+-42,-12,-35,-38,-39,10,"Greenville County",NA
+-30,-4,NA,NA,-27,11,"Greenwood County",NA
+-44,-10,NA,-26,-23,NA,"Hampton County",NA
+-43,-13,17,-58,-39,8,"Horry County",NA
+-32,-21,-25,-8,-39,8,"Jasper County 5",NA
+-38,-7,NA,-36,-30,14,"Kershaw County",NA
+-30,-13,NA,NA,-35,9,"Lancaster County",NA
+-23,2,NA,-27,-26,6,"Laurens County 1",NA
+-51,6,NA,-28,-20,NA,"Lee County 6",NA
+-42,-15,24,-33,-35,10,"Lexington County",NA
+-26,-7,NA,NA,-25,2,"Marion County 8",NA
+-20,4,NA,NA,-22,NA,"Marlboro County",NA
+-36,30,NA,NA,-30,NA,"McCormick County",NA
+-22,1,NA,-31,-25,10,"Newberry County",NA
+-26,-6,2,NA,-28,8,"Oconee County 1",NA
+-34,-5,NA,-31,-24,8,"Orangeburg County",NA
+-35,-10,3,NA,-35,9,"Pickens County 1",NA
+-43,-19,-37,-21,-35,11,"Richland County 2",NA
+-36,-1,NA,NA,-26,NA,"Saluda County",NA
+-34,-11,10,-57,-34,9,"Spartanburg County",NA
+-33,-6,NA,-32,-31,8,"Sumter County 2",NA
+-24,1,NA,NA,-23,4,"Union County 11",NA
+-21,-2,NA,NA,-19,NA,"Williamsburg County",NA
+-33,-16,31,-34,-35,10,"York County 1",NA
+-35,-3,126,-31,-25,8,"South Dakota",NA
+-35,-9,35,-35,-34,8,"Tennessee",NA
+-45,-23,-27,-47,-36,13,"Texas",NA
+-23,1,NA,-17,-22,11,"Anderson County 1",NA
+-28,-22,NA,32,-33,NA,"Andrews County",NA
+-38,-9,-45,-25,-25,12,"Angelina County",NA
+-48,-31,-67,NA,-29,10,"Aransas County",NA
+NA,NA,NA,NA,-27,NA,"Archer County",NA
+-23,-24,NA,-65,-24,17,"Atascosa County",NA
+-32,-6,NA,NA,-24,1,"Austin County",NA
+-29,-14,NA,NA,-31,NA,"Bailey County",NA
+-25,15,-36,NA,-35,NA,"Bandera County",NA
+-32,-24,-14,NA,-34,12,"Bastrop County",NA
+-46,-35,NA,NA,-27,-1,"Bee County",NA
+-37,-24,8,-34,-33,10,"Bell County",NA
+-47,-23,-46,-46,-38,13,"Bexar County",NA
+-41,-10,-50,NA,-39,NA,"Blanco County",NA
+-26,0,NA,NA,-17,NA,"Bosque County",NA
+-44,-20,-11,-18,-32,10,"Bowie County",NA
+-39,-21,9,-24,-30,13,"Brazoria County",NA
+-50,-28,-37,-60,-39,14,"Brazos County",NA
+-52,-37,NA,NA,-28,NA,"Brewster County",NA
+-53,-14,NA,-43,-31,NA,"Brooks County 1",NA
+-34,-18,NA,NA,-21,12,"Brown County 2",NA
+-26,0,NA,NA,-24,NA,"Burleson County",NA
+-27,-15,8,NA,-36,15,"Burnet County",NA
+-35,-36,NA,-35,-36,17,"Caldwell County 1",NA
+-35,-20,NA,NA,-20,NA,"Calhoun County 4",NA
+-26,-5,NA,-18,-8,NA,"Callahan County",NA
+-61,-41,-70,-62,-37,17,"Cameron County",NA
+-11,-4,NA,NA,-13,NA,"Camp County",NA
+NA,-28,NA,-20,-30,NA,"Carson County",NA
+-28,4,NA,-20,-23,6,"Cass County 5",NA
+NA,-14,NA,NA,-20,NA,"Castro County",NA
+-42,-19,NA,-39,-27,20,"Chambers County",NA
+-22,-5,NA,NA,-22,12,"Cherokee County 5",NA
+-25,-31,NA,-11,-32,NA,"Childress County",NA
+-53,NA,NA,-10,-24,NA,"Clay County 8",NA
+NA,-21,NA,NA,NA,NA,"Coke County",NA
+-18,-16,NA,NA,-20,NA,"Coleman County",NA
+-50,-33,-11,-37,-45,14,"Collin County",NA
+-36,-8,NA,-31,-18,NA,"Colorado County",NA
+-47,-33,-30,-10,-36,12,"Comal County",NA
+-9,-22,NA,NA,-25,NA,"Comanche County 1",NA
+-28,-3,-8,-33,-32,16,"Cooke County","COK"
+-29,-18,35,NA,-27,11,"Coryell County",NA
+-39,-27,NA,NA,-37,NA,"Crane County",NA
+NA,-27,NA,NA,NA,NA,"Crockett County",NA
+NA,-15,NA,NA,-35,NA,"Crosby County",NA
+-46,NA,NA,-30,NA,NA,"Culberson County",NA
+-34,-12,NA,NA,-10,NA,"Dallam County",NA
+-45,-21,-24,-45,-38,14,"Dallas County 2",NA
+-36,-10,NA,NA,-26,NA,"Dawson County 1",NA
+-30,-22,NA,NA,-19,NA,"DeWitt County",NA
+-24,-12,NA,-13,-18,NA,"Deaf Smith County",NA
+NA,NA,NA,NA,-37,NA,"Delta County 1",NA
+-47,-27,1,-30,-42,14,"Denton County",NA
+-19,-17,NA,-34,-30,NA,"Dimmit County",NA
+NA,NA,NA,9,NA,NA,"Donley County",NA
+-46,-28,NA,NA,-36,NA,"Duval County 1",NA
+-31,-15,NA,-27,-28,NA,"Eastland County",NA
+-32,-5,NA,-8,-24,10,"Ector County",NA
+-50,-25,-65,-40,-37,15,"El Paso County 1",NA
+-35,-18,4,-33,-34,13,"Ellis County",NA
+-47,-32,NA,NA,-25,10,"Erath County",NA
+-19,-13,NA,NA,-10,NA,"Falls County",NA
+-11,-2,NA,NA,-25,11,"Fannin County 1",NA
+-35,-25,NA,-33,-17,NA,"Fayette County 4",NA
+NA,NA,NA,NA,-28,NA,"Floyd County 3",NA
+-49,-26,-2,-26,-41,15,"Fort Bend County",NA
+-33,4,NA,-23,-24,NA,"Franklin County 10",NA
+-52,-4,NA,-41,-22,NA,"Freestone County",NA
+-21,-22,NA,-27,-19,NA,"Frio County",NA
+-28,-8,NA,NA,-20,NA,"Gaines County",NA
+-42,-15,-29,-57,-35,12,"Galveston County",NA
+-31,-13,NA,NA,NA,NA,"Garza County",NA
+-46,-25,-38,NA,-36,NA,"Gillespie County",NA
+-54,-38,NA,NA,-32,NA,"Goliad County",NA
+-30,-13,-19,NA,-20,NA,"Gonzales County",NA
+-33,-10,NA,NA,-26,NA,"Gray County",NA
+-33,-9,47,NA,-29,9,"Grayson County",NA
+-43,-21,2,NA,-31,11,"Gregg County",NA
+-17,-3,NA,NA,-21,0,"Grimes County",NA
+-34,-24,-1,-23,-37,12,"Guadalupe County 1",NA
+-29,-13,NA,NA,-27,11,"Hale County",NA
+NA,NA,NA,-13,NA,NA,"Hall County 1",NA
+-41,-32,NA,NA,-22,NA,"Hamilton County 4",NA
+NA,-24,NA,-16,NA,NA,"Hardeman County",NA
+-45,-13,NA,NA,-32,16,"Hardin County 1",NA
+-46,-23,-22,-58,-38,14,"Harris County 1",NA
+-28,-7,-16,NA,-31,15,"Harrison County 3",NA
+NA,-4,NA,NA,NA,NA,"Hartley County",NA
+-16,-22,NA,NA,NA,NA,"Haskell County 1",NA
+-46,-22,-23,-19,-36,13,"Hays County",NA
+-30,-3,-22,NA,-28,9,"Henderson County 2",NA
+-63,-43,-74,-64,-43,18,"Hidalgo County 1",NA
+-35,-8,NA,-41,-25,13,"Hill County",NA
+-23,-15,NA,NA,-17,-3,"Hockley County",NA
+-34,-7,-36,NA,-35,16,"Hood County",NA
+-31,4,NA,-22,-27,11,"Hopkins County",NA
+-22,5,NA,NA,-21,NA,"Houston County 2",NA
+-35,-19,NA,-32,-24,14,"Howard County 4",NA
+-33,-15,-5,-23,-33,10,"Hunt County",NA
+-19,-13,NA,NA,-11,NA,"Hutchinson County",NA
+-9,NA,NA,NA,-26,NA,"Jack County",NA
+-21,-19,NA,-44,-21,NA,"Jackson County 11",NA
+-36,-24,25,NA,-30,6,"Jasper County 6",NA
+-49,-22,4,-35,-33,12,"Jefferson County 10",NA
+NA,-29,NA,NA,NA,NA,"Jim Hogg County",NA
+-38,-22,NA,NA,-28,14,"Jim Wells County",NA
+-33,-18,19,NA,-31,11,"Johnson County 5",NA
+-36,-8,NA,NA,-18,NA,"Jones County 4",NA
+-31,-24,NA,-46,-19,NA,"Karnes County",NA
+-46,-22,-26,-18,-38,12,"Kaufman County",NA
+-38,-25,-61,-31,-38,14,"Kendall County 1",NA
+-32,-18,19,NA,-30,14,"Kerr County",NA
+-35,NA,NA,-24,NA,NA,"Kimble County",NA
+-42,-36,-71,-56,-28,16,"Kleberg County",NA
+-54,-23,NA,-40,NA,NA,"La Salle County",NA
+-24,-6,NA,-20,-13,12,"Lamar County 2",NA
+-40,-17,NA,NA,-22,NA,"Lamb County",NA
+-30,-27,NA,NA,-38,NA,"Lampasas County",NA
+133,-11,NA,NA,-18,NA,"Lavaca County",NA
+-33,-37,NA,NA,-22,NA,"Lee County 7",NA
+-51,-23,NA,-26,-32,NA,"Leon County 1",NA
+-38,-2,NA,-14,-28,11,"Liberty County 2",NA
+-26,-15,NA,NA,-24,NA,"Limestone County",NA
+-68,-35,NA,-52,-39,NA,"Live Oak County",NA
+-26,-3,10,NA,-32,NA,"Llano County",NA
+NA,-58,NA,NA,NA,NA,"Loving County",NA
+-37,-14,17,-36,-28,10,"Lubbock County",NA
+NA,NA,NA,NA,-24,NA,"Lynn County",NA
+-36,-63,NA,NA,-29,NA,"Madison County 9",NA
+-30,-12,NA,NA,-26,NA,"Marion County 9",NA
+-12,-13,NA,NA,-32,NA,"Martin County 4",NA
+-34,-16,NA,NA,-9,13,"Matagorda County",NA
+-56,-36,-82,-62,-36,19,"Maverick County",NA
+-27,-10,NA,NA,-14,NA,"McCulloch County",NA
+-43,-22,-12,-34,-34,10,"McLennan County",NA
+NA,NA,NA,-50,NA,NA,"McMullen County",NA
+-24,-8,-54,-30,-30,19,"Medina County",NA
+-41,-19,-45,-24,-25,12,"Midland County",NA
+-35,-20,NA,NA,-27,NA,"Milam County",NA
+-35,-14,-70,NA,-26,NA,"Mitchell County 3",NA
+-21,-18,NA,NA,-30,NA,"Montague County",NA
+-47,-24,0,-26,-38,13,"Montgomery County 8",NA
+-27,-12,NA,-7,-15,-1,"Moore County 1",NA
+-15,-9,NA,NA,-30,NA,"Morris County 1",NA
+-36,-3,-17,-43,-24,15,"Nacogdoches County",NA
+-40,-18,-7,-40,-32,16,"Navarro County",NA
+NA,0,NA,NA,-35,NA,"Newton County 4",NA
+-36,-10,NA,-31,-18,NA,"Nolan County",NA
+-46,-25,-40,-45,-34,13,"Nueces County",NA
+-44,-14,NA,NA,-26,NA,"Ochiltree County",NA
+NA,NA,NA,-5,NA,NA,"Oldham County",NA
+-35,-18,-38,-37,-32,11,"Orange County 4",NA
+-19,-1,NA,-34,-29,8,"Palo Pinto County",NA
+-21,0,NA,-22,-28,NA,"Panola County 1",NA
+-35,-15,2,-32,-35,10,"Parker County",NA
+NA,-10,NA,NA,-23,NA,"Parmer County",NA
+-33,-17,NA,-22,-20,NA,"Pecos County",NA
+-36,-14,-7,-41,-36,10,"Polk County 7",NA
+-41,-13,2,-17,-26,9,"Potter County",NA
+-69,-38,NA,NA,-35,NA,"Presidio County",NA
+-22,-8,NA,NA,-20,NA,"Rains County",NA
+-34,-17,-24,NA,-30,9,"Randall County",NA
+NA,-2,NA,-15,NA,NA,"Reagan County",NA
+-2,16,NA,NA,-23,NA,"Red River County",NA
+-39,-19,NA,-8,-12,NA,"Reeves County",NA
+-67,-43,NA,-43,-31,NA,"Refugio County",NA
+-38,-16,NA,-32,-16,NA,"Robertson County",NA
+-45,-25,NA,-21,-40,25,"Rockwall County",NA
+-23,-5,NA,NA,-22,NA,"Runnels County",NA
+-24,-7,NA,NA,-26,13,"Rusk County",NA
+-17,13,NA,NA,-34,NA,"Sabine County",NA
+-62,-9,NA,NA,-34,NA,"San Augustine County",NA
+-31,7,-42,NA,-29,5,"San Jacinto County",NA
+-38,-23,-30,-33,-24,12,"San Patricio County",NA
+-12,NA,NA,NA,NA,NA,"San Saba County",NA
+-32,-21,NA,NA,-18,NA,"Scurry County",NA
+-29,-3,NA,NA,-27,NA,"Shelby County 3",NA
+NA,NA,NA,0,NA,NA,"Sherman County 1",NA
+-52,-28,-21,-36,-34,13,"Smith County 1",NA
+-37,-6,NA,NA,-34,NA,"Somervell County",NA
+-54,-31,-57,NA,-29,25,"Starr County",NA
+-32,NA,NA,NA,-19,NA,"Stephens County 2",NA
+-53,-29,NA,NA,NA,NA,"Sutton County",NA
+NA,-4,NA,NA,-29,NA,"Swisher County",NA
+-48,-20,-16,-71,-36,13,"Tarrant County",NA
+-34,-14,NA,-7,-25,9,"Taylor County 3",NA
+-18,-19,NA,NA,-14,NA,"Terry County",NA
+-28,2,NA,NA,-21,11,"Titus County",NA
+-46,-18,18,NA,-26,10,"Tom Green County",NA
+-54,-29,-19,-72,-44,15,"Travis County",NA
+-42,9,NA,NA,-26,NA,"Trinity County 1",NA
+-45,11,NA,NA,-32,NA,"Tyler County",NA
+-24,2,NA,NA,-31,15,"Upshur County",NA
+NA,-21,NA,NA,NA,NA,"Upton County",NA
+-43,-31,NA,NA,-28,NA,"Uvalde County",NA
+-55,-35,-53,NA,-32,21,"Val Verde County","CPV"
+-33,-16,7,-18,-25,13,"Van Zandt County",NA
+-41,-23,-39,-49,-27,10,"Victoria County",NA
+-42,-17,-1,-42,-27,15,"Walker County 1",NA
+-30,-22,NA,-22,-33,20,"Waller County",NA
+-34,-16,NA,35,-15,NA,"Ward County 1",NA
+-25,-14,NA,NA,-27,-2,"Washington County 15",NA
+-55,-38,-78,-43,-35,16,"Webb County",NA
+-25,-36,NA,-36,-20,15,"Wharton County",NA
+-41,NA,NA,NA,NA,NA,"Wheeler County",NA
+-50,-30,-11,-24,-32,11,"Wichita County",NA
+-20,-12,NA,-17,-9,NA,"Wilbarger County",NA
+-51,-36,NA,NA,-34,NA,"Willacy County",NA
+-49,-29,-14,-41,-43,14,"Williamson County 1",NA
+-33,-55,-20,NA,-32,19,"Wilson County 1",NA
+-29,-23,NA,75,-14,NA,"Winkler County",NA
+-27,-11,8,-16,-31,15,"Wise County",NA
+-21,7,NA,NA,-28,12,"Wood County",NA
+-39,-12,NA,NA,-30,NA,"Yoakum County",NA
+-18,-4,NA,NA,-28,NA,"Young County",NA
+-42,-19,NA,NA,-44,NA,"Zapata County",NA
+-49,-25,NA,NA,-31,NA,"Zavala County",NA
+-41,-14,26,-44,-40,10,"Utah",NA
+-58,NA,NA,-26,-23,NA,"Beaver County",NA
+-28,-24,13,-5,-36,15,"Box Elder County",NA
+-33,-3,66,-7,-39,10,"Cache County",NA
+-22,2,NA,NA,-30,NA,"Carbon County",NA
+-39,-1,48,-15,-41,10,"Davis County 1",NA
+-25,1,NA,NA,-11,NA,"Duchesne County",NA
+-45,6,NA,NA,-16,NA,"Emery County",NA
+NA,NA,13,NA,NA,NA,"Garfield County 2",NA
+-48,-1,-18,NA,-22,NA,"Grand County 1",NA
+-43,-49,NA,-16,-38,16,"Iron County",NA
+-32,-15,NA,-13,-23,NA,"Juab County",NA
+-25,-6,21,NA,-33,NA,"Kane County 1",NA
+-23,72,NA,NA,-14,NA,"Millard County",NA
+-31,-13,NA,NA,-42,NA,"Morgan County 4",NA
+-46,-16,16,-62,-38,11,"Salt Lake County",NA
+-21,60,-7,NA,-33,NA,"San Juan County 1",NA
+-4,0,NA,NA,-36,NA,"Sanpete County",NA
+-19,2,NA,-9,-25,NA,"Sevier County 1",NA
+-84,-65,-47,-59,-76,6,"Summit County 1",NA
+-22,-11,NA,-18,-30,11,"Tooele County",NA
+-18,-4,-20,NA,-37,5,"Uintah County",NA
+-36,-11,54,13,-50,11,"Utah County",NA
+-48,-30,-6,NA,-60,4,"Wasatch County",NA
+-38,-10,-2,-22,-39,9,"Washington County 16",NA
+-32,-17,76,-8,-31,8,"Weber County",NA
+-62,-42,-55,-71,-43,13,"Vermont",NA
+-55,-38,NA,NA,-35,6,"Addison County",NA
+-62,-29,-23,NA,-40,8,"Bennington County",NA
+-67,-44,NA,NA,-30,2,"Caledonia County",NA
+-61,-53,-50,-57,-46,14,"Chittenden County",NA
+NA,NA,NA,NA,-37,NA,"Essex County 2",NA
+-52,-27,NA,NA,-28,22,"Franklin County 11",NA
+NA,NA,NA,-60,-49,NA,"Grand Isle County",NA
+-79,-45,NA,-40,-58,NA,"Lamoille County",NA
+-73,-33,NA,-66,-31,1,"Orange County 5",NA
+-52,-31,-46,NA,-32,0,"Orleans County",NA
+-59,-33,NA,-77,-47,21,"Rutland County",NA
+-65,-45,NA,NA,-41,23,"Washington County 17",NA
+-76,-43,-38,NA,-47,15,"Windham County 1",NA
+-67,-50,-63,-60,-49,22,"Windsor County",NA
+-39,-16,46,-50,-36,11,"Virginia",NA
+-48,-26,-11,-56,-41,13,"Washington",NA
+-31,4,NA,-31,-27,NA,"Adams County 4",NA
+-33,NA,NA,NA,-31,7,"Asotin County",NA
+-47,-23,3,-12,-39,10,"Benton County 6",NA
+-43,-20,-15,-27,-43,18,"Chelan County",NA
+-42,-27,-20,-29,-35,18,"Clallam County",NA
+-46,-28,-3,-38,-41,13,"Clark County 4",NA
+-40,-20,-23,-34,-35,11,"Cowlitz County",NA
+-53,-19,NA,-39,-40,17,"Douglas County 6",NA
+NA,NA,NA,NA,-40,NA,"Ferry County",NA
+-35,-15,-16,-59,-33,12,"Franklin County 12",NA
+-36,-8,10,-46,-29,8,"Grant County 5",NA
+-40,-18,-16,-26,-37,14,"Grays Harbor County",NA
+-34,-25,-12,-53,-42,21,"Island County",NA
+-62,-31,-9,-58,-40,2,"Jefferson County 11",NA
+-57,-30,0,-66,-47,15,"King County",NA
+-45,-27,12,-62,-43,12,"Kitsap County",NA
+-56,-32,-43,-22,-45,19,"Kittitas County",NA
+-56,-3,NA,NA,-36,NA,"Klickitat County",NA
+-49,-21,-37,-32,-34,11,"Lewis County",NA
+NA,NA,NA,NA,-37,NA,"Lincoln County 11",NA
+-28,-25,1,NA,-38,20,"Mason County 1",NA
+-29,2,NA,NA,-37,9,"Okanogan County",NA
+-56,-24,-27,NA,-41,NA,"Pacific County",NA
+-67,-6,NA,NA,-41,NA,"Pend Oreille County",NA
+-46,-22,-17,-31,-39,12,"Pierce County 1",NA
+-61,-32,NA,-43,-45,NA,"San Juan County 2",NA
+-47,-25,0,-51,-42,12,"Skagit County",NA
+-65,NA,-57,NA,-40,NA,"Skamania County",NA
+-47,-30,-2,-48,-45,14,"Snohomish County",NA
+-44,-20,9,-45,-38,11,"Spokane County",NA
+-30,-7,0,NA,-33,16,"Stevens County 1",NA
+-47,-28,-32,-36,-38,12,"Thurston County",NA
+-42,-21,NA,-47,-40,18,"Walla Walla County",NA
+-57,-34,-11,-69,-44,13,"Whatcom County",NA
+-46,-25,NA,NA,-47,23,"Whitman County",NA
+-36,-13,0,-21,-33,9,"Yakima County",NA
+-38,-16,52,-31,-33,8,"West Virginia",NA
+-47,-9,NA,NA,-16,NA,"Barbour County",NA
+-35,-20,-9,-55,-32,9,"Berkeley County 1",NA
+-40,-13,NA,NA,-20,NA,"Boone County 4",NA
+-31,NA,NA,-30,-38,NA,"Braxton County",NA
+-31,-10,NA,NA,-24,NA,"Brooke County",NA
+-47,-20,NA,-37,-34,9,"Cabell County",NA
+-21,-9,NA,NA,-26,7,"Fayette County 5",NA
+-51,9,NA,NA,-25,NA,"Grant County 6",NA
+-40,-16,NA,NA,-41,0,"Greenbrier County",NA
+-26,-1,NA,NA,-20,NA,"Hampshire County 1",NA
+-37,-1,NA,NA,-32,10,"Hancock County 6",NA
+-29,-13,NA,NA,-23,NA,"Hardy County",NA
+-43,-18,-24,-47,-31,19,"Harrison County 4",NA
+-33,-32,NA,-11,-33,NA,"Jackson County 12",NA
+-39,-39,17,NA,-43,20,"Jefferson County 12",NA
+-44,-14,-2,-43,-33,8,"Kanawha County",NA
+-33,-7,NA,NA,-40,NA,"Lewis County 1",NA
+NA,NA,NA,NA,-39,NA,"Lincoln County 12",NA
+-32,-16,NA,NA,-24,NA,"Logan County 4",NA
+-38,-21,NA,NA,-34,20,"Marion County 10",NA
+-29,-18,NA,NA,-27,1,"Marshall County 6","MHL"
+-36,-8,NA,NA,-28,NA,"Mason County 2",NA
+NA,-13,NA,NA,-18,NA,"McDowell County 1",NA
+-44,-16,-36,-30,-35,15,"Mercer County 3",NA
+-28,-4,NA,NA,-24,-2,"Mineral County 1",NA
+-63,NA,NA,NA,-37,NA,"Mingo County",NA
+-48,-23,60,-35,-44,25,"Monongalia County",NA
+NA,NA,NA,NA,-32,NA,"Monroe County 7",NA
+-38,-19,NA,NA,-34,NA,"Morgan County 5",NA
+-28,-12,NA,NA,-30,NA,"Nicholas County",NA
+-40,11,-34,-19,-38,16,"Ohio County 1",NA
+-50,NA,NA,NA,-40,NA,"Pleasants County",NA
+-74,NA,4,NA,-55,NA,"Pocahontas County 1",NA
+-36,-5,NA,NA,-25,NA,"Preston County",NA
+-33,-16,NA,-9,-41,21,"Putnam County 4",NA
+-42,-24,NA,-35,-37,15,"Raleigh County",NA
+-27,-9,NA,NA,-17,NA,"Randolph County 5",NA
+-49,NA,NA,NA,-45,NA,"Ritchie County",NA
+-25,NA,NA,NA,-42,NA,"Roane County",NA
+4,NA,NA,NA,-39,NA,"Summers County",NA
+-13,-32,NA,NA,-41,NA,"Taylor County 4",NA
+NA,-14,NA,NA,-37,NA,"Tucker County",NA
+NA,NA,NA,NA,-29,NA,"Tyler County 1",NA
+-28,-24,NA,NA,-25,NA,"Upshur County 1",NA
+-1,-10,NA,NA,-28,0,"Wayne County 6",NA
+NA,NA,NA,NA,-38,NA,"Webster County 2",NA
+-39,-15,NA,NA,-31,NA,"Wetzel County",NA
+-40,-12,-21,NA,-31,9,"Wood County 1",NA
+-66,NA,NA,NA,-32,NA,"Wyoming County",NA
+-55,-30,-12,-50,-34,13,"Wisconsin",NA
+-37,-13,29,-14,-29,8,"Wyoming",NA
+-42,-27,-4,1,-29,16,"Albany County",NA
+-35,-7,NA,NA,-29,NA,"Big Horn County",NA
+-32,-2,NA,-7,-22,17,"Campbell County",NA
+-30,-14,NA,-15,-35,NA,"Carbon County 1",NA
+-42,-3,NA,-35,-22,NA,"Converse County",NA
+NA,NA,NA,NA,-38,NA,"Crook County 1",NA
+-31,-17,NA,NA,-27,15,"Fremont County 3",NA
+-24,-17,NA,NA,-26,NA,"Goshen County",NA
+-67,-22,-56,NA,NA,NA,"Hot Springs County",NA
+-38,-2,NA,NA,-30,NA,"Johnson County 6",NA
+-39,-20,26,-16,-28,10,"Laramie County",NA
+-30,-5,NA,NA,-35,NA,"Lincoln County 13",NA
+-36,-8,64,-29,-29,9,"Natrona County",NA
+-35,10,NA,NA,-31,5,"Park County 1",NA
+-35,-5,NA,-43,-31,NA,"Platte County",NA
+-34,7,NA,NA,-26,13,"Sheridan County",NA
+-70,-24,NA,NA,-36,NA,"Sublette County",NA
+-33,-9,NA,6,-22,15,"Sweetwater County",NA
+-83,-50,-57,-80,-70,NA,"Teton County 1",NA
+-29,2,NA,1,-18,NA,"Uinta County",NA
+-17,-7,NA,NA,-32,NA,"Washakie County",NA
+-57,-24,NA,NA,-34,NA,"Weston County",NA
+-75,-45,-79,-71,-35,22,"Uruguay","URY"
+-60,-45,-71,-77,-24,-3,"Artigas Department",NA
+-74,-49,-77,-75,-31,20,"Canelones Department",NA
+-74,-43,-76,-73,-28,13,"Cerro Largo Department",NA
+-78,-51,-84,-90,-38,21,"Colonia Department",NA
+-68,-39,-68,-79,-21,-2,"Durazno Department",NA
+-83,-38,-72,NA,-20,NA,"Flores Department",NA
+-63,-37,-78,-70,-23,13,"Florida Department",NA
+-53,-35,-76,-69,-22,-2,"Lavalleja Department",NA
+-87,-65,-88,-86,-56,24,"Maldonado Department",NA
+-73,-37,-72,-58,-37,23,"Montevideo Department",NA
+-68,-22,-75,-78,-23,18,"Paysandú Department",NA
+-71,-33,-76,-67,-33,12,"Rivera Department",NA
+-89,-75,-89,-90,-41,9,"Rocha Department",NA
+-72,-49,-82,-64,-27,-3,"Río Negro Department",NA
+-71,-49,-74,-68,-30,17,"Salto Department",NA
+-60,-40,-78,-61,-23,19,"San José Department",NA
+-67,-52,-78,NA,-28,13,"Soriano Department",NA
+-67,-43,-77,-76,-25,15,"Tacuarembó Department",NA
+-60,-24,-75,-55,-20,NA,"Treinta y Tres Department",NA
+-62,-44,-57,-62,-25,16,"Venezuela","VEN"
+-52,-29,-33,-49,-20,16,"Vietnam","VNM"
+-8,-1,-9,-9,-5,5,"Yemen","YEM"
+-21,-8,-6,-24,0,10,"Zambia","ZMB"
+-2,24,-4,-6,14,13,"Zimbabwe","ZWE"
