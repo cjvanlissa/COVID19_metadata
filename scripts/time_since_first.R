@@ -60,4 +60,4 @@ time_since_first <- function(policy_value = 1) {
   write.csv(first_data, file.path("data", "OxCGRT", "time_since_first_OxCGRT_.csv"), row.names = FALSE)
 }
 
-time_since_first(policy_value = 1)
+time_since_first()
