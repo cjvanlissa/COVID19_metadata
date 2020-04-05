@@ -8,6 +8,7 @@ library(dplyr)
 library(tibble)
 library(purrr)
 library(data.table)
+source("scripts/get_google_mobility.R")
 
 get_csse <- function(){
   # Go to temporary directory for git repository
@@ -52,7 +53,7 @@ get_csse <- function(){
 
   dt[, countryiso3 := countrycode(country, origin = "country.name", destination = "iso3c")]
   setcolorder(dt, c(1, ncol(dt), 2:(ncol(dt)-1)))
-  
+
   # Go back to original directory
   setwd(olddir)
   checkfilewrite(dt, "CSSE", "CSSE.csv")
@@ -322,4 +323,5 @@ checkfilewrite <- function(df, the_dir, the_file){
 initialize_database <- function(){
   get_csse()
   get_OxCGRT()
+  get_google_mobility()
 }
