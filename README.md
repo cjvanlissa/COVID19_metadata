@@ -40,10 +40,8 @@ Fork or clone this repository (for GitHub beginners: You can also click
 the green button that says “Clone or download”, and download a .zip).
 All data are in the `/data` folder. Some data are rarely updated (e.g.,
 annual data), and some are updated daily. To ensure that you have access
-to the latest data for frequently updated sources, run the following
-function in R from the project folder:
-
-    initialize_database()
+to the latest data for frequently updated sources, run the R-script in
+the `run_me.R` file, in the main folder.
 
 ## Standards for data
 
