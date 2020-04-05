@@ -1,10 +1,11 @@
 ### Functions to get most recent Worldbank data ###
 
 # These functions retrieve the most recent observations for every country in the worldbank data
-# Each funtion reads in the wide format data file and outputs a wide format datafile
+
 # The output file has two columns for every variable (summarised over years) in the input file:
 # The first column indicates the year of the most recent observation, 
 # the second column indicates the value of that observation
+
 # If a country has no observations for a variable, NA is returned
 
 
