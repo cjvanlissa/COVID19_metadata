@@ -19,11 +19,11 @@ time_since_first <- function(policy_value = 1) {
   
   if(policy_value > 3 || policy_value < 1) stop("Argument 'policy_value' must be 1, 2, or 3!")
   
-  ox <- read.csv("data/OxCGRT/OxCGRT_Oxford_regulation_policies.csv")
+  ox2<- read.csv("data/OxCGRT/OxCGRT_Oxford_regulation_policies.csv")
   
   today <- as.Date(Sys.Date())
   
-  first_policy_data <- ox %>%
+  first_policy_data <- ox2%>%
     rename(country = countryname, countryiso3 = countrycode) %>%
     pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
     mutate(date = str_sub(var, -8),
@@ -39,7 +39,7 @@ time_since_first <- function(policy_value = 1) {
     group_by(country, countryiso3) %>%
     summarise(time_since_first_policy = today - first(date[policy]))
   
-  first_case_death_data <- ox %>%
+  first_case_death_data <- ox2%>%
     rename(country = countryname, countryiso3 = countrycode) %>%
     pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
     mutate(date = str_sub(var, -8),

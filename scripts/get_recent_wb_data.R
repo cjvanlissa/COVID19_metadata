@@ -47,6 +47,3 @@ get_recent_wb_wdi <- function() {
   write.csv(recent_data, file.path("data", "WB_WDI", "recent_wdi.csv"), row.names = FALSE)
 }
 
-get_recent_wb_gov()
-get_recent_wb_wdi()
-

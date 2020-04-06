@@ -9,7 +9,7 @@ A collection of relevant country/city level metadata about the COVID-19
 pandemic, made interoperable for secondary analysis. Curated by [Data
 scientists Against Corona](https://dataversuscorona.com/),
 collaborators: *Caspar van Lissa*, *Tim Draws*, *Andrii Grygoryshyn*,
-and *Konstantin Tomić*.
+*Konstantin Tomić*, and *Malte Lüken*.
 
 ## Available data sets
 
@@ -17,6 +17,7 @@ The following data sets have been processed:
 
 | Category     | Information                            | Source                                                                                                                                                 | Folder           | License                            | Reference                                                                               |
 | :----------- | :------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | :--------------------------------- | :-------------------------------------------------------------------------------------- |
+| Response     | Number of tests                        | <a href = "">Our world in data</a>                                                                                                                     | OWID\_Tests      |                                    |                                                                                         |
 | Mobility     | Google mobility data                   | <a href = "https://www.google.com/covid19/mobility/">Google</a>                                                                                        | google\_mobility |                                    |                                                                                         |
 | Risk level   | Hospital data per country              | <a href = "https://apps.who.int/gho/data/node.main.HWF">WHO Health workforce/facilities database</a>                                                   | WHO\_OECD        |                                    |                                                                                         |
 | Risk level   | Health infrastructure per country data | <a href = "https://stats.oecd.org/index.aspx?queryid=30183">OECD Health care resources database</a>                                                    | WHO\_OECD        |                                    |                                                                                         |
@@ -78,7 +79,9 @@ The following issues are ongoing:
   - Adding more databases; feel free to make a suggest or request a
     database
     [here](https://github.com/cjvanlissa/COVID19_metadata/issues)
-  - Linking databases by ISO3 country codes
+  - Added time-since first occurrence for Oxford policy / incidence
+    trackers
+  - Added last observation carried forward for WHO data
 
 ## License
 

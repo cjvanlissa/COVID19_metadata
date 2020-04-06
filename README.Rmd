@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # COVID-19 Metadata
 
-A collection of relevant country/city level metadata about the COVID-19 pandemic, made interoperable for secondary analysis. Curated by [Data scientists Against Corona](https://dataversuscorona.com/), collaborators: *Caspar van Lissa*, *Tim Draws*, *Andrii Grygoryshyn*, and *Konstantin Tomić*.
+A collection of relevant country/city level metadata about the COVID-19 pandemic, made interoperable for secondary analysis. Curated by [Data scientists Against Corona](https://dataversuscorona.com/), collaborators: *Caspar van Lissa*, *Tim Draws*, *Andrii Grygoryshyn*, *Konstantin Tomić*, and *Malte Lüken*.
 
 ## Available data sets
 
@@ -72,7 +72,8 @@ Any other important information per variable can be included in this dictionary,
 The following issues are ongoing:
 
 * Adding more databases; feel free to make a suggest or request a database [here](https://github.com/cjvanlissa/COVID19_metadata/issues) 
-* Linking databases by ISO3 country codes
+* Added time-since first occurrence for Oxford policy / incidence trackers
+* Added last observation carried forward for WHO data
 
 ## License
 

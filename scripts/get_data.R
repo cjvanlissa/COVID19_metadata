@@ -64,15 +64,35 @@ get_csse <- function(){
 get_OxCGRT <- function(){
   df <- rio::import("https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx")
   names(df) <- tolower(names(df))
+  names(df)[1:2] <- c("country", "countryiso3")
+  df[["...35"]] <- NULL
   df <- df[, -grep("_notes", names(df))]
+  # Create dict
   dict <- data.frame(variable = grep("^s\\d", names(df), value = TRUE))
   dict$description <- gsub("^.+_(?!isgen)", "", dict$variable, perl = TRUE)
   dict$variable <- gsub("_(?!isgen).*", "", dict$variable, perl = TRUE)
+  
   names(df) <- gsub("_(?!isgen).*", "", names(df), perl = TRUE)
-  head(df)
-  names(df)
+  
   ox <- pivot_longer(df, cols = 4:ncol(df))
-  ox <- pivot_wider(ox, id_cols = c("countryname", "countrycode"), names_from = c("name", "date"))
+  ox$date <- as.Date(as.character(ox$date), format = "%Y%m%d")
+  # Time since first occurrence ---------------------------------------------
+  #head(ox)
+  #tmp <- ox[ox$countryiso3 == "AFG" & ox$name == "confirmedcases",]
+  time_since <- ox %>%
+    mutate(value = !(value == 0 | is.na(value))) %>%
+    #group_by(country, date) %>%
+    #mutate(acted = any(value)) %>%
+    group_by(country, countryiso3, name) %>%
+    summarise(time_since_first = today - dplyr::first(date[value])) %>%
+    mutate(time_since_first = as.integer(time_since_first)) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = name, values_from = time_since_first)
+  # End  
+  
+  #
+  ox <- pivot_wider(ox, id_cols = c("country", "countryiso3"), names_from = c("name", "date"))
+  
+  checkfilewrite(time_since, "OxCGRT", "time_since_first_OxCGRT.csv")
   checkfilewrite(ox, "OxCGRT","OxCGRT_Oxford_regulation_policies.csv")
   checkfilewrite(dict, "OxCGRT","data_dictionary.csv")
 }
@@ -243,6 +263,7 @@ get_GHS <- function(){
 
 get_wb_wdi <- function(){
   # Download and unzip
+  
   funzipped <- unzip_from_web(this_url = "http://databank.worldbank.org/data/download/WDI_csv.zip")
   
   # Read files into objects with same name
@@ -257,10 +278,25 @@ get_wb_wdi <- function(){
   wdi$countryiso3 <- countrycode(wdi$country, origin = "country.name", destination = "iso3c")
   wdi <- wdi[, c(1, ncol(wdi), 2:(ncol(wdi)-1))]
   
-  if(!dir.exists(file.path("data", "WB_WDI"))) dir.create(file.path("data", "WB_WDI"))
+
+# Malte Lueken's most recent function -------------------------------------
+
+  recent_data <- wdi %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    mutate(year = str_sub(var, -4),
+           code = str_sub(var, 1, -6)) %>%
+    mutate(country = fct_inorder(country), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, code)  %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = code, values_from = c("latest.year", "latest.value"))
   
-  write.csv(data_dict(WDIData[!duplicated(WDIData$Indicator.Code), ], "Indicator.Code", "Indicator.Name"), file.path("data", "WB_WDI", "data_dictionary.csv"), row.names = FALSE)
-  write.csv(wdi, file.path("data", "WB_WDI", "wdi.csv"), row.names = FALSE)
+# End  
+  
+  checkfilewrite(recent_data, "WB_WDI", "recent_wdi.csv")
+  checkfilewrite(data_dict(WDIData[!duplicated(WDIData$Indicator.Code), ], "Indicator.Code", "Indicator.Name"), "WB_WDI", "data_dictionary.csv")
+  checkfilewrite(wdi, "WB_WDI", "wdi.csv")
   file.remove(funzipped)
 }
 
@@ -280,10 +316,26 @@ get_wb_gov <- function(){
   gov <- pivot_longer(gov, cols = grep("^20", names(gov), value = TRUE))
   gov <- pivot_wider(gov, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
   
-  if(!dir.exists(file.path("data", "WB_GOV"))) dir.create(file.path("data", "WB_GOV"))
+
+# Malte Lueken's most recent function -------------------------------------
   
-  write.csv(dict, file.path("data", "WB_GOV", "data_dictionary.csv"), row.names = FALSE)
-  write.csv(gov, file.path("data", "WB_GOV", "wb_government_effectiveness.csv"), row.names = FALSE)
+  recent_data <- gov %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+# End   
+  
+  checkfilewrite(recent_data, "WB_GOV", "recent_wb_government_effectiveness.csv")
+  checkfilewrite(dict, "WB_GOV", "data_dictionary.csv")
+  checkfilewrite(gov, "WB_GOV", "wb_government_effectiveness.csv")
+
 }
 
 unzip_from_web <- function(this_url){
