@@ -890,6 +890,379 @@ get_wb_trade_dev <- function(){
 }
 
 
+# "id":55,
+# "title":"World Integrated Trade Solution",
+# "description":"":"WITS is a trade software tool giving access to bilateral trade between countries based on 
+# various product classifications, product details, years, and trade flows. It also contains tariff and non-tariff 
+# measures as well as analysis tool to calculate effects of tariff reductions. In addition, users have access to 
+# two visualization tools. One using the data from the World Development Indicators database in the format of bubble 
+# charts and the second using data from the United Nations COMTRADE database in the format of maps.\r\n\r\nTo access 
+# the WITS system, go to http://wits.worldbank.org/wits"},
+
+get_wb_integ_trade_sol <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/55/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2014`:`2016`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_INTEG_TRADE_SOL", "recent_integrated_trade_solution.csv")
+  checkfilewrite(dict, "WB_INTEG_TRADE_SOL", "data_dictionary.csv")
+  checkfilewrite(data, "WB_INTEG_TRADE_SOL", "integrated_trade_solution.csv")
+}
+
+# "id":1000,
+# "title":"Press Freedom Index by Reporters without Borders",
+# "description":"Based in Paris, Reporters Without Borders (RSF) is an independent NGO with consultative status with the United Nations, 
+# UNESCO, the Council of Europe and the International Organization of the Francophonie (OIF). Its foreign sections, its bureau in ten cities, 
+# including Brussels, Washington, Berlin, Tunis, Rio de Janeiro, and Stockholm, and its network of correspondents in 130 countries give RSF 
+# the ability to mobilize support, challenge governments and wield influence both on the ground and in the ministries and precincts where media 
+# and Internet standards and legislation are drafted."}
+
+get_wb_press_free <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/1000/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2015`:`2019`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_PRESS_FREE", "recent_press_freedom_index.csv")
+  checkfilewrite(dict, "WB_PRESS_FREE", "data_dictionary.csv")
+  checkfilewrite(data, "WB_PRESS_FREE", "press_freedom_index.csv")
+}
+
+# "id":748,
+# "title":"Education Statistics"
+# "description":"The World Bank EdStats All Indicator Query holds over 4,000 internationally comparable indicators that describe education access, 
+# progression, completion, literacy, teachers, population, and expenditures. The indicators cover the education cycle from pre-primary to vocational 
+# and tertiary education.The query also holds learning outcome data from international and regional learning assessments (e.g. PISA, TIMSS, PIRLS), 
+# equity data from household surveys, and projection/attainment data to 2050. For further information, please visit the EdStats website."},
+
+get_wb_education <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/748/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2015`:`2018`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_EDUCATION", "recent_education_statistics.csv")
+  checkfilewrite(dict, "WB_EDUCATION", "data_dictionary.csv")
+  checkfilewrite(data, "WB_EDUCATION", "education_statistics.csv")
+}
+
+# "id":747,
+# "title":"Gender Statistics"
+# "description":"The Gender Statistics database is a comprehensive source for the latest sex-disaggregated data and gender statistics covering demography, 
+# education, health, access to economic opportunities, public life and decision-making, and agency."},,
+
+get_wb_gender <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/747/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2014`:`2017`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_GENDER", "recent_gender_statistics.csv")
+  checkfilewrite(dict, "WB_GENDER", "data_dictionary.csv")
+  checkfilewrite(data, "WB_GENDER", "gender_statistics.csv")
+}
+
+
+
+# "id":78,
+# "title":"Travel & Tourism Competitiveness Index"
+# "description":"The World Economic Forum has, for the past 11 years, engaged leaders in travel and tourism to carry out an in-depth analysis of the Travel and 
+# Tourism competitiveness of 136 economies across the world. Travel and Tourism Competitiveness Index measures the set of factors and policies that enable the 
+# sustainable development of the travel and tourism sector, which in turn, contributes to the development and competitiveness of a country.\r\n\r\nThe Travel 
+# and Tourism Competitiveness Index enables all stakeholders to work together to improve the industry's competitiveness in their national economies. The theme 
+# of this edition Paving the Way for a More Sustainable and Inclusive Future, reflects the increasing focus on ensuring the industry's sustained growth in an 
+# uncertain security environment while preserving the natural environment and local communities on which it so richly depends."},
+
+get_wb_tourism <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/78/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2015`,`2017`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_TOURISM", "recent_travel_tourism_competitiveness.csv")
+  checkfilewrite(dict, "WB_TOURISM", "data_dictionary.csv")
+  checkfilewrite(data, "WB_TOURISM", "travel_tourism_competitiveness.csv")
+}
+
+
+# "id":79,
+# "title":"World Travel & Tourism Council"
+# "description":"The World Travel & Tourism Council (WTTC) was formed in 1991 by a group of Travel & Tourism CEOs who felt that the sector's contribution to economies and job creation was not being recognised. 
+# Its objectives were to use empirical evidence to promote awareness of Travel & Tourism's economic contribution; to expand markets in harmony with the environment; and to reduce barriers to growth. WTTC is the 
+# only global body that brings together all major players in the Travel & Tourism sector (airlines, hotels, cruise, car rental, travel agencies, tour operators, GDS, and technology), enabling them to speak with 
+# One Voice to governments and international bodies. It is important that WTTC has the broadest geographical representation and includes all aspects of the sector, including organisations that provide vital 
+# services to Travel & Tourism. With Chief Executives of over 150 of the world's leading Travel & Tourism companies as its members, WTTC has a unique mandate and overview on all matters related to Travel & Tourism. 
+# WTTC works to raise awareness of Travel & Tourism as one of the world's largest sectors, supporting 292 million jobs and generating 10.2% of global GDP.\r\n\r\nRead more at: https://www.wttc.org/about/"},
+
+get_wb_wttc <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/79/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2015`:`2028`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_WTTC", "recent_world_travel_tourism_counsil.csv")
+  checkfilewrite(dict, "WB_WTTC", "data_dictionary.csv")
+  checkfilewrite(data, "WB_WTTC", "world_travel_tourism_counsil.csv")
+}
+
+
+# "id":3755,
+# "title":"Poverty and Equity Data "
+# "description":"The Poverty and Equity Data Portal is the World Bank Group's comprehensive source for the latest data on poverty, inequality, and shared prosperity. 
+# The portal allows you to explore several poverty and inequality indicators for countries and regions as well as explore countries by various income levels - 
+# low income, lower middle income, and upper middle income, and access poverty and inequality data for fragile, IDA and other country groupings."},
+
+get_wb_pov_equity <- function(){
+  # Download and unzip
+  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/3755/dump.csv")
+  names(df) <- tolower(names(df))
+  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  # Create dictionary dict with `variable`
+  dict <- df[, c("variable", "subindicator type", "indicator")]
+  # Remove duplicated values from dict
+  dict <- dict[!duplicated(dict$variable), ]
+  # Create `description`
+  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  # Dictionary with variables `variable` and `dictionary`
+  dict <- dict[, c(1, 4)]
+  
+  # Select columns
+  data <- select(df, 2, 1, variable, `2014`:`2017`)
+  # Rename colums 1 and 2
+  names(data)[1:2] <- c("country" , "countryiso3")
+  
+  # Create pivot
+  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+  
+  # Malte Lueken's most recent function -------------------------------------
+  
+  # Create recent data from latest year with data
+  recent_data <- data %>%
+    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+    group_by(country, countryiso3, type, code) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    ungroup() %>%
+    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+  
+  # End
+  
+  checkfilewrite(recent_data, "WB_POV_EQUITY", "recent_poverty_equity_data.csv")
+  checkfilewrite(dict, "WB_POV_EQUITY", "data_dictionary.csv")
+  checkfilewrite(data, "WB_POV_EQUITY", "poverty_equity_data.csv")
+}
+
+
 unzip_from_web <- function(this_url){
   timeout_option <- getOption('timeout')
   options(timeout=500)
