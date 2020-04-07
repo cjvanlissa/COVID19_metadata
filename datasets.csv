@@ -8,3 +8,4 @@ Preparedness,Global Health Security Index,Nuclear Threat Initiative,https://www.
 COVID19,Number of cases and fatalities,CSSE Global Cases,https://systems.jhu.edu/,Done,CSSE,Copyright (academic use permitted),"<a href = ""https://doi.org/10.1016/S1473-3099(20)30120-1"">Dong, Du, & Gardner, 2020</a>"
 Economic,World Development Indicators,World Bank,https://datacatalog.worldbank.org/dataset/world-development-indicators,Done,WB_WDI,CC-BY 4.0,
 Response,Number of tests,Our world in data,,,OWID_Tests,,
+Economic,Doing Business,,,,,,

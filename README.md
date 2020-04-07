@@ -26,6 +26,9 @@ The following data sets have been processed:
 | Preparedness | Global Health Security Index           | <a href = "https://www.ghsindex.org/">Nuclear Threat Initiative</a>                                                                                    | GHS              | CC BY-NC-ND 4.0                    |                                                                                         |
 | COVID19      | Number of cases and fatalities         | <a href = "https://systems.jhu.edu/">CSSE Global Cases</a>                                                                                             | CSSE             | Copyright (academic use permitted) | <a href = "https://doi.org/10.1016/S1473-3099(20)30120-1">Dong, Du, & Gardner, 2020</a> |
 | Economic     | World Development Indicators           | <a href = "https://datacatalog.worldbank.org/dataset/world-development-indicators">World Bank</a>                                                      | WB\_WDI          | CC-BY 4.0                          |                                                                                         |
+| Economic    | Doing Business           | <a href = "https://govdata360-backend.worldbank.org/api/v1/datasets/435/dump.csvdataset/world-development-indicators">World Bank</a>                                                      | WB\_BUSINESS          | CC-BY 4.0                          |                                                                                         |
+
+
 
 ## Folder structure:
 
