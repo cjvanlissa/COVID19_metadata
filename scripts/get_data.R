@@ -890,59 +890,7 @@ get_wb_trade_dev <- function(){
 }
 
 
-# "id":55,
-# "title":"World Integrated Trade Solution",
-# "description":"":"WITS is a trade software tool giving access to bilateral trade between countries based on 
-# various product classifications, product details, years, and trade flows. It also contains tariff and non-tariff 
-# measures as well as analysis tool to calculate effects of tariff reductions. In addition, users have access to 
-# two visualization tools. One using the data from the World Development Indicators database in the format of bubble 
-# charts and the second using data from the United Nations COMTRADE database in the format of maps.\r\n\r\nTo access 
-# the WITS system, go to http://wits.worldbank.org/wits"},
 
-get_wb_integ_trade_sol <- function(){
-  # Download and unzip
-  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/55/dump.csv")
-  names(df) <- tolower(names(df))
-  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
-  # Create dictionary dict with `variable`
-  dict <- df[, c("variable", "subindicator type", "indicator")]
-  # Remove duplicated values from dict
-  dict <- dict[!duplicated(dict$variable), ]
-  # Create `description`
-  dict$description <- paste(dict$`subindicator type`, dict$indicator)
-  # Dictionary with variables `variable` and `dictionary`
-  dict <- dict[, c(1, 4)]
-  
-  # Select columns
-  data <- select(df, 2, 1, variable, `2014`:`2016`)
-  # Rename colums 1 and 2
-  names(data)[1:2] <- c("country" , "countryiso3")
-  
-  # Create pivot
-  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
-  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
-  
-  # Malte Lueken's most recent function -------------------------------------
-  
-  # Create recent data from latest year with data
-  recent_data <- data %>%
-    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
-    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
-    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
-    group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
-    ungroup() %>%
-    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
-    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
-  
-  # End
-  
-  checkfilewrite(recent_data, "WB_INTEG_TRADE_SOL", "recent_integrated_trade_solution.csv")
-  checkfilewrite(dict, "WB_INTEG_TRADE_SOL", "data_dictionary.csv")
-  checkfilewrite(data, "WB_INTEG_TRADE_SOL", "integrated_trade_solution.csv")
-}
 
 # "id":1000,
 # "title":"Press Freedom Index by Reporters without Borders",
