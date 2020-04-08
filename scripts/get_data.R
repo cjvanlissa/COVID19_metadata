@@ -347,50 +347,50 @@ get_wb_gov <- function(){
 # compiled from officially-recognized international sources. It presents the most current and accurate global development
 # data available, and includes national, regional and global estimates."
 
-get_wb_dev <- function(){
-  # Download and unzip
-  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/56/dump.csv")
-  names(df) <- tolower(names(df))
-  # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
-  # Create dictionary dict with `variable`
-  dict <- df[, c("variable", "subindicator type", "indicator")]
-  # Remove duplicated values from dict
-  dict <- dict[!duplicated(dict$variable), ]
-  # Create `description`
-  dict$description <- paste(dict$`subindicator type`, dict$indicator)
-  # Dictionary with variables `variable` and `dictionary`
-  dict <- dict[, c(1, 4)]
-
-  # Select columns
-  data <- select(df, 2, 1, variable, `2013`:`2019`)
-  # Rename colums 1 and 2
-  names(data)[1:2] <- c("country" , "countryiso3")
-
-  # Create pivot
-  data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
-  data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
-
-  # Malte Lueken's most recent function -------------------------------------
-
-  # Create recent data from latest year with data
-  recent_data <- data %>%
-    pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
-    separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
-    mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
-    group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
-    ungroup() %>%
-    mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
-    pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
-
-  # End
-
-  checkfilewrite(recent_data, "WB_DEV", "recent_world_development_indicators.csv")
-  checkfilewrite(dict, "WB_DEV", "data_dictionary.csv")
-  checkfilewrite(data, "WB_DEV", "world_development_indicators.csv")
-}
+# get_wb_dev <- function(){
+#   # Download and unzip
+#   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/56/dump.csv")
+#   names(df) <- tolower(names(df))
+#   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
+#   df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+#   # Create dictionary dict with `variable`
+#   dict <- df[, c("variable", "subindicator type", "indicator")]
+#   # Remove duplicated values from dict
+#   dict <- dict[!duplicated(dict$variable), ]
+#   # Create `description`
+#   dict$description <- paste(dict$`subindicator type`, dict$indicator)
+#   # Dictionary with variables `variable` and `dictionary`
+#   dict <- dict[, c(1, 4)]
+# 
+#   # Select columns
+#   data <- select(df, 2, 1, variable, `2013`:`2019`)
+#   # Rename colums 1 and 2
+#   names(data)[1:2] <- c("country" , "countryiso3")
+# 
+#   # Create pivot
+#   data <- pivot_longer(data, cols = grep("^20", names(data), value = TRUE))
+#   data <- pivot_wider(data, id_cols = c("country", "countryiso3"), names_from = c("variable", "name"))
+# 
+#   # Malte Lueken's most recent function -------------------------------------
+# 
+#   # Create recent data from latest year with data
+#   recent_data <- data %>%
+#     pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3")) %>%
+#     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
+#     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
+#     group_by(country, countryiso3, type, code) %>%
+#     summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
+#               latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+#     ungroup() %>%
+#     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
+#     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
+# 
+#   # End
+# 
+#   checkfilewrite(recent_data, "WB_DEV", "recent_world_development_indicators.csv")
+#   checkfilewrite(dict, "WB_DEV", "data_dictionary.csv")
+#   checkfilewrite(data, "WB_DEV", "world_development_indicators.csv")
+# }
 
 
 # "id":97,
