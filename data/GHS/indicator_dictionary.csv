@@ -1,0 +1,141 @@
+"variable","Unit","Source","description","weight_percent"
+"Q1.1.1a","Score (0-2)","1","National plan for AMR priority pathogens",0.00435988902100674
+"Q1.1.1b","Score (0-2)","1","Capacity of national lab/lab system to test for AMR priority pathogens",0.00435988902100674
+"Q1.1.1c","Score (0-1)","1","National environmental surveillance for AMR residues/organisms",0.00435988902100674
+"Q1.1.2a","Score (0-1)","1","National law(s) requiring prescription for antibiotic use (humans)",0.00653983353151011
+"Q1.1.2b","Score (0-1)","1","National law(s) requiring prescription for antibiotic use (animals)",0.00653983353151011
+"Q1.2.1a","Score (0-1)","1","Laws/plans on zoonotic disease",0.00193080799501727
+"Q1.2.1b","Score (0-1)","1","Laws/plans for surveillance & control of multiple zoonotic pathogens",0.00193080799501727
+"Q1.2.1c","Score (0-1)","1","Cross-ministerial department/agency/unit for zoonotic disease",0.00193080799501727
+"Q1.2.2a","Score (0-1)","1","Surveillance/reporting mechanism for zoonotic disease for livestock owners",0.00193080799501727
+"Q1.2.2b","Score (0-1)","1","Laws/regulations on data confidentiality to protect livestock owners",0.00193080799501727
+"Q1.2.2c","Score (0-1)","1","Wildlife zoonotic disease surveillance",0.00193080799501727
+"Q1.2.3a","Score (0-1)","2","Annual reporting to OIE on zoonotic disease incidence",0.00579242398505181
+"Q1.2.4a","Number per 100,000 population","2","Number of veterinarians per 100,000 people",0.00289621199252591
+"Q1.2.4b","Number per 100,000 population","2","Number of veterinary para-professionals per 100,000 people",0.00289621199252591
+"Q1.2.5a","Score (0-1)","1","Inclusion of private sector in national plan/law on zoonotic disease",0.00579242398505181
+"Q1.3.1a","Score (0-1)","1","Updated national records of especially dangerous pathogen/toxin inventories",0.00104637336504162
+"Q1.3.1b","Score (0-1)","1","Biosecurity laws on facility security for especially dangerous pathogens",0.00104637336504162
+"Q1.3.1c","Score (0-1)","1","Agency for enforcement of biosecurity laws/regulations",0.00104637336504162
+"Q1.3.1d","Score (0-1)","1","Consolidation of especially dangerous pathogens into minimum # of facilities",0.00104637336504162
+"Q1.3.1e","Score (0-1)","1","Capacity to conduct tests for anthrax/Ebola without culturing live pathogens",0.00104637336504162
+"Q1.3.2a","Score (0-1)","1","Biosecurity training using a standardised, required approach",0.00523186682520809
+"Q1.3.3a","Score (0-3)","1","Personnel checks for permission to access to especially dangerous pathogens",0.00523186682520809
+"Q1.3.4a","Score (0-1)","1","National transport regulations for Category A and B infectious substances",0.00523186682520809
+"Q1.3.5a","Score (0-1)","1","Laws/regulations on cross-border transfer and end-user screening",0.00523186682520809
+"Q1.4.1a","Score (0-1)","1","Biosafety laws/regulations",0.00653983353151011
+"Q1.4.1b","Score (0-1)","1","Agency for enforcement of biosafety laws/regulations",0.00653983353151011
+"Q1.4.2a","Score (0-1)","1","Biosafety training using a standardised, required approach",0.0130796670630202
+"Q1.5.1a","Score (0-1)","1","Evidence of national assessment of dual use research",0.0038927580544703
+"Q1.5.1b","Score (0-1)","1","National law/regulation on oversight of dual use research",0.0038927580544703
+"Q1.5.1c","Score (0-1)","1","Existence of agency responsible for oversight of dual use research",0.0038927580544703
+"Q1.5.2a","Score (0-1)","1","Requirement to screen synthesised DNA against list prior to sale",0.0116782741634109
+"Q1.6.1a","%","2","Immunisation rate for humans (measles/MCV1)",0.0158824528622388
+"Q1.6.1b","Score (0-1)","2","Availability of vaccination figures for livestock (FMD) through OIE database",0.0158824528622388
+"Q2.1.1a","Score (0-2)","1","Capacity of national lab system to conduct 5 or more WHO core tests",0.00836335563561503
+"Q2.1.1b","Score (0-1)","1","Protocols to procure laboratory needs for Ministries of Health/Agriculture",0.00836335563561503
+"Q2.1.2a","Score (0-1)","1","Participation in a regional or international lab network",0.00836335563561503
+"Q2.1.2b","Score (0-1)","1","Existence of nationwide specimen transport system",0.00836335563561503
+"Q2.1.3a","Score (0-1)","1","Existence of an accredited national lab serving as a reference facility",0.00836335563561503
+"Q2.1.3b","Score (0-1)","1","External quality assurance of a national lab serving as a reference facility",0.00836335563561503
+"Q2.2.1a","Score (0-2)","1","Evidence of ongoing event-based surveillance and analysis",0.00516138519226527
+"Q2.2.1b","Score (0-1)","1","Evidence of reporting a potential PHEIC to the WHO (last 2 years)",0.00516138519226527
+"Q2.2.2a","Score (0-1)","1","Electronic national and sub-national reporting surveillance system",0.00344092346151018
+"Q2.2.2b","Score (0-1)","1","Collection of ongoing/real-time lab data by electronic surveillance system",0.00344092346151018
+"Q2.2.2c","Score (0-1)","1","National commitment to share surveillance data with regional neighbours",0.00344092346151018
+"Q2.2.3a","Score (0-1)","1","Availability of de-identified health surveillance data on disease outbreaks",0.0103227703845305
+"Q2.2.4a","Score (0-1)","1","Safeguards for confidentiality of identifiable health information",0.00516138519226527
+"Q2.2.4b","Score (0-1)","1","Inclusion of cyber protections in health data confidentiality law/regulation",0.00516138519226527
+"Q2.2.5a","Score (0-2)","1","Common usage of electronic health records",0.00344092346151018
+"Q2.2.5b","Score (0-1)","1","Public health system access to individual electronic health records",0.00344092346151018
+"Q2.2.5c","Score (0-1)","1","Existence of data standards for health record data comparability",0.00344092346151018
+"Q2.3.1a","Score (0-1)","1","Access to field epidemiology training program in country and/or abroad",0.0121866039261819
+"Q2.3.1b","Score (0-1)","1","Existence of field epidemiology training for animal health professionals",0.0121866039261819
+"Q2.3.2a","Score (0-1)","1","Evidence of at least 1 trained field epidemiologist per 200,000 people",0.0243732078523638
+"Q2.4.1a","Score (0-1)","1","Mechanisms for ministries to share animal/human/wildlife surveillance data",0.0415778251599147
+"Q3.1.1a","Score (0-2)","1","National emergency response plan for diseases with pandemic potential",0.00377897526943562
+"Q3.1.1b","Score (0-1)","1","National public health emergency response plan updated in past 3 years",0.00377897526943562
+"Q3.1.1c","Score (0-1)","1","Vulnerable populations in national public health emergency response plan",0.00377897526943562
+"Q3.1.1d","Score (0-1)","2","Existence of public pandemic influenza preparedness plan updated since 2009",0.00377897526943562
+"Q3.1.2a","Score (0-1)","1","Mechanism to engage private sector in outbreak preparedness/response",0.0151159010777425
+"Q3.2.1a","Score (0-1)","2","Completion of biological-focused IHR exercise with the WHO in past year",0.0131654622290015
+"Q3.2.1b","Score (0-1)","1","Evidence of bio-focused exercise to identify gaps/best practices",0.0131654622290015
+"Q3.3.1a","Score (0-1)","1","Existence of Emergency Operations Centre (EOC)",0.0107274136680753
+"Q3.3.1b","Score (0-1)","1","Requirement for EOC to conduct/evidence EOC conducts at least annual drills",0.0107274136680753
+"Q3.3.1c","Score (0-1)","1","EOC activation within 120 minutes of identification of emergency/scenario",0.0107274136680753
+"Q3.4.1a","Score (0-1)","1","Joint exercise/procedures for potential deliberate biological events",0.0243804856092621
+"Q3.5.1a","Score (0-1)","1","Risk communication plan for specific use during a public health emergency",0.0170663399264835
+"Q3.5.2a","Score (0-1)","1","Government use of media platforms to share info on public health emergencies",0.00853316996324173
+"Q3.5.2b","Score (0-1)","1","Inclusion of different population & sector needs in risk communication plan",0.00853316996324173
+"Q3.6.1a","%","2","Percentage of households with Internet",0.0058513165462229
+"Q3.6.2a","%","2","Mobile-cellular telephone subscriptions per 100 inhabitants",0.0058513165462229
+"Q3.6.3a","% points","2","Gender gap in access to a mobile phone (percentage points)",0.0058513165462229
+"Q3.6.4a","% points","2","Gender gap in access to the Internet (percentage points)",0.0058513165462229
+"Q3.7.1a","Score (0-1)","1","Restrictions on movement and/or exports/imports due to disease outbreak",0
+"Q3.7.1b","Score (0-1)","1","Alignment of movement restrictions with WHO/OIE regulations/recommendations",0.0107274136680753
+"Q3.7.2a","Score (0-1)","1","Restrictions by airlines headquartered in country due to disease outbreak",0
+"Q3.7.2b","Score (0-1)","1","Alignment of airline restrictions with WHO/OIE regulations/recommendations",0.0107274136680753
+"Q4.1.1a","Number per 100,000 population","2","Doctors per 100,000 people",0.00482847379399104
+"Q4.1.1b","Number per 100,000 population","2","Nurses and midwives per 100,000 people",0.00482847379399104
+"Q4.1.1c","Score (0-1)","1","Updated health workforce strategy to address human resource shortfalls",0.00482847379399104
+"Q4.1.2a","Number per 100,000 population","2","Hospital beds per 100,000 people",0.00724271069098655
+"Q4.1.2b","Score (0-1)","1","In-country capacity to isolate patients with highly communicable diseases",0.00724271069098655
+"Q4.2.1a","Score (0-1)","1","Existence of MCM stockpiles or procurement agreements for emergency access",0.00935516797585763
+"Q4.2.2a","Score (0-1)","1","Plans for dispensing MCMs for national use during a public health emergency",0.00935516797585763
+"Q4.2.3a","Score (0-1)","1","Plan to receive foreign health personnel during a public health emergency",0.00935516797585763
+"Q4.3.1a","Score (0-1)","1","Existence of enacted law(s) mandating universal healthcare coverage",0.00513025340611547
+"Q4.3.1b","%","2","Access to skilled birth attendants (% of population)",0.00513025340611547
+"Q4.3.1c","US$ (PPP)","2","Out-of-pocket health expenditures per capita, PPP (current international $)",0.00513025340611547
+"Q4.3.2a","Score (0-1)","1","Government prioritisation of care for healthcare workers during response",0.0153907602183464
+"Q4.4.1a","Score (0-1)","1","Existence of system for communication during a public health emergency",0.0140327519637864
+"Q4.4.1b","Score (0-1)","1","Inclusion of public and private sector in healthcare communication system",0.0140327519637864
+"Q4.5.1a","Score (0-1)","1","Plan to address routine and public health emergency PPE supply issues",0.0153907602183464
+"Q4.5.2a","Score (0-1)","1","Evidence of national public health system monitoring and tracking of HCAIs",0.0153907602183464
+"Q4.6.1a","Score (0-1)","1","Requirement for ethical review before beginning a clinical trial",0.00520569830914658
+"Q4.6.1b","Score (0-1)","1","Expedited approval for clinical trials of unregistered MCMs during epidemics",0.00520569830914658
+"Q4.6.2a","Score (0-1)","1","Existence of agency responsible for approving new human MCMs",0.00520569830914658
+"Q4.6.2b","Score (0-1)","1","Expedited approval for human MCMs during public health emergencies",0.00520569830914658
+"Q5.1.1a","Score (0-1)","2","Submission of IHR reports to the WHO in past year",0.0137266840095201
+"Q5.1.2a","Score (0-1)","1","Existence of specific risk reduction strategies for epidemics and pandemics",0.0137266840095201
+"Q5.2.1a","Score (0-1)","1","Existence of public health emergency agreements with regional neighbours",0.0123982952344053
+"Q5.2.1b","Score (0-1)","1","Existence of animal health emergency agreements with regional neighbours",0.0123982952344053
+"Q5.3.1a","Score (0-2)","2","Biological and Toxin Weapons Convention status",0.0026567775502297
+"Q5.3.1b","Score (0-1)","2","Submission of CBMs to the Biological and Toxin Weapons Convention",0.0026567775502297
+"Q5.3.1c","Score (0-1)","2","Submission of UNSCR 1540 reports",0.0026567775502297
+"Q5.3.1d","Score (0-4)","2","Extent of UNSCR 1540 implementation on public health emergencies",0.0026567775502297
+"Q5.3.2a","Score (0-1)","2","Membership in global health security and/or biological weapons agreements",0.0106271102009188
+"Q5.4.1a","Score (0-1)","1","Completion and publication of JEE (or GHSA pilot external assessment) report",0.00642054574638844
+"Q5.4.1b","Score (0-1)","1","Completion and publication of a NAPHS or GHSA roadmap",0.00642054574638844
+"Q5.4.2a","Score (0-1)","1","Completion and publication of PVS report (past five years)",0.00642054574638844
+"Q5.4.2b","Score (0-1)","1","Completion and publication of PVS gap analysis (past five years)",0.00642054574638844
+"Q5.5.1a","Score (0-1)","1","National budget to address gaps identified in JEE, NAPHS or GHSA roadmap",0.00516595634766886
+"Q5.5.1b","Score (0-1)","1","National budget to address gaps identified in PVS assessment or gap analysis",0.00516595634766886
+"Q5.5.2a","Score (0-1)","1","Emergency public financing during a public health emergency",0.0103319126953377
+"Q5.5.3a","Score (0-1)","1","Commitments to improve domestic or foreign capacity for epidemic threats",0.00516595634766886
+"Q5.5.3b","Score (0-1)","1","Investments to improve domestic or foreign capacity for epidemic threats",0.00516595634766886
+"Q5.6.1a","Score (0-1)","1","Sharing of genetic/biological data and materials beyond influenza",0.00915112267301341
+"Q5.6.1b","Score (0-1)","1","Evidence of non-compliance with sample sharing element of PIP framework",0.00915112267301341
+"Q5.6.1c","Score (0-1)","1","Evidence of non-sharing of pandemic pathogen samples during an outbreak",0.00915112267301341
+"Q6.1.1a","Score (0-4)","2","Government effectiveness (EIU score)",0.00406599421377747
+"Q6.1.2a","Score (0-4)","2","Orderly transfers of power",0.00406599421377747
+"Q6.1.3a","Score (0-4)","2","Risk of social unrest",0.00406599421377747
+"Q6.1.4a","Score (0-4)","2","Risk of terrorism",0.00406599421377747
+"Q6.1.5a","Score (0-4)","2","Presence or risk of armed conflict",0.00406599421377747
+"Q6.1.6a","Score (0-2)","2","Government territorial control",0.00406599421377747
+"Q6.1.7a","Score (0-4)","2","International disputes/tensions",0.00406599421377747
+"Q6.2.1a","%","2","Adult literacy rate (15+ years old, both sexes)",0.00485527544351074
+"Q6.2.2a","Score (0-1)","2","UNDP Gender Inequality Index score",0.00485527544351074
+"Q6.2.3a","%","2","Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population)",0.00485527544351074
+"Q6.2.4a","Score (0-2)","2","Public confidence in government",0.00485527544351074
+"Q6.2.5a","Score (0-2)","2","Robust, open, diverse local media and reporting",0.00485527544351074
+"Q6.3.1a","Score (0-4)","2","Adequacy of road network",0.0086502033763697
+"Q6.3.2a","Score (0-4)","2","Adequacy of airports",0.0086502033763697
+"Q6.3.3a","Score (0-4)","2","Adequacy of power network",0.0086502033763697
+"Q6.4.1a","% (of total population)","2","Urban population (% of total population)",0.00753404810199942
+"Q6.4.2a","% points","2","Change in forest area (percentage points)",0.00753404810199942
+"Q6.4.3a","Score (0-4)","2","Natural disaster risk",0.00753404810199942
+"Q6.5.1a","Years","2","Total life expectancy (years)",0.00446462109748114
+"Q6.5.1b","Score (0-100)","2","HAQ Index frontier score",0.00446462109748114
+"Q6.5.2a","%","2","Access to potable water",0.00446462109748114
+"Q6.5.2b","%","2","Access to at least basic sanitation facilities",0.00446462109748114
+"Q6.5.3a","US$","2","Domestic general government health expenditure per capita (PPP)",0.00892924219496228

@@ -1,0 +1,180 @@
+"country","countryiso3","latest.year_SI.POV.DDAY","latest.value_SI.POV.DDAY"
+"Albania","ALB",2017,1.7
+"Algeria","DZA",NA,NA
+"Angola","AGO",2018,47.6
+"Argentina","ARG",2018,1
+"Armenia","ARM",2018,2.1
+"Australia","AUS",2014,0.5
+"Austria","AUT",2017,0.3
+"Azerbaijan","AZE",NA,NA
+"Bangladesh","BGD",2016,14.8
+"Belarus","BLR",2018,0
+"Belgium","BEL",2017,0.1
+"Belize","BLZ",NA,NA
+"Benin","BEN",2015,49.5
+"Bhutan","BTN",2017,1.5
+"Bolivia","BOL",2018,4.5
+"Bosnia and Herzegovina","BIH",NA,NA
+"Botswana","BWA",2015,16.1
+"Brazil","BRA",2018,4.4
+"Bulgaria","BGR",2017,1.3
+"Burkina Faso","BFA",2014,43.7
+"Burundi","BDI",2013,71.8
+"Cabo Verde","CPV",2015,3.2
+"Cameroon","CMR",2014,23.8
+"Canada","CAN",2013,0.5
+"Central African Republic","CAF",NA,NA
+"Chad","TCD",NA,NA
+"Chile","CHL",2017,0.3
+"China","CHN",2016,0.5
+"Colombia","COL",2018,4.1
+"Comoros","COM",2014,17.6
+"Congo, Dem. Rep.","COD",NA,NA
+"Congo, Rep.","COG",NA,NA
+"Costa Rica","CRI",2018,1.4
+"Cote d'Ivoire","CIV",2015,28.2
+"Croatia","HRV",2017,0.5
+"Cyprus","CYP",2017,0
+"Czech Republic","CZE",2017,0
+"Denmark","DNK",2017,0.1
+"Djibouti","DJI",2017,17.1
+"Dominican Republic","DOM",2018,0.4
+"East Asia & Pacific","EAS",2018,1.3
+"Ecuador","ECU",2018,3.3
+"Egypt, Arab Rep.","EGY",2017,3.2
+"El Salvador","SLV",2018,1.5
+"Estonia","EST",2017,0.3
+"Eswatini","SWZ",2016,28.4
+"Ethiopia","ETH",2015,30.8
+"Europe & Central Asia","ECS",2018,1.2
+"Fiji","FJI",2013,1.4
+"Finland","FIN",2017,0.1
+"Fragile and conflict affected situations","FCS",2018,36.9
+"France","FRA",2017,0
+"Gabon","GAB",2017,3.4
+"Gambia, The","GMB",2015,10.1
+"Georgia","GEO",2018,4.5
+"Germany","DEU",2016,0
+"Ghana","GHA",2016,13.3
+"Greece","GRC",2017,0.9
+"Guatemala","GTM",2014,8.7
+"Guinea","GIN",NA,NA
+"Guinea-Bissau","GNB",NA,NA
+"Guyana","GUY",NA,NA
+"Haiti","HTI",NA,NA
+"High income","HIC",2018,0.6
+"Honduras","HND",2018,16.5
+"Hungary","HUN",2017,0.6
+"Iceland","ISL",2015,0
+"IDA total","IDA",2018,29.8
+"India","IND",NA,NA
+"Indonesia","IDN",2018,4.6
+"Iran, Islamic Rep.","IRN",2017,0.3
+"Iraq","IRQ",NA,NA
+"Ireland","IRL",2016,0.1
+"Israel","ISR",2016,0.2
+"Italy","ITA",2017,1.4
+"Jamaica","JAM",NA,NA
+"Japan","JPN",2013,0.7
+"Jordan","JOR",NA,NA
+"Kazakhstan","KAZ",2017,0
+"Kenya","KEN",2015,36.8
+"Kiribati","KIR",NA,NA
+"Korea, Rep.","KOR",NA,NA
+"Kosovo","XKX",2017,0.2
+"Kyrgyz Republic","KGZ",2018,0.9
+"Lao PDR","LAO",NA,NA
+"Latin America & Caribbean","LCN",2018,4.4
+"Latvia","LVA",2017,0.8
+"Lebanon","LBN",NA,NA
+"Lesotho","LSO",2017,26.9
+"Liberia","LBR",2016,40.9
+"Lithuania","LTU",2017,1
+"Low & middle income","LMY",2015,11.9
+"Low income","LIC",2018,45.2
+"Lower middle income","LMC",2015,14.2
+"Luxembourg","LUX",2017,0.3
+"Madagascar","MDG",NA,NA
+"Malawi","MWI",2016,70.3
+"Malaysia","MYS",2015,0
+"Maldives","MDV",2016,0
+"Mali","MLI",NA,NA
+"Malta","MLT",2017,0.2
+"Mauritania","MRT",2014,6
+"Mauritius","MUS",2017,0.2
+"Mexico","MEX",2018,1.7
+"Micronesia, Fed. Sts.","FSM",2013,15.4
+"Middle East & North Africa","MEA",2018,7.2
+"Moldova","MDA",2018,0
+"Mongolia","MNG",2018,0.5
+"Montenegro","MNE",2015,1.7
+"Morocco","MAR",2013,1
+"Mozambique","MOZ",2014,62.9
+"Myanmar","MMR",2017,2
+"Namibia","NAM",2015,13.4
+"Nepal","NPL",NA,NA
+"Netherlands","NLD",2017,0.2
+"Nicaragua","NIC",2014,3.2
+"Niger","NER",2014,44.5
+"Nigeria","NGA",NA,NA
+"North Macedonia","MKD",2017,4.4
+"Norway","NOR",2017,0.2
+"Pakistan","PAK",2015,3.9
+"Panama","PAN",2018,1.7
+"Papua New Guinea","PNG",NA,NA
+"Paraguay","PRY",2018,1.6
+"Peru","PER",2018,2.6
+"Philippines","PHL",2015,6.1
+"Poland","POL",2017,0.3
+"Portugal","PRT",2017,0.4
+"Romania","ROU",2017,3.5
+"Russian Federation","RUS",2018,0
+"Rwanda","RWA",2016,55.5
+"Samoa","WSM",2013,1.1
+"Sao Tome and Principe","STP",2017,34.5
+"Senegal","SEN",NA,NA
+"Serbia","SRB",2017,5.5
+"Seychelles","SYC",2013,1.1
+"Sierra Leone","SLE",2018,40.1
+"Slovak Republic","SVK",2016,1.4
+"Slovenia","SVN",2017,0
+"Solomon Islands","SLB",2013,25.1
+"South Africa","ZAF",2014,18.9
+"South Asia","SAS",2013,16.1
+"South Sudan","SSD",NA,NA
+"Spain","ESP",2017,0.7
+"Sri Lanka","LKA",2016,0.8
+"St. Lucia","LCA",2016,4.7
+"Sub-Saharan Africa","SSF",2015,42.3
+"Sudan","SDN",2014,12.7
+"Suriname","SUR",NA,NA
+"Sweden","SWE",2017,0.2
+"Switzerland","CHE",2017,0
+"Syrian Arab Republic","SYR",NA,NA
+"Tajikistan","TJK",2015,4.8
+"Tanzania","TZA",2017,49.1
+"Thailand","THA",2018,0
+"Timor-Leste","TLS",2014,30.7
+"Togo","TGO",2015,49.8
+"Tonga","TON",2015,1
+"Trinidad and Tobago","TTO",NA,NA
+"Tunisia","TUN",2015,0.2
+"Turkey","TUR",2018,0.1
+"Turkmenistan","TKM",NA,NA
+"Tuvalu","TUV",NA,NA
+"Uganda","UGA",2016,41.7
+"Ukraine","UKR",2018,0
+"United Arab Emirates","ARE",2014,0
+"United Kingdom","GBR",2016,0.2
+"United States","USA",2016,1.2
+"Upper middle income","UMC",2018,1.5
+"Uruguay","URY",2018,0.1
+"Uzbekistan","UZB",NA,NA
+"Vanuatu","VUT",NA,NA
+"Venezuela, RB","VEN",NA,NA
+"Vietnam","VNM",2018,1.9
+"West Bank and Gaza","PSE",2016,1
+"World","WLD",2015,10
+"Yemen, Rep.","YEM",2014,18.8
+"Zambia","ZMB",2015,57.5
+"Zimbabwe","ZWE",2017,33.9

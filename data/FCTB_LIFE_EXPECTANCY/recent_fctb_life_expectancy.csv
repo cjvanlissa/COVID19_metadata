@@ -1,0 +1,222 @@
+"country","countryiso3","latest.year_lifeexpectancy.2102","latest.value_lifeexpectancy.2102"
+"Afghanistan","AFG",2020,51.7
+"Albania","ALB",2020,78.5
+"Algeria","DZA",2020,77
+"American Samoa","ASM",2020,73.4
+"Andorra","AND",2020,82.9
+"Angola","AGO",2020,60.2
+"Anguilla","AIA",2020,81.5
+"Antigua and Barbuda","ATG",2020,76.7
+"Argentina","ARG",2020,77.3
+"Armenia","ARM",2020,74.9
+"Aruba","ABW",2020,76.9
+"Australia","AUS",2020,82.3
+"Austria","AUT",2020,81.6
+"Azerbaijan","AZE",2020,72.8
+"Bahamas, The","BHS",2020,72.6
+"Bahrain","BHR",2020,79
+"Bangladesh","BGD",2020,73.4
+"Barbados","BRB",2020,75.5
+"Belarus","BLR",2020,73
+"Belgium","BEL",2020,81.1
+"Belize","BLZ",2020,68.9
+"Benin","BEN",2020,62.3
+"Bermuda","BMU",2020,81.4
+"Bhutan","BTN",2020,70.6
+"Bolivia","BOL",2020,69.5
+"Bosnia and Herzegovina","BIH",2020,76.9
+"Botswana","BWA",2020,63.3
+"Brazil","BRA",2020,74
+"British Virgin Islands","VGB",2020,78.8
+"Brunei","BRN",2020,77.3
+"Bulgaria","BGR",2020,74.7
+"Burkina Faso","BFA",2020,55.9
+"Burma","MMR",2020,68.2
+"Burundi","BDI",2020,60.9
+"Cabo Verde","CPV",2020,72.4
+"Cambodia","KHM",2020,64.9
+"Cameroon","CMR",2020,59
+"Canada","CAN",2020,81.9
+"Cayman Islands","CYM",2020,81.3
+"Central African Republic","CAF",2020,52.8
+"Chad","TCD",2020,50.6
+"Chile","CHL",2020,78.9
+"China","CHN",2020,75.7
+"Colombia","COL",2020,75.9
+"Comoros","COM",2020,64.6
+"Congo, Democratic Republic of the","COD",2020,57.7
+"Congo, Republic of the","COG",2020,59.8
+"Cook Islands","COK",2020,76
+"Costa Rica","CRI",2020,78.7
+"Cote d'Ivoire","CIV",2020,59
+"Croatia","HRV",2020,76.1
+"Cuba","CUB",2020,78.8
+"Curacao","CUW",2020,78.5
+"Cyprus","CYP",2020,78.8
+"Czechia","CZE",2020,78.8
+"Denmark","DNK",2020,79.5
+"Djibouti","DJI",2020,63.6
+"Dominica","DMA",2020,77.2
+"Dominican Republic","DOM",2020,78.3
+"Ecuador","ECU",2020,77
+"Egypt","EGY",2020,73
+"El Salvador","SLV",2020,74.9
+"Equatorial Guinea","GNQ",2020,64.6
+"Eritrea","ERI",2020,65.2
+"Estonia","EST",2020,76.9
+"Ethiopia","ETH",2020,62.6
+"Faroe Islands","FRO",2020,80.5
+"Fiji","FJI",2020,73
+"Finland","FIN",2020,81
+"France","FRA",2020,81.9
+"French Polynesia","PYF",2020,77.4
+"Gabon","GAB",2020,52.1
+"Gambia, The","GMB",2020,65.1
+"Gaza Strip","PSE",2020,74.2
+"Georgia","GEO",2020,76.4
+"Germany","DEU",2020,80.8
+"Ghana","GHA",2020,67
+"Gibraltar","GIB",2020,79.6
+"Greece","GRC",2020,80.7
+"Greenland","GRL",2020,72.6
+"Grenada","GRD",2020,74.5
+"Guam","GUM",2020,76
+"Guatemala","GTM",2020,72.6
+"Guernsey","GGY",2020,82.6
+"Guinea","GIN",2020,61
+"Guinea-Bissau","GNB",2020,51
+"Guyana","GUY",2020,68.6
+"Haiti","HTI",2020,64.2
+"Honduras","HND",2020,71.2
+"Hong Kong","HKG",2020,83
+"Hungary","HUN",2020,76.1
+"Iceland","ISL",2020,83.1
+"India","IND",2020,68.8
+"Indonesia","IDN",2020,73
+"Iran","IRN",2020,74
+"Iraq","IRQ",2020,74.9
+"Ireland","IRL",2020,80.9
+"Isle of Man","IMN",2020,81.3
+"Israel","ISR",2020,82.5
+"Italy","ITA",2020,82.3
+"Jamaica","JAM",2020,73.7
+"Japan","JPN",2020,85.3
+"Jersey","JEY",2020,81.9
+"Jordan","JOR",2020,74.8
+"Kazakhstan","KAZ",2020,71.1
+"Kenya","KEN",2020,64.3
+"Kiribati","KIR",2020,66.5
+"Korea, North","PRK",2020,70.7
+"Korea, South","KOR",2020,82.5
+"Kuwait","KWT",2020,78.2
+"Kyrgyzstan","KGZ",2020,70.9
+"Laos","LAO",2020,64.6
+"Latvia","LVA",2020,74.7
+"Lebanon","LBN",2020,77.8
+"Lesotho","LSO",2020,53
+"Liberia","LBR",2020,63.3
+"Libya","LBY",2020,76.7
+"Liechtenstein","LIE",2020,81.9
+"Lithuania","LTU",2020,75
+"Luxembourg","LUX",2020,82.3
+"Macau","MAC",2020,84.6
+"Madagascar","MDG",2020,66.3
+"Malawi","MWI",2020,61.7
+"Malaysia","MYS",2020,75.2
+"Maldives","MDV",2020,75.8
+"Mali","MLI",2020,60.3
+"Malta","MLT",2020,80.5
+"Marshall Islands","MHL",2020,73.4
+"Mauritania","MRT",2020,63.4
+"Mauritius","MUS",2020,75.8
+"Mexico","MEX",2020,76.1
+"Micronesia, Federated States of","FSM",2020,73.1
+"Moldova","MDA",2020,71
+"Monaco","MCO",2020,89.4
+"Mongolia","MNG",2020,69.9
+"Montserrat","MSR",2020,74.6
+"Morocco","MAR",2020,77.1
+"Mozambique","MOZ",2020,53.7
+"Namibia","NAM",2020,64
+"Nauru","NRU",2020,67.4
+"Nepal","NPL",2020,71
+"Netherlands","NLD",2020,81.4
+"New Caledonia","NCL",2020,77.9
+"New Zealand","NZL",2020,81.3
+"Nicaragua","NIC",2020,73.5
+"Niger","NER",2020,55.9
+"Nigeria","NGA",2020,53.8
+"Northern Mariana Islands","MNP",2020,75.4
+"Norway","NOR",2020,81.9
+"Oman","OMN",2020,75.7
+"Pakistan","PAK",2020,68.1
+"Palau","PLW",2020,73.4
+"Panama","PAN",2020,78.8
+"Papua New Guinea","PNG",2020,67.3
+"Paraguay","PRY",2020,77.4
+"Peru","PER",2020,74
+"Philippines","PHL",2020,69.4
+"Poland","POL",2020,77.8
+"Portugal","PRT",2020,79.4
+"Puerto Rico","PRI",2020,80.9
+"Qatar","QAT",2020,78.9
+"Romania","ROU",2020,75.4
+"Russia","RUS",2020,71
+"Rwanda","RWA",2020,64.3
+"Saint Helena, Ascension, and Tristan da Cunha","SHN",2020,79.6
+"Saint Kitts and Nevis","KNA",2020,75.9
+"Saint Lucia","LCA",2020,77.9
+"Saint Pierre and Miquelon","SPM",2020,80.6
+"Saint Vincent and the Grenadines","VCT",2020,75.5
+"Samoa","WSM",2020,74
+"San Marino","SMR",2020,83.3
+"Sao Tome and Principe","STP",2020,65.3
+"Saudi Arabia","SAU",2020,75.5
+"Senegal","SEN",2020,62.1
+"Serbia","SRB",2020,75.7
+"Seychelles","SYC",2020,74.9
+"Sierra Leone","SLE",2020,58.6
+"Singapore","SGP",2020,85.2
+"Sint Maarten","SXM",2020,78.3
+"Slovakia","SVK",2020,77.3
+"Slovenia","SVN",2020,78.3
+"Solomon Islands","SLB",2020,75.6
+"Somalia","SOM",2020,52.8
+"South Africa","ZAF",2020,63.8
+"Spain","ESP",2020,81.8
+"Sri Lanka","LKA",2020,76.9
+"Sudan","SDN",2020,64.4
+"Suriname","SUR",2020,72.5
+"Sweden","SWE",2020,82.1
+"Switzerland","CHE",2020,82.6
+"Syria","SYR",2020,75.1
+"Taiwan","TWN",2020,80.2
+"Tajikistan","TJK",2020,68.1
+"Tanzania","TZA",2020,62.6
+"Thailand","THA",2020,74.9
+"Timor-Leste","TLS",2020,68.4
+"Togo","TGO",2020,65.4
+"Tonga","TON",2020,76.4
+"Trinidad and Tobago","TTO",2020,73.1
+"Tunisia","TUN",2020,75.7
+"Turkey","TUR",2020,75
+"Turkmenistan","TKM",2020,70.4
+"Turks and Caicos Islands","TCA",2020,80
+"Tuvalu","TUV",2020,66.9
+"Uganda","UGA",2020,55.9
+"Ukraine","UKR",2020,72.1
+"United Arab Emirates","ARE",2020,77.7
+"United Kingdom","GBR",2020,80.8
+"United States","USA",2020,80
+"Uruguay","URY",2020,77.4
+"Uzbekistan","UZB",2020,74
+"Vanuatu","VUT",2020,73.7
+"Venezuela","VEN",2020,76
+"Vietnam","VNM",2020,73.7
+"Virgin Islands","VIR",2020,79.4
+"Wallis and Futuna","WLF",2020,79.8
+"West Bank","PSE",2020,75.2
+"Western Sahara","ESH",2020,63.4
+"Yemen","YEM",2020,65.9
+"Zambia","ZMB",2020,52.7
+"Zimbabwe","ZWE",2020,60.4

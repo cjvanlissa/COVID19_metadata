@@ -1,0 +1,140 @@
+"country","countryiso3","latest.year_EN.POP.SLUM.UR.ZS","latest.value_EN.POP.SLUM.UR.ZS"
+"Afghanistan","AFG",2014,62.7
+"Algeria","DZA",NA,NA
+"Angola","AGO",2014,55.5
+"Antigua and Barbuda","ATG",NA,NA
+"Arab World","ARB",2014,32.5170967713197
+"Argentina","ARG",2014,16.7
+"Armenia","ARM",2014,14.4
+"Bangladesh","BGD",2014,55.1
+"Belize","BLZ",2014,10.8
+"Benin","BEN",2014,61.5
+"Bhutan","BTN",NA,NA
+"Bolivia","BOL",2014,43.5
+"Botswana","BWA",NA,NA
+"Brazil","BRA",2014,22.3
+"Burkina Faso","BFA",2014,65.8
+"Burundi","BDI",2014,57.9
+"Cabo Verde","CPV",NA,NA
+"Cambodia","KHM",2014,55.1
+"Cameroon","CMR",2014,37.8
+"Caribbean small states","CSS",NA,NA
+"Central African Republic","CAF",2014,93.3
+"Chad","TCD",2014,88.2
+"Chile","CHL",NA,NA
+"China","CHN",2014,25.2
+"Colombia","COL",2014,13.1
+"Comoros","COM",2014,69.6
+"Congo, Dem. Rep.","COD",2014,74.8
+"Congo, Rep.","COG",2014,46.9
+"Costa Rica","CRI",2014,5.5
+"Cote d'Ivoire","CIV",2014,56
+"Djibouti","DJI",2014,65.6
+"Dominica","DMA",NA,NA
+"Dominican Republic","DOM",2014,12.1
+"Early-demographic dividend","EAR",2014,27.0384934402143
+"East Asia & Pacific","EAS",2014,25.7938114421832
+"East Asia & Pacific (excluding high income)","EAP",2014,25.7938114421832
+"East Asia & Pacific (IDA & IBRD countries)","TEA",2014,25.7938114421832
+"Ecuador","ECU",2014,36
+"Egypt, Arab Rep.","EGY",2014,10.6
+"El Salvador","SLV",NA,NA
+"Equatorial Guinea","GNQ",2014,66.2
+"Eritrea","ERI",NA,NA
+"Eswatini","SWZ",2014,32.7
+"Ethiopia","ETH",2014,73.9
+"Fragile and conflict affected situations","FCS",2014,60.9683948898495
+"Gabon","GAB",2014,37
+"Gambia, The","GMB",2014,34.8
+"Ghana","GHA",2014,37.9
+"Grenada","GRD",NA,NA
+"Guatemala","GTM",2014,34.5
+"Guinea","GIN",2014,43.3
+"Guinea-Bissau","GNB",2014,82.3
+"Guyana","GUY",2014,33.1
+"Haiti","HTI",2014,74.4
+"Heavily indebted poor countries (HIPC)","HPC",2014,62.0610720994296
+"Honduras","HND",2014,27.5
+"IBRD only","IBD",2014,23.5344372408156
+"IDA & IBRD total","IBT",2014,29.7620906739567
+"IDA blend","IDB",2014,47.2575955831377
+"IDA only","IDX",2014,59.8202119809219
+"IDA total","IDA",2014,55.1111455628681
+"India","IND",2014,24
+"Indonesia","IDN",2014,21.8
+"Iran, Islamic Rep.","IRN",NA,NA
+"Iraq","IRQ",2014,47.2
+"Jamaica","JAM",NA,NA
+"Jordan","JOR",2014,12.9
+"Kenya","KEN",2014,56
+"Korea, Dem. People’s Rep.","PRK",NA,NA
+"Lao PDR","LAO",2014,31.4
+"Late-demographic dividend","LTE",2014,23.9295584860171
+"Latin America & Caribbean","LCN",2014,20.4104674325914
+"Latin America & Caribbean (excluding high income)","LAC",2014,20.3769035618107
+"Latin America & the Caribbean (IDA & IBRD countries)","TLA",2014,20.4104674325914
+"Least developed countries: UN classification","LDC",2014,62.750263054409
+"Lebanon","LBN",NA,NA
+"Lesotho","LSO",2014,50.8
+"Liberia","LBR",2014,65.7
+"Libya","LBY",NA,NA
+"Low & middle income","LMY",2014,29.7661646662697
+"Low income","LIC",2014,64.6222125057205
+"Lower middle income","LMC",2014,32.1752305946691
+"Madagascar","MDG",2014,77.2
+"Malawi","MWI",2014,66.7
+"Mali","MLI",2014,56.3
+"Mauritania","MRT",2014,79.9
+"Mexico","MEX",2014,11.1
+"Middle East & North Africa","MEA",NA,NA
+"Middle East & North Africa (excluding high income)","MNA",NA,NA
+"Middle East & North Africa (IDA & IBRD countries)","TMN",NA,NA
+"Middle income","MIC",2014,27.1133643036178
+"Mongolia","MNG",2014,42.7
+"Morocco","MAR",2014,13.1
+"Mozambique","MOZ",2014,80.3
+"Myanmar","MMR",2014,41
+"Namibia","NAM",2014,33.2
+"Nepal","NPL",2014,54.3
+"Nicaragua","NIC",NA,NA
+"Niger","NER",2014,70.1
+"Nigeria","NGA",2014,50.2
+"Oman","OMN",NA,NA
+"Pakistan","PAK",2014,45.5
+"Panama","PAN",2014,25.8
+"Paraguay","PRY",NA,NA
+"Peru","PER",2014,34.2
+"Philippines","PHL",2014,38.3
+"Pre-demographic dividend","PRE",2014,58.7235047399305
+"Rwanda","RWA",2014,53.2
+"Sao Tome and Principe","STP",2014,86.6
+"Saudi Arabia","SAU",NA,NA
+"Senegal","SEN",2014,39.4
+"Sierra Leone","SLE",2014,75.6
+"Somalia","SOM",2014,73.6
+"South Africa","ZAF",2014,23
+"South Asia","SAS",2014,30.4594586420106
+"South Asia (IDA & IBRD)","TSA",2014,30.4594586420106
+"South Sudan","SSD",2014,95.6
+"Sri Lanka","LKA",NA,NA
+"St. Lucia","LCA",NA,NA
+"Sub-Saharan Africa","SSF",2014,55.2811967301277
+"Sub-Saharan Africa (excluding high income)","SSA",2014,55.2811967301277
+"Sub-Saharan Africa (IDA & IBRD countries)","TSS",2014,55.2811967301277
+"Sudan","SDN",2014,91.6
+"Suriname","SUR",2014,7.3
+"Syrian Arab Republic","SYR",2014,19.3
+"Tanzania","TZA",2014,50.7
+"Thailand","THA",2014,25
+"Togo","TGO",2014,51.2
+"Trinidad and Tobago","TTO",NA,NA
+"Tunisia","TUN",2014,8
+"Turkey","TUR",2014,11.9
+"Uganda","UGA",2014,53.6
+"Upper middle income","UMC",2014,23.0593801564599
+"Venezuela, RB","VEN",NA,NA
+"Vietnam","VNM",2014,27.2
+"World","WLD",2014,29.7620906739567
+"Yemen, Rep.","YEM",2014,60.8
+"Zambia","ZMB",2014,54
+"Zimbabwe","ZWE",2014,25.1
