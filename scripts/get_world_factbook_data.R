@@ -18,6 +18,7 @@ library(tidyverse)
 get_world_factbook_data <- function(){
   get_fctb_population()
   get_fctb_median()
+  get_fctb_population_growth()
   get_fctb_birth_rate()
   get_fctb_death_rate()
   get_fctb_migration_rate()
@@ -325,6 +326,12 @@ get_fctb_median <- function(){
 }
 
 
+# Population growth rate
+get_fctb_population_growth <- function(){
+  process_fctb("population_growth", 2002)
+}
+
+
 # Birth rate compares the average annual number of births during a year per 1,000 persons in the population at midyear; also known
 # as crude birth rate.
 get_fctb_birth_rate <- function(){
@@ -432,7 +439,7 @@ get_fctb_unemployment_youth <- function(){
 # Airports compares the total number of airports or airfields recognizable from the air. The runway(s) may be paved or unpaved 
 # and may include closed or abandoned installations
 get_fctb_airports <- function(){
-  process_fctb("fctb_airports", 2053)
+  process_fctb("airports", 2053)
 }
 
 
