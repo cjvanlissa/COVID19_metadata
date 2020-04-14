@@ -4,7 +4,6 @@
 # (1) the day when the first policy was applied
 # (2) the day when the first case was confirmed
 # (3) the day when the first death was confirmed 
-# it also calculates the overall confirmed cases and deaths
 # for the OxCGRT data set
 
 # The function does only take policies on items s1 to s7 into account 
@@ -20,7 +19,6 @@
 # (1) the day the first case was confirmed
 # (2) the day the first death was confirmed
 # (3) the day the first recovery was confirmed
-# it also calculates the overall confirmed cases, deaths, and recoveries 
 # for the CSSE data set
 
 
@@ -61,12 +59,11 @@ time_since_first_OxCGRT <- function(policy_value = 1) {
     pivot_wider(id_cols = c("country", "countryiso3", "date"), names_from = code, values_from = value) %>%
     group_by(country, countryiso3)  %>%
     summarise(time_since_first_case = today - first(date[cases > 0 & !is.na(cases)]),
-              time_since_first_death = today - first(date[deaths > 0 & !is.na(deaths)]),
-              cases = last(cases[!is.na(cases)]),
-              deaths = last(deaths[!is.na(deaths)]))
+              time_since_first_death = today - first(date[deaths > 0 & !is.na(deaths)]))
   
   first_data <- first_policy_data %>%
-    left_join(first_case_death_data, by = c("country", "countryiso3"))
+    left_join(first_case_death_data, by = c("country", "countryiso3")) %>%
+    arrange(countryiso3)
   
   write.csv(first_data, file.path("data", "OxCGRT", "time_since_first_OxCGRT.csv"), row.names = FALSE)
 }
@@ -80,20 +77,18 @@ time_since_first_CSSE <- function() {
   
   first_data <- csse %>%
     pivot_longer(names_to = "var", values_to = "value", -c("country", "countryiso3", "region")) %>%
-    mutate(date = str_sub(var, -10),
+    mutate(country = fct_inorder(country), countryiso3 = fct_inorder(countryiso3), region = fct_inorder(region),
+           date = str_sub(var, -10),
            date = as.Date(paste(str_sub(date, -4), 
                                 str_sub(date, 1, 2), 
                                 str_sub(date, 4, 5), sep = "-")),
            code = ifelse(str_detect(var, "confirmed"), "cases", 
                          ifelse(str_detect(var, "deaths"), "deaths", "recovered"))) %>%
     pivot_wider(id_cols = c("country", "countryiso3", "region", "date"), names_from = code, values_from = value) %>%
-    group_by(fct_inorder(country), fct_inorder(countryiso3), fct_inorder(region)) %>%
+    group_by(country, countryiso3, region) %>%
     summarise(time_since_first_case = today - first(date[cases > 0 & !is.na(cases)]),
               time_since_first_death = today - first(date[deaths > 0 & !is.na(deaths)]),
-              time_since_first_recovered = today - first(date[recovered > 0 & !is.na(deaths)]),
-              cases = last(cases[!is.na(cases)]),
-              deaths = last(deaths[!is.na(deaths)]),
-              recovered = last(recovered[!is.na(recovered)]))
+              time_since_first_recovered = today - first(date[recovered > 0 & !is.na(deaths)]))
   
   write.csv(first_data, file.path("data", "CSSE", "time_since_first_CSSE.csv"), row.names = FALSE)
 }

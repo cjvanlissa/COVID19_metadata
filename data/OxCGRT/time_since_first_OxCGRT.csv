@@ -1,191 +1,191 @@
-"country","countryiso3","time_since_first_policy","time_since_first_case","time_since_first_death","cases","deaths"
-"Afghanistan","AFG",44,49,21,114,4
-"Albania","ALB",NA,36,33,212,10
-"Algeria","DZA",33,48,32,454,29
-"Andorra","AND",NA,42,18,334,6
-"Angola","AGO",68,23,15,7,2
-"Antigua and Barbuda","ATG",NA,30,NA,7,0
-"Argentina","ARG",40,41,37,820,20
-"Armenia","ARM",NA,44,18,424,3
-"Aruba","ABW",30,32,NA,50,0
-"Australia","AUS",104,80,44,4093,16
-"Austria","AUT",50,48,32,8813,86
-"Azerbaijan","AZE",NA,45,24,209,4
-"Bahamas","BHS",NA,29,NA,14,0
-"Bahrain","BHR",NA,50,28,500,4
-"Bangladesh","BGD",NA,36,23,49,5
-"Barbados","BRB",31,27,NA,33,0
-"Belarus","BLR",NA,46,NA,94,0
-"Belgium","BEL",68,70,33,10836,431
-"Belize","BLZ",46,21,NA,2,0
-"Benin","BEN",NA,28,NA,6,0
-"Bermuda","BMU",42,25,NA,22,0
-"Bhutan","BTN",NA,39,NA,4,0
-"Bolivia","BOL",33,33,15,96,3
-"Bosnia and Herzegovina","BIH",NA,39,23,323,6
-"Botswana","BWA",104,NA,NA,NA,NA
-"Brazil","BRA",43,48,27,4256,136
-"British Virgin Islands","VGB",NA,18,NA,2,0
-"Brunei","BRN",NA,35,16,126,1
-"Bulgaria","BGR",63,37,33,346,8
-"Burkina Faso","BFA",NA,34,26,180,9
-"Burundi","BDI",18,NA,NA,NA,NA
-"Cambodia","KHM",NA,77,NA,107,0
-"Cameroon","CMR",NA,38,20,99,2
-"Canada","CAN",83,79,35,6255,61
-"Cape Verde","CPV",NA,24,20,6,1
-"Cayman Islands","CYM",NA,25,24,8,1
-"Central African Republic","CAF",NA,29,NA,6,0
-"Chad","TCD",NA,25,NA,5,0
-"Chile","CHL",89,41,22,2139,7
-"China","CHN",85,104,94,82463,3311
-"Colombia","COL",83,38,23,702,10
-"Congo","COG",NA,29,NA,19,0
-"Costa Rica","CRI",36,38,26,314,2
-"Cote d'Ivoire","CIV",NA,33,15,165,1
-"Croatia","HRV",70,48,20,713,6
-"Cuba","CUB",NA,33,26,139,3
-"Cyprus","CYP",NA,35,20,214,6
-"Czech Republic","CZE",39,43,22,2829,16
-"Democratic Republic of Congo","COD",54,34,23,81,8
-"Denmark","DNK",36,47,29,2395,72
-"Djibouti","DJI",NA,26,NA,19,0
-"Dominica","DMA",NA,22,NA,11,0
-"Dominican Republic","DOM",43,43,24,859,39
-"Ecuador","ECU",79,44,31,1890,58
-"Egypt","EGY",NA,59,36,576,36
-"El Salvador","SLV",82,26,NA,30,0
-"Equatorial Guinea","GNQ",NA,30,NA,14,0
-"Eritrea","ERI",NA,23,NA,12,0
-"Estonia","EST",NA,46,19,679,3
-"Ethiopia","ETH",NA,31,NA,16,0
-"Faeroe Islands","FRO",NA,25,NA,159,0
-"Fiji","FJI",NA,25,NA,5,0
-"Finland","FIN",41,75,23,1218,11
-"France","FRA",82,80,59,40174,2606
-"French Polynesia","PYF",NA,26,NA,35,0
-"Gabon","GAB",NA,32,24,7,1
-"Gambia","GMB",NA,27,21,3,1
-"Georgia","GEO",NA,47,NA,90,0
-"Germany","DEU",81,77,35,57298,455
-"Ghana","GHA",NA,32,23,152,5
-"Gibraltar","GIB",NA,25,NA,65,0
-"Greece","GRC",49,47,33,1156,38
-"Greenland","GRL",NA,25,NA,10,0
-"Grenada","GRD",NA,22,NA,9,0
-"Guam","GUM",NA,26,23,56,1
-"Guatemala","GTM",84,30,29,36,1
-"Guinea","GIN",NA,31,NA,8,0
-"Guinea-Bissau","GNB",NA,18,NA,2,0
-"Guyana","GUY",77,32,32,8,1
-"Haiti","HTI",NA,25,NA,15,0
-"Honduras","HND",43,33,18,139,3
-"Hong Kong","HKG",104,NA,NA,NA,NA
-"Hungary","HUN",75,40,29,447,15
-"Iceland","ISL",104,45,25,1020,2
-"India","IND",79,75,32,1071,29
-"Indonesia","IDN",90,43,33,1285,114
-"Iran","IRN",54,54,54,38309,2640
-"Iraq","IRQ",50,49,39,547,42
-"Ireland","IRL",45,44,33,2615,46
-"Israel","ISR",72,52,24,4247,15
-"Italy","ITA",82,74,51,97689,10781
-"Jamaica","JAM",NA,33,20,34,1
-"Japan","JPN",98,90,61,1866,54
-"Jordan","JOR",42,42,16,259,1
-"Kazakhstan","KAZ",33,30,15,284,1
-"Kenya","KEN",85,31,18,42,1
-"Kuwait","KWT",NA,50,NA,255,0
-"Kyrgyz Republic","KGZ",NA,26,NA,84,0
-"Laos","LAO",42,20,NA,6,0
-"Latvia","LVA",NA,42,NA,376,0
-"Lebanon","LBN",NA,52,34,438,10
-"Liberia","LBR",NA,28,NA,3,0
-"Libya","LBY",NA,20,NA,8,0
-"Liechtenstein","LIE",NA,40,NA,62,0
-"Lithuania","LTU",NA,46,24,484,7
-"Luxembourg","LUX",NA,44,31,1950,21
-"Macao","MAC",104,NA,NA,NA,NA
-"Macedonia","MKD",NA,47,22,259,6
-"Madagascar","MDG",NA,24,NA,37,0
-"Malaysia","MYS",82,80,27,2470,34
-"Maldives","MDV",NA,37,NA,17,0
-"Mali","MLI",NA,19,NA,18,0
-"Malta","MLT",NA,37,NA,151,0
-"Mauritania","MRT",NA,30,NA,5,0
-"Mauritius","MUS",NA,25,23,110,3
-"Mexico","MEX",96,45,24,993,20
-"Moldova","MDA",NA,37,26,263,2
-"Monaco","MCO",NA,45,NA,46,0
-"Mongolia","MNG",NA,35,NA,12,0
-"Montenegro","MNE",NA,27,18,85,1
-"Morocco","MAR",NA,42,33,479,26
-"Mozambique","MOZ",NA,22,NA,8,0
-"Myanmar","MMR",99,21,NA,8,0
-"Namibia","NAM",NA,30,30,707,7
-"Nepal","NPL",NA,80,NA,5,0
-"Netherlands","NLD",39,46,38,10866,771
-"New Caledonia","NCL",NA,24,NA,15,0
-"New Zealand","NZL",72,46,16,552,1
-"Nicaragua","NIC",30,26,17,3,1
-"Niger","NER",NA,24,20,10,1
-"Nigeria","NGA",104,46,21,97,1
-"Norway","NOR",60,47,32,4102,22
-"Oman","OMN",NA,49,NA,167,0
-"Pakistan","PAK",51,47,25,1526,13
-"Palestine","PSE",NA,39,18,106,1
-"Panama","PAN",83,35,34,989,24
-"Papua New Guinea","PNG",78,24,NA,1,0
-"Paraguay","PRY",NA,37,24,64,3
-"Peru","PER",NA,38,25,852,18
-"Philippines","PHL",NA,75,72,1418,71
-"Poland","POL",82,41,32,1862,22
-"Portugal","PRT",35,42,27,5962,119
-"Puerto Rico","PRI",NA,17,17,127,5
-"Qatar","QAT",83,44,16,634,1
-"Romania","ROU",78,47,22,1760,40
-"Russia","RUS",75,73,18,1534,8
-"Rwanda","RWA",34,30,NA,70,0
-"Saint Kitts and Nevis","KNA",NA,19,NA,7,0
-"Saint Lucia","LCA",NA,30,NA,9,0
-"Saint Vincent and the Grenadines","VCT",NA,32,NA,1,0
-"San Marino","SMR",NA,46,43,229,24
-"Saudi Arabia","SAU",NA,42,20,1229,8
-"Senegal","SEN",NA,42,NA,142,0
-"Serbia","SRB",84,38,24,741,13
-"Seychelles","SYC",NA,30,NA,8,0
-"Singapore","SGP",103,81,23,844,3
-"Slovak Republic","SVK",36,38,NA,336,0
-"Slovenia","SVN",41,40,27,730,11
-"Somalia","SOM",NA,28,NA,3,0
-"South Africa","ZAF",81,39,18,1280,2
-"South Korea","KOR",85,85,53,9661,158
-"Spain","ESP",74,73,40,78797,6528
-"Sri Lanka","LKA",81,77,16,120,1
-"Sudan","SDN",NA,31,30,5,1
-"Suriname","SUR",NA,30,NA,8,0
-"Swaziland","SWZ",NA,30,NA,9,0
-"Sweden","SWE",36,73,33,3700,110
-"Switzerland","CHE",46,48,39,14274,257
-"Syria","SYR",73,22,15,9,1
-"Taiwan","TWN",85,84,57,306,5
-"Tanzania","TZA",73,28,16,14,1
-"Thailand","THA",39,92,44,1388,7
-"Timor","TLS",NA,23,NA,1,0
-"Togo","TGO",NA,38,17,30,1
-"Trinidad and Tobago","TTO",NA,32,19,78,3
-"Tunisia","TUN",NA,42,24,278,8
-"Turkey","TUR",30,33,26,9217,131
-"Turks and Caicos Islands","TCA",NA,20,NA,5,0
-"Uganda","UGA",85,23,NA,33,0
-"Ukraine","UKR",78,41,26,418,9
-"United Arab Emirates","ARE",NA,78,23,468,2
-"United Kingdom","GBR",74,74,39,19522,1228
-"United States","USA",99,84,44,143025,2509
-"United States Virgin Islands","VIR",NA,21,NA,30,0
-"Uruguay","URY",NA,30,15,309,1
-"Uzbekistan","UZB",NA,29,16,145,1
-"Venezuela","VEN",46,30,18,119,1
-"Vietnam","VNM",76,81,NA,228,0
-"Zambia","ZMB",NA,26,NA,29,0
-"Zimbabwe","ZWE",28,24,21,7,1
+"country","countryiso3","time_since_first_policy","time_since_first_case","time_since_first_death"
+"Aruba","ABW",30,32,NA
+"Afghanistan","AFG",44,49,21
+"Angola","AGO",68,23,15
+"Albania","ALB",NA,36,33
+"Andorra","AND",NA,42,18
+"United Arab Emirates","ARE",NA,78,23
+"Argentina","ARG",40,41,37
+"Armenia","ARM",NA,44,18
+"Antigua and Barbuda","ATG",NA,30,NA
+"Australia","AUS",104,80,44
+"Austria","AUT",50,48,32
+"Azerbaijan","AZE",NA,45,24
+"Burundi","BDI",18,NA,NA
+"Belgium","BEL",68,70,33
+"Benin","BEN",NA,28,NA
+"Burkina Faso","BFA",NA,34,26
+"Bangladesh","BGD",NA,36,23
+"Bulgaria","BGR",63,37,33
+"Bahrain","BHR",NA,50,28
+"Bahamas","BHS",NA,29,NA
+"Bosnia and Herzegovina","BIH",NA,39,23
+"Belarus","BLR",NA,46,NA
+"Belize","BLZ",46,21,NA
+"Bermuda","BMU",42,25,NA
+"Bolivia","BOL",33,33,15
+"Brazil","BRA",43,48,27
+"Barbados","BRB",31,27,NA
+"Brunei","BRN",NA,35,16
+"Bhutan","BTN",NA,39,NA
+"Botswana","BWA",104,NA,NA
+"Central African Republic","CAF",NA,29,NA
+"Canada","CAN",83,79,35
+"Switzerland","CHE",46,48,39
+"Chile","CHL",89,41,22
+"China","CHN",85,104,94
+"Cote d'Ivoire","CIV",NA,33,15
+"Cameroon","CMR",NA,38,20
+"Democratic Republic of Congo","COD",54,34,23
+"Congo","COG",NA,29,NA
+"Colombia","COL",83,38,23
+"Cape Verde","CPV",NA,24,20
+"Costa Rica","CRI",36,38,26
+"Cuba","CUB",NA,33,26
+"Cayman Islands","CYM",NA,25,24
+"Cyprus","CYP",NA,35,20
+"Czech Republic","CZE",39,43,22
+"Germany","DEU",81,77,35
+"Djibouti","DJI",NA,26,NA
+"Dominica","DMA",NA,22,NA
+"Denmark","DNK",36,47,29
+"Dominican Republic","DOM",43,43,24
+"Algeria","DZA",33,48,32
+"Ecuador","ECU",79,44,31
+"Egypt","EGY",NA,59,36
+"Eritrea","ERI",NA,23,NA
+"Spain","ESP",74,73,40
+"Estonia","EST",NA,46,19
+"Ethiopia","ETH",NA,31,NA
+"Finland","FIN",41,75,23
+"Fiji","FJI",NA,25,NA
+"France","FRA",82,80,59
+"Faeroe Islands","FRO",NA,25,NA
+"Gabon","GAB",NA,32,24
+"United Kingdom","GBR",74,74,39
+"Georgia","GEO",NA,47,NA
+"Ghana","GHA",NA,32,23
+"Gibraltar","GIB",NA,25,NA
+"Guinea","GIN",NA,31,NA
+"Gambia","GMB",NA,27,21
+"Guinea-Bissau","GNB",NA,18,NA
+"Equatorial Guinea","GNQ",NA,30,NA
+"Greece","GRC",49,47,33
+"Grenada","GRD",NA,22,NA
+"Greenland","GRL",NA,25,NA
+"Guatemala","GTM",84,30,29
+"Guam","GUM",NA,26,23
+"Guyana","GUY",77,32,32
+"Hong Kong","HKG",104,NA,NA
+"Honduras","HND",43,33,18
+"Croatia","HRV",70,48,20
+"Haiti","HTI",NA,25,NA
+"Hungary","HUN",75,40,29
+"Indonesia","IDN",90,43,33
+"India","IND",79,75,32
+"Ireland","IRL",45,44,33
+"Iran","IRN",54,54,54
+"Iraq","IRQ",50,49,39
+"Iceland","ISL",104,45,25
+"Israel","ISR",72,52,24
+"Italy","ITA",82,74,51
+"Jamaica","JAM",NA,33,20
+"Jordan","JOR",42,42,16
+"Japan","JPN",98,90,61
+"Kazakhstan","KAZ",33,30,15
+"Kenya","KEN",85,31,18
+"Kyrgyz Republic","KGZ",NA,26,NA
+"Cambodia","KHM",NA,77,NA
+"Saint Kitts and Nevis","KNA",NA,19,NA
+"South Korea","KOR",85,85,53
+"Kuwait","KWT",NA,50,NA
+"Laos","LAO",42,20,NA
+"Lebanon","LBN",NA,52,34
+"Liberia","LBR",NA,28,NA
+"Libya","LBY",NA,20,NA
+"Saint Lucia","LCA",NA,30,NA
+"Liechtenstein","LIE",NA,40,NA
+"Sri Lanka","LKA",81,77,16
+"Lithuania","LTU",NA,46,24
+"Luxembourg","LUX",NA,44,31
+"Latvia","LVA",NA,42,NA
+"Macao","MAC",104,NA,NA
+"Morocco","MAR",NA,42,33
+"Monaco","MCO",NA,45,NA
+"Moldova","MDA",NA,37,26
+"Madagascar","MDG",NA,24,NA
+"Maldives","MDV",NA,37,NA
+"Mexico","MEX",96,45,24
+"Macedonia","MKD",NA,47,22
+"Mali","MLI",NA,19,NA
+"Malta","MLT",NA,37,NA
+"Myanmar","MMR",99,21,NA
+"Montenegro","MNE",NA,27,18
+"Mongolia","MNG",NA,35,NA
+"Mozambique","MOZ",NA,22,NA
+"Mauritania","MRT",NA,30,NA
+"Mauritius","MUS",NA,25,23
+"Malaysia","MYS",82,80,27
+"Namibia","NAM",NA,30,30
+"New Caledonia","NCL",NA,24,NA
+"Niger","NER",NA,24,20
+"Nigeria","NGA",104,46,21
+"Nicaragua","NIC",30,26,17
+"Netherlands","NLD",39,46,38
+"Norway","NOR",60,47,32
+"Nepal","NPL",NA,80,NA
+"New Zealand","NZL",72,46,16
+"Oman","OMN",NA,49,NA
+"Pakistan","PAK",51,47,25
+"Panama","PAN",83,35,34
+"Peru","PER",NA,38,25
+"Philippines","PHL",NA,75,72
+"Papua New Guinea","PNG",78,24,NA
+"Poland","POL",82,41,32
+"Puerto Rico","PRI",NA,17,17
+"Portugal","PRT",35,42,27
+"Paraguay","PRY",NA,37,24
+"Palestine","PSE",NA,39,18
+"French Polynesia","PYF",NA,26,NA
+"Qatar","QAT",83,44,16
+"Romania","ROU",78,47,22
+"Russia","RUS",75,73,18
+"Rwanda","RWA",34,30,NA
+"Saudi Arabia","SAU",NA,42,20
+"Sudan","SDN",NA,31,30
+"Senegal","SEN",NA,42,NA
+"Singapore","SGP",103,81,23
+"El Salvador","SLV",82,26,NA
+"San Marino","SMR",NA,46,43
+"Somalia","SOM",NA,28,NA
+"Serbia","SRB",84,38,24
+"Suriname","SUR",NA,30,NA
+"Slovak Republic","SVK",36,38,NA
+"Slovenia","SVN",41,40,27
+"Sweden","SWE",36,73,33
+"Swaziland","SWZ",NA,30,NA
+"Seychelles","SYC",NA,30,NA
+"Syria","SYR",73,22,15
+"Turks and Caicos Islands","TCA",NA,20,NA
+"Chad","TCD",NA,25,NA
+"Togo","TGO",NA,38,17
+"Thailand","THA",39,92,44
+"Timor","TLS",NA,23,NA
+"Trinidad and Tobago","TTO",NA,32,19
+"Tunisia","TUN",NA,42,24
+"Turkey","TUR",30,33,26
+"Taiwan","TWN",85,84,57
+"Tanzania","TZA",73,28,16
+"Uganda","UGA",85,23,NA
+"Ukraine","UKR",78,41,26
+"Uruguay","URY",NA,30,15
+"United States","USA",99,84,44
+"Uzbekistan","UZB",NA,29,16
+"Saint Vincent and the Grenadines","VCT",NA,32,NA
+"Venezuela","VEN",46,30,18
+"British Virgin Islands","VGB",NA,18,NA
+"United States Virgin Islands","VIR",NA,21,NA
+"Vietnam","VNM",76,81,NA
+"South Africa","ZAF",81,39,18
+"Zambia","ZMB",NA,26,NA
+"Zimbabwe","ZWE",28,24,21
