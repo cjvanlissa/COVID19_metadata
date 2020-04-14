@@ -1,0 +1,232 @@
+"country","countryiso3","populationgrowth.2002_2020"
+"South Sudan","SSD",3.83
+"Angola","AGO",3.52
+"Malawi","MWI",3.31
+"Burundi","BDI",3.25
+"Uganda","UGA",3.2
+"Niger","NER",3.19
+"Mali","MLI",3.02
+"Burkina Faso","BFA",3
+"Zambia","ZMB",2.93
+"Ethiopia","ETH",2.85
+"Tanzania","TZA",2.75
+"Benin","BEN",2.71
+"Western Sahara","ESH",2.7
+"Togo","TGO",2.64
+"Guinea","GIN",2.61
+"Cameroon","CMR",2.56
+"Iraq","IRQ",2.55
+"Madagascar","MDG",2.5
+"Liberia","LBR",2.5
+"Mozambique","MOZ",2.46
+"Rwanda","RWA",2.45
+"Egypt","EGY",2.45
+"Equatorial Guinea","GNQ",2.44
+"Nigeria","NGA",2.43
+"Senegal","SEN",2.39
+"Sierra Leone","SLE",2.38
+"Congo, Democratic Republic of the","COD",2.37
+"United Arab Emirates","ARE",2.37
+"Afghanistan","AFG",2.36
+"Timor-Leste","TLS",2.36
+"Gaza Strip","PSE",2.33
+"Yemen","YEM",2.28
+"Qatar","QAT",2.27
+"Bahrain","BHR",2.26
+"British Virgin Islands","VGB",2.25
+"Ghana","GHA",2.17
+"Mauritania","MRT",2.17
+"Turks and Caicos Islands","TCA",2.16
+"Djibouti","DJI",2.16
+"Central African Republic","CAF",2.12
+"Congo, Republic of the","COG",2.11
+"Gambia, The","GMB",2.05
+"Jordan","JOR",2.05
+"Oman","OMN",2.03
+"Cayman Islands","CYM",2.01
+"Somalia","SOM",2
+"Luxembourg","LUX",1.98
+"Anguilla","AIA",1.97
+"Namibia","NAM",1.95
+"Solomon Islands","SLB",1.94
+"Gabon","GAB",1.92
+"Chad","TCD",1.86
+"Guinea-Bissau","GNB",1.86
+"Vanuatu","VUT",1.85
+"Cote d'Ivoire","CIV",1.84
+"West Bank","PSE",1.84
+"Singapore","SGP",1.82
+"Belize","BLZ",1.8
+"Guatemala","GTM",1.75
+"Sao Tome and Principe","STP",1.72
+"Papua New Guinea","PNG",1.71
+"Algeria","DZA",1.7
+"Kenya","KEN",1.69
+"Comoros","COM",1.64
+"Sudan","SDN",1.64
+"Tajikistan","TJK",1.62
+"Honduras","HND",1.6
+"Libya","LBY",1.58
+"Brunei","BRN",1.57
+"Philippines","PHL",1.57
+"Zimbabwe","ZWE",1.56
+"Botswana","BWA",1.55
+"Marshall Islands","MHL",1.55
+"Cambodia","KHM",1.52
+"Bolivia","BOL",1.51
+"Israel","ISR",1.51
+"Laos","LAO",1.51
+"Kuwait","KWT",1.46
+"Saudi Arabia","SAU",1.45
+"Pakistan","PAK",1.43
+"Sint Maarten","SXM",1.42
+"Malaysia","MYS",1.37
+"Haiti","HTI",1.34
+"Cabo Verde","CPV",1.33
+"New Caledonia","NCL",1.33
+"Cyprus","CYP",1.32
+"Ecuador","ECU",1.28
+"Aruba","ABW",1.27
+"Panama","PAN",1.27
+"Iran","IRN",1.24
+"Venezuela","VEN",1.24
+"Antigua and Barbuda","ATG",1.21
+"Mongolia","MNG",1.18
+"Paraguay","PRY",1.18
+"Dominican Republic","DOM",1.18
+"India","IND",1.17
+"Nepal","NPL",1.16
+"Costa Rica","CRI",1.16
+"Ireland","IRL",1.15
+"Kiribati","KIR",1.13
+"Iceland","ISL",1.13
+"Turkmenistan","TKM",1.12
+"Mexico","MEX",1.12
+"Christmas Island","CXR",1.11
+"Bhutan","BTN",1.07
+"Kyrgyzstan","KGZ",1.05
+"Bangladesh","BGD",1.04
+"Kazakhstan","KAZ",1.04
+"Australia","AUS",1.03
+"Suriname","SUR",1.02
+"Tunisia","TUN",1.01
+"Norway","NOR",1.01
+"South Africa","ZAF",0.99
+"Colombia","COL",0.99
+"Nicaragua","NIC",0.98
+"Morocco","MAR",0.97
+"Peru","PER",0.95
+"Uzbekistan","UZB",0.93
+"Vietnam","VNM",0.93
+"Argentina","ARG",0.91
+"Burma","MMR",0.91
+"French Polynesia","PYF",0.88
+"Azerbaijan","AZE",0.87
+"Indonesia","IDN",0.86
+"Eritrea","ERI",0.85
+"Tuvalu","TUV",0.85
+"Sweden","SWE",0.81
+"United States","USA",0.81
+"Bahamas, The","BHS",0.81
+"Liechtenstein","LIE",0.8
+"New Zealand","NZL",0.79
+"Jersey","JEY",0.78
+"Spain","ESP",0.78
+"Chile","CHL",0.77
+"Seychelles","SYC",0.77
+"Sri Lanka","LKA",0.76
+"Macau","MAC",0.74
+"San Marino","SMR",0.74
+"Brazil","BRA",0.73
+"Canada","CAN",0.73
+"Saint Kitts and Nevis","KNA",0.73
+"Belgium","BEL",0.7
+"Switzerland","CHE",0.69
+"Jamaica","JAM",0.68
+"Isle of Man","IMN",0.68
+"Samoa","WSM",0.6
+"Fiji","FJI",0.6
+"Mauritius","MUS",0.59
+"Faroe Islands","FRO",0.55
+"Korea, North","PRK",0.53
+"Nauru","NRU",0.53
+"Turkey","TUR",0.52
+"United Kingdom","GBR",0.52
+"Korea, South","KOR",0.48
+"Austria","AUT",0.47
+"Bermuda","BMU",0.45
+"Montserrat","MSR",0.45
+"Grenada","GRD",0.44
+"China","CHN",0.41
+"Curacao","CUW",0.4
+"Palau","PLW",0.39
+"France","FRA",0.39
+"Netherlands","NLD",0.39
+"Finland","FIN",0.36
+"Hong Kong","HKG",0.32
+"Guyana","GUY",0.32
+"Saint Lucia","LCA",0.32
+"Wallis and Futuna","WLF",0.32
+"Albania","ALB",0.31
+"Thailand","THA",0.3
+"Guernsey","GGY",0.3
+"Lesotho","LSO",0.28
+"Barbados","BRB",0.28
+"Uruguay","URY",0.27
+"Malta","MLT",0.26
+"Guam","GUM",0.26
+"El Salvador","SLV",0.25
+"Monaco","MCO",0.24
+"Gibraltar","GIB",0.23
+"Denmark","DNK",0.22
+"Italy","ITA",0.19
+"Dominica","DMA",0.18
+"Saint Helena, Ascension, and Tristan da Cunha","SHN",0.18
+"Taiwan","TWN",0.17
+"Czechia","CZE",0.12
+"Portugal","PRT",0.04
+"Andorra","AND",0.03
+"Falkland Islands (Islas Malvinas)","FLK",0.01
+"Norfolk Island","NFK",0.01
+"Holy See (Vatican City)","VAT",0
+"Pitcairn Islands","PCN",0
+"Cocos (Keeling) Islands","CCK",0
+"Slovakia","SVK",-0.01
+"Tokelau","TKL",-0.01
+"Georgia","GEO",-0.02
+"Svalbard","SJM",-0.03
+"Greenland","GRL",-0.03
+"Niue","NIU",-0.03
+"Tonga","TON",-0.05
+"Maldives","MDV",-0.06
+"Greece","GRC",-0.06
+"Russia","RUS",-0.08
+"Poland","POL",-0.13
+"Bosnia and Herzegovina","BIH",-0.16
+"Germany","DEU",-0.16
+"Trinidad and Tobago","TTO",-0.2
+"Armenia","ARM",-0.21
+"Japan","JPN",-0.21
+"Belarus","BLR",-0.22
+"Saint Vincent and the Grenadines","VCT",-0.25
+"Hungary","HUN",-0.25
+"Virgin Islands","VIR",-0.25
+"Montenegro","MNE",-0.28
+"Cuba","CUB",-0.29
+"Slovenia","SVN",-0.31
+"Romania","ROU",-0.33
+"Ukraine","UKR",-0.41
+"Serbia","SRB",-0.46
+"Croatia","HRV",-0.5
+"Northern Mariana Islands","MNP",-0.51
+"Micronesia, Federated States of","FSM",-0.52
+"Estonia","EST",-0.57
+"Bulgaria","BGR",-0.61
+"Moldova","MDA",-1.05
+"Lithuania","LTU",-1.08
+"Latvia","LVA",-1.08
+"Saint Pierre and Miquelon","SPM",-1.08
+"Lebanon","LBN",-1.1
+"American Samoa","ASM",-1.3
+"Puerto Rico","PRI",-1.74
+"Cook Islands","COK",-2.79
