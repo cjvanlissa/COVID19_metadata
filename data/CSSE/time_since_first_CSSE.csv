@@ -1,0 +1,575 @@
+"country","countryiso3","region","time_since_first_case","time_since_first_death","time_since_first_recovered"
+"Hong Kong","HKG","Hong Kong",82,70,62
+"Hong Kong","HKG",NA,82,70,62
+"Japan","JPN",NA,83,61,73
+"Macau","MAC","Macau",83,NA,68
+"Macau","MAC",NA,83,NA,68
+"Mainland China","CHN","Anhui",83,65,73
+"Mainland China","CHN","Beijing",83,78,78
+"Mainland China","CHN","Chongqing",83,73,73
+"Mainland China","CHN","Fujian",83,54,71
+"Mainland China","CHN","Gansu",82,66,72
+"Mainland China","CHN","Guangdong",83,67,73
+"Mainland China","CHN","Guangxi",83,65,73
+"Mainland China","CHN","Guizhou",83,69,73
+"Mainland China","CHN","Hainan",83,78,NA
+"Mainland China","CHN","Hebei",83,82,NA
+"Mainland China","CHN","Heilongjiang",82,81,NA
+"Mainland China","CHN","Henan",83,79,NA
+"Mainland China","CHN","Hubei",83,83,83
+"Mainland China","CHN","Hunan",83,66,73
+"Mainland China","CHN","Inner Mongolia",81,42,73
+"Mainland China","CHN","Jiangsu",83,NA,73
+"Mainland China","CHN","Jiangxi",83,64,73
+"Mainland China","CHN","Jilin",82,67,73
+"Mainland China","CHN","Liaoning",83,62,73
+"Mainland China","CHN","Ningxia",83,NA,71
+"Mainland China","CHN","Qinghai",80,NA,69
+"Mainland China","CHN","Shaanxi",82,54,70
+"Mainland China","CHN","Shandong",83,65,73
+"Mainland China","CHN","Shanghai",83,79,79
+"Mainland China","CHN","Shanxi",83,NA,73
+"Mainland China","CHN","Sichuan",83,76,76
+"Mainland China","CHN","Tianjin",83,69,72
+"Mainland China","CHN","Tibet",75,NA,62
+"Mainland China","CHN","Xinjiang",82,61,63
+"Mainland China","CHN","Yunnan",83,55,73
+"Mainland China","CHN","Zhejiang",83,54,73
+"Mainland China","CHN",NA,83,83,83
+"South Korea","KOR",NA,83,54,67
+"Taiwan","TWN","Taiwan",83,58,68
+"Taiwan","TWN",NA,83,58,68
+"Thailand","THA",NA,83,44,73
+"US","USA","Washington",83,35,35
+"US","USA","Chicago",81,NA,NA
+"US","USA","Illinois",80,28,35
+"US","USA","California",79,35,35
+"US","USA","Arizona",79,24,35
+"US","USA","Chicago, IL",73,NA,65
+"US","USA","Boston, MA",73,NA,46
+"US","USA","Los Angeles, CA",73,NA,NA
+"US","USA","Orange, CA",73,NA,NA
+"US","USA","Santa Clara, CA",73,NA,53
+"US","USA","Seattle, WA",73,45,65
+"US","USA","Tempe, AZ",73,NA,49
+"US","USA","San Benito, CA",71,NA,NA
+"US","USA","Madison, WI",69,NA,42
+"US","USA","San Diego County, CA",63,NA,53
+"US","USA","San Antonio, TX",61,NA,NA
+"US","USA","Ashland, NE",53,NA,NA
+"US","USA","Travis, CA",53,NA,NA
+"US","USA","Lackland, TX",53,NA,NA
+"US","USA","Humboldt County, CA",53,NA,NA
+"US","USA","Sacramento County, CA",53,NA,NA
+"US","USA","Omaha, NE (From Diamond Princess)",52,NA,NA
+"US","USA","Travis, CA (From Diamond Princess)",52,NA,NA
+"US","USA","Lackland, TX (From Diamond Princess)",52,NA,NA
+"US","USA","Unassigned Location (From Diamond Princess)",50,NA,NA
+"US","USA","Portland, OR",45,NA,NA
+"US","USA","Snohomish County, WA",45,43,NA
+"US","USA","Providence, RI",44,NA,NA
+"US","USA","King County, WA",43,43,43
+"US","USA","Cook County, IL",43,NA,43
+"US","USA","Grafton County, NH",43,NA,NA
+"US","USA","Hillsborough, FL",43,NA,NA
+"US","USA","New York City, NY",43,NA,NA
+"US","USA","Placer County, CA",43,41,NA
+"US","USA","San Mateo, CA",43,NA,NA
+"US","USA","Sarasota, FL",43,NA,NA
+"US","USA","Sonoma County, CA",43,NA,NA
+"US","USA","Umatilla, OR",43,NA,NA
+"US","USA","Fulton County, GA",42,NA,NA
+"US","USA","Washington County, OR",42,NA,NA
+"US","USA","Norfolk County, MA",42,NA,NA
+"US","USA","Berkeley, CA",42,NA,NA
+"US","USA","Maricopa County, AZ",42,NA,38
+"US","USA","Wake County, NC",42,NA,NA
+"US","USA","Westchester County, NY",42,NA,NA
+"US","USA","Orange County, CA",41,NA,NA
+"US","USA","Contra Costa County, CA",41,NA,NA
+"US","USA","Bergen County, NJ",40,NA,NA
+"US","USA","Harris County, TX",40,NA,NA
+"US","USA","San Francisco County, CA",40,NA,NA
+"US","USA","Clark County, NV",40,NA,NA
+"US","USA","Fort Bend County, TX",40,NA,NA
+"US","USA","Grant County, WA",40,36,NA
+"US","USA","Queens County, NY",40,NA,NA
+"US","USA","Santa Rosa County, FL",40,37,NA
+"US","USA","Williamson County, TN",40,NA,NA
+"US","USA","New York County, NY",39,NA,NA
+"US","USA","Unassigned Location, WA",39,NA,NA
+"US","USA","Montgomery County, MD",39,NA,NA
+"US","USA","Suffolk County, MA",39,NA,39
+"US","USA","Denver County, CO",39,NA,NA
+"US","USA","Summit County, CO",39,NA,NA
+"US","USA","Chatham County, NC",39,NA,NA
+"US","USA","Delaware County, PA",39,NA,NA
+"US","USA","Douglas County, NE",39,NA,NA
+"US","USA","Fayette County, KY",39,NA,NA
+"US","USA","Floyd County, GA",39,NA,NA
+"US","USA","Marion County, IN",39,NA,NA
+"US","USA","Middlesex County, MA",39,NA,NA
+"US","USA","Nassau County, NY",39,NA,NA
+"US","USA","Norwell County, MA",39,NA,NA
+"US","USA","Ramsey County, MN",39,NA,NA
+"US","USA","Washoe County, NV",39,NA,NA
+"US","USA","Wayne County, PA",39,NA,NA
+"US","USA","Yolo County, CA",39,NA,NA
+"US","USA","Santa Clara County, CA",38,NA,38
+"US","USA","Grand Princess Cruise Ship",38,NA,NA
+"US","USA","Douglas County, CO",38,NA,NA
+"US","USA","Providence County, RI",38,NA,NA
+"US","USA","Alameda County, CA",38,NA,NA
+"US","USA","Broward County, FL",38,NA,NA
+"US","USA","Fairfield County, CT",38,NA,NA
+"US","USA","Lee County, FL",38,37,NA
+"US","USA","Pinal County, AZ",38,NA,NA
+"US","USA","Rockland County, NY",38,NA,NA
+"US","USA","Saratoga County, NY",38,NA,NA
+"US","USA","Charleston County, SC",38,NA,NA
+"US","USA","Clark County, WA",38,NA,NA
+"US","USA","Cobb County, GA",38,NA,NA
+"US","USA","Davis County, UT",38,NA,NA
+"US","USA","El Paso County, CO",38,NA,NA
+"US","USA","Honolulu County, HI",38,NA,NA
+"US","USA","Jackson County, OR",38,NA,NA
+"US","USA","Jefferson County, WA",38,NA,NA
+"US","USA","Kershaw County, SC",38,NA,NA
+"US","USA","Klamath County, OR",38,NA,NA
+"US","USA","Madera County, CA",38,NA,NA
+"US","USA","Pierce County, WA",38,NA,NA
+"US","USA","Plymouth County, MA",38,NA,NA
+"US","USA","Santa Cruz County, CA",38,NA,NA
+"US","USA","Tulsa County, OK",38,NA,NA
+"US","USA","Montgomery County, TX",NA,NA,NA
+"US","USA","Montgomery County, PA",37,NA,NA
+"US","USA","Fairfax County, VA",37,NA,NA
+"US","USA","Rockingham County, NH",37,NA,NA
+"US","USA","Washington, D.C.",37,NA,NA
+"US","USA","Berkshire County, MA",37,NA,NA
+"US","USA","Davidson County, TN",37,NA,NA
+"US","USA","Douglas County, OR",37,NA,NA
+"US","USA","Fresno County, CA",37,NA,NA
+"US","USA","Harford County, MD",37,NA,NA
+"US","USA","Hendricks County, IN",37,NA,NA
+"US","USA","Hudson County, NJ",37,NA,NA
+"US","USA","Johnson County, KS",37,NA,NA
+"US","USA","Kittitas County, WA",37,NA,NA
+"US","USA","Manatee County, FL",37,NA,NA
+"US","USA","Marion County, OR",37,NA,NA
+"US","USA","Okaloosa County, FL",37,NA,NA
+"US","USA","Polk County, GA",37,NA,NA
+"US","USA","Riverside County, CA",37,NA,NA
+"US","USA","Shelby County, TN",37,NA,NA
+"US","USA","Spokane County, WA",37,NA,NA
+"US","USA","St. Louis County, MO",37,NA,NA
+"US","USA","Suffolk County, NY",37,NA,NA
+"US","USA","Ulster County, NY",37,NA,NA
+"US","USA","Unassigned Location, VT",37,NA,NA
+"US","USA","Unknown Location, MA",37,NA,NA
+"US","USA","Volusia County, FL",37,NA,NA
+"US","USA","Johnson County, IA",36,NA,NA
+"US","USA","Harrison County, KY",36,NA,NA
+"US","USA","Bennington County, VT",36,NA,NA
+"US","USA","Carver County, MN",36,NA,NA
+"US","USA","Charlotte County, FL",36,NA,NA
+"US","USA","Cherokee County, GA",36,NA,NA
+"US","USA","Collin County, TX",36,NA,NA
+"US","USA","Jefferson County, KY",36,NA,NA
+"US","USA","Jefferson Parish, LA",36,NA,NA
+"US","USA","Shasta County, CA",36,NA,NA
+"US","USA","Spartanburg County, SC",36,NA,NA
+"US","USA","New York",35,31,NA
+"US","USA","Massachusetts",35,25,35
+"US","USA","Diamond Princess",35,NA,NA
+"US","USA","Grand Princess",35,23,NA
+"US","USA","Georgia",35,33,NA
+"US","USA","Colorado",35,31,NA
+"US","USA","Florida",35,35,NA
+"US","USA","New Jersey",35,35,29
+"US","USA","Oregon",35,30,NA
+"US","USA","Texas",35,28,NA
+"US","USA","Pennsylvania",35,26,NA
+"US","USA","Iowa",35,NA,NA
+"US","USA","Maryland",35,26,29
+"US","USA","North Carolina",35,NA,NA
+"US","USA","South Carolina",35,29,NA
+"US","USA","Tennessee",35,24,NA
+"US","USA","Virginia",35,31,NA
+"US","USA","Indiana",35,29,NA
+"US","USA","Kentucky",35,29,29
+"US","USA","District of Columbia",35,25,NA
+"US","USA","Nevada",35,29,NA
+"US","USA","New Hampshire",35,NA,NA
+"US","USA","Minnesota",35,24,NA
+"US","USA","Nebraska",35,NA,NA
+"US","USA","Ohio",35,25,NA
+"US","USA","Rhode Island",35,NA,NA
+"US","USA","Wisconsin",35,25,35
+"US","USA","Connecticut",35,26,NA
+"US","USA","Hawaii",35,NA,NA
+"US","USA","Oklahoma",35,26,NA
+"US","USA","Utah",35,NA,NA
+"US","USA","Kansas",35,32,NA
+"US","USA","Louisiana",35,31,NA
+"US","USA","Missouri",35,26,NA
+"US","USA","Vermont",35,25,NA
+"US","USA","Alaska",32,14,NA
+"US","USA","Arkansas",34,NA,NA
+"US","USA","Delaware",34,17,NA
+"US","USA","Idaho",32,16,NA
+"US","USA","Maine",32,NA,NA
+"US","USA","Michigan",34,26,NA
+"US","USA","Mississippi",33,26,NA
+"US","USA","Montana",34,NA,NA
+"US","USA","New Mexico",34,16,NA
+"US","USA","North Dakota",33,NA,NA
+"US","USA","South Dakota",34,34,NA
+"US","USA","West Virginia",28,NA,NA
+"US","USA","Wyoming",33,NA,NA
+"US","USA","Alabama",32,7,NA
+"US","USA","Puerto Rico",31,24,NA
+"US","USA","Virgin Islands, U.S.",31,NA,NA
+"US","USA","Guam",30,23,NA
+"US","USA","Virgin Islands",29,9,NA
+"US","USA","United States Virgin Islands",27,NA,NA
+"US","USA","US",27,NA,27
+"US","USA","Wuhan Evacuee",23,NA,NA
+"US","USA","American Samoa",NA,NA,NA
+"US","USA","Northern Mariana Islands",14,13,NA
+"US","USA","Recovered",NA,NA,21
+"US","USA",NA,83,45,65
+"Australia","AUS","New South Wales",78,41,73
+"Australia","AUS","Victoria",78,19,61
+"Australia","AUS","Queensland",75,19,53
+"Australia","AUS","South Australia",73,7,57
+"Australia","AUS","From Diamond Princess",53,NA,NA
+"Australia","AUS","Western Australia",45,44,23
+"Australia","AUS","Tasmania",43,14,26
+"Australia","AUS","Northern Territory",41,NA,10
+"Australia","AUS","Australian Capital Territory",32,15,19
+"Australia","AUS","External territories",NA,NA,NA
+"Australia","AUS","Jervis Bay Territory",NA,NA,NA
+"Australia","AUS",NA,80,44,73
+"Brazil","BRA",NA,48,28,29
+"Colombia","COL",NA,39,23,28
+"Malaysia","MYS",NA,80,28,67
+"Mexico","MEX",NA,46,26,42
+"Philippines","PHL",NA,75,72,62
+"Singapore","SGP",NA,82,24,66
+"Vietnam","VNM",NA,82,NA,73
+"France","FRA","France",34,34,34
+"France","FRA","St Martin",34,15,15
+"France","FRA","Saint Barthelemy",34,NA,15
+"France","FRA","French Polynesia",32,22,22
+"France","FRA","Fench Guiana",31,NA,NA
+"France","FRA","French Guiana",30,NA,22
+"France","FRA","Mayotte",30,14,15
+"France","FRA","Guadeloupe",29,23,17
+"France","FRA","Reunion",28,NA,23
+"France","FRA","New Caledonia",26,NA,12
+"France","FRA","Martinique",23,23,14
+"France","FRA","Saint Pierre and Miquelon",9,NA,NA
+"France","FRA",NA,81,59,62
+"Nepal","NPL",NA,80,NA,62
+"Canada","CAN","Ontario",79,28,36
+"Canada","CAN","British Columbia",77,36,47
+"Canada","CAN","Toronto, ON",70,NA,53
+"Canada","CAN","London, ON",70,NA,62
+"Canada","CAN","Montreal, QC",46,NA,NA
+"Canada","CAN","Calgary, Alberta",39,NA,NA
+"Canada","CAN","Edmonton, Alberta",38,NA,NA
+"Canada","CAN","Alberta",36,25,NA
+"Canada","CAN","Quebec",36,26,NA
+"Canada","CAN","Diamond Princess",NA,23,NA
+"Canada","CAN","Grand Princess",32,NA,NA
+"Canada","CAN","New Brunswick",34,NA,NA
+"Canada","CAN","Manitoba",32,18,NA
+"Canada","CAN","Saskatchewan",32,15,NA
+"Canada","CAN","Newfoundland and Labrador",30,15,NA
+"Canada","CAN","Prince Edward Island",30,6,NA
+"Canada","CAN","Nova Scotia",29,7,NA
+"Canada","CAN","Northwest Territories",24,NA,NA
+"Canada","CAN","Recovered",NA,NA,21
+"Canada","CAN","Yukon",19,NA,NA
+"Canada","CAN",NA,79,36,62
+"Cambodia","KHM",NA,78,NA,62
+"Ivory Coast","CIV",NA,78,NA,NA
+"Sri Lanka","LKA",NA,78,17,66
+"Germany","DEU","Bavaria",77,NA,NA
+"Germany","DEU",NA,77,36,61
+"Finland","FIN",NA,76,24,62
+"United Arab Emirates","ARE",NA,76,25,62
+"India","IND",NA,75,34,58
+"Italy","ITA",NA,74,53,52
+"Russia","RUS",NA,74,26,62
+"Sweden","SWE",NA,74,34,36
+"UK","GBR",NA,74,40,62
+"Spain","ESP",NA,73,42,59
+"Belgium","BEL",NA,70,34,57
+"Others",NA,"Cruise Ship",67,NA,NA
+"Others",NA,"Diamond Princess cruise ship",65,54,55
+"Others",NA,NA,67,54,55
+"Egypt","EGY",NA,60,37,46
+"Iran","IRN",NA,55,55,48
+"Israel","ISR","From Diamond Princess",53,NA,NA
+"Israel","ISR",NA,53,24,47
+"Lebanon","LBN","None",53,NA,NA
+"Lebanon","LBN",NA,53,35,41
+"Iraq","IRQ","None",NA,NA,NA
+"Iraq","IRQ",NA,50,41,36
+"Afghanistan","AFG",NA,50,23,29
+"Bahrain","BHR",NA,50,29,39
+"Kuwait","KWT",NA,50,10,37
+"Oman","OMN",NA,50,14,45
+"Algeria","DZA",NA,49,33,33
+"Austria","AUT","None",49,NA,NA
+"Austria","AUT",NA,49,33,36
+"Croatia","HRV",NA,49,26,32
+"Switzerland","CHE",NA,49,40,42
+"Georgia","GEO",NA,48,10,29
+"Greece","GRC",NA,48,34,31
+"North Macedonia","MKD",NA,48,23,32
+"Norway","NOR",NA,48,31,36
+"Pakistan","PAK",NA,48,26,37
+"Romania","ROU",NA,48,23,41
+"Denmark","DNK","Denmark",34,31,34
+"Denmark","DNK","Faroe Islands",34,NA,23
+"Denmark","DNK","Greenland",26,NA,21
+"Denmark","DNK",NA,47,31,39
+"Estonia","EST",NA,47,20,30
+"Netherlands","NLD","Netherlands",29,29,29
+"Netherlands","NLD","Curacao",29,26,19
+"Netherlands","NLD","Aruba",27,NA,23
+"Netherlands","NLD","Sint Maarten",25,13,13
+"Netherlands","NLD","Bonaire, Sint Eustatius and Saba",12,NA,NA
+"Netherlands","NLD",NA,47,39,31
+"San Marino","SMR",NA,47,42,31
+"Azerbaijan","AZE",NA,46,32,34
+"Belarus","BLR",NA,46,14,36
+"Iceland","ISL",NA,46,30,35
+"Lithuania","LTU",NA,46,24,30
+"New Zealand","NZL",NA,46,16,21
+"Nigeria","NGA",NA,46,22,27
+"North Ireland",NA,NA,46,NA,NA
+"Ireland","IRL",NA,45,34,28
+"Luxembourg","LUX",NA,45,31,23
+"Monaco","MCO",NA,45,16,23
+"Qatar","QAT",NA,45,17,31
+"Armenia","ARM",NA,44,19,28
+"Czech Republic","CZE",NA,44,NA,NA
+"Dominican Republic","DOM",NA,44,28,22
+"Ecuador","ECU",NA,44,31,24
+"Andorra","AND",NA,43,23,33
+"Indonesia","IDN",NA,43,34,35
+"Latvia","LVA",NA,43,11,35
+"Morocco","MAR",NA,43,35,32
+"Portugal","PRT",NA,43,28,32
+"Saudi Arabia","SAU",NA,43,21,35
+"Senegal","SEN",NA,43,13,37
+"Argentina","ARG",NA,42,37,31
+"Chile","CHL",NA,42,23,25
+"Jordan","JOR",NA,42,18,32
+"Ukraine","UKR",NA,42,32,24
+"Faroe Islands","FRO",NA,41,NA,NA
+"Gibraltar","GIB",NA,41,NA,35
+"Hungary","HUN",NA,41,30,31
+"Liechtenstein","LIE",NA,41,10,8
+"Poland","POL",NA,41,33,29
+"Saint Barthelemy","BLM",NA,41,NA,NA
+"Tunisia","TUN",NA,41,26,23
+"Bosnia and Herzegovina","BIH",NA,40,24,28
+"Palestine","PSE",NA,40,NA,NA
+"Slovenia","SVN",NA,40,31,21
+"South Africa","ZAF",NA,40,18,23
+"Bhutan","BTN",NA,39,NA,12
+"Cameroon","CMR",NA,39,20,23
+"Costa Rica","CRI",NA,39,26,24
+"Peru","PER",NA,39,25,28
+"Serbia","SRB",NA,39,25,29
+"Slovakia","SVK",NA,39,27,23
+"Togo","TGO",NA,39,18,25
+"Vatican City","VAT",NA,39,NA,NA
+"French Guiana","GUF",NA,38,NA,24
+"Malta","MLT",NA,38,6,32
+"Martinique","MTQ",NA,38,29,NA
+"Bangladesh","BGD",NA,37,27,29
+"Bulgaria","BGR",NA,37,34,24
+"Maldives","MDV",NA,37,NA,23
+"Moldova","MDA",NA,37,27,28
+"Paraguay","PRY",NA,37,24,18
+"Republic of Ireland","IRL",NA,37,NA,NA
+"Albania","ALB",NA,36,34,24
+"Brunei","BRN",NA,36,17,25
+"Cyprus","CYP",NA,36,23,23
+"St. Martin",NA,NA,36,NA,NA
+"Burkina Faso","BFA",NA,35,27,24
+"Channel Islands",NA,NA,35,NA,NA
+"Holy See","VAT",NA,35,NA,6
+"Hong Kong SAR","HKG","Hong Kong",35,35,35
+"Hong Kong SAR","HKG",NA,35,35,35
+"Iran (Islamic Republic of)","IRN",NA,35,35,35
+"Macao SAR","MAC","Macau",35,NA,35
+"Macao SAR","MAC",NA,35,NA,35
+"Mongolia","MNG",NA,35,NA,15
+"occupied Palestinian territory","PSE",NA,35,NA,NA
+"Panama","PAN",NA,35,34,23
+"Republic of Korea","KOR",NA,35,35,35
+"Republic of Moldova","MDA",NA,35,NA,NA
+"Russian Federation","RUS",NA,35,NA,35
+"Saint Martin",NA,NA,35,NA,NA
+"Taipei and environs","TWN","Taiwan",35,35,35
+"Taipei and environs","TWN",NA,35,35,35
+"Viet Nam","VNM",NA,35,NA,35
+"Bolivia","BOL",NA,34,16,13
+"China","CHN","Anhui",34,34,34
+"China","CHN","Beijing",34,34,34
+"China","CHN","Chongqing",34,34,34
+"China","CHN","Fujian",34,34,34
+"China","CHN","Gansu",34,34,34
+"China","CHN","Guangdong",34,34,34
+"China","CHN","Guangxi",34,34,34
+"China","CHN","Guizhou",34,34,34
+"China","CHN","Hainan",34,34,34
+"China","CHN","Hebei",34,34,34
+"China","CHN","Heilongjiang",34,34,34
+"China","CHN","Henan",34,34,34
+"China","CHN","Hong Kong",34,34,34
+"China","CHN","Hubei",34,34,34
+"China","CHN","Hunan",34,34,34
+"China","CHN","Inner Mongolia",34,34,34
+"China","CHN","Jiangsu",34,NA,34
+"China","CHN","Jiangxi",34,34,34
+"China","CHN","Jilin",34,34,34
+"China","CHN","Liaoning",34,34,34
+"China","CHN","Macau",34,NA,34
+"China","CHN","Ningxia",34,NA,34
+"China","CHN","Qinghai",34,NA,34
+"China","CHN","Shaanxi",34,34,34
+"China","CHN","Shandong",34,34,34
+"China","CHN","Shanghai",34,34,34
+"China","CHN","Shanxi",34,NA,34
+"China","CHN","Sichuan",34,34,34
+"China","CHN","Tianjin",34,34,34
+"China","CHN","Tibet",34,NA,34
+"China","CHN","Xinjiang",34,34,34
+"China","CHN","Yunnan",34,34,34
+"China","CHN","Zhejiang",34,34,34
+"China","CHN",NA,34,34,34
+"Congo (Kinshasa)","COD",NA,34,24,18
+"Cote d'Ivoire","CIV",NA,34,16,28
+"Cruise Ship",NA,"Diamond Princess",34,34,34
+"Cruise Ship",NA,NA,34,34,34
+"Czechia","CZE",NA,34,23,29
+"Honduras","HND",NA,34,19,17
+"Jamaica","JAM",NA,34,26,29
+"Korea, South","KOR",NA,34,34,34
+"Reunion","REU",NA,34,NA,NA
+"Taiwan*","TWN",NA,34,34,34
+"Turkey","TUR",NA,34,28,20
+"United Kingdom","GBR","UK",34,34,34
+"United Kingdom","GBR","Channel Islands",34,19,11
+"United Kingdom","GBR","Gibraltar",34,NA,34
+"United Kingdom","GBR","United Kingdom",32,32,32
+"United Kingdom","GBR","Cayman Islands",29,29,10
+"United Kingdom","GBR","Montserrat",27,NA,NA
+"United Kingdom","GBR","Bermuda",26,8,19
+"United Kingdom","GBR","Isle of Man",25,13,8
+"United Kingdom","GBR","Anguilla",17,NA,NA
+"United Kingdom","GBR","British Virgin Islands",17,NA,3
+"United Kingdom","GBR","Turks and Caicos Islands",17,9,NA
+"United Kingdom","GBR","Falkland Islands (Islas Malvinas)",10,NA,NA
+"United Kingdom","GBR","Falkland Islands (Malvinas)",7,NA,6
+"United Kingdom","GBR",NA,34,34,34
+"Cuba","CUB",NA,33,27,21
+"Guyana","GUY",NA,33,33,8
+"Antigua and Barbuda","ATG",NA,32,7,NA
+"Aruba","ABW",NA,32,NA,NA
+"Cayman Islands","CYM",NA,32,NA,NA
+"Ethiopia","ETH",NA,32,9,17
+"Guadeloupe","GLP",NA,32,NA,NA
+"Guinea","GIN",NA,32,NA,11
+"Kazakhstan","KAZ",NA,32,25,19
+"Kenya","KEN",NA,32,19,20
+"Sudan","SDN",NA,32,32,14
+"Curacao","CUW",NA,31,NA,NA
+"Eswatini","SWZ",NA,31,NA,8
+"Gabon","GAB",NA,31,25,11
+"Ghana","GHA",NA,31,24,19
+"Guatemala","GTM",NA,31,29,20
+"Guernsey","GGY",NA,31,NA,NA
+"Jersey","JEY",NA,31,NA,NA
+"Mauritania","MRT",NA,31,15,16
+"Namibia","NAM",NA,31,NA,21
+"Rwanda","RWA",NA,31,NA,9
+"Saint Lucia","LCA",NA,31,NA,18
+"Saint Vincent and the Grenadines","VCT",NA,31,NA,17
+"Seychelles","SYC",NA,31,NA,NA
+"Suriname","SUR",NA,31,11,6
+"Trinidad and Tobago","TTO",NA,31,20,24
+"Uruguay","URY",NA,31,16,14
+"Venezuela","VEN",NA,31,18,23
+"Central African Republic","CAF",NA,30,NA,NA
+"Congo (Brazzaville)","COG",NA,30,12,12
+"Equatorial Guinea","GNQ",NA,30,NA,14
+"Kosovo",NA,NA,30,19,18
+"Uzbekistan","UZB",NA,30,18,18
+"Benin","BEN",NA,29,8,14
+"Greenland","GRL",NA,29,NA,NA
+"Guam","GUM",NA,29,NA,NA
+"Liberia","LBR",NA,29,10,10
+"Mayotte","MYT",NA,29,NA,NA
+"Puerto Rico","PRI",NA,29,NA,NA
+"Republic of the Congo","COG",NA,29,NA,NA
+"Somalia","SOM",NA,29,6,14
+"Tanzania","TZA",NA,29,14,18
+"The Bahamas","BHS",NA,29,NA,NA
+"Barbados","BRB",NA,28,9,9
+"Montenegro","MNE",NA,28,22,11
+"The Gambia","GMB",NA,28,NA,NA
+"Djibouti","DJI",NA,27,4,11
+"Gambia, The","GMB",NA,27,NA,NA
+"Kyrgyzstan","KGZ",NA,27,11,15
+"Mauritius","MUS",NA,27,24,10
+"Zambia","ZMB",NA,27,12,11
+"Bahamas, The","BHS",NA,26,NA,NA
+"Chad","TCD",NA,26,NA,7
+"El Salvador","SLV",NA,26,14,10
+"Fiji","FJI",NA,26,NA,NA
+"Nicaragua","NIC",NA,26,18,2
+"Angola","AGO",NA,25,16,14
+"Cabo Verde","CPV",NA,25,21,8
+"Haiti","HTI",NA,25,9,16
+"Madagascar","MDG",NA,25,NA,9
+"Niger","NER",NA,25,20,9
+"Papua New Guinea","PNG",NA,25,NA,NA
+"Zimbabwe","ZWE",NA,25,22,NA
+"Cape Verde","CPV",NA,24,NA,NA
+"East Timor","TLS",NA,24,NA,NA
+"Eritrea","ERI",NA,24,NA,NA
+"Uganda","UGA",NA,24,NA,3
+"Bahamas","BHS",NA,23,13,21
+"Dominica","DMA",NA,23,NA,8
+"Gambia","GMB",NA,23,22,13
+"Grenada","GRD",NA,23,NA,NA
+"Mozambique","MOZ",NA,23,NA,10
+"Syria","SYR",NA,23,16,10
+"Timor-Leste","TLS",NA,23,NA,4
+"Belize","BLZ",NA,22,8,NA
+"Laos","LAO",NA,21,NA,NA
+"Libya","LBY",NA,21,12,14
+"Diamond Princess",NA,NA,20,20,20
+"Guinea-Bissau","GNB",NA,20,NA,NA
+"Mali","MLI",NA,20,16,10
+"Saint Kitts and Nevis","KNA",NA,20,NA,NA
+"West Bank and Gaza","PSE",NA,19,19,19
+"Burma","MMR",NA,18,14,5
+"MS Zaandam",NA,NA,17,13,NA
+"Botswana","BWA",NA,15,14,NA
+"Burundi","BDI",NA,14,NA,NA
+"Sierra Leone","SLE",NA,14,NA,NA
+"Malawi","MWI",NA,12,7,NA
+"South Sudan","SSD",NA,9,NA,NA
+"Western Sahara","ESH",NA,9,NA,NA
+"Sao Tome and Principe","STP",NA,8,NA,NA
+"Yemen","YEM",NA,4,NA,NA
