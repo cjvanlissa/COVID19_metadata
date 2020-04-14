@@ -1,0 +1,247 @@
+"country","countryiso3","SH.MED.BEDS.ZS_2013","SH.MED.BEDS.ZS_2014","SH.MED.BEDS.ZS_2015"
+"Afghanistan","AFG",0.5,0.5,0.5
+"Albania","ALB",2.9,NA,NA
+"Algeria","DZA",NA,NA,1.9
+"Andorra","AND",NA,NA,NA
+"Angola","AGO",NA,NA,NA
+"Antigua and Barbuda","ATG",3.9,3.8,NA
+"Arab World","ARB",1.15189919300725,1.62452358185493,NA
+"Argentina","ARG",4.9,5,NA
+"Armenia","ARM",4.1,NA,4.2
+"Australia","AUS",NA,3.8,NA
+"Austria","AUT",7.6,NA,NA
+"Azerbaijan","AZE",4.7,NA,NA
+"Bahamas, The","BHS",2.9,NA,NA
+"Bahrain","BHR",2.1,2,NA
+"Bangladesh","BGD",NA,0.6,0.8
+"Barbados","BRB",6.2,5.8,NA
+"Belarus","BLR",11,NA,NA
+"Belgium","BEL",6.3,6.2,NA
+"Belize","BLZ",0.9,1.3,NA
+"Benin","BEN",NA,NA,NA
+"Bermuda","BMU",NA,NA,NA
+"Bhutan","BTN",NA,NA,NA
+"Bolivia","BOL",1.1,1.1,NA
+"Bosnia and Herzegovina","BIH",3.5,NA,NA
+"Botswana","BWA",NA,NA,NA
+"Brazil","BRA",2.3,2.2,NA
+"Brunei Darussalam","BRN",NA,NA,2.7
+"Bulgaria","BGR",6.8,NA,NA
+"Burkina Faso","BFA",NA,NA,NA
+"Burundi","BDI",NA,0.8,NA
+"Cabo Verde","CPV",NA,NA,NA
+"Cambodia","KHM",0.7,NA,0.8
+"Cameroon","CMR",NA,NA,NA
+"Canada","CAN",NA,NA,NA
+"Caribbean small states","CSS",2.26723392472779,NA,NA
+"Cayman Islands","CYM",NA,NA,NA
+"Central African Republic","CAF",NA,NA,NA
+"Central Europe and the Baltics","CEB",6.42144666078239,NA,NA
+"Chad","TCD",NA,NA,NA
+"Channel Islands","CHI",NA,NA,NA
+"Chile","CHL",2.2,NA,NA
+"China","CHN",NA,NA,NA
+"Colombia","COL",1.5,1.5,NA
+"Comoros","COM",NA,NA,NA
+"Congo, Dem. Rep.","COD",NA,NA,NA
+"Congo, Rep.","COG",NA,NA,NA
+"Costa Rica","CRI",1.1,1.1,1.2
+"Cote d'Ivoire","CIV",NA,NA,NA
+"Croatia","HRV",5.9,5.89,5.6
+"Cuba","CUB",5.1,5.2,NA
+"Cyprus","CYP",3.4,NA,NA
+"Czech Republic","CZE",6.5,NA,6.5
+"Denmark","DNK",3.1,NA,2.5
+"Djibouti","DJI",1.4,1.4,NA
+"Dominica","DMA",NA,NA,NA
+"Dominican Republic","DOM",1.6,1.6,NA
+"Early-demographic dividend","EAR",NA,NA,NA
+"East Asia & Pacific","EAS",NA,NA,NA
+"East Asia & Pacific (excluding high income)","EAP",NA,NA,NA
+"East Asia & Pacific (IDA & IBRD countries)","TEA",NA,NA,NA
+"Ecuador","ECU",1.5,NA,NA
+"Egypt, Arab Rep.","EGY",0.5,1.6,NA
+"El Salvador","SLV",1.1,1.3,NA
+"Equatorial Guinea","GNQ",NA,NA,NA
+"Eritrea","ERI",NA,NA,NA
+"Estonia","EST",5,NA,5
+"Eswatini","SWZ",NA,NA,NA
+"Ethiopia","ETH",NA,NA,0.3
+"Euro area","EMU",6.16749081248063,NA,NA
+"Europe & Central Asia","ECS",5.92492146211432,NA,NA
+"Europe & Central Asia (excluding high income)","ECA",6.3536554875275,NA,NA
+"Europe & Central Asia (IDA & IBRD countries)","TEC",6.36194887522994,NA,NA
+"European Union","EUU",6.10828282710878,NA,NA
+"Fiji","FJI",NA,NA,NA
+"Finland","FIN",4.9,NA,4.4
+"Fragile and conflict affected situations","FCS",NA,NA,NA
+"France","FRA",6.5,NA,NA
+"Gabon","GAB",NA,NA,NA
+"Gambia, The","GMB",NA,NA,NA
+"Georgia","GEO",2.6,NA,NA
+"Germany","DEU",8.3,NA,NA
+"Ghana","GHA",NA,NA,NA
+"Greece","GRC",NA,NA,4.3
+"Greenland","GRL",NA,NA,NA
+"Grenada","GRD",3.7,3.7,NA
+"Guatemala","GTM",NA,0.6,NA
+"Guinea","GIN",NA,NA,NA
+"Guinea-Bissau","GNB",NA,NA,NA
+"Guyana","GUY",NA,1.6,NA
+"Haiti","HTI",0.7,NA,NA
+"Heavily indebted poor countries (HIPC)","HPC",NA,NA,NA
+"High income","HIC",4.11059905053985,NA,NA
+"Honduras","HND",0.7,0.7,NA
+"Hong Kong SAR, China","HKG",NA,NA,NA
+"Hungary","HUN",7,NA,NA
+"IBRD only","IBD",NA,NA,NA
+"Iceland","ISL",3.2,3.2,NA
+"IDA & IBRD total","IBT",NA,NA,NA
+"IDA blend","IDB",NA,NA,NA
+"IDA only","IDX",NA,NA,NA
+"IDA total","IDA",NA,NA,NA
+"India","IND",NA,NA,NA
+"Indonesia","IDN",NA,NA,1.2
+"Iran, Islamic Rep.","IRN",1.5,1.5,NA
+"Iraq","IRQ",1.3,1.4,NA
+"Ireland","IRL",2.8,NA,NA
+"Isle of Man","IMN",NA,NA,NA
+"Israel","ISR",3.1,NA,NA
+"Italy","ITA",NA,NA,NA
+"Jamaica","JAM",1.7,NA,NA
+"Japan","JPN",NA,NA,NA
+"Jordan","JOR",1.8,1.9,1.4
+"Kazakhstan","KAZ",6.7,NA,NA
+"Kenya","KEN",NA,NA,NA
+"Kiribati","KIR",NA,NA,1.9
+"Korea, Dem. People’s Rep.","PRK",NA,NA,NA
+"Korea, Rep.","KOR",NA,NA,11.5
+"Kuwait","KWT",2.2,2,NA
+"Kyrgyz Republic","KGZ",4.5,NA,NA
+"Lao PDR","LAO",NA,NA,NA
+"Late-demographic dividend","LTE",NA,NA,NA
+"Latin America & Caribbean","LCN",2.13931163133949,2.17327725929248,NA
+"Latin America & Caribbean (excluding high income)","LAC",2.12930928378679,2.16290513214949,NA
+"Latin America & the Caribbean (IDA & IBRD countries)","TLA",2.07488509973306,2.08967547696012,NA
+"Latvia","LVA",5.8,NA,NA
+"Least developed countries: UN classification","LDC",NA,NA,NA
+"Lebanon","LBN",2.9,2.9,NA
+"Lesotho","LSO",NA,NA,NA
+"Liberia","LBR",NA,NA,NA
+"Libya","LBY",3.7,3.7,NA
+"Lithuania","LTU",7.3,NA,NA
+"Low & middle income","LMY",NA,NA,NA
+"Low income","LIC",NA,NA,NA
+"Lower middle income","LMC",NA,NA,NA
+"Luxembourg","LUX",5.1,4.9,4.8
+"Macao SAR, China","MAC",NA,NA,NA
+"Madagascar","MDG",NA,NA,NA
+"Malawi","MWI",NA,NA,NA
+"Malaysia","MYS",NA,NA,1.9
+"Maldives","MDV",NA,NA,NA
+"Mali","MLI",NA,NA,NA
+"Malta","MLT",4.8,4.7,NA
+"Marshall Islands","MHL",NA,NA,NA
+"Mauritania","MRT",NA,NA,NA
+"Mauritius","MUS",NA,NA,NA
+"Mexico","MEX",1.6,NA,1.5
+"Micronesia, Fed. Sts.","FSM",NA,NA,NA
+"Middle East & North Africa","MEA",1.31563228854746,1.62848507118594,NA
+"Middle East & North Africa (excluding high income)","MNA",1.16300785053231,1.51669671692738,NA
+"Middle East & North Africa (IDA & IBRD countries)","TMN",1.16300785053231,1.51669671692738,NA
+"Middle income","MIC",NA,NA,NA
+"Moldova","MDA",5.8,NA,NA
+"Monaco","MCO",NA,NA,NA
+"Mongolia","MNG",NA,NA,NA
+"Montenegro","MNE",NA,NA,NA
+"Morocco","MAR",0.9,1.1,NA
+"Mozambique","MOZ",NA,NA,NA
+"Myanmar","MMR",NA,NA,NA
+"Namibia","NAM",NA,NA,NA
+"Nauru","NRU",NA,NA,NA
+"Nepal","NPL",NA,NA,NA
+"Netherlands","NLD",NA,NA,NA
+"New Zealand","NZL",2.8,NA,NA
+"Nicaragua","NIC",0.9,0.9,NA
+"Niger","NER",NA,NA,0.3
+"Nigeria","NGA",NA,NA,NA
+"North America","NAC",2.9,NA,NA
+"North Macedonia","MKD",4.4,NA,NA
+"Norway","NOR",3.9,NA,NA
+"OECD members","OED",3.81428042462959,NA,NA
+"Oman","OMN",1.7,1.6,NA
+"Pacific island small states","PSS",NA,NA,NA
+"Pakistan","PAK",0.6,0.6,NA
+"Palau","PLW",NA,NA,NA
+"Panama","PAN",2.3,NA,NA
+"Papua New Guinea","PNG",NA,NA,NA
+"Paraguay","PRY",NA,NA,NA
+"Peru","PER",1.5,1.6,NA
+"Philippines","PHL",NA,NA,NA
+"Poland","POL",6.5,NA,NA
+"Portugal","PRT",3.4,NA,NA
+"Post-demographic dividend","PST",4.60721290884284,NA,NA
+"Pre-demographic dividend","PRE",NA,NA,NA
+"Puerto Rico","PRI",NA,NA,NA
+"Qatar","QAT",1.4,1.2,NA
+"Romania","ROU",6.3,NA,NA
+"Russian Federation","RUS",8.2,NA,NA
+"Rwanda","RWA",NA,NA,NA
+"Samoa","WSM",NA,NA,NA
+"San Marino","SMR",NA,NA,NA
+"Sao Tome and Principe","STP",NA,NA,NA
+"Saudi Arabia","SAU",2.2,2.7,NA
+"Senegal","SEN",NA,NA,NA
+"Serbia","SRB",NA,NA,NA
+"Seychelles","SYC",NA,NA,NA
+"Sierra Leone","SLE",NA,NA,NA
+"Singapore","SGP",2.1,NA,2.4
+"Slovak Republic","SVK",5.8,NA,5.8
+"Slovenia","SVN",4.6,NA,NA
+"Small states","SST",NA,NA,NA
+"Solomon Islands","SLB",NA,NA,NA
+"Somalia","SOM",0.9,0.9,NA
+"South Africa","ZAF",NA,NA,NA
+"South Asia","SAS",NA,NA,NA
+"South Asia (IDA & IBRD)","TSA",NA,NA,NA
+"Spain","ESP",3,NA,NA
+"Sri Lanka","LKA",NA,NA,NA
+"St. Kitts and Nevis","KNA",NA,NA,NA
+"St. Lucia","LCA",1.3,NA,NA
+"St. Vincent and the Grenadines","VCT",2.5,2.6,NA
+"Sub-Saharan Africa","SSF",NA,NA,NA
+"Sub-Saharan Africa (excluding high income)","SSA",NA,NA,NA
+"Sub-Saharan Africa (IDA & IBRD countries)","TSS",NA,NA,NA
+"Sudan","SDN",0.8,NA,NA
+"Suriname","SUR",NA,NA,NA
+"Sweden","SWE",2.6,NA,NA
+"Switzerland","CHE",4.7,NA,NA
+"Syrian Arab Republic","SYR",1.5,1.5,NA
+"Tajikistan","TJK",4.8,NA,NA
+"Tanzania","TZA",NA,NA,NA
+"Thailand","THA",NA,NA,NA
+"Timor-Leste","TLS",NA,NA,NA
+"Togo","TGO",NA,NA,NA
+"Tonga","TON",NA,NA,NA
+"Trinidad and Tobago","TTO",2.7,3,NA
+"Tunisia","TUN",2.1,2.2,2.3
+"Turkey","TUR",2.7,NA,NA
+"Turkmenistan","TKM",7.4,NA,NA
+"Tuvalu","TUV",NA,NA,NA
+"Uganda","UGA",NA,NA,NA
+"Ukraine","UKR",8.8,NA,NA
+"United Arab Emirates","ARE",1.2,NA,NA
+"United Kingdom","GBR",2.8,NA,NA
+"United States","USA",2.9,NA,NA
+"Upper middle income","UMC",NA,NA,NA
+"Uruguay","URY",2.5,2.8,NA
+"Uzbekistan","UZB",4,NA,NA
+"Vanuatu","VUT",NA,NA,NA
+"Venezuela, RB","VEN",NA,0.8,NA
+"Vietnam","VNM",NA,2.6,NA
+"Virgin Islands (U.S.)","VIR",NA,NA,NA
+"West Bank and Gaza","PSE",NA,NA,NA
+"World","WLD",NA,NA,NA
+"Yemen, Rep.","YEM",0.7,0.7,NA
+"Zambia","ZMB",NA,NA,NA
+"Zimbabwe","ZWE",NA,NA,NA

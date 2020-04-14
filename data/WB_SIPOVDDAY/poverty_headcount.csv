@@ -1,0 +1,180 @@
+"country","countryiso3","SI.POV.DDAY_2013","SI.POV.DDAY_2014","SI.POV.DDAY_2015","SI.POV.DDAY_2016","SI.POV.DDAY_2017","SI.POV.DDAY_2018"
+"Albania","ALB",NA,1.9,1.3,1.1,1.7,NA
+"Algeria","DZA",NA,NA,NA,NA,NA,NA
+"Angola","AGO",NA,NA,NA,NA,NA,47.6
+"Argentina","ARG",0.7,0.7,NA,0.7,0.5,1
+"Armenia","ARM",2.2,2.3,1.9,1.8,1.4,2.1
+"Australia","AUS",NA,0.5,NA,NA,NA,NA
+"Austria","AUT",0.3,0.2,0.7,0.7,0.3,NA
+"Azerbaijan","AZE",NA,NA,NA,NA,NA,NA
+"Bangladesh","BGD",NA,NA,NA,14.8,NA,NA
+"Belarus","BLR",0,0,0,0,0,0
+"Belgium","BEL",0.1,0.1,0.1,0.1,0.1,NA
+"Belize","BLZ",NA,NA,NA,NA,NA,NA
+"Benin","BEN",NA,NA,49.5,NA,NA,NA
+"Bhutan","BTN",NA,NA,NA,NA,1.5,NA
+"Bolivia","BOL",6.9,5.8,6.4,7.1,5.8,4.5
+"Bosnia and Herzegovina","BIH",NA,NA,NA,NA,NA,NA
+"Botswana","BWA",NA,NA,16.1,NA,NA,NA
+"Brazil","BRA",3.1,2.7,3.2,3.9,4.4,4.4
+"Bulgaria","BGR",1.8,1.5,3,1.8,1.3,NA
+"Burkina Faso","BFA",NA,43.7,NA,NA,NA,NA
+"Burundi","BDI",71.8,NA,NA,NA,NA,NA
+"Cabo Verde","CPV",NA,NA,3.2,NA,NA,NA
+"Cameroon","CMR",NA,23.8,NA,NA,NA,NA
+"Canada","CAN",0.5,NA,NA,NA,NA,NA
+"Central African Republic","CAF",NA,NA,NA,NA,NA,NA
+"Chad","TCD",NA,NA,NA,NA,NA,NA
+"Chile","CHL",0.4,NA,0.3,NA,0.3,NA
+"China","CHN",1.9,1.4,0.7,0.5,NA,NA
+"Colombia","COL",5.7,5,4.5,4.5,3.9,4.1
+"Comoros","COM",NA,17.6,NA,NA,NA,NA
+"Congo, Dem. Rep.","COD",NA,NA,NA,NA,NA,NA
+"Congo, Rep.","COG",NA,NA,NA,NA,NA,NA
+"Costa Rica","CRI",1.6,1.4,1.5,1.3,1,1.4
+"Cote d'Ivoire","CIV",NA,NA,28.2,NA,NA,NA
+"Croatia","HRV",0.7,1,0.6,0.6,0.5,NA
+"Cyprus","CYP",0,0.1,0,0,0,NA
+"Czech Republic","CZE",0,0,0,0,0,NA
+"Denmark","DNK",0.3,0.2,0.2,0.3,0.1,NA
+"Djibouti","DJI",22.7,NA,NA,NA,17.1,NA
+"Dominican Republic","DOM",2.2,2.1,1.8,1.6,0.7,0.4
+"East Asia & Pacific","EAS",3.6,NA,2.3,NA,NA,1.3
+"Ecuador","ECU",3.2,2.6,3.4,3.6,3.2,3.3
+"Egypt, Arab Rep.","EGY",NA,NA,1.3,NA,3.2,NA
+"El Salvador","SLV",3.2,3,1.9,2.2,1.9,1.5
+"Estonia","EST",0.9,0.8,0.6,0.5,0.3,NA
+"Eswatini","SWZ",NA,NA,NA,28.4,NA,NA
+"Ethiopia","ETH",NA,NA,30.8,NA,NA,NA
+"Europe & Central Asia","ECS",1.7,NA,1.6,NA,NA,1.2
+"Fiji","FJI",1.4,NA,NA,NA,NA,NA
+"Finland","FIN",0.1,0.1,0.1,0,0.1,NA
+"Fragile and conflict affected situations","FCS",34.7,NA,34.8,NA,NA,36.9
+"France","FRA",0.1,0,0.1,0.1,0,NA
+"Gabon","GAB",NA,NA,NA,NA,3.4,NA
+"Gambia, The","GMB",NA,NA,10.1,NA,NA,NA
+"Georgia","GEO",6.6,5,3.8,3.9,5,4.5
+"Germany","DEU",0,NA,0,0,NA,NA
+"Ghana","GHA",NA,NA,NA,13.3,NA,NA
+"Greece","GRC",1,1.5,1.4,1,0.9,NA
+"Guatemala","GTM",NA,8.7,NA,NA,NA,NA
+"Guinea","GIN",NA,NA,NA,NA,NA,NA
+"Guinea-Bissau","GNB",NA,NA,NA,NA,NA,NA
+"Guyana","GUY",NA,NA,NA,NA,NA,NA
+"Haiti","HTI",NA,NA,NA,NA,NA,NA
+"High income","HIC",0.6,NA,0.7,NA,NA,0.6
+"Honduras","HND",17.3,15.9,16.2,18,17.2,16.5
+"Hungary","HUN",0.1,0.6,0.6,1.3,0.6,NA
+"Iceland","ISL",0,0,0,NA,NA,NA
+"IDA total","IDA",31.9,NA,31,NA,NA,29.8
+"India","IND",NA,NA,NA,NA,NA,NA
+"Indonesia","IDN",9.4,7.9,7.2,6.5,5.7,4.6
+"Iran, Islamic Rep.","IRN",0.1,0.2,0.3,0.3,0.3,NA
+"Iraq","IRQ",NA,NA,NA,NA,NA,NA
+"Ireland","IRL",0.7,0.4,0.3,0.1,NA,NA
+"Israel","ISR",NA,0.5,NA,0.2,NA,NA
+"Italy","ITA",1.4,1.2,2,1.6,1.4,NA
+"Jamaica","JAM",NA,NA,NA,NA,NA,NA
+"Japan","JPN",0.7,NA,NA,NA,NA,NA
+"Jordan","JOR",NA,NA,NA,NA,NA,NA
+"Kazakhstan","KAZ",0,0,0,0,0,NA
+"Kenya","KEN",NA,NA,36.8,NA,NA,NA
+"Kiribati","KIR",NA,NA,NA,NA,NA,NA
+"Korea, Rep.","KOR",NA,NA,NA,NA,NA,NA
+"Kosovo","XKX",0.3,0.7,0.4,0.6,0.2,NA
+"Kyrgyz Republic","KGZ",3.3,1.3,2.5,1.4,1.5,0.9
+"Lao PDR","LAO",NA,NA,NA,NA,NA,NA
+"Latin America & Caribbean","LCN",4.3,NA,4.1,NA,NA,4.4
+"Latvia","LVA",1.1,0.8,0.6,0.6,0.8,NA
+"Lebanon","LBN",NA,NA,NA,NA,NA,NA
+"Lesotho","LSO",NA,NA,NA,NA,26.9,NA
+"Liberia","LBR",NA,38.6,NA,40.9,NA,NA
+"Lithuania","LTU",0.7,1.3,0.7,1.4,1,NA
+"Low & middle income","LMY",13.3,NA,11.9,NA,NA,NA
+"Low income","LIC",45.3,NA,45.6,NA,NA,45.2
+"Lower middle income","LMC",17,NA,14.2,NA,NA,NA
+"Luxembourg","LUX",0.1,0.1,0.3,0.1,0.3,NA
+"Madagascar","MDG",NA,NA,NA,NA,NA,NA
+"Malawi","MWI",NA,NA,NA,70.3,NA,NA
+"Malaysia","MYS",0,NA,0,NA,NA,NA
+"Maldives","MDV",NA,NA,NA,0,NA,NA
+"Mali","MLI",NA,NA,NA,NA,NA,NA
+"Malta","MLT",0,0,0.1,0.1,0.2,NA
+"Mauritania","MRT",NA,6,NA,NA,NA,NA
+"Mauritius","MUS",NA,NA,NA,NA,0.2,NA
+"Mexico","MEX",NA,3.8,NA,2.2,NA,1.7
+"Micronesia, Fed. Sts.","FSM",15.4,NA,NA,NA,NA,NA
+"Middle East & North Africa","MEA",2.4,NA,3.8,NA,NA,7.2
+"Moldova","MDA",0.1,0,0,0.2,0.1,0
+"Mongolia","MNG",NA,0.2,NA,0.6,NA,0.5
+"Montenegro","MNE",3.2,1.7,1.7,NA,NA,NA
+"Morocco","MAR",1,NA,NA,NA,NA,NA
+"Mozambique","MOZ",NA,62.9,NA,NA,NA,NA
+"Myanmar","MMR",NA,NA,6.2,NA,2,NA
+"Namibia","NAM",NA,NA,13.4,NA,NA,NA
+"Nepal","NPL",NA,NA,NA,NA,NA,NA
+"Netherlands","NLD",0.1,0.1,0.1,0,0.2,NA
+"Nicaragua","NIC",NA,3.2,NA,NA,NA,NA
+"Niger","NER",NA,44.5,NA,NA,NA,NA
+"Nigeria","NGA",NA,NA,NA,NA,NA,NA
+"North Macedonia","MKD",5.2,4.4,5.2,4.1,4.4,NA
+"Norway","NOR",0.1,0.1,0.1,0.3,0.2,NA
+"Pakistan","PAK",6.1,NA,3.9,NA,NA,NA
+"Panama","PAN",2.8,3.5,2,2.2,2.5,1.7
+"Papua New Guinea","PNG",NA,NA,NA,NA,NA,NA
+"Paraguay","PRY",1.8,2.4,1.9,1.7,1.2,1.6
+"Peru","PER",4.3,3.7,3.6,3.5,3.4,2.6
+"Philippines","PHL",NA,NA,6.1,NA,NA,NA
+"Poland","POL",0.4,0.3,0.4,0.2,0.3,NA
+"Portugal","PRT",0.9,0.5,0.5,0.4,0.4,NA
+"Romania","ROU",7.2,7.6,5.7,3.6,3.5,NA
+"Russian Federation","RUS",0,0,0,0,0,0
+"Rwanda","RWA",56.8,NA,NA,55.5,NA,NA
+"Samoa","WSM",1.1,NA,NA,NA,NA,NA
+"Sao Tome and Principe","STP",NA,NA,NA,NA,34.5,NA
+"Senegal","SEN",NA,NA,NA,NA,NA,NA
+"Serbia","SRB",6.2,7.1,6.9,6.6,5.5,NA
+"Seychelles","SYC",1.1,NA,NA,NA,NA,NA
+"Sierra Leone","SLE",NA,NA,NA,NA,NA,40.1
+"Slovak Republic","SVK",0.3,0.6,0.7,1.4,NA,NA
+"Slovenia","SVN",0,0,0,0,0,NA
+"Solomon Islands","SLB",25.1,NA,NA,NA,NA,NA
+"South Africa","ZAF",NA,18.9,NA,NA,NA,NA
+"South Asia","SAS",16.1,NA,NA,NA,NA,NA
+"South Sudan","SSD",NA,NA,NA,NA,NA,NA
+"Spain","ESP",1.2,0.8,0.9,1.2,0.7,NA
+"Sri Lanka","LKA",NA,NA,NA,0.8,NA,NA
+"St. Lucia","LCA",NA,NA,NA,4.7,NA,NA
+"Sub-Saharan Africa","SSF",43.1,NA,42.3,NA,NA,NA
+"Sudan","SDN",NA,12.7,NA,NA,NA,NA
+"Suriname","SUR",NA,NA,NA,NA,NA,NA
+"Sweden","SWE",0.6,0.5,0.5,0.3,0.2,NA
+"Switzerland","CHE",0,0,0,0,0,NA
+"Syrian Arab Republic","SYR",NA,NA,NA,NA,NA,NA
+"Tajikistan","TJK",NA,NA,4.8,NA,NA,NA
+"Tanzania","TZA",NA,NA,NA,NA,49.1,NA
+"Thailand","THA",0,0,0,0,0,0
+"Timor-Leste","TLS",NA,30.7,NA,NA,NA,NA
+"Togo","TGO",NA,NA,49.8,NA,NA,NA
+"Tonga","TON",NA,NA,1,NA,NA,NA
+"Trinidad and Tobago","TTO",NA,NA,NA,NA,NA,NA
+"Tunisia","TUN",NA,NA,0.2,NA,NA,NA
+"Turkey","TUR",0.3,0.3,0.3,0.2,0.2,0.1
+"Turkmenistan","TKM",NA,NA,NA,NA,NA,NA
+"Tuvalu","TUV",NA,NA,NA,NA,NA,NA
+"Uganda","UGA",NA,NA,NA,41.7,NA,NA
+"Ukraine","UKR",0,0,0.1,0.1,0,0
+"United Arab Emirates","ARE",NA,0,NA,NA,NA,NA
+"United Kingdom","GBR",0.2,0.2,0.1,0.2,NA,NA
+"United States","USA",1,NA,NA,1.2,NA,NA
+"Upper middle income","UMC",2.3,NA,1.7,NA,NA,1.5
+"Uruguay","URY",0.2,0.1,0.1,0.1,0.1,0.1
+"Uzbekistan","UZB",NA,NA,NA,NA,NA,NA
+"Vanuatu","VUT",NA,NA,NA,NA,NA,NA
+"Venezuela, RB","VEN",NA,NA,NA,NA,NA,NA
+"Vietnam","VNM",NA,2.7,NA,2,NA,1.9
+"West Bank and Gaza","PSE",NA,NA,NA,1,NA,NA
+"World","WLD",11.2,NA,10,NA,NA,NA
+"Yemen, Rep.","YEM",NA,18.8,NA,NA,NA,NA
+"Zambia","ZMB",NA,NA,57.5,NA,NA,NA
+"Zimbabwe","ZWE",NA,NA,NA,NA,33.9,NA

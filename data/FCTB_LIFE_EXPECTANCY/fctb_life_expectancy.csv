@@ -1,0 +1,222 @@
+"country","countryiso3","lifeexpectancy.2102_2020"
+"Monaco","MCO",89.4
+"Japan","JPN",85.3
+"Singapore","SGP",85.2
+"Macau","MAC",84.6
+"San Marino","SMR",83.3
+"Iceland","ISL",83.1
+"Hong Kong","HKG",83
+"Andorra","AND",82.9
+"Guernsey","GGY",82.6
+"Switzerland","CHE",82.6
+"Korea, South","KOR",82.5
+"Israel","ISR",82.5
+"Luxembourg","LUX",82.3
+"Australia","AUS",82.3
+"Italy","ITA",82.3
+"Sweden","SWE",82.1
+"France","FRA",81.9
+"Norway","NOR",81.9
+"Liechtenstein","LIE",81.9
+"Jersey","JEY",81.9
+"Canada","CAN",81.9
+"Spain","ESP",81.8
+"Austria","AUT",81.6
+"Anguilla","AIA",81.5
+"Netherlands","NLD",81.4
+"Bermuda","BMU",81.4
+"New Zealand","NZL",81.3
+"Cayman Islands","CYM",81.3
+"Isle of Man","IMN",81.3
+"Belgium","BEL",81.1
+"Finland","FIN",81
+"Puerto Rico","PRI",80.9
+"Ireland","IRL",80.9
+"Germany","DEU",80.8
+"United Kingdom","GBR",80.8
+"Greece","GRC",80.7
+"Saint Pierre and Miquelon","SPM",80.6
+"Faroe Islands","FRO",80.5
+"Malta","MLT",80.5
+"Taiwan","TWN",80.2
+"Turks and Caicos Islands","TCA",80
+"United States","USA",80
+"Wallis and Futuna","WLF",79.8
+"Saint Helena, Ascension, and Tristan da Cunha","SHN",79.6
+"Gibraltar","GIB",79.6
+"Denmark","DNK",79.5
+"Portugal","PRT",79.4
+"Virgin Islands","VIR",79.4
+"Bahrain","BHR",79
+"Chile","CHL",78.9
+"Qatar","QAT",78.9
+"British Virgin Islands","VGB",78.8
+"Cyprus","CYP",78.8
+"Panama","PAN",78.8
+"Czechia","CZE",78.8
+"Cuba","CUB",78.8
+"Costa Rica","CRI",78.7
+"Albania","ALB",78.5
+"Curacao","CUW",78.5
+"Dominican Republic","DOM",78.3
+"Slovenia","SVN",78.3
+"Sint Maarten","SXM",78.3
+"Kuwait","KWT",78.2
+"New Caledonia","NCL",77.9
+"Saint Lucia","LCA",77.9
+"Poland","POL",77.8
+"Lebanon","LBN",77.8
+"United Arab Emirates","ARE",77.7
+"Uruguay","URY",77.4
+"French Polynesia","PYF",77.4
+"Paraguay","PRY",77.4
+"Brunei","BRN",77.3
+"Argentina","ARG",77.3
+"Slovakia","SVK",77.3
+"Dominica","DMA",77.2
+"Morocco","MAR",77.1
+"Algeria","DZA",77
+"Ecuador","ECU",77
+"Aruba","ABW",76.9
+"Bosnia and Herzegovina","BIH",76.9
+"Sri Lanka","LKA",76.9
+"Estonia","EST",76.9
+"Antigua and Barbuda","ATG",76.7
+"Libya","LBY",76.7
+"Georgia","GEO",76.4
+"Tonga","TON",76.4
+"Croatia","HRV",76.1
+"Mexico","MEX",76.1
+"Hungary","HUN",76.1
+"Venezuela","VEN",76
+"Cook Islands","COK",76
+"Guam","GUM",76
+"Saint Kitts and Nevis","KNA",75.9
+"Colombia","COL",75.9
+"Maldives","MDV",75.8
+"Mauritius","MUS",75.8
+"Oman","OMN",75.7
+"Serbia","SRB",75.7
+"Tunisia","TUN",75.7
+"China","CHN",75.7
+"Solomon Islands","SLB",75.6
+"Saint Vincent and the Grenadines","VCT",75.5
+"Saudi Arabia","SAU",75.5
+"Barbados","BRB",75.5
+"Northern Mariana Islands","MNP",75.4
+"Romania","ROU",75.4
+"Malaysia","MYS",75.2
+"West Bank","PSE",75.2
+"Syria","SYR",75.1
+"Lithuania","LTU",75
+"Turkey","TUR",75
+"Armenia","ARM",74.9
+"El Salvador","SLV",74.9
+"Thailand","THA",74.9
+"Iraq","IRQ",74.9
+"Seychelles","SYC",74.9
+"Jordan","JOR",74.8
+"Bulgaria","BGR",74.7
+"Latvia","LVA",74.7
+"Montserrat","MSR",74.6
+"Grenada","GRD",74.5
+"Gaza Strip","PSE",74.2
+"Samoa","WSM",74
+"Peru","PER",74
+"Uzbekistan","UZB",74
+"Brazil","BRA",74
+"Iran","IRN",74
+"Jamaica","JAM",73.7
+"Vanuatu","VUT",73.7
+"Vietnam","VNM",73.7
+"Nicaragua","NIC",73.5
+"American Samoa","ASM",73.4
+"Palau","PLW",73.4
+"Bangladesh","BGD",73.4
+"Marshall Islands","MHL",73.4
+"Trinidad and Tobago","TTO",73.1
+"Micronesia, Federated States of","FSM",73.1
+"Fiji","FJI",73
+"Belarus","BLR",73
+"Egypt","EGY",73
+"Indonesia","IDN",73
+"Azerbaijan","AZE",72.8
+"Bahamas, The","BHS",72.6
+"Greenland","GRL",72.6
+"Guatemala","GTM",72.6
+"Suriname","SUR",72.5
+"Cabo Verde","CPV",72.4
+"Ukraine","UKR",72.1
+"Honduras","HND",71.2
+"Kazakhstan","KAZ",71.1
+"Nepal","NPL",71
+"Russia","RUS",71
+"Moldova","MDA",71
+"Kyrgyzstan","KGZ",70.9
+"Korea, North","PRK",70.7
+"Bhutan","BTN",70.6
+"Turkmenistan","TKM",70.4
+"Mongolia","MNG",69.9
+"Bolivia","BOL",69.5
+"Philippines","PHL",69.4
+"Belize","BLZ",68.9
+"India","IND",68.8
+"Guyana","GUY",68.6
+"Timor-Leste","TLS",68.4
+"Burma","MMR",68.2
+"Pakistan","PAK",68.1
+"Tajikistan","TJK",68.1
+"Nauru","NRU",67.4
+"Papua New Guinea","PNG",67.3
+"Ghana","GHA",67
+"Tuvalu","TUV",66.9
+"Kiribati","KIR",66.5
+"Madagascar","MDG",66.3
+"Yemen","YEM",65.9
+"Togo","TGO",65.4
+"Sao Tome and Principe","STP",65.3
+"Eritrea","ERI",65.2
+"Gambia, The","GMB",65.1
+"Cambodia","KHM",64.9
+"Comoros","COM",64.6
+"Equatorial Guinea","GNQ",64.6
+"Laos","LAO",64.6
+"Sudan","SDN",64.4
+"Kenya","KEN",64.3
+"Rwanda","RWA",64.3
+"Haiti","HTI",64.2
+"Namibia","NAM",64
+"South Africa","ZAF",63.8
+"Djibouti","DJI",63.6
+"Western Sahara","ESH",63.4
+"Mauritania","MRT",63.4
+"Botswana","BWA",63.3
+"Liberia","LBR",63.3
+"Ethiopia","ETH",62.6
+"Tanzania","TZA",62.6
+"Benin","BEN",62.3
+"Senegal","SEN",62.1
+"Malawi","MWI",61.7
+"Guinea","GIN",61
+"Burundi","BDI",60.9
+"Zimbabwe","ZWE",60.4
+"Mali","MLI",60.3
+"Angola","AGO",60.2
+"Congo, Republic of the","COG",59.8
+"Cote d'Ivoire","CIV",59
+"Cameroon","CMR",59
+"Sierra Leone","SLE",58.6
+"Congo, Democratic Republic of the","COD",57.7
+"Burkina Faso","BFA",55.9
+"Uganda","UGA",55.9
+"Niger","NER",55.9
+"Nigeria","NGA",53.8
+"Mozambique","MOZ",53.7
+"Lesotho","LSO",53
+"Central African Republic","CAF",52.8
+"Somalia","SOM",52.8
+"Zambia","ZMB",52.7
+"Gabon","GAB",52.1
+"Afghanistan","AFG",51.7
+"Guinea-Bissau","GNB",51
+"Chad","TCD",50.6

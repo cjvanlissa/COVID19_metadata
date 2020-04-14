@@ -1,0 +1,191 @@
+"country","countryiso3","latest.year_SE.XPD.SECO.PC.ZS","latest.value_SE.XPD.SECO.PC.ZS"
+"Afghanistan","AFG",2017,11.3072
+"Albania","ALB",2017,7.97805
+"Algeria","DZA",NA,NA
+"Andorra","AND",2018,13.93424
+"Antigua and Barbuda","ATG",NA,NA
+"Argentina","ARG",2017,20.6226
+"Armenia","ARM",2014,14.57604
+"Aruba","ABW",NA,NA
+"Australia","AUS",2016,14.98139
+"Austria","AUT",2016,27.72044
+"Bahrain","BHR",2015,17.50832
+"Bangladesh","BGD",2016,9.88363
+"Barbados","BRB",2016,28.03908
+"Belarus","BLR",2017,35.66614
+"Belgium","BEL",2013,24.52636
+"Belize","BLZ",2017,27.31837
+"Benin","BEN",2015,11.34655
+"Bermuda","BMU",2015,11.92934
+"Bhutan","BTN",2015,29.42942
+"Bosnia and Herzegovina","BIH",2016,43.51293
+"Botswana","BWA",NA,NA
+"Brazil","BRA",2015,21.52655
+"British Virgin Islands","VGB",2017,10.85147
+"Brunei Darussalam","BRN",2016,23.64457
+"Bulgaria","BGR",2013,22.18229
+"Burkina Faso","BFA",2016,19.92959
+"Burundi","BDI",2013,31.24881
+"Cabo Verde","CPV",2017,19.66117
+"Cambodia","KHM",NA,NA
+"Cameroon","CMR",NA,NA
+"Canada","CAN",NA,NA
+"Caribbean small states","CSS",2018,29.72732
+"Cayman Islands","CYM",NA,NA
+"Central African Republic","CAF",NA,NA
+"Central Europe and the Baltics","CEB",2016,22.30415
+"Chad","TCD",2013,17.73265
+"Chile","CHL",2017,18.68243
+"China","CHN",NA,NA
+"Colombia","COL",2018,17.64699
+"Comoros","COM",2014,8.48165
+"Congo, Dem. Rep.","COD",2013,5.28871
+"Congo, Rep.","COG",NA,NA
+"Costa Rica","CRI",2018,21.14089
+"Cote d'Ivoire","CIV",2018,18.84725
+"Cuba","CUB",NA,NA
+"Curacao","CUW",2013,22.93856
+"Cyprus","CYP",2016,39.29112
+"Czech Republic","CZE",2016,22.30415
+"Denmark","DNK",2014,31.13589
+"Djibouti","DJI",2016,0.72783
+"Dominica","DMA",2015,18.77678
+"Dominican Republic","DOM",2018,15.09618
+"Ecuador","ECU",2016,5.2853
+"Egypt, Arab Rep.","EGY",2017,13.79696
+"El Salvador","SLV",2018,15.0804
+"Eritrea","ERI",NA,NA
+"Estonia","EST",2016,21.17125
+"Eswatini","SWZ",2014,28.22603
+"Ethiopia","ETH",2015,16.76439
+"Euro area","EMU",2016,23.031085
+"Europe & Central Asia","ECS",2016,23.02147
+"European Union","EUU",2016,23.02147
+"Fiji","FJI",NA,NA
+"Finland","FIN",2016,24.75238
+"France","FRA",2016,26.28009
+"Gambia, The","GMB",NA,NA
+"Georgia","GEO",NA,NA
+"Germany","DEU",2016,22.95939
+"Ghana","GHA",2014,19.96045
+"Greece","GRC",2016,23.02147
+"Grenada","GRD",2017,10.89262
+"Guatemala","GTM",2018,5.42101
+"Guinea","GIN",2014,8.24883
+"Guyana","GUY",NA,NA
+"High income","HIC",2016,22.760205
+"Honduras","HND",2013,20.34188
+"Hong Kong SAR, China","HKG",2018,22.03149
+"Hungary","HUN",2016,23.05651
+"Iceland","ISL",2016,19.39879
+"India","IND",2013,16.8546
+"Indonesia","IDN",2015,10.52216
+"Iran, Islamic Rep.","IRN",2017,17.52858
+"Ireland","IRL",2016,15.94208
+"Israel","ISR",2016,18.65667
+"Italy","ITA",2015,22.90489
+"Jamaica","JAM",2018,29.72732
+"Japan","JPN",2016,24.05154
+"Jordan","JOR",2018,15.58689
+"Kazakhstan","KAZ",2016,21.20877
+"Kenya","KEN",NA,NA
+"Korea, Rep.","KOR",2016,28.17817
+"Kuwait","KWT",2014,17.29438
+"Lao PDR","LAO",2014,12.53244
+"Late-demographic dividend","LTE",2013,20.0836
+"Latin America & Caribbean","LCN",2016,15.0163
+"Latin America & Caribbean (excluding high income)","LAC",2016,14.91552
+"Latin America & the Caribbean (IDA & IBRD countries)","TLA",2016,15.0163
+"Latvia","LVA",2016,26.43476
+"Least developed countries: UN classification","LDC",NA,NA
+"Lebanon","LBN",2013,6.3953
+"Lesotho","LSO",2018,29.99591
+"Liberia","LBR",2015,17.73005
+"Liechtenstein","LIE",NA,NA
+"Lithuania","LTU",2016,17.89823
+"Low income","LIC",NA,NA
+"Luxembourg","LUX",2015,19.40807
+"Macao SAR, China","MAC",NA,NA
+"Madagascar","MDG",NA,NA
+"Malawi","MWI",2016,24.02977
+"Malaysia","MYS",2018,22.81098
+"Mali","MLI",2017,25.49535
+"Malta","MLT",2015,29.54522
+"Marshall Islands","MHL",NA,NA
+"Mauritania","MRT",2016,14.17252
+"Mauritius","MUS",2018,31.32456
+"Mexico","MEX",2016,14.42638
+"Middle East & North Africa (excluding high income)","MNA",NA,NA
+"Middle East & North Africa (IDA & IBRD countries)","TMN",NA,NA
+"Moldova","MDA",2018,31.08682
+"Monaco","MCO",2016,4.9479
+"Mongolia","MNG",NA,NA
+"Morocco","MAR",NA,NA
+"Mozambique","MOZ",2013,50.23933
+"Myanmar","MMR",2018,10.30288
+"Namibia","NAM",NA,NA
+"Nepal","NPL",2015,10.45324
+"Netherlands","NLD",2016,23.12418
+"New Zealand","NZL",2016,21.11448
+"Nicaragua","NIC",NA,NA
+"Niger","NER",2017,17.13543
+"North America","NAC",2016,22.1348
+"Norway","NOR",2016,26.78578
+"OECD members","OED",2016,22.432585
+"Oman","OMN",2017,36.02522
+"Other small states","OSS",NA,NA
+"Pakistan","PAK",2015,16.02248
+"Panama","PAN",NA,NA
+"Paraguay","PRY",2016,11.92418
+"Peru","PER",2018,14.64931
+"Philippines","PHL",NA,NA
+"Poland","POL",2016,22.56102
+"Portugal","PRT",2015,27.69333
+"Post-demographic dividend","PST",2016,23.048605
+"Puerto Rico","PRI",2014,20.17815
+"Qatar","QAT",NA,NA
+"Romania","ROU",2016,15.1606
+"Rwanda","RWA",2018,21.67381
+"Samoa","WSM",2016,13.02062
+"San Marino","SMR",NA,NA
+"Sao Tome and Principe","STP",2014,8.55706
+"Saudi Arabia","SAU",NA,NA
+"Senegal","SEN",2018,11.4156
+"Serbia","SRB",2015,11.11718
+"Seychelles","SYC",2016,15.29976
+"Sierra Leone","SLE",2017,14.26684
+"Singapore","SGP",2017,21.63771
+"Slovak Republic","SVK",2016,20.08462
+"Slovenia","SVN",2016,23.0407
+"Small states","SST",NA,NA
+"South Africa","ZAF",2018,21.375
+"South Asia","SAS",2016,11.98575
+"South Asia (IDA & IBRD)","TSA",2016,11.98575
+"South Sudan","SSD",2016,11.94795
+"Spain","ESP",2016,18.88163
+"Sri Lanka","LKA",2018,7.6737
+"St. Kitts and Nevis","KNA",2016,17.55246
+"St. Lucia","LCA",2018,22.74112
+"St. Vincent and the Grenadines","VCT",2018,20.13922
+"Sweden","SWE",2016,23.75742
+"Switzerland","CHE",2015,24.45516
+"Syrian Arab Republic","SYR",NA,NA
+"Tanzania","TZA",2014,14.94763
+"Thailand","THA",2013,17.99841
+"Timor-Leste","TLS",2014,7.92381
+"Togo","TGO",NA,NA
+"Tonga","TON",NA,NA
+"Tunisia","TUN",2015,52.39924
+"Turkey","TUR",2016,13.5129
+"Turks and Caicos Islands","TCA",2018,18.42415
+"Ukraine","UKR",2017,30.26498
+"United Arab Emirates","ARE",NA,NA
+"United Kingdom","GBR",2016,21.18688
+"United States","USA",2016,22.1348
+"Upper middle income","UMC",2013,15.885795
+"Uruguay","URY",2017,16.15909
+"Vanuatu","VUT",2015,21.02094
+"Venezuela, RB","VEN",2015,14.79092
+"World","WLD",2013,20.0836
+"Yemen, Rep.","YEM",NA,NA
+"Zimbabwe","ZWE",2013,22.24428
