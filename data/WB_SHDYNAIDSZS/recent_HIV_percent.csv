@@ -1,0 +1,170 @@
+"country","countryiso3","latest.year_SH.DYN.AIDS.ZS","latest.value_SH.DYN.AIDS.ZS"
+"Afghanistan","AFG",2018,0.1
+"Algeria","DZA",2018,0.1
+"Angola","AGO",2018,2
+"Arab World","ARB",2018,0.120953374232079
+"Argentina","ARG",2018,0.4
+"Armenia","ARM",2018,0.2
+"Australia","AUS",2018,0.1
+"Bahamas, The","BHS",2018,1.8
+"Bangladesh","BGD",2018,0.1
+"Barbados","BRB",2018,1.5
+"Belarus","BLR",2018,0.5
+"Belize","BLZ",2018,1.9
+"Benin","BEN",2018,1
+"Bhutan","BTN",2018,0.3
+"Bolivia","BOL",2018,0.3
+"Bosnia and Herzegovina","BIH",2018,0.1
+"Botswana","BWA",2018,20.3
+"Brazil","BRA",2018,0.5
+"Bulgaria","BGR",2018,0.1
+"Burkina Faso","BFA",2018,0.7
+"Burundi","BDI",2018,1
+"Cabo Verde","CPV",2018,0.6
+"Cambodia","KHM",2018,0.5
+"Cameroon","CMR",2018,3.6
+"Caribbean small states","CSS",2018,1.74859959934384
+"Central African Republic","CAF",2018,3.6
+"Chad","TCD",2018,1.3
+"Chile","CHL",2018,0.5
+"Colombia","COL",2018,0.4
+"Comoros","COM",2018,0.1
+"Congo, Dem. Rep.","COD",2018,0.8
+"Congo, Rep.","COG",2018,2.6
+"Costa Rica","CRI",2018,0.4
+"Cote d'Ivoire","CIV",2018,2.6
+"Croatia","HRV",2018,0.1
+"Cuba","CUB",2018,0.4
+"Czech Republic","CZE",2018,0.1
+"Denmark","DNK",2018,0.1
+"Djibouti","DJI",2018,1.2
+"Dominican Republic","DOM",2018,0.9
+"Ecuador","ECU",2018,0.4
+"Egypt, Arab Rep.","EGY",2018,0.1
+"El Salvador","SLV",2018,0.6
+"Equatorial Guinea","GNQ",2018,7.1
+"Eritrea","ERI",2018,0.7
+"Estonia","EST",2018,0.9
+"Eswatini","SWZ",2018,27.3
+"Ethiopia","ETH",2018,1
+"Euro area","EMU",2018,0.243554199134488
+"European Union","EUU",2018,0.218814833959648
+"Finland","FIN",2018,0.1
+"Fragile and conflict affected situations","FCS",2018,1.31960700015155
+"France","FRA",2018,0.3
+"Gabon","GAB",2018,3.8
+"Gambia, The","GMB",2018,1.9
+"Georgia","GEO",2018,0.4
+"Germany","DEU",2018,0.1
+"Ghana","GHA",2018,1.7
+"Guatemala","GTM",2018,0.4
+"Guinea","GIN",2018,1.4
+"Guinea-Bissau","GNB",2018,3.5
+"Guyana","GUY",2018,1.4
+"Haiti","HTI",2018,2
+"Heavily indebted poor countries (HIPC)","HPC",2018,2.4212426637416
+"High income","HIC",2016,0.288464443547177
+"Honduras","HND",2018,0.3
+"Hungary","HUN",2018,0.1
+"Iceland","ISL",2018,0.1
+"IDA blend","IDB",2018,1.52789321755106
+"IDA only","IDX",2018,1.73170489251013
+"IDA total","IDA",2018,1.66264952234523
+"Indonesia","IDN",2018,0.4
+"Iran, Islamic Rep.","IRN",2018,0.1
+"Ireland","IRL",2018,0.2
+"Israel","ISR",2018,0.2
+"Italy","ITA",2018,0.3
+"Jamaica","JAM",2018,1.9
+"Japan","JPN",2018,0.1
+"Jordan","JOR",2018,0.1
+"Kazakhstan","KAZ",2018,0.2
+"Kenya","KEN",2018,4.7
+"Kuwait","KWT",2018,0.1
+"Kyrgyz Republic","KGZ",2018,0.2
+"Lao PDR","LAO",2018,0.3
+"Latin America & Caribbean","LCN",2018,0.442713894294312
+"Latin America & Caribbean (excluding high income)","LAC",2018,0.435508469340047
+"Latin America & the Caribbean (IDA & IBRD countries)","TLA",2018,0.442094935003466
+"Latvia","LVA",2018,0.4
+"Least developed countries: UN classification","LDC",2018,1.79958497277034
+"Lebanon","LBN",2018,0.1
+"Lesotho","LSO",2018,23.6
+"Liberia","LBR",2018,1.3
+"Libya","LBY",2018,0.2
+"Low income","LIC",2018,2.16777222764889
+"Luxembourg","LUX",2018,0.3
+"Madagascar","MDG",2018,0.3
+"Malawi","MWI",2018,9.2
+"Malaysia","MYS",2018,0.4
+"Mali","MLI",2018,1.4
+"Mauritania","MRT",2018,0.2
+"Mauritius","MUS",2018,1.3
+"Mexico","MEX",2018,0.2
+"Middle East & North Africa","MEA",2018,0.109040880806431
+"Middle East & North Africa (excluding high income)","MNA",2018,0.105407157041857
+"Middle East & North Africa (IDA & IBRD countries)","TMN",2018,0.105407157041857
+"Moldova","MDA",2018,0.6
+"Mongolia","MNG",2018,0.1
+"Montenegro","MNE",2018,0.1
+"Morocco","MAR",2018,0.1
+"Mozambique","MOZ",2018,12.6
+"Myanmar","MMR",2018,0.8
+"Namibia","NAM",2018,11.8
+"Nepal","NPL",2018,0.1
+"Netherlands","NLD",2017,0.2
+"New Zealand","NZL",2018,0.1
+"Nicaragua","NIC",2018,0.2
+"Niger","NER",2018,0.3
+"Nigeria","NGA",2018,1.5
+"North America","NAC",2016,0.4
+"North Macedonia","MKD",2018,0.1
+"Norway","NOR",2018,0.1
+"OECD members","OED",2016,0.2726548419724
+"Oman","OMN",2018,0.2
+"Other small states","OSS",2018,8.68953925980765
+"Pakistan","PAK",2018,0.1
+"Panama","PAN",2018,0.9
+"Papua New Guinea","PNG",2018,0.8
+"Paraguay","PRY",2018,0.5
+"Peru","PER",2018,0.3
+"Philippines","PHL",2018,0.1
+"Portugal","PRT",2018,0.5
+"Post-demographic dividend","PST",2016,0.315179459049729
+"Pre-demographic dividend","PRE",2018,2.65169331525239
+"Romania","ROU",2018,0.1
+"Rwanda","RWA",2018,2.5
+"Senegal","SEN",2018,0.4
+"Serbia","SRB",2018,0.1
+"Sierra Leone","SLE",2018,1.5
+"Singapore","SGP",2018,0.2
+"Slovak Republic","SVK",2018,0.1
+"Slovenia","SVN",2018,0.1
+"Small states","SST",2018,7.31248858481148
+"Somalia","SOM",2018,0.1
+"South Africa","ZAF",2018,20.4
+"South Sudan","SSD",2018,2.5
+"Spain","ESP",2018,0.3
+"Sri Lanka","LKA",2018,0.1
+"Sub-Saharan Africa","SSF",2018,3.90190503884857
+"Sub-Saharan Africa (excluding high income)","SSA",2018,3.90190503884857
+"Sub-Saharan Africa (IDA & IBRD countries)","TSS",2018,3.90190503884857
+"Sudan","SDN",2018,0.2
+"Suriname","SUR",2018,1.4
+"Syrian Arab Republic","SYR",2018,0.1
+"Tajikistan","TJK",2018,0.2
+"Tanzania","TZA",2018,4.6
+"Thailand","THA",2018,1.1
+"Togo","TGO",2018,2.3
+"Tunisia","TUN",2018,0.1
+"Uganda","UGA",2018,5.7
+"Ukraine","UKR",2018,1
+"United Kingdom","GBR",2017,0.2
+"United States","USA",2016,0.4
+"Uruguay","URY",2018,0.6
+"Uzbekistan","UZB",2018,0.2
+"Vietnam","VNM",2018,0.3
+"World","WLD",2018,0.8
+"Yemen, Rep.","YEM",2018,0.1
+"Zambia","ZMB",2018,11.3
+"Zimbabwe","ZWE",2018,12.7

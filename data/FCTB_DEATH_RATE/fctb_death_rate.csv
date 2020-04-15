@@ -1,0 +1,225 @@
+"country","countryiso3","deathrate.2066_2020"
+"Lesotho","LSO",15
+"Lithuania","LTU",14.6
+"Bulgaria","BGR",14.5
+"Latvia","LVA",14.5
+"Ukraine","UKR",14.4
+"Guinea-Bissau","GNB",13.9
+"Chad","TCD",13.8
+"Serbia","SRB",13.6
+"Russia","RUS",13.5
+"Afghanistan","AFG",13.4
+"Central African Republic","CAF",13.2
+"Belarus","BLR",13.2
+"Somalia","SOM",13.1
+"Gabon","GAB",13
+"Hungary","HUN",12.8
+"Estonia","EST",12.6
+"Moldova","MDA",12.6
+"Nigeria","NGA",12.4
+"Zambia","ZMB",12.2
+"Croatia","HRV",12.2
+"Romania","ROU",12
+"Niger","NER",11.8
+"Germany","DEU",11.7
+"Mozambique","MOZ",11.6
+"Slovenia","SVN",11.6
+"Greece","GRC",11.3
+"Burkina Faso","BFA",11.2
+"Portugal","PRT",11.1
+"Georgia","GEO",10.9
+"Czechia","CZE",10.5
+"Italy","ITA",10.4
+"Poland","POL",10.4
+"Sierra Leone","SLE",10.4
+"Denmark","DNK",10.3
+"Zimbabwe","ZWE",10.2
+"Isle of Man","IMN",10.2
+"Uganda","UGA",10.2
+"Bosnia and Herzegovina","BIH",10
+"Finland","FIN",10
+"Slovakia","SVK",9.9
+"Saint Pierre and Miquelon","SPM",9.9
+"Mali","MLI",9.8
+"Monaco","MCO",9.8
+"Japan","JPN",9.8
+"Belgium","BEL",9.7
+"Montenegro","MNE",9.7
+"Cameroon","CMR",9.6
+"Botswana","BWA",9.6
+"Austria","AUT",9.6
+"Congo, Democratic Republic of the","COD",9.6
+"Congo, Republic of the","COG",9.5
+"Cote d'Ivoire","CIV",9.4
+"Armenia","ARM",9.4
+"United Kingdom","GBR",9.4
+"Uruguay","URY",9.4
+"Sweden","SWE",9.4
+"South Africa","ZAF",9.4
+"Malta","MLT",9.4
+"France","FRA",9.3
+"Korea, North","PRK",9.3
+"Angola","AGO",9.2
+"Spain","ESP",9.1
+"Guernsey","GGY",9
+"Guinea","GIN",9
+"Netherlands","NLD",8.9
+"Faroe Islands","FRO",8.8
+"Burundi","BDI",8.8
+"Trinidad and Tobago","TTO",8.8
+"Greenland","GRL",8.7
+"San Marino","SMR",8.7
+"Canada","CAN",8.7
+"Cuba","CUB",8.7
+"Bermuda","BMU",8.6
+"Puerto Rico","PRI",8.6
+"Barbados","BRB",8.6
+"Gibraltar","GIB",8.5
+"Tuvalu","TUV",8.5
+"Cook Islands","COK",8.4
+"Curacao","CUW",8.4
+"Aruba","ABW",8.4
+"Switzerland","CHE",8.3
+"Grenada","GRD",8.2
+"United States","USA",8.2
+"Palau","PLW",8.1
+"Norway","NOR",8.1
+"Kazakhstan","KAZ",8.1
+"Western Sahara","ESH",8.1
+"Senegal","SEN",8.1
+"Thailand","THA",8
+"Benin","BEN",7.9
+"Dominica","DMA",7.9
+"Malawi","MWI",7.9
+"Mauritania","MRT",7.9
+"Namibia","NAM",7.9
+"Equatorial Guinea","GNQ",7.8
+"Jersey","JEY",7.8
+"Virgin Islands","VIR",7.8
+"Saint Helena, Ascension, and Tristan da Cunha","SHN",7.8
+"China","CHN",7.8
+"Ethiopia","ETH",7.7
+"Saint Lucia","LCA",7.7
+"South Sudan","SSD",7.7
+"Liberia","LBR",7.6
+"Haiti","HTI",7.6
+"Tanzania","TZA",7.6
+"Djibouti","DJI",7.5
+"Cambodia","KHM",7.5
+"Argentina","ARG",7.5
+"New Zealand","NZL",7.5
+"Guyana","GUY",7.4
+"Taiwan","TWN",7.4
+"Burma","MMR",7.4
+"Laos","LAO",7.4
+"Liechtenstein","LIE",7.4
+"Hong Kong","HKG",7.4
+"India","IND",7.3
+"Australia","AUS",7.3
+"Andorra","AND",7.3
+"Saint Vincent and the Grenadines","VCT",7.3
+"Sudan","SDN",7.3
+"Luxembourg","LUX",7.3
+"Comoros","COM",7.2
+"Bahamas, The","BHS",7.2
+"Eritrea","ERI",7.2
+"Mauritius","MUS",7.1
+"Azerbaijan","AZE",7.1
+"Saint Kitts and Nevis","KNA",7.1
+"Kiribati","KIR",7
+"Ghana","GHA",7
+"Seychelles","SYC",7
+"Gambia, The","GMB",7
+"Togo","TGO",6.9
+"Jamaica","JAM",6.8
+"Albania","ALB",6.8
+"Cyprus","CYP",6.8
+"Sao Tome and Principe","STP",6.8
+"Brazil","BRA",6.7
+"Kenya","KEN",6.7
+"Papua New Guinea","PNG",6.6
+"Ireland","IRL",6.6
+"Kyrgyzstan","KGZ",6.5
+"Bhutan","BTN",6.5
+"Indonesia","IDN",6.5
+"Madagascar","MDG",6.5
+"Bolivia","BOL",6.4
+"Iceland","ISL",6.4
+"Rwanda","RWA",6.4
+"Pakistan","PAK",6.3
+"Tunisia","TUN",6.3
+"Mongolia","MNG",6.3
+"Sri Lanka","LKA",6.2
+"Montserrat","MSR",6.2
+"Chile","CHL",6.2
+"Philippines","PHL",6.1
+"Peru","PER",6.1
+"Suriname","SUR",6.1
+"Fiji","FJI",6.1
+"Turkmenistan","TKM",6.1
+"Tajikistan","TJK",6
+"Guam","GUM",6
+"Cabo Verde","CPV",6
+"Belize","BLZ",6
+"Turkey","TUR",6
+"Yemen","YEM",6
+"Korea, South","KOR",6
+"American Samoa","ASM",5.9
+"Nauru","NRU",5.9
+"Vietnam","VNM",5.9
+"Timor-Leste","TLS",5.9
+"Cayman Islands","CYM",5.8
+"El Salvador","SLV",5.8
+"New Caledonia","NCL",5.7
+"Antigua and Barbuda","ATG",5.7
+"Nepal","NPL",5.6
+"Colombia","COL",5.5
+"Bangladesh","BGD",5.4
+"Wallis and Futuna","WLF",5.4
+"Samoa","WSM",5.3
+"Uzbekistan","UZB",5.3
+"Mexico","MEX",5.3
+"Iran","IRN",5.3
+"Honduras","HND",5.3
+"Venezuela","VEN",5.3
+"French Polynesia","PYF",5.2
+"Israel","ISR",5.2
+"Sint Maarten","SXM",5.2
+"Nicaragua","NIC",5.1
+"British Virgin Islands","VGB",5.1
+"Ecuador","ECU",5.1
+"Malaysia","MYS",5.1
+"Lebanon","LBN",5
+"Falkland Islands (Islas Malvinas)","FLK",4.9
+"Morocco","MAR",4.9
+"Tonga","TON",4.9
+"Panama","PAN",4.9
+"Paraguay","PRY",4.8
+"Northern Mariana Islands","MNP",4.8
+"Guatemala","GTM",4.7
+"Costa Rica","CRI",4.7
+"Dominican Republic","DOM",4.7
+"Egypt","EGY",4.6
+"Anguilla","AIA",4.6
+"Macau","MAC",4.5
+"Algeria","DZA",4.3
+"Micronesia, Federated States of","FSM",4.2
+"Marshall Islands","MHL",4.2
+"Maldives","MDV",4
+"Vanuatu","VUT",4
+"Syria","SYR",4
+"Iraq","IRQ",3.8
+"Solomon Islands","SLB",3.8
+"Brunei","BRN",3.6
+"Libya","LBY",3.6
+"West Bank","PSE",3.5
+"Singapore","SGP",3.5
+"Jordan","JOR",3.4
+"Saudi Arabia","SAU",3.4
+"Oman","OMN",3.3
+"Turks and Caicos Islands","TCA",3.2
+"Gaza Strip","PSE",3.1
+"Bahrain","BHR",2.8
+"Kuwait","KWT",2.2
+"United Arab Emirates","ARE",1.9
+"Qatar","QAT",1.5

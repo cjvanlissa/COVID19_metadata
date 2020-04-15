@@ -1,6 +1,6 @@
-"country","countryiso3","latest.year_Percent.28129","latest.year_Value.28130","latest.year_Value.28131","latest.value_Percent.28129","latest.value_Value.28130","latest.value_Value.28131"
-"Afghanistan","AFG",2015,NA,NA,42.1,NA,NA
-"Angola","AGO",2016,NA,NA,80.9,NA,NA
+"country","countryiso3","latest.year_Percent.28129","latest.value_Percent.28129","latest.year_Value.28130","latest.value_Value.28130","latest.year_Value.28131","latest.value_Value.28131"
+"Afghanistan","AFG",2015,42.1,NA,NA,NA,NA
+"Angola","AGO",2016,80.9,NA,NA,NA,NA
 "Albania","ALB",NA,NA,NA,NA,NA,NA
 "Argentina","ARG",NA,NA,NA,NA,NA,NA
 "Armenia","ARM",NA,NA,NA,NA,NA,NA
@@ -11,44 +11,44 @@
 "Belgium","BEL",NA,NA,NA,NA,NA,NA
 "Benin","BEN",NA,NA,NA,NA,NA,NA
 "Burkina Faso","BFA",NA,NA,NA,NA,NA,NA
-"Bangladesh","BGD",2014,NA,NA,61.3,NA,NA
+"Bangladesh","BGD",2014,61.3,NA,NA,NA,NA
 "Bulgaria","BGR",NA,NA,NA,NA,NA,NA
-"Belarus","BLR",NA,2015,2015,NA,19.1666667,9.5138889
+"Belarus","BLR",NA,NA,2015,19.1666667,2015,9.5138889
 "Bolivia","BOL",NA,NA,NA,NA,NA,NA
 "Brazil","BRA",NA,NA,NA,NA,NA,NA
-"Bhutan","BTN",NA,2015,2015,NA,15,5.9027778
-"Canada","CAN",NA,2016,2016,NA,14.5833333,9.5833333
-"Switzerland","CHE",NA,2016,2016,NA,16.8333333,10.8041667
-"Chile","CHL",NA,2015,2015,NA,22.10355,9.8539646
+"Bhutan","BTN",NA,NA,2015,15,2015,5.9027778
+"Canada","CAN",NA,NA,2016,14.5833333,2016,9.5833333
+"Switzerland","CHE",NA,NA,2016,16.8333333,2016,10.8041667
+"Chile","CHL",NA,NA,2015,22.10355,2015,9.8539646
 "China","CHN",NA,NA,NA,NA,NA,NA
 "Cote d'Ivoire","CIV",NA,NA,NA,NA,NA,NA
-"Cameroon","CMR",NA,2014,2014,NA,15.820857,4.5678393
-"Congo, Dem. Rep.","COD",2014,NA,NA,59.8,NA,NA
+"Cameroon","CMR",NA,NA,2014,15.820857,2014,4.5678393
+"Congo, Dem. Rep.","COD",2014,59.8,NA,NA,NA,NA
 "Congo, Rep.","COG",NA,NA,NA,NA,NA,NA
-"Colombia","COL",2015,NA,NA,80.2,NA,NA
+"Colombia","COL",2015,80.2,NA,NA,NA,NA
 "Comoros","COM",NA,NA,NA,NA,NA,NA
-"Costa Rica","CRI",NA,2017,2017,NA,22.1457084,8.3785845
+"Costa Rica","CRI",NA,NA,2017,22.1457084,2017,8.3785845
 "Cuba","CUB",NA,NA,NA,NA,NA,NA
 "Germany","DEU",NA,NA,NA,NA,NA,NA
 "Denmark","DNK",NA,NA,NA,NA,NA,NA
 "Dominican Republic","DOM",NA,NA,NA,NA,NA,NA
 "Algeria","DZA",NA,NA,NA,NA,NA,NA
 "Ecuador","ECU",NA,NA,NA,NA,NA,NA
-"Egypt, Arab Rep.","EGY",2014,2015,2015,67.4,22.3611111,2.4305556
+"Egypt, Arab Rep.","EGY",2014,67.4,2015,22.3611111,2015,2.4305556
 "Eritrea","ERI",NA,NA,NA,NA,NA,NA
 "Spain","ESP",NA,NA,NA,NA,NA,NA
 "Estonia","EST",NA,NA,NA,NA,NA,NA
-"Ethiopia","ETH",2016,NA,NA,78.2,NA,NA
+"Ethiopia","ETH",2016,78.2,NA,NA,NA,NA
 "Finland","FIN",NA,NA,NA,NA,NA,NA
-"Fiji","FJI",NA,2016,2016,NA,15.1581158,5.1947586
+"Fiji","FJI",NA,NA,2016,15.1581158,2016,5.1947586
 "France","FRA",NA,NA,NA,NA,NA,NA
 "Gabon","GAB",NA,NA,NA,NA,NA,NA
-"United Kingdom","GBR",NA,2015,2015,NA,12.6527778,6.9652778
-"Ghana","GHA",2014,NA,NA,73.9,NA,NA
+"United Kingdom","GBR",NA,NA,2015,12.6527778,2015,6.9652778
+"Ghana","GHA",2014,73.9,NA,NA,NA,NA
 "Guinea","GIN",NA,NA,NA,NA,NA,NA
 "Gambia, The","GMB",NA,NA,NA,NA,NA,NA
-"Greece","GRC",NA,2014,2014,NA,18.125,7.0138889
-"Guatemala","GTM",2015,2014,2014,81.9,17.7670196,2.3575079
+"Greece","GRC",NA,NA,2014,18.125,2014,7.0138889
+"Guatemala","GTM",2015,81.9,2014,17.7670196,2014,2.3575079
 "Guyana","GUY",NA,NA,NA,NA,NA,NA
 "Hong Kong SAR, China","HKG",NA,NA,NA,NA,NA,NA
 "Honduras","HND",NA,NA,NA,NA,NA,NA
@@ -59,33 +59,33 @@
 "Ireland","IRL",NA,NA,NA,NA,NA,NA
 "Iran, Islamic Rep.","IRN",NA,NA,NA,NA,NA,NA
 "Iraq","IRQ",NA,NA,NA,NA,NA,NA
-"Italy","ITA",NA,2014,2014,NA,20.4,8.4
+"Italy","ITA",NA,NA,2014,20.4,2014,8.4
 "Jordan","JOR",NA,NA,NA,NA,NA,NA
-"Japan","JPN",NA,2016,2016,NA,15.1388889,3.125
+"Japan","JPN",NA,NA,2016,15.1388889,2016,3.125
 "Kazakhstan","KAZ",NA,NA,NA,NA,NA,NA
-"Kenya","KEN",2014,NA,NA,72.5,NA,NA
-"Kyrgyz Republic","KGZ",NA,2015,2015,NA,16.8055556,9.5138889
-"Cambodia","KHM",2014,NA,NA,93.5,NA,NA
-"Korea, Rep.","KOR",NA,2014,2014,NA,14.5791667,3.6083333
+"Kenya","KEN",2014,72.5,NA,NA,NA,NA
+"Kyrgyz Republic","KGZ",NA,NA,2015,16.8055556,2015,9.5138889
+"Cambodia","KHM",2014,93.5,NA,NA,NA,NA
+"Korea, Rep.","KOR",NA,NA,2014,14.5791667,2014,3.6083333
 "Lao PDR","LAO",NA,NA,NA,NA,NA,NA
 "Liberia","LBR",NA,NA,NA,NA,NA,NA
-"Lesotho","LSO",2014,NA,NA,88.8,NA,NA
+"Lesotho","LSO",2014,88.8,NA,NA,NA,NA
 "Lithuania","LTU",NA,NA,NA,NA,NA,NA
-"Luxembourg","LUX",NA,2014,2014,NA,14.4444444,7.0833333
+"Luxembourg","LUX",NA,NA,2014,14.4444444,2014,7.0833333
 "Latvia","LVA",NA,NA,NA,NA,NA,NA
 "Morocco","MAR",NA,NA,NA,NA,NA,NA
 "Moldova","MDA",NA,NA,NA,NA,NA,NA
 "Madagascar","MDG",NA,NA,NA,NA,NA,NA
 "Maldives","MDV",NA,NA,NA,NA,NA,NA
-"Mexico","MEX",NA,2014,2014,NA,29.5219895,9.7649549
-"Macedonia, FYR","MKD",NA,2014,2014,NA,4.27,1.38
+"Mexico","MEX",NA,NA,2014,29.5219895,2014,9.7649549
+"Macedonia, FYR","MKD",NA,NA,2014,4.27,2014,1.38
 "Mali","MLI",NA,NA,NA,NA,NA,NA
 "Malta","MLT",NA,NA,NA,NA,NA,NA
-"Myanmar","MMR",2016,NA,NA,74.3,NA,NA
+"Myanmar","MMR",2016,74.3,NA,NA,NA,NA
 "Mongolia","MNG",NA,NA,NA,NA,NA,NA
 "Mozambique","MOZ",NA,NA,NA,NA,NA,NA
 "Mauritius","MUS",NA,NA,NA,NA,NA,NA
-"Malawi","MWI",2016,NA,NA,55.4,NA,NA
+"Malawi","MWI",2016,55.4,NA,NA,NA,NA
 "Malaysia","MYS",NA,NA,NA,NA,NA,NA
 "Namibia","NAM",NA,NA,NA,NA,NA,NA
 "Niger","NER",NA,NA,NA,NA,NA,NA
@@ -101,35 +101,35 @@
 "Peru","PER",NA,NA,NA,NA,NA,NA
 "Philippines","PHL",NA,NA,NA,NA,NA,NA
 "Poland","POL",NA,NA,NA,NA,NA,NA
-"Portugal","PRT",NA,2015,2015,NA,17.8113542,10.2414028
-"Paraguay","PRY",NA,2016,2016,NA,14.5250208,4.2704121
+"Portugal","PRT",NA,NA,2015,17.8113542,2015,10.2414028
+"Paraguay","PRY",NA,NA,2016,14.5250208,2016,4.2704121
 "West Bank and Gaza","PSE",NA,NA,NA,NA,NA,NA
 "Qatar","QAT",NA,NA,NA,NA,NA,NA
 "Romania","ROU",NA,NA,NA,NA,NA,NA
-"Russian Federation","RUS",NA,2014,2014,NA,18.4027778,8.125
-"Rwanda","RWA",2015,NA,NA,73.2,NA,NA
-"Senegal","SEN",2014,NA,NA,18.7,NA,NA
+"Russian Federation","RUS",NA,NA,2014,18.4027778,2014,8.125
+"Rwanda","RWA",2015,73.2,NA,NA,NA,NA
+"Senegal","SEN",2014,18.7,NA,NA,NA,NA
 "Sierra Leone","SLE",NA,NA,NA,NA,NA,NA
 "El Salvador","SLV",NA,NA,NA,NA,NA,NA
-"Serbia","SRB",NA,2015,2015,NA,19.1675585,8.6903803
+"Serbia","SRB",NA,NA,2015,19.1675585,2015,8.6903803
 "Sao Tome and Principe","STP",NA,NA,NA,NA,NA,NA
 "Slovenia","SVN",NA,NA,NA,NA,NA,NA
 "Sweden","SWE",NA,NA,NA,NA,NA,NA
 "Swaziland","SWZ",NA,NA,NA,NA,NA,NA
-"Chad","TCD",2015,NA,NA,39.8,NA,NA
-"Togo","TGO",2014,NA,NA,47.2,NA,NA
-"Thailand","THA",NA,2015,2015,NA,11.8333333,3.75
+"Chad","TCD",2015,39.8,NA,NA,NA,NA
+"Togo","TGO",2014,47.2,NA,NA,NA,NA
+"Thailand","THA",NA,NA,2015,11.8333333,2015,3.75
 "Tajikistan","TJK",NA,NA,NA,NA,NA,NA
 "Turkmenistan","TKM",NA,NA,NA,NA,NA,NA
 "Timor-Leste","TLS",NA,NA,NA,NA,NA,NA
 "Tunisia","TUN",NA,NA,NA,NA,NA,NA
-"Turkey","TUR",NA,2015,2015,NA,19.1511724,3.7057481
-"Tanzania","TZA",2016,2014,2014,46,16.4583333,4.2361111
+"Turkey","TUR",NA,NA,2015,19.1511724,2015,3.7057481
+"Tanzania","TZA",2016,46,2014,16.4583333,2014,4.2361111
 "Uganda","UGA",NA,NA,NA,NA,NA,NA
 "Ukraine","UKR",NA,NA,NA,NA,NA,NA
 "Uruguay","URY",NA,NA,NA,NA,NA,NA
-"United States","USA",NA,2016,2016,NA,15.9166667,9.7916667
+"United States","USA",NA,NA,2016,15.9166667,2016,9.7916667
 "Yemen, Rep.","YEM",NA,NA,NA,NA,NA,NA
 "South Africa","ZAF",NA,NA,NA,NA,NA,NA
-"Zambia","ZMB",2014,NA,NA,66.3,NA,NA
-"Zimbabwe","ZWE",2015,NA,NA,86.8,NA,NA
+"Zambia","ZMB",2014,66.3,NA,NA,NA,NA
+"Zimbabwe","ZWE",2015,86.8,NA,NA,NA,NA
