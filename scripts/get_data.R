@@ -305,7 +305,4 @@ initialize_database <- function(){
   get_csse()
   get_OxCGRT()
   get_google_mobility()
-  get_GHS()
-  get_worldbank_open_data()
-  get_world_factbook_data()
 }
