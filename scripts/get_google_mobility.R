@@ -1,5 +1,20 @@
 library(textreadr)
 get_google_mobility <- function(){
+  data <- read.csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", stringsAsFactors = FALSE)
+  names(data) <- gsub("_percent_change_from_baseline", "", names(data))
+  names(data) <- gsub("_and", "", names(data))
+  data$country_region_code <- NULL
+  data$date <- as.Date(data$date, format = "%Y-%m-%d")
+
+  data <- pivot_wider(data, id_cols = c("country_region", "sub_region_1", "sub_region_2"), names_from = date, values_from = c(retail_recreation, grocery_pharmacy, parks, transit_stations, workplaces, residential))
+  names(data)[1] <- "country"
+  data$countryiso3 <- countrycode(data$country, origin = "country.name", destination = "iso3c")
+
+  data <- data[, c(1, ncol(data), 2:(ncol(data)-1))]
+  checkfilewrite(data, "google_mobility", "google_mobility.csv")
+  return()
+  
+  
   file_list <- readLines("https://www.google.com/covid19/mobility/")
   file_list <- file_list[grepl("\\.pdf", file_list)]
   file_list <- gsub("^.+?(?=https)", "", file_list, perl = TRUE)
