@@ -9,8 +9,12 @@ get_google_mobility <- function(){
   data <- pivot_wider(data, id_cols = c("country_region", "sub_region_1", "sub_region_2"), names_from = date, values_from = c(retail_recreation, grocery_pharmacy, parks, transit_stations, workplaces, residential))
   names(data)[1] <- "country"
   data$countryiso3 <- countrycode(data$country, origin = "country.name", destination = "iso3c")
-
-  data <- data[, c(1, ncol(data), 2:(ncol(data)-1))]
+  data$region <- data$sub_region_1
+  if(any(data$sub_region_2 == "")){
+    data$region[!data$sub_region_2 == ""] <- paste(data$region[!data$sub_region_2 == ""], data$sub_region_2[!data$sub_region_2 == ""], sep = ", ")
+  }
+  data <- select(data, -sub_region_1, -sub_region_2)
+  data <- data[, c(1, (ncol(data)-1), ncol(data), 2:(ncol(data)-2))]
   checkfilewrite(data, "google_mobility", "google_mobility.csv")
   return()
   
