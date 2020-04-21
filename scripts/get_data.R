@@ -68,11 +68,16 @@ get_csse <- function(){
 }
 
 get_OxCGRT <- function(){
-  df <- rio::import("https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx")
+  df <- read.csv("https://ocgptweb.azurewebsites.net/CSVDownload/?type=Compressed", stringsAsFactors = FALSE)
+  #df <- rio::import("https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx")
   names(df) <- tolower(names(df))
   names(df)[1:2] <- c("country", "countryiso3")
-  df[["...35"]] <- NULL
-  df <- df[, -grep("_notes", names(df))]
+  miss <- colSums(is.na(df))
+  df[miss == nrow(df)] <- NULL
+  if(any(grepl("_notes", names(df)))){
+    df <- df[, -grep("_notes", names(df))]
+  }
+  
   # Create dict
   dict <- data.frame(variable = grep("^s\\d", names(df), value = TRUE))
   dict$description <- gsub("^.+_(?!isgen)", "", dict$variable, perl = TRUE)
