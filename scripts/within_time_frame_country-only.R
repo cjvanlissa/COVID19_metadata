@@ -31,3 +31,6 @@ within_time_frame_CSSE <- function(time = NULL) {
   return(time_frame_CSSE)
 }
 
+within_14_csse <- within_time_frame_CSSE(14)
+
+checkfilewrite(within_14_csse, "CSSE", "csse_within_14.csv")

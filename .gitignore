@@ -13,3 +13,4 @@
 *.zip
 *.xlsm
 taskscheduler_script.R
+coda_data*

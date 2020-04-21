@@ -15,6 +15,7 @@ get_google_mobility <- function(){
   }
   data <- select(data, -sub_region_1, -sub_region_2)
   data <- data[, c(1, (ncol(data)-1), ncol(data), 2:(ncol(data)-2))]
+  data$region[data$region == ""] <- NA
   checkfilewrite(data, "google_mobility", "google_mobility.csv")
   return()
   
