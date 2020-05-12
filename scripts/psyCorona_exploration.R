@@ -1,11 +1,12 @@
-# TODO: Calculate NA statistics across the data and maybe by each country
-# TODO: Turn NAs to 0 and one hot encode where necessary
-# TODO: Prepare data for analsis and consider countries with low resposne counts, remove not needed columns, put 
-# statDate into bins.
-# TODO: play with some initial modelling using just the data form the survey 
+# TODO: think about what to do with NAs
+# TODO: merge with metadata
+# TODO: optimise GLMNET furhter
+# TODO: Try random forests
+# TODO: think about other DVs
+# TODO: think about the unbalance in DV
 
-
-
+library(glmnet)
+library(caTools)
 library(tidyverse)
 library(ggplot2)
 source("scripts/psyCorona_EDA_plot_function.R")
@@ -115,16 +116,16 @@ table(dat_first_resp$jbInsec04)
 # EMPLOEMENT STATUS
 # Exploring dat_employee_status
 # Which of the following categories best describes your employment status during the last week (multiple may apply)? 
-# dat_employee_status_1 is working 1-23 hours per week
-# dat_employee_status_2 is working 24-39 hours per week
-# dat_employee_status_3 is working 40 or more hours per week
-# dat_employee_status_4 is Not employed, looking for work
-# dat_employee_status_5 is Not employed, not looking for work
-# dat_employee_status_6 is Homemaker
-# dat_employee_status_7 is Retired
-# dat_employee_status_8 is Disabled, not able to work
-# dat_employee_status_9 is Student
-# dat_employee_status_10 is Volunteering
+# employstatus_1 is working 1-23 hours per week
+# employstatus_2 is working 24-39 hours per week
+# employstatus_3 is working 40 or more hours per week
+# employstatus_4 is Not employed, looking for work
+# employstatus_5 is Not employed, not looking for work
+# employstatus_6 is Homemaker
+# employstatus_7 is Retired
+# employstatus_8 is Disabled, not able to work
+# employstatus_9 is Student
+# employstatus_10 is Volunteering
 dat_employee_status <- dat_first_resp %>% dplyr::select(contains("employstatus"))
 # plot the counts of employement statuses
 dat_employee_status %>% pivot_longer(cols=colnames(dat_employee_status)) %>% 
@@ -440,11 +441,11 @@ explore_psyCorona(dat_first_resp,"ecoRCA03", n_bins=7)
 # In the past week, how often did you leave your home?
 explore_psyCorona(dat_first_resp,"houseLeave", n_bins=4)
 
-# coronaClose_1 Selected Choice I had to go to work.
-# coronaClose_2 Selected Choice I had errands to run.
-# coronaClose_4 Selected Choice For leisure purposes with others (e.g., meeting up with friends, seeing family, going to the cinema, etc.)
-# coronaClose_6 Other, please specify: - Text
-# coronaClose_7 Selected Choice For leisure purposes alone (e.g., running, going for a walk, etc.)
+# houseLeaveWhy_1 Selected Choice I had to go to work.
+# houseLeaveWhy_2 Selected Choice I had errands to run.
+# houseLeaveWhy_4 Selected Choice For leisure purposes with others (e.g., meeting up with friends, seeing family, going to the cinema, etc.)
+# houseLeaveWhy_6 Other, please specify: - Text
+# houseLeaveWhy_7 Selected Choice For leisure purposes alone (e.g., running, going for a walk, etc.)
 dat_house_leave <- dat_first_resp %>% dplyr::select(contains("houseLeaveWhy"))
 # plot the counts of employement statuses
 dat_house_leave %>% pivot_longer(cols=colnames(dat_house_leave)) %>% 
@@ -456,7 +457,7 @@ dat_house_leave %>% pivot_longer(cols=colnames(dat_house_leave)) %>%
 # Sometimes more than 1 answer is selected SHOULD BE CLEANED BEFORE MODELLING
 # find how many responses are left by each participant (0 signifies that the participant did not indicate any 
 # employement status)
-dat_house_leave$non_NA_number <- apply(dat_corona_close, 1, function(x) ncol(dat_house_leave) - sum(is.na(x)))
+dat_house_leave$non_NA_number <- apply(dat_house_leave, 1, function(x) ncol(dat_house_leave) - sum(is.na(x)))
 table(dat_house_leave$non_NA_number)
 
 # BOREDOM
@@ -634,9 +635,282 @@ explore_psyCorona(dat_first_resp,"age", n_bins=8)
 explore_psyCorona(dat_first_resp,"edu", n_bins=7)
 
 # Exploring coded_country
+sum(is.na(dat_first_resp$coded_country))
+
 ggplot(data = dat_first_resp, aes(x=coded_country)) +
   geom_histogram(stat="count") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
   
+
+# Data Wide Exploration
+##########################################################################################
+# here I remove all of the columns that are not needed for analysis. I also remove the "ranking" features as I am not 
+# sure how to use them in analysis. (MAYBE RE-ADD LATER)
+dat_first_resp <- dat_first_resp %>% select(-EndDate, -PolOrX, -PolOrY, -PolOrCat, -language, -contains("rank"))
+
+# getting percentags of countries' counts
+country_percenteges <- dat_first_resp %>% group_by(coded_country) %>% 
+  summarise(perc_of_resp = 100*(n()/nrow(dat_first_resp))) 
+
+# plotting all perentages of countries' counts in the data
+ggplot(data=country_percenteges,aes(x=coded_country, y=perc_of_resp)) +
+    geom_bar(stat="identity") + 
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# pllotting all perentages for countries with over 1% of total responses
+country_percenteges %>% filter(perc_of_resp >1) %>% 
+ggplot(aes(x=coded_country, y=perc_of_resp)) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+###################################
+
+# Exploring NAs deeper 
+###################################
+# Exploring NAs per variable 
+####################
+# getting NAs for categorical variables (employstatus_xx, coronaClose_xx, houseLeaveWhy_xx)
+dat_first_resp_onlycat <- dat_first_resp %>% 
+  select(X1, contains("employstatus"), contains("coronaClose"), contains("houseLeaveWhy"))
+
+dat_first_resp_onlycat_long <- pivot_longer(data=dat_first_resp_onlycat, cols = colnames(dat_first_resp_onlycat[-1])) %>% 
+  mutate(var_name = case_when(
+    startsWith(name, "employstatus") ~ "employStatus",
+    startsWith(name, "coronaClose") ~ "coronaClose",
+    startsWith(name, "houseLeaveWhy") ~ "houseLeaveWhy"))
+
+# sanity check, indeed only the needed variables are kept
+unique(dat_first_resp_onlycat_long$var_name)
+# should only count as an NA if a participant did not pick any of the options in a given category group (across 
+# employstatus for example)
+dat_first_resp_onlycat_NAs <- dat_first_resp_onlycat_long %>% group_by(X1, var_name) %>% 
+  summarise(responses_per_cat = n() -sum(is.na(value))) %>% 
+  group_by(var_name) %>% 
+  summarise(percentage_NAs= 100*sum(responses_per_cat==0)/nrow(dat_first_resp))
+
+# houseLeaveWhy accounts for by far the largest amount of NAs amongs the 3 cat vars
+dat_first_resp_onlycat_NAs
+
+# getting NAs for non categorical vars
+dat_first_resp_non_cat <- dat_first_resp %>% 
+  select(-contains("employstatus"), -contains("coronaClose"), -contains("houseLeaveWhy"))
+
+dat_first_resp_non_cat_NAs <- tibble(var_name = colnames(dat_first_resp_non_cat), percentage_NAs = 100*colSums(is.na(dat_first_resp_non_cat))/nrow(dat_first_resp_non_cat))
+
+#combining the non_cat and cat NA data
+####################
+dat_first_resp_NAs <- bind_rows(dat_first_resp_non_cat_NAs, dat_first_resp_onlycat_NAs)
+
+# histogram of NAs per variable 
+ggplot(dat_first_resp_NAs, aes(x=percentage_NAs)) +
+  geom_histogram(bins=100)
+
+# we see that there are some variables that quite high percentage of NAs 
+ggplot(dat_first_resp_NAs, aes(x=var_name, y=percentage_NAs)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# plotting variables with missing percentage over 10% (remove them?)
+dat_first_resp_NAs %>% filter(percentage_NAs > 10) %>% 
+ggplot(aes(x=var_name, y=percentage_NAs)) +
+  geom_bar(stat="identity") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+###################################
+
+# Exploring NAs per participant
+########################################
+# for categorical vars
+dat_first_resp_onlycat_NAs_participants <- dat_first_resp_onlycat_long %>% group_by(X1, var_name) %>% 
+  summarise(responses_per_cat = n() -sum(is.na(value))) %>% 
+  group_by(X1) %>% 
+  summarise(percentage_NAs_cat= 100*sum(responses_per_cat==0)/ncol(dat_first_resp))
+
+# for non categorical vars
+dat_first_resp_non_cat_NAs_participants <- tibble(X1 = dat_first_resp_non_cat$X1, percentage_NAs_non_cat = 100*rowSums(is.na(dat_first_resp_non_cat))/ncol(dat_first_resp_non_cat))
+# combining the categorical and non-categorical NAs percentages
+NAs_per_participant_df <- left_join(dat_first_resp_non_cat_NAs_participants, dat_first_resp_onlycat_NAs_participants, by="X1") %>% 
+  transmute(X1 = X1, total_NAs_perc = percentage_NAs_non_cat+percentage_NAs_cat)
+
+# histogram of NAs percentages on participant level
+ggplot(NAs_per_participant_df,aes(total_NAs_perc)) +
+         geom_histogram(bins=100)
+
+# 1,526 participants with percentage of missing responses above 10%
+NAs_per_participant_df %>% dplyr::filter(total_NAs_perc>10) %>% nrow()
+# that is onlly 2.7% of participants 
+100*(1526 / nrow(NAs_per_participant_df))
+########################################
+
+# Getting data ready for modelling 
+################################################################################
+# remove participants above the % treshold of missing values 
+partic_NA_tres_perc <- 10 # 10%
+partic_above_missing_tres <- NAs_per_participant_df %>% dplyr::filter(total_NAs_perc > partic_NA_tres_perc) 
+partic_above_missing_tres
+
+dat_first_resp_clean_partic <- dat_first_resp %>% dplyr::filter(!(X1 %in% partic_above_missing_tres$X1))
+
+# remove features/variabls above the % treshold of missing values 
+partic_NA_tres_var <- 15 # 15%
+vars_above_missing_tres <- dat_first_resp_NAs %>% filter(percentage_NAs > partic_NA_tres_var) 
+vars_above_missing_tres
+
+dat_first_resp_clean_vars <- dat_first_resp_clean_partic[ ,!(colnames(dat_first_resp_clean_partic) %in% 
+                                                               c(vars_above_missing_tres$var_name,
+                                                                 "houseLeaveWhy_1",
+                                                                  "houseLeaveWhy_2",
+                                                                  "houseLeaveWhy_4",
+                                                                  "houseLeaveWhy_6",
+                                                                  "houseLeaveWhy_7"))]
+
+# remove countries with less than a treshold % responses of total data 
+###################
+country_remove_treshold = 1 #1%
+country_percenteges %>% filter(perc_of_resp > country_remove_treshold) %>%  .$coded_country
+dat_first_resp_cleaned_countries <- dat_first_resp_clean_vars %>% filter(coded_country %in% (country_percenteges %>% filter(perc_of_resp >1) %>%  .$coded_country))
+# set to factor
+dat_first_resp_cleaned_countries$coded_country <- factor(dat_first_resp_cleaned_countries$coded_country)
+unique(dat_first_resp_cleaned_countries$coded_country)
+
+
+# JBINSEC and GODYESNO have a -99 response which I am not sure about. So I removed them too.
+# But may want to add them back later
+#dat_first_resp_clean2 %>% select(contains("jbinsec"), contains("employstatus"))
+dat_first_resp_cleaned <- dat_first_resp_cleaned_countries %>% select(-contains("jbinsec"), -godyesno)
+
+# Getting data in the right format 
+############################################
+# factorize the rest of the categorical variables 
+dat_first_resp_cleaned$gender <- factor(dat_first_resp_cleaned$gender)
+dat_first_resp_cleaned$edu <- factor(dat_first_resp_cleaned$gender)
+dat_first_resp_cleaned$age <- factor(dat_first_resp_cleaned$age)
+dat_first_resp_cleaned$Immigrant <- factor(dat_first_resp_cleaned$Immigrant)
+dat_first_resp_cleaned$Citizen <- factor(dat_first_resp_cleaned$Citizen)
+dat_first_resp_cleaned$countryCitizen <- factor(dat_first_resp_cleaned$countryCitizen)
+dat_first_resp_cleaned$relYesNo <- factor(dat_first_resp_cleaned$relYesNo)
+dat_first_resp_cleaned$CRT1 <- factor(dat_first_resp_cleaned$CRT1)
+dat_first_resp_cleaned$CRT2 <- factor(dat_first_resp_cleaned$CRT2)
+dat_first_resp_cleaned$CRT3 <- factor(dat_first_resp_cleaned$CRT3)
+
+# one hot encode with houseleaveWhy, coronaClose and employstatus, (add houseLeave here if it is being used in the future)
+###################
+vars_to_encode <- dplyr::select(dat_first_resp_cleaned, contains("employstatus"), contains("coronaClose")) %>% colnames()
+
+dat_first_resp_cleaned_encoded <- dat_first_resp_cleaned %>% 
+  mutate_at(vars_to_encode, funs(ifelse(is.na(.), 0,1)))
+
+# mutate emplostats_xx into factors (add houseLeave later if needed)
+dat_first_resp_ready <- dat_first_resp_cleaned_reliable %>% mutate_at(vars_to_encode[0:10], funs(factor(.)))
+#check
+dat_first_resp_ready$employstatus_1
+
+# remove participants who did not answer any coronaClose options. As this is will make up the DV, we don't wnat NAs here
+dat_first_resp_cleaned_encoded <- dat_first_resp_cleaned_encoded %>% filter_at(vars_to_encode[11:16], any_vars(. != 0))
+
+# sanity check, checking if the NAs were replaced to 0 for correct variables/participants 
+temp1 <- dat_first_resp_cleaned[1:10, ]
+temp2 <- dat_first_resp_cleaned_encoded[1:10, ]
+
+# sanity check, check that every participant picked at least one option on coronaClose measure
+dat_first_resp_cleaned_reliable %>% filter(coronaClose_6==0 &coronaClose_1==0&coronaClose_2==0&coronaClose_3==0&
+                                             coronaClose_4==0&coronaClose_5==0) %>% nrow()
+
+
+# remove participants who answered they dont know anyone with corona but also that they do (unreliable)
+dat_first_resp_cleaned_reliable <- dat_first_resp_cleaned_encoded %>% 
+  filter(!(coronaClose_6==1 & (coronaClose_1==1|coronaClose_2==1|coronaClose_3==1|coronaClose_4==1|coronaClose_5==1)))
+
+# check that indeed every response coronaClose_6 (dont know anyone with covid) means that there is not a response in one of the 
+# rest of coronaClose_xx. 
+dat_first_resp_cleaned_reliable %>% filter((coronaClose_6==0 & (coronaClose_1==1|coronaClose_2==1|coronaClose_3==1|
+                                                    coronaClose_4==1|coronaClose_5==1))) %>% nrow()
+
+dat_first_resp_cleaned_reliable %>% filter((coronaClose_6==1 & (coronaClose_1==0|coronaClose_2==0|coronaClose_3==0|
+                                                    coronaClose_4==0|coronaClose_5==0))) %>% nrow()
+# check
+(13019 + 36303) == nrow(dat_first_resp_cleaned_reliable)
+
+# plotting coronaClose after cleaning and only keeping reliable responses
+temp4 <- dat_first_resp_cleaned_reliable %>% dplyr::select(contains("coronaClose")) %>% 
+  pivot_longer(cols=c("coronaClose_6", "coronaClose_1", "coronaClose_2", "coronaClose_3",
+                      "coronaClose_4", "coronaClose_5")) 
+# distribution of coronaClose after cleaning and only keeping reliable responses
+temp4 %>% 
+  group_by(name) %>% 
+  summarise(status_count = sum(as.numeric(value), na.rm=T)) %>% 
+  ggplot(aes(x=reorder(name, -status_count), y=status_count)) +
+  geom_bar(stat = "identity") 
+
+# MAKE the dependent variable
+###################
+# I chose to set a "coronaKnow" variable which is 1 if the participants knows anyone with corona (including theirself) and
+# is 0 if they do not. It's arguable if this is best, but gives us the most positive cases to work with.
+dat_first_resp_cleaned_reliable <- dat_first_resp_cleaned_reliable %>% mutate(knowCorona = ifelse(coronaClose_6 ==1, 0, 1))
+dat_first_resp_cleaned_reliable$knowCorona <- factor(dat_first_resp_cleaned_reliable$knowCorona)
+
+dat_first_resp_cleaned_reliable$knowCorona
+table(dat_first_resp_cleaned_reliable$knowCorona)
+# remove coronaclose variables as they are not needed for modelling anymore. all the info we need from them is in the
+# knowCorona variable
+dat_first_resp_cleaned_reliable <- dat_first_resp_cleaned_reliable %>% 
+  dplyr::select(-coronaClose_1,-coronaClose_2,  -coronaClose_3,  -coronaClose_4,  -coronaClose_5, -coronaClose_6)
+
+# put startDate into bins. The range is 5 weeks, so I will use 5 bins
+###################
+dat_first_resp_ready$StartDate <- cut(dat_first_resp_ready$StartDate,breaks=5, 
+                                      labels=c("week_1", "week_2", "week_3", "week_4", "week_5"))
+# Modelling
+#########################################################
+# for glmnet Lasso we cant have any NAs, so I remove all rows with NAs 
+dat_first_resp_ready_noNA <- drop_na(dat_first_resp_ready)
+
+# split into train test
+set.seed(300)
+sampling_split <- caTools::sample.split(dat_first_resp_ready_noNA$X1, SplitRatio = .75)
+train_df <- dat_first_resp_ready_noNA[sampling_split, ]
+test_df <- dat_first_resp_ready_noNA[!sampling_split, ]
+
+# transform to matrix 
+train_matrix_x <- model.matrix(knowCorona ~ .-1, data=select(train_df, -X1))
+# extract DV
+y_train = as.factor(train_df$knowCorona)
+
+
+lasso_only_questionnaire_knowCorona <- cv.glmnet(x=train_matrix_x,y=y_train, family = "binomial", 
+                                                 type.measure = 'auc', alpha = 1, nfolds=5)
+
+plot(lasso_only_questionnaire_knowCorona)
+
+
+# Evaluating the model
+#########################################################
+mean(predict(lasso_only_questionnaire_knowCorona, newx=train_matrix_x, type="class", 
+             s=lasso_only_questionnaire_knowCorona$lambda.1se) == y_train)
+
+lasso_preds <- predict(lasso_only_questionnaire_knowCorona, newx=train_matrix_x, type="class",
+                       s=lasso_only_questionnaire_knowCorona$lambda.1se)
+
+lasso_preds_processed <- as.factor(unname(lasso_preds[,1]))
+
+# calculate classification metrics 
+precision <- posPredValue(lasso_preds_processed, y_train, positive="1")
+precision
+recall <- sensitivity(lasso_preds_processed, y_train, positive="1")
+recall
+F1 <- (2 * precision * recall) / (precision + recall)
+F1
+
+# get the coefficients and make them into a tibble
+lasso_coefs <- coef.glmnet(lasso_only_questionnaire_knowCorona, s=lasso_only_questionnaire_knowCorona$lambda.min)
+coefs_df <- tibble(var_name = names(lasso_coefs[,1]), coef = unname(lasso_coefs[,1]))
+# plot coefficients above .3
+coefs_df %>% filter(abs(coef) > 0.3) %>% 
+  ggplot(aes(x=var_name, y=coef)) +
+    geom_bar(stat="identity") +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+
+
+
 
 
