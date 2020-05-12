@@ -4,7 +4,6 @@
 # TODO: Try random forests
 # TODO: think about other DVs
 # TODO: think about the unbalance in DV
-
 library(glmnet)
 library(caTools)
 library(tidyverse)
@@ -764,9 +763,9 @@ dat_first_resp_clean_vars <- dat_first_resp_clean_partic[ ,!(colnames(dat_first_
 
 # remove countries with less than a treshold % responses of total data 
 ###################
-country_remove_treshold = 1 #1%
+country_remove_treshold = .5 #1%
 country_percenteges %>% filter(perc_of_resp > country_remove_treshold) %>%  .$coded_country
-dat_first_resp_cleaned_countries <- dat_first_resp_clean_vars %>% filter(coded_country %in% (country_percenteges %>% filter(perc_of_resp >1) %>%  .$coded_country))
+dat_first_resp_cleaned_countries <- dat_first_resp_clean_vars %>% filter(coded_country %in% (country_percenteges %>% filter(perc_of_resp >country_remove_treshold) %>%  .$coded_country))
 # set to factor
 dat_first_resp_cleaned_countries$coded_country <- factor(dat_first_resp_cleaned_countries$coded_country)
 unique(dat_first_resp_cleaned_countries$coded_country)
@@ -798,10 +797,10 @@ vars_to_encode <- dplyr::select(dat_first_resp_cleaned, contains("employstatus")
 dat_first_resp_cleaned_encoded <- dat_first_resp_cleaned %>% 
   mutate_at(vars_to_encode, funs(ifelse(is.na(.), 0,1)))
 
-# mutate emplostats_xx into factors (add houseLeave later if needed)
-dat_first_resp_ready <- dat_first_resp_cleaned_reliable %>% mutate_at(vars_to_encode[0:10], funs(factor(.)))
+# mutate employstats_xx into factors (add houseLeave later if needed)
+dat_first_resp_cleaned_encoded <- dat_first_resp_cleaned_encoded %>% mutate_at(vars_to_encode[0:10], funs(factor(.)))
 #check
-dat_first_resp_ready$employstatus_1
+dat_first_resp_cleaned_encoded$employstatus_1
 
 # remove participants who did not answer any coronaClose options. As this is will make up the DV, we don't wnat NAs here
 dat_first_resp_cleaned_encoded <- dat_first_resp_cleaned_encoded %>% filter_at(vars_to_encode[11:16], any_vars(. != 0))
@@ -811,7 +810,7 @@ temp1 <- dat_first_resp_cleaned[1:10, ]
 temp2 <- dat_first_resp_cleaned_encoded[1:10, ]
 
 # sanity check, check that every participant picked at least one option on coronaClose measure
-dat_first_resp_cleaned_reliable %>% filter(coronaClose_6==0 &coronaClose_1==0&coronaClose_2==0&coronaClose_3==0&
+dat_first_resp_cleaned_encoded %>% filter(coronaClose_6==0 &coronaClose_1==0&coronaClose_2==0&coronaClose_3==0&
                                              coronaClose_4==0&coronaClose_5==0) %>% nrow()
 
 
@@ -842,6 +841,8 @@ temp4 %>%
 
 # MAKE the dependent variable
 ###################
+# OPTION 1:Predicting whether whether people know anyone who has COVID (including themselves)
+###################
 # I chose to set a "coronaKnow" variable which is 1 if the participants knows anyone with corona (including theirself) and
 # is 0 if they do not. It's arguable if this is best, but gives us the most positive cases to work with.
 dat_first_resp_cleaned_reliable <- dat_first_resp_cleaned_reliable %>% mutate(knowCorona = ifelse(coronaClose_6 ==1, 0, 1))
@@ -851,18 +852,29 @@ dat_first_resp_cleaned_reliable$knowCorona
 table(dat_first_resp_cleaned_reliable$knowCorona)
 # remove coronaclose variables as they are not needed for modelling anymore. all the info we need from them is in the
 # knowCorona variable
-dat_first_resp_cleaned_reliable <- dat_first_resp_cleaned_reliable %>% 
+dat_first_resp_ready <- dat_first_resp_cleaned_reliable %>% 
   dplyr::select(-coronaClose_1,-coronaClose_2,  -coronaClose_3,  -coronaClose_4,  -coronaClose_5, -coronaClose_6)
 
 # put startDate into bins. The range is 5 weeks, so I will use 5 bins
 ###################
 dat_first_resp_ready$StartDate <- cut(dat_first_resp_ready$StartDate,breaks=5, 
                                       labels=c("week_1", "week_2", "week_3", "week_4", "week_5"))
+
+###################
+# OPTION 2:Predicting whether whether people know anyone who has COVID (including themselves)
+###################
+#1st isoFriends_online
+dat_dv_isolation <- dat_first_resp_cleaned_reliable
+dat_dv_isolation$StartDate <- cut(dat_dv_isolation$StartDate,breaks=5, 
+                                      labels=c("week_1", "week_2", "week_3", "week_4", "week_5"))
+
+dat_first_resp_ready <- dat_first_resp_ready %>% mutate_at(vars_to_encode[11:16], funs(factor(.)))
+dat_first_resp_ready$coronaClose_1
+
 # Modelling
 #########################################################
 # for glmnet Lasso we cant have any NAs, so I remove all rows with NAs 
 dat_first_resp_ready_noNA <- drop_na(dat_first_resp_ready)
-
 # split into train test
 set.seed(300)
 sampling_split <- caTools::sample.split(dat_first_resp_ready_noNA$X1, SplitRatio = .75)
@@ -870,9 +882,9 @@ train_df <- dat_first_resp_ready_noNA[sampling_split, ]
 test_df <- dat_first_resp_ready_noNA[!sampling_split, ]
 
 # transform to matrix 
-train_matrix_x <- model.matrix(knowCorona ~ .-1, data=select(train_df, -X1))
+train_matrix_x <- model.matrix(coronaKnow ~ .-1, data=select(train_df, -X1))
 # extract DV
-y_train = as.factor(train_df$knowCorona)
+y_train = as.factor(train_df$coronaKnow)
 
 
 lasso_only_questionnaire_knowCorona <- cv.glmnet(x=train_matrix_x,y=y_train, family = "binomial", 
