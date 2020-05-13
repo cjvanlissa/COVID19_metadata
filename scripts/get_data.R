@@ -68,7 +68,7 @@ get_csse <- function(){
 }
 
 get_OxCGRT <- function(){
-  df <- read.csv("https://ocgptweb.azurewebsites.net/CSVDownload/?type=Compressed", stringsAsFactors = FALSE)
+  df <- read.csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv", stringsAsFactors = FALSE)
   #df <- rio::import("https://www.bsg.ox.ac.uk/sites/default/files/OxCGRT_Download_latest_data.xlsx")
   names(df) <- tolower(names(df))
   names(df)[1:2] <- c("country", "countryiso3")
@@ -79,11 +79,17 @@ get_OxCGRT <- function(){
   }
   
   # Create dict
-  dict <- data.frame(variable = grep("^s\\d", names(df), value = TRUE))
-  dict$description <- gsub("^.+_(?!isgen)", "", dict$variable, perl = TRUE)
-  dict$variable <- gsub("_(?!isgen).*", "", dict$variable, perl = TRUE)
+  #dict <- data.frame(variable = grep("^[ceh]\\d", names(df), value = TRUE))
+  codes <- unique(gsub("_.*$", "", grep("^[ceh]\\d", names(df), value = TRUE)))
+  for(x in codes){
+    new_name <- substring(grep(paste0(x, "(?!_flag)"), names(df), value = TRUE, perl = TRUE), first = 4)
+    names(df)[which(names(df) == paste0(x, "_", new_name))] <- new_name
+    names(df)[which(names(df) == paste0(x, "_flag"))] <- paste0(new_name, "_flag")
+  }
+  #dict$description <- gsub("^.+_(?!flag)", "", dict$variable, perl = TRUE)
+  #dict$variable <- gsub("_(?!flag).*", "", dict$variable, perl = TRUE)
 
-  names(df) <- gsub("_(?!isgen).*", "", names(df), perl = TRUE)
+  #names(df) <- gsub("_(?!flag).*", "", names(df), perl = TRUE)
 
   ox <- pivot_longer(df, cols = 4:ncol(df))
   ox$date <- as.Date(as.character(ox$date), format = "%Y%m%d")
@@ -106,7 +112,8 @@ get_OxCGRT <- function(){
 
   checkfilewrite(time_since, "OxCGRT", "time_since_first_OxCGRT.csv")
   checkfilewrite(ox, "OxCGRT","OxCGRT_Oxford_regulation_policies.csv")
-  checkfilewrite(dict, "OxCGRT","data_dictionary.csv")
+  #checkfilewrite(dict, "OxCGRT","data_dictionary.csv")
+  write("https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/codebook.md", file.path("data", "OxCGRT", "codebook_link.txt"))
 }
 
 
