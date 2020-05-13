@@ -14,13 +14,30 @@ if(!require("worcs")){
   library(worcs)
 }
 source("scripts/psyCorona_EDA_plot_function.R")
-# read the data
-df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-08 11-50 CEST.csv") # Use relative paths so we can all reproduce
-
+# read the data; Use relative paths so we can all reproduce
+df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-08 11-50 CEST.csv") 
 # All names to lower, to prevent problems with name matching. Please use only
 # lowercase (capitalization is all over the place in the original data)
 names(df_raw) <- tolower(names(df_raw)) 
-df <- df_raw[, !grepl("^w\\d", names(df_raw))]
+
+# Create training/testing split (training will be split into (cross-) validation samples)
+set.seed(953007)
+if(file.exists("split_sample.csv")){
+  the_split <- read.csv("split_sample.csv")
+  not_split <- which(!df_raw$x1 %in% the_split$x1)
+  df_raw <- merge(df_raw, the_split, by = "x1", all.x = TRUE)
+  if(length(not_split) > 0){
+    new <- as.logical(rbinom(length(not_split), 1, .7))
+    df_raw$train[not_split] <- new
+    write.csv(df_raw[, c("x1", "train")], "split_sample.csv", row.names = FALSE)
+  }
+} else {
+  df_raw$train <- as.logical(rbinom(nrow(df_raw), 1, .7))
+  write.csv(df_raw[, c("x1", "train")], "split_sample.csv", row.names = FALSE)
+}
+
+# Drop testing cases; drop longitudinal waves
+df <- df_raw[df_raw$train, !grepl("^w\\d", names(df_raw))]
 
 # Descriptive stats
 table_descriptives <- descriptives(df)
