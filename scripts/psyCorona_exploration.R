@@ -11,15 +11,7 @@ library(ggplot2)
 source("scripts/psyCorona_EDA_plot_function.R")
 # read the data
 psy_data <- read_csv("~/Desktop/PsyCorona_DatavsScience/PsyCorona_Modelling/psycorona_data.csv")
-# get a list of all variables wihtout the w_ prefix
-all_vars_without_ws <- str_remove(colnames(psy_data),"w1_") %>% 
-  str_remove("w2_") %>% 
-  str_remove("w3_") %>% 
-  str_remove("w4_")
-# get unique variables
-unique_vars <- unique(all_vars_without_ws)
-# get df with only the baseline responses
-dat_first_resp <- psy_data[ ,colnames(psy_data) %in% unique_vars]
+dat_first_resp <- df_raw[,which(is.na(str_extract(colnames(df_raw), "w1_|w2_|w3_|w4_")))]
 
 
 # START/END DATE
