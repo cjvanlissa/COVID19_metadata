@@ -3,8 +3,6 @@
 # TODO: think about what to do with NAs
 # TODO: add ways of measurement (yes/no, Likert, etc.) to comments above variables
 # TODO: merge with metadata
-# TODO: optimise GLMNET furhter
-# TODO: Try random forests
 # TODO: think about other DVs
 # TODO: think about the unbalance in DV
 
@@ -176,7 +174,7 @@ explore_psyCorona(df,"lone03", n_bins=5) # ...feel left out?
 
 # LIFE SATISFACTION
 explore_psyCorona(df,"happy", n_bins=10)  # In general, how happy would you say you are?
-explore_psyCorona(df,"lifeSat", n_bins=6) # In general, how satisfied are you with your life?
+explore_psyCorona(df,"lifesat", n_bins=6) # In general, how satisfied are you with your life?
 explore_psyCorona(df,"mlq", n_bins=11)    # My life has a clear sense of purpose.
 
 # TIGHTNESS (To what extent do you think that the country you currently live in should have the following 
