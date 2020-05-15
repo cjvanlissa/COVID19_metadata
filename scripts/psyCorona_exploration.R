@@ -21,7 +21,7 @@ source("scripts/psyCorona_EDA_plot_function.R")
 
 ########## READ AND PREPARE DATA ##########
 
-df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-08 11-50 CEST.csv") # read in raw data
+df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv") # read in raw data
 
 # All names to lower, to prevent problems with name matching. Please use only
 # lowercase (capitalization is all over the place in the original data)
@@ -33,16 +33,16 @@ df <- df_raw[, !grepl("^w\\d", names(df_raw))] # main data file we will use; onl
 set.seed(953007)
 if(file.exists("split_sample.csv")){
   the_split <- read.csv("split_sample.csv")
-  not_split <- which(!df_raw$x1 %in% the_split$x1)
-  df_raw <- merge(df_raw, the_split, by = "x1", all.x = TRUE)
+  not_split <- which(!df_raw$responseid %in% the_split$responseid)
+  df_raw <- merge(df_raw, the_split, by = "responseid", all.x = TRUE)
   if(length(not_split) > 0){
     new <- as.logical(rbinom(length(not_split), 1, .7))
     df_raw$train[not_split] <- new
-    write.csv(df_raw[, c("x1", "train")], "split_sample.csv", row.names = FALSE)
+    write.csv(df_raw[, c("responseid", "train")], "split_sample.csv", row.names = FALSE)
   }
 } else {
   df_raw$train <- as.logical(rbinom(nrow(df_raw), 1, .7))
-  write.csv(df_raw[, c("x1", "train")], "split_sample.csv", row.names = FALSE)
+  write.csv(df_raw[, c("responseid", "train")], "split_sample.csv", row.names = FALSE)
 }
 
 # Drop testing cases; drop longitudinal waves
@@ -63,6 +63,21 @@ still_missing <- is.na(df$employstatus)
 # Classify as not working: Homemaker, Retired, Disabled, Student, or Volunteering
 is_notworking <- apply(df[still_missing, grep("^employstatus_([6789]|10)$", names(df))], 1, function(i){any(i == 1)})
 df$employstatus[still_missing][isTRUE(is_notworking)] <- 1
+
+# House leave
+# Recode to dummies: If people filled out any answers about houseleave, then NAs should really be 0.
+not_all_missing <- rowSums(is.na(df[, startsWith(names(df), "houseleave")])) < 6
+df[not_all_missing, startsWith(names(df), "houseleavewhy")] <- matrix(as.numeric(!is.na(df[not_all_missing, startsWith(names(df), "houseleavewhy")])), ncol = 5)
+
+
+apply(head(df[, startsWith(names(df), "houseleave")]), 1, function(this_row){
+  if(all(is.na(this_row))){
+    return(this_row)
+  } else {
+    
+  }
+})
+
 
 # for(this_var in unique(gsub("_\\d$", vars))){
 #   this_var <- "employstatus"
