@@ -47,6 +47,7 @@ if(file.exists("split_sample.csv")){
 
 # Drop testing cases; drop longitudinal waves
 df <- df_raw[df_raw$train, !grepl("^w\\d", names(df_raw))]
+rm(df_raw) # Remove from environment to prevent accidental peaking
 
 # Descriptive stats
 table_descriptives <- descriptives(df)
@@ -55,6 +56,7 @@ table_descriptives <- descriptives(df)
 vars <- grep("_\\d$", table_descriptives$name[table_descriptives$unique < 4], value = TRUE)
 # For example, coronaclose:
 df$coronaclose <- apply(df[, grep("^coronaclose_\\d", names(df))], 1, function(i){which(i == 1)[1]})
+df[, grep("^coronaclose_\\d", names(df))] <- NULL
 
 # Recode: 1 = unemployed, 2 = 1-23 hours, 3 = 24-39 etc
 df$employstatus <- apply(df[, c(grep("^employstatus_[45]$", names(df)), grep("^employstatus_[123]$", names(df)))], 1, function(i){which(i == 1)[1]})
@@ -62,27 +64,27 @@ df$employstatus <- apply(df[, c(grep("^employstatus_[45]$", names(df)), grep("^e
 still_missing <- is.na(df$employstatus)
 # Classify as not working: Homemaker, Retired, Disabled, Student, or Volunteering
 is_notworking <- apply(df[still_missing, grep("^employstatus_([6789]|10)$", names(df))], 1, function(i){any(i == 1)})
-df$employstatus[still_missing][isTRUE(is_notworking)] <- 1
+df$employstatus[still_missing][is_notworking] <- 1
+df[, grep("^employstatus_\\d+$", names(df))] <- NULL
 
 # House leave
 # Recode to dummies: If people filled out any answers about houseleave, then NAs should really be 0.
 not_all_missing <- rowSums(is.na(df[, startsWith(names(df), "houseleave")])) < 6
 df[not_all_missing, startsWith(names(df), "houseleavewhy")] <- matrix(as.numeric(!is.na(df[not_all_missing, startsWith(names(df), "houseleavewhy")])), ncol = 5)
+# Keep all house leave variables, because they are dummies
+
+# here I remove all of the columns that are not needed for analysis. I also remove the "ranking" features as I am not 
+# sure how to use them in analysis. (MAYBE RE-ADD LATER)
+df <- df %>% select(-enddate, -polorx, -polory, -polorcat, -language, -contains("rank"))
+
+# Create scales -----------------------------------------------------------
+
+vars <- unique(gsub("\\d+$", "", grep("(?<!_)\\d$", names(df), value = TRUE, perl = TRUE)))
+scales_list <- lapply(vars, function(i){ grep(paste0("^", i, "\\d+$"), names(df), value = TRUE)})
+names(scales_list) <- vars
+scales_list[sapply(scales_list, length) < 2] <- NULL
 
 
-apply(head(df[, startsWith(names(df), "houseleave")]), 1, function(this_row){
-  if(all(is.na(this_row))){
-    return(this_row)
-  } else {
-    
-  }
-})
-
-
-# for(this_var in unique(gsub("_\\d$", vars))){
-#   this_var <- "employstatus"
-#   df[[this_var]] <- apply(df[, grepl(paste0("^", this_var, "_\\d$"), names(df))], 1, function(x)which(x == 1))
-# }
 
 ########## EXPLORE VARIABLES ##########
 
@@ -463,10 +465,6 @@ ggplot(data = df, aes(x=coded_country)) +
 
 ########## DATAWIDE EXPLORATION ##########
 
-# here I remove all of the columns that are not needed for analysis. I also remove the "ranking" features as I am not 
-# sure how to use them in analysis. (MAYBE RE-ADD LATER)
-df_analyse <- df %>% select(-enddate, -polorx, -polory, -polorcat, -language, -contains("rank"))
-
 # getting percentags of countries' counts
 country_percentages <- df_analyse %>% group_by(coded_country) %>% 
   summarise(perc_of_resp = 100*(n()/nrow(df))) 
@@ -482,9 +480,17 @@ ggplot(aes(x=coded_country, y=perc_of_resp)) +
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
+# Select only countries with > 1%?
+retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
+
 ########## EXPLORING NAs ##########
 
 ### Exploring NAs per variable ###
+tab_desc <- descriptives(df_analyse)
+tab_desc <- tab_desc[order(tab_desc$name), ]
+missings <- is.na(df_analyse)
+by_var <- colSums(missings)
+
 
 # getting NAs for categorical variables (employstatus_xx, coronaClose_xx, houseLeaveWhy_xx)
 df_onlycat <- df_analyse %>% select(x1, contains("employstatus"), contains("coronaClose"), contains("houseLeaveWhy"))
