@@ -17,6 +17,10 @@ if(!require("worcs")){
   install_github("cjvanlissa/worcs", upgrade ="never")
   library(worcs)
 }
+if(!require("tidySEM")){
+  install_github("cjvanlissa/tidySEM", upgrade ="never")
+  library(tidySEM)
+}
 source("scripts/psyCorona_EDA_plot_function.R")
 
 ########## READ AND PREPARE DATA ##########
@@ -83,8 +87,14 @@ vars <- unique(gsub("\\d+$", "", grep("(?<!_)\\d$", names(df), value = TRUE, per
 scales_list <- lapply(vars, function(i){ grep(paste0("^", i, "\\d+$"), names(df), value = TRUE)})
 names(scales_list) <- vars
 scales_list[sapply(scales_list, length) < 2] <- NULL
-
-
+# We need to check other reverse coded variables
+df$disc03 <- -1*df$disc03
+# Create the scales
+scales <- create_scales(df, keys.list = scales_list)
+# Add to df
+df <- cbind(df, scales$scores)
+# Remove items
+df[unlist(scales_list)] <- NULL
 
 ########## EXPLORE VARIABLES ##########
 
@@ -464,6 +474,8 @@ ggplot(data = df, aes(x=coded_country)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ########## DATAWIDE EXPLORATION ##########
+
+df_analyse <- df
 
 # getting percentags of countries' counts
 country_percentages <- df_analyse %>% group_by(coded_country) %>% 
