@@ -26,11 +26,14 @@ source("scripts/psyCorona_EDA_plot_function.R")
 ########## READ AND PREPARE DATA ##########
 
 df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv") # read in raw data
+df_raw[df_raw == -99] <- NA
+# There's some missing values not coded :(
+
 
 # All names to lower, to prevent problems with name matching. Please use only
 # lowercase (capitalization is all over the place in the original data)
 names(df_raw) <- tolower(names(df_raw))        # all names to lower
-df <- df_raw[, !grepl("^w\\d", names(df_raw))] # main data file we will use; only baseline measurements
+df_raw <- df_raw[, !grepl("^w\\d", names(df_raw))] # main data file we will use; only baseline measurements
 
 
 # Create training/testing split (training will be split into (cross-) validation samples)
@@ -87,10 +90,15 @@ vars <- unique(gsub("\\d+$", "", grep("(?<!_)\\d$", names(df), value = TRUE, per
 scales_list <- lapply(vars, function(i){ grep(paste0("^", i, "\\d+$"), names(df), value = TRUE)})
 names(scales_list) <- vars
 scales_list[sapply(scales_list, length) < 2] <- NULL
-# We need to check other reverse coded variables
+# Do we need to check other reverse coded variables?
+rev <- c("jbinsec02", "disc03", "bor03")
+descriptives(df[, rev])
+df$bor03 <- 4-df$bor03
+df$jbinsec02 <- -1*df$jbinsec02
 df$disc03 <- -1*df$disc03
 # Create the scales
 scales <- create_scales(df, keys.list = scales_list)
+View(scales$descriptives)
 # Add to df
 df <- cbind(df, scales$scores)
 # Remove items
