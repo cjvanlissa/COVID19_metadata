@@ -15,16 +15,16 @@
 ########## PREPARATION ##########
 
 library(tidyverse)
-
+  
 source("scripts/psyCorona_exploration.R") # get (subsets of) raw data from exploration script
 
 # Parameters
 partic_NA_tres_perc     <- 10 # remove participants that have more than X% NAs
 partic_NA_tres_var      <- 15 # remove features/variables that have more than X% NAs
 country_remove_treshold <- .5 # remove countries that account for less than X% of all rows
-p_train                 <- .7 # percentage of data in training set
-p_test                  <- .2 # percentage of data in test set
-p_validation            <- .1 # percentage of data in validation set
+p_train                 <- .7 # percentage of data in training set # CJ: Training set has already been selected at beginning of the exploration script
+p_test                  <- .2 # percentage of data in test set # CJ: Test set has already been selected at beginning of the exploration script
+p_validation            <- .1 # percentage of data in validation set # CJ: No longer using a validation set
 
 ########## ALLOCATING VARIABLES ##########
 
@@ -57,8 +57,8 @@ df_analyse <- df_analyse %>% mutate_at(int_columns_list, as.integer)
 # get number of non NAs per row to use as case.weights
 non_miss <- rowSums(!is.na(df_analyse))
 # fitting missRanger
-df_analyse_NA_imputed <- missRanger(df_analyse %>% dplyr::select(-x1), num.trees = 100, pmm.k = 3,
-                                    case.weights=non_miss)
+set.seed(3609)
+df_analyse_NA_imputed <- missRanger(df_analyse %>% dplyr::select(-x))
 # quick check to see if any NAs are left over
 any(rowSums(is.na(df_analyse_NA_imputed)) > 0)
 
