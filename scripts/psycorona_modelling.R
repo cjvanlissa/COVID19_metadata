@@ -37,85 +37,40 @@ houseleave   <- "houseleave"  # how often participant left house in the past wee
 
 ########## PREPARE DATA ##########
 
-# Remove participants that have more than X% NAs
-partic_above_missing_tres <- NAs_per_participant_df %>% dplyr::filter(total_NAs_perc > partic_NA_tres_perc) 
-partic_above_missing_tres # these participants will be excluded
-df_clean_partic <- df_analyse %>% dplyr::filter(!(x1 %in% partic_above_missing_tres$x1)) # exclude participants
+# change the type to integer where appropriate
+# first get the list of columns that already contain integer values 
+int_columns_list = c()
+for (col_n in 1:dim(df_analyse)[2]) {
+  
+  current_column_values <-  df_analyse[col_n]
+  current_column_name <- colnames(df_analyse[col_n])
+  
+  if (is.numeric(current_column_values[1, ])) {
+    if (all((current_column_values%%1 == 0) == TRUE, na.rm=T)) {
+      int_columns_list = c(int_columns_list, current_column_name)}
+  }
+}
+# change the type to integer for the appropriate columns 
+df_analyse <- df_analyse %>% mutate_at(int_columns_list, as.integer)
 
-# Remove features/variables that have more than X% NAs
-vars_above_missing_tres <- df_NAs %>% filter(percentage_NAs > partic_NA_tres_var) 
-vars_above_missing_tres # these variables will be excluded
-df_clean_vars <- df_clean_partic[ ,!(colnames(df_clean_partic) %in% # exclude NA variables
-                                       c(vars_above_missing_tres$var_name,
-                                         "houseLeaveWhy_1",
-                                         "houseLeaveWhy_2",
-                                         "houseLeaveWhy_4",
-                                         "houseLeaveWhy_6",
-                                         "houseLeaveWhy_7"))]
-
-# Removing variables JBINSEC and GODYESNO because they have a "-99" response which is unclear
-df_cleaned <- df_cleaned_countries %>% select(-contains("jbinsec"), -godyesno)
-
-# Remove countries that account for less than X% of all rows
-countr_incl <- country_percentages %>% filter(perc_of_resp > country_remove_treshold) %>% .$coded_country
-df_cleaned_countries <- df_clean_vars %>% filter(coded_country %in% countr_incl)
-
-# Factorizing all categorical variables
-df_cleaned <- df_cleaned_countries %>% 
-  mutate_if(is.character, as.factor) %>% # this includes e.g. coded_country
-  mutate_at(.vars = vars(gender, edu, age, immigrant, citizen, countrycitizen, relyesno, crt1, crt2, crt3), as.factor)
-
-# one hot encode with houseleavewhy, coronaclose and employstatus, (add houseleave here potentially)
-vars_to_encode     <- dplyr::select(df_cleaned, contains("employstatus"), contains("coronaclose")) %>% colnames()
-df_cleaned_encoded <- df_cleaned %>% 
-  mutate_at(vars_to_encode, funs(ifelse(is.na(.), 0,1))) %>%
-  mutate_at(vars_to_encode[0:10], funs(factor(.)))
-
-# remove participants who did not answer any coronaclose options. This is will be the DV, so we don't want NAs here
-df_cleaned_encoded <- df_cleaned_encoded %>% filter_at(vars_to_encode[12:17], any_vars(. != 0))
-
-# sanity check, checking if the NAs were replaced to 0 for correct variables/participants 
-temp1 <- df_cleaned[1:10, ]
-temp2 <- df_cleaned_encoded[1:10, ]
-
-# sanity check, check that every participant picked at least one option on coronaclose measure
-df_cleaned_encoded %>% filter(coronaclose_1 == 0 & coronaclose_2 == 0 & coronaclose_3 == 0 & coronaclose_4 == 0 & 
-                                coronaclose_5 == 0 & coronaclose_6 == 0) %>% nrow()
+# Impute NAs with missranger
+# get number of non NAs per row to use as case.weights
+non_miss <- rowSums(!is.na(df_analyse))
+# fitting missRanger
+df_analyse_NA_imputed <- missRanger(df_analyse %>% dplyr::select(-x1), num.trees = 100, pmm.k = 3,
+                                    case.weights=non_miss)
+# quick check to see if any NAs are left over
+any(rowSums(is.na(df_analyse_NA_imputed)) > 0)
 
 
-# remove participants who answered they dont know anyone with corona but also that they do (unreliable)
-df_cleaned_reliable <- df_cleaned_encoded %>% 
-  filter(!(coronaclose_6==1 & (coronaclose_1==1|coronaclose_2==1|coronaclose_3==1|coronaclose_4==1|coronaclose_5==1)))
+########## ADD OUTCOME VARIABLES ##########
 
-# check that indeed every response coronaclose_6 (dont know anyone with covid) means that there is not a response in 
-# one of the rest of coronaclose_xx. 
-df_cleaned_reliable %>% filter((coronaclose_6==0 & (coronaclose_1==1|coronaclose_2==1|coronaclose_3==1|
-                                                      coronaclose_4==1|coronaclose_5==1))) %>% nrow()
-
-df_cleaned_reliable %>% filter((coronaclose_6==1 & (coronaclose_1==0|coronaclose_2==0|coronaclose_3==0|
-                                                      coronaclose_4==0|coronaclose_5==0))) %>% nrow()
-# check
-(12818 + 25532) == nrow(df_cleaned_reliable)
-
-# plotting coronaclose after cleaning and only keeping reliable responses
-temp4 <- df_cleaned_reliable %>% dplyr::select(contains("coronaclose")) %>% 
-  pivot_longer(cols=c("coronaclose_6", "coronaclose_1", "coronaclose_2", "coronaclose_3",
-                      "coronaclose_4", "coronaclose_5")) 
-
-# distribution of coronaclose after cleaning and only keeping reliable responses
-temp4 %>% 
-  group_by(name) %>% 
-  summarise(status_count = sum(as.numeric(value), na.rm=T)) %>% 
-  ggplot(aes(x=reorder(name, -status_count), y=status_count)) +
-  geom_bar(stat = "identity")
-
-### Adding outcome variables and getting data ready for modelling
-
+# Adding outcome variables and getting data ready for modelling
 # OUTCOME 1: Predicting whether people know anyone who has COVID (including themselves)
 
 # I chose to set a "coronaKnow" variable which is 1 if the participants knows anyone with corona (including themselves)
 # and is 0 if they do not. It's arguable if this is best, but gives us the most positive cases to work with.
-df_mod <- df_cleaned_reliable %>% mutate(knowcorona = as.factor(ifelse(coronaclose_6 == 1, 0, 1)))
+df_mod <- df_analyse_NA_imputed %>% mutate(knowcorona = as.factor(ifelse(coronaclose == 6, 0, 1)))
 
 # create final data set for modelling and assign train, test, or validation set
 set.seed(953007)
