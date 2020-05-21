@@ -12,9 +12,8 @@
 # library(tidyverse)
 library(Matrix)
   
-source("scripts/psyCorona_exploration.R") # get (subsets of) raw data from exploration script
-
-df_analyse <- df_analyse[!is.na(df_analyse$startdate), ]
+#source("scripts/psyCorona_exploration.R") # get (subsets of) raw data from exploration script
+df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
 
 ########## PREPARE DATA ##########
 
@@ -25,24 +24,6 @@ partic_NA_tres_var      <- .2 # remove features/variables that have more than X%
 miss       <- is.na(df_analyse)
 df_analyse <- df_analyse[!(rowSums(miss)/ncol(df_analyse)) > partic_NA_tres_perc,
                          -which((colSums(miss)/nrow(df_analyse)) > partic_NA_tres_var)]
-
-# Change the type to integer where appropriate
-# first get the list of columns that already contain integer values 
-int_columns_list = c()
-for (col_n in 1:dim(df_analyse)[2]) {
-  
-  current_column_values <-  df_analyse[col_n]
-  current_column_name <- colnames(df_analyse[col_n])
-  
-  if (is.numeric(current_column_values[1, ])) {
-    if (all((current_column_values%%1 == 0) == TRUE, na.rm=T)) {
-      int_columns_list = c(int_columns_list, current_column_name)}
-  }
-}
-# change the type to integer for the appropriate columns 
-df_analyse <- df_analyse %>% 
-  mutate_at(int_columns_list, as.integer) %>% 
-  dplyr::select(-x)
 
 desc <- descriptives(df_analyse)
 
@@ -69,9 +50,6 @@ df_analyse[, desc$type == "numeric"] <- lapply(desc$name[desc$type == "numeric"]
 # quick check to see if any NAs are left over
 if(anyNA(df_analyse)) stop("Still NAs in df_analyse.")
 
-# Put startDate into bins (using 5 here because range is 5 weeks, may have to update this later)
-df_analyse$startdate <- as.POSIXct(df_analyse$startdate)
-df_analyse$startdate <- cut(df_analyse$startdate, breaks = 5, labels = c("w1", "w2", "w3", "w4", "w5"))
 
 # Clearing environment
 env_obj <- ls()
@@ -122,6 +100,42 @@ lasso_coefs_excl   <- lasso_coefs[which(lasso_coefs[,1] == 0), 1]    # these fea
 lasso_coefs_select <- lasso_coefs[-(which(lasso_coefs[,1] == 0)), 1] # these features have been selected (= meaningful)
 sort(abs(lasso_coefs_select), decreasing = TRUE) # coefs sorted according to importance
 
+# Coef plot
+coefs <- lasso_coefs_select[!names(lasso_coefs_select) == "(Intercept)"]
+plotdat <- data.frame(var = ordered(names(coefs), levels = names(coefs)[order(abs(coefs))]),
+           val = abs(coefs),
+           rank = seq_along(coefs))
+
+ggplot(plotdat,
+       aes(x = 0, xend = val, y = var, yend = var)) + geom_segment() + geom_point(aes(x = val, y = var))  +theme_bw()
+
+source("scripts/model_accuracy.R")
+model_accuracy(m_lasso_c19perbeh, 
+               observed = y_train_c19perbeh,
+               olddata = x_train_c19perbeh)
+
+
+
+library(ranger)
+library(metaforest)
+
+res <- ranger(y = y_train_c19perbeh, x = x_train_c19perbeh, importance = "permutation")
+VarImpPlot(res)
+
+
+
+
+# CJ: Don't run this code yet, BUT it fails because different variables are selected in train and test. We should make ALL variable selection decisions in the exploration script, not in the modeling script.
+# df_testing <- read.csv("testing.csv", stringsAsFactors = FALSE)
+# ndat <- sparse.model.matrix(c19perbeh ~ ., data = df_testing)
+# all(colnames(ndat) %in% colnames(x_train_c19perbeh))
+# colnames(ndat)[!colnames(ndat) %in% colnames(x_train_c19perbeh)]
+# ndat <- ndat[, match(colnames(x_train_c19perbeh), colnames(ndat))]
+
+model_accuracy(m_lasso_c19perbeh, 
+               newdata = ndat,
+               observed = y_train_c19perbeh,
+               olddata = x_train_c19perbeh)
 # coefs_df <- data.frame(var_name = names(lasso_coefs[,1]), coef = unname(lasso_coefs[,1]))
 # 
 # # plot coefficients above .3

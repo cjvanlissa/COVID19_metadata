@@ -7,7 +7,7 @@
 # TODO: think about the unbalance in DV
 
 ########## PREPARATION ##########
-get_testing <- FALSE
+get_testing <- TRUE
 library(glmnet)
 library(caTools)
 library(tidyverse)
@@ -34,7 +34,7 @@ df_raw[df_raw == -99] <- NA
 # lowercase (capitalization is all over the place in the original data)
 names(df_raw) <- tolower(names(df_raw))        # all names to lower
 df_raw <- df_raw[, !grepl("^w\\d", names(df_raw))] # main data file we will use; only baseline measurements
-
+df_raw <- df_raw[!is.na(df_raw$startdate), ]
 
 # Create training/testing split (training will be split into (cross-) validation samples)
 set.seed(953007)
@@ -59,8 +59,14 @@ if(get_testing){
   df <- df_raw[df_raw$train, !grepl("^w\\d", names(df_raw))]
 }
 
+# getting percentags of countries' counts
+country_percentages <- df %>% group_by(coded_country) %>% 
+  summarise(perc_of_resp = 100*(n()/nrow(df))) 
 
-rm(df_raw) # Remove from environment to prevent accidental peaking
+# Select only countries with > 1%?
+retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
+df <- df[which(df$coded_country %in% retain_countries),] # removing countries that are < 1% of data
+
 
 # Descriptive stats
 table_descriptives <- descriptives(df)
@@ -494,12 +500,6 @@ if(FALSE){
   
 }
 
-# getting percentags of countries' counts
-country_percentages <- df %>% group_by(coded_country) %>% 
-  summarise(perc_of_resp = 100*(n()/nrow(df))) 
-
-# Select only countries with > 1%?
-retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
 
 if(FALSE) {
   
@@ -597,13 +597,36 @@ if(FALSE) {
   
 }
 
+# Put startDate into bins (using 5 here because range is 5 weeks, may have to update this later)
+df$startdate <- as.POSIXct(df$startdate)
+df$time_ago <- as.numeric(head(df$startdate)-Sys.time())
+df$startdate <- NULL
+#df$startdate <- cut(df$startdate, breaks = 5, labels = c("w1", "w2", "w3", "w4", "w5"))
+
+# Change the type to integer where appropriate
+# first get the list of columns that already contain integer values 
+int_columns_list = c()
+for (col_n in 1:dim(df)[2]) {
+  
+  current_column_values <-  df[col_n]
+  current_column_name <- colnames(df[col_n])
+  
+  if (is.numeric(current_column_values[1, ])) {
+    if (all((current_column_values%%1 == 0) == TRUE, na.rm=T)) {
+      int_columns_list = c(int_columns_list, current_column_name)}
+  }
+}
+# change the type to integer for the appropriate columns 
+df <- df %>% 
+  mutate_at(int_columns_list, as.integer) %>% 
+  dplyr::select(-x)
+
 ########## DATAWIDE EXPLORATION ##########
 
-df_mainCountries <- df[which(df$coded_country %in% retain_countries),] # removing countries that are < 1% of data
-df_analyse <- df_mainCountries
-if(get_testing & all(df_analyse$train == FALSE)){
-  write.csv(df_analyse, "testing.csv", row.names = FALSE)
+
+if(get_testing & all(df$train == FALSE)){
+  write.csv(df, "testing.csv", row.names = FALSE)
 }
-if(!get_testing & all(df_analyse$train == TRUE)){
-  write.csv(df_analyse, "training.csv", row.names = FALSE)
+if(!get_testing & all(df$train == TRUE)){
+  write.csv(df, "training.csv", row.names = FALSE)
 }
