@@ -7,7 +7,7 @@
 # TODO: think about the unbalance in DV
 
 ########## PREPARATION ##########
-
+get_testing <- FALSE
 library(glmnet)
 library(caTools)
 library(tidyverse)
@@ -24,7 +24,7 @@ if(!require("tidySEM")){
 source("scripts/psyCorona_EDA_plot_function.R")
 
 ########## READ AND PREPARE DATA ##########
-df_raw <- read.csv("data/RMD30_Caspar van Lissa_2020-05-17 11-46 CEST.csv", stringsAsFactors = FALSE) # read in raw data
+df_raw <- read.csv("data/RMD30_Caspar van Lissa_2020-05-21 15-21 CEST.csv", stringsAsFactors = FALSE) # read in raw data
 #df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv") # read in raw data
 df_raw[df_raw == -99] <- NA
 # There's some missing values not coded :(
@@ -53,7 +53,13 @@ if(file.exists("split_sample.csv")){
 }
 
 # Drop testing cases; drop longitudinal waves
-df <- df_raw[df_raw$train, !grepl("^w\\d", names(df_raw))]
+if(get_testing){
+  df <- df_raw[!df_raw$train, !grepl("^w\\d", names(df_raw))]
+} else {
+  df <- df_raw[df_raw$train, !grepl("^w\\d", names(df_raw))]
+}
+
+
 rm(df_raw) # Remove from environment to prevent accidental peaking
 
 # Descriptive stats
@@ -112,12 +118,14 @@ ggplot(table_descriptives, aes(x = missing)) + geom_density()
 # Plot vars
 # Descriptive stats again, for analysis df
 table_descriptives <- descriptives(df)
-plotdat <- df[, table_descriptives$name[table_descriptives$type %in% c("numeric", "integer")]]
-plotdat <- pivot_longer(plotdat, cols = names(plotdat))
-# View only full screen. Consider plotting only vars with weird skew/kurtosis values
-ggplot(plotdat, aes(x = value)) + geom_density() + facet_wrap(~name, scales = "free") + theme_bw()
 
 if(FALSE){
+  plotdat <- df[, table_descriptives$name[table_descriptives$type %in% c("numeric", "integer")]]
+  plotdat <- pivot_longer(plotdat, cols = names(plotdat))
+  
+  # View only full screen. Consider plotting only vars with weird skew/kurtosis values
+  ggplot(plotdat, aes(x = value)) + geom_density() + facet_wrap(~name, scales = "free") + theme_bw()
+  
   # START/END DATE
   explore_psyCorona(df,"startdate")          # exploring StartDate
   startdate_NAs <- df[is.na(df$startdate), ] # exlude NAs
@@ -593,3 +601,9 @@ if(FALSE) {
 
 df_mainCountries <- df[which(df$coded_country %in% retain_countries),] # removing countries that are < 1% of data
 df_analyse <- df_mainCountries
+if(get_testing & all(df_analyse$train == FALSE)){
+  write.csv(df_analyse, "testing.csv", row.names = FALSE)
+}
+if(!get_testing & all(df_analyse$train == TRUE)){
+  write.csv(df_analyse, "training.csv", row.names = FALSE)
+}
