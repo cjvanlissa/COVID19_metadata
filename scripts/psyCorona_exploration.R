@@ -24,7 +24,7 @@ if(!require("tidySEM")){
 source("scripts/psyCorona_EDA_plot_function.R")
 
 ########## READ AND PREPARE DATA ##########
-df_raw <- read.csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv", stringsAsFactors = FALSE) # read in raw data
+df_raw <- read.csv("data/RMD30_Caspar van Lissa_2020-05-17 11-46 CEST.csv", stringsAsFactors = FALSE) # read in raw data
 #df_raw <- read_csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv") # read in raw data
 df_raw[df_raw == -99] <- NA
 # There's some missing values not coded :(
@@ -98,7 +98,7 @@ df$jbinsec02 <- -1*df$jbinsec02
 df$disc03 <- -1*df$disc03
 # Create the scales
 scales <- create_scales(df, keys.list = scales_list)
-View(scales$descriptives)
+# View(scales$descriptives) # commenting this out so it doesn't open every time we run the modelling script
 # Add to df
 df <- cbind(df, scales$scores)
 # Remove items
@@ -483,11 +483,17 @@ if(FALSE){
   ggplot(data = df, aes(x=coded_country)) +
     geom_histogram(stat="count") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
   
-  # getting percentags of countries' counts
-  country_percentages <- df_analyse %>% group_by(coded_country) %>% 
-    summarise(perc_of_resp = 100*(n()/nrow(df))) 
+}
+
+# getting percentags of countries' counts
+country_percentages <- df %>% group_by(coded_country) %>% 
+  summarise(perc_of_resp = 100*(n()/nrow(df))) 
+
+# Select only countries with > 1%?
+retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
+
+if(FALSE) {
   
   # plotting all perentages of countries' counts in the data
   ggplot(data=country_percentages,aes(x=coded_country, y=perc_of_resp)) +
@@ -499,9 +505,6 @@ if(FALSE){
     ggplot(aes(x=coded_country, y=perc_of_resp)) +
     geom_bar(stat="identity") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
-  
-  # Select only countries with > 1%?
-  retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
   
   ########## EXPLORING NAs ##########
   
@@ -586,8 +589,7 @@ if(FALSE){
   
 }
 
-   
-
 ########## DATAWIDE EXPLORATION ##########
 
-df_analyse <- df
+df_mainCountries <- df[which(df$coded_country %in% retain_countries),] # removing countries that are < 1% of data
+df_analyse <- df_mainCountries
