@@ -11,6 +11,10 @@
 
 # library(tidyverse)
 library(Matrix)
+library(mlbench)
+library(caret)
+library(ranger)
+library(metaforest)
   
 #source("scripts/psyCorona_exploration.R") # get (subsets of) raw data from exploration script
 df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
@@ -69,6 +73,77 @@ preds        <- names(df_analyse)[-(which(names(df_analyse) %in% outcome_vars))]
 # Explore outcome variable
 hist(df_analyse$c19perbeh)  # people tend to self-serve
 
+
+########## CARE MODEL COMPARING SETUP ########## 
+
+# make the CV split
+cv_split <- trainControl(method="cv", number=10, verboseIter=TRUE)
+# Train the LASSO 
+lambda <- seq(0.0001,0.01,by = 0.0001)
+# set seed
+set.seed(100)
+caret_lasso <- train(c19perbeh~., data=df_analyse, 
+                     method="glmnet", 
+                     trControl=cv_split, 
+                     family = "gaussian", 
+                     tuneGrid = expand.grid(alpha = 1, lambda = lambda), 
+                     verbose=TRUE)
+
+caret_lasso$bestTune$lambda
+
+# lasso coefficients
+lasso_coef_names <- rownames(coef(caret_lasso$finalModel, caret_lasso$bestTune$lambda))[-1] #coef names, without intercept
+lasso_coef_values <- abs(as.vector(coef(caret_lasso$finalModel, caret_lasso$bestTune$lambda))[-1]) #ceof values without intercept
+lasso_coefs_df <- data.frame(coef_names = lasso_coef_names[order(abs(lasso_coef_values), decreasing=TRUE)],
+                             coef_values = lasso_coef_values[order(abs(lasso_coef_values), decreasing=TRUE)])
+
+lasso_coefs_df_excl <- lasso_coefs_df[which(lasso_coefs_df[,2] == 0), 1]    # these features have been excluded
+lasso_coefs_select <- lasso_coefs_df[-(which(lasso_coefs_df[,2] == 0)), ] # these features have been selected (= meaningful)
+
+# Coef plot
+ggplot(lasso_coefs_df,
+       aes(x = 0, xend = coef_values, y = reorder(coef_names, coef_values), yend = coef_names)) + 
+  geom_segment() +
+  geom_point(aes(x = coef_values, y = coef_names)) +
+  theme_bw()
+
+
+# Training RANDOM FOREST
+mtry <- round(sqrt(ncol(df_analyse)))
+# set seed
+set.seed(100)
+caret_rf <- train(c19perbeh~., data=df_analyse, 
+                  method="rf",  
+                  ntree = 30,
+                  tuneGrid = data.frame(mtry = mtry),
+                  trControl=cv_split,
+                  verbose=T)
+
+caret_rf_imp <- varImp(caret_rf, scale = FALSE)     
+caret_rf_imp$importance
+
+rf_coef_names <- rownames(caret_rf_imp$importance) #coef names
+rf_coef_values <- unname(unlist(caret_rf_imp$importance)) #coef values 
+rf_coefs_df <- data.frame(coef_names = rf_coef_names[order(abs(rf_coef_values), decreasing=TRUE)],
+                             coef_values = rf_coef_values[order(abs(rf_coef_values), decreasing=TRUE)])
+# Coef plot
+ggplot(rf_coefs_df,
+       aes(x = 0, xend = coef_values, y = reorder(coef_names, coef_values), yend = coef_names)) + 
+  geom_segment() +
+  geom_point(aes(x = coef_values, y = coef_names)) +
+  theme_bw()
+
+
+# Compare LASSO and RF
+# compare the indices for one of the folds between each models to check if the folds were indeed the same
+if(any(caret_lasso$control$index$Fold04 != caret_rf$control$index$Fold04)) stop("Lasso and RF cv folds not equal")
+
+# collect resamples
+comparison_results <- resamples(list(Lasso=caret_lasso, RandomForest=caret_rf))
+# get the summary of the comparison
+summary(comparison_results)
+
+
 ########## MODELLING ##########
 
 ### Outcome 1: c19perbeh
@@ -115,14 +190,8 @@ model_accuracy(m_lasso_c19perbeh,
                olddata = x_train_c19perbeh)
 
 
-
-library(ranger)
-library(metaforest)
-
 res <- ranger(y = y_train_c19perbeh, x = x_train_c19perbeh, importance = "permutation")
 VarImpPlot(res)
-
-
 
 
 # CJ: Don't run this code yet, BUT it fails because different variables are selected in train and test. We should make ALL variable selection decisions in the exploration script, not in the modeling script.
