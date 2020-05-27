@@ -58,23 +58,33 @@ calc_dayno <- function(posixdate){
 ########## PREPARATION ##########
 
 data_path <- "data"
-input_filename <- "df_train_imputed.csv"
-#input_filename <- "df_train_imputed_small.csv"
-output_filename <- "df_train_imputed_merged.csv"
-df <- read.csv(paste(data_path, input_filename, sep = "/"), stringsAsFactors = FALSE)
-names(df)[1]<-"responseid" # fix utf-8 issue
+raw_file_mode <- 1
+if (raw_file_mode){
+  input_filename <- "RMD30_Caspar van Lissa_2020-05-21 15-21 CEST.csv"
+  output_filename <- "df_raw_merged.csv"
+  df <- read.csv(paste(data_path, input_filename, sep = "/"), stringsAsFactors = FALSE)
+  names(df) <- tolower(names(df)) 
+  df$startdate <- as.POSIXct(df$startdate)
+  df$dayresponse <- calc_dayno(as.POSIXct(df$startdate))
+} else {
+  input_filename <- "df_train_imputed.csv"
+  #input_filename <- "df_train_imputed_small.csv"
+  output_filename <- "df_train_imputed_merged.csv"
+  df <- read.csv(paste(data_path, input_filename, sep = "/"), stringsAsFactors = FALSE)
+  names(df)[1]<-"responseid" # fix utf-8 issue
 
-# get startdate and responseid 
-master_filename <- "RMD30_Caspar van Lissa_2020-05-21 15-21 CEST.csv"
-read.csv(paste(data_path, master_filename, sep = "/"), stringsAsFactors = FALSE) %>%
+  # get startdate and responseid 
+  master_filename <- "RMD30_Caspar van Lissa_2020-05-21 15-21 CEST.csv"
+  read.csv(paste(data_path, master_filename, sep = "/"), stringsAsFactors = FALSE) %>%
   select(StartDate,ResponseId) -> df_date
-names(df_date) <- tolower(names(df_date)) 
+  names(df_date) <- tolower(names(df_date)) 
 
-# add dayresponse variable
-df <- merge(df, df_date, by = "responseid", all = FALSE, sort = FALSE)
-df[which(names(df) == "startdate.x")] <- NULL
-df$dayresponse <- calc_dayno(as.POSIXct(df$startdate))
-df$startdate <- NULL
+  # add dayresponse variable
+  df <- merge(df, df_date, by = "responseid", all = FALSE, sort = FALSE)
+  df[which(names(df) == "startdate.x")] <- NULL
+  df$dayresponse <- calc_dayno(as.POSIXct(df$startdate))
+  df$startdate <- NULL
+}
   
 ########## MERGE DATA ##########
 
