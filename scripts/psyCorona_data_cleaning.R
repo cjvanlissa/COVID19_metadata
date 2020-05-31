@@ -22,7 +22,7 @@ if(!require("tidySEM")){
 }
 
 ########## READ AND PREPARE DATA ##########
-df <- read.csv("data/RMD30_Caspar van Lissa_2020-05-21 15-21 CEST.csv", stringsAsFactors = FALSE) # read in raw data
+df <- read.csv("data/RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv", stringsAsFactors = FALSE) # read in raw data
 #df <- read_csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv") # read in raw data
 
 # All names to lower, to prevent problems with name matching. Please use only
@@ -98,6 +98,7 @@ df$jbinsec02 <- -1*df$jbinsec02
 df$disc03 <- -1*df$disc03
 # Create the scales
 scales <- create_scales(df, keys.list = scales_list)
+write.csv(scales$descriptives, "scale_descriptives.csv", row.names = FALSE)
 # View(scales$descriptives) # commenting this out so it doesn't open every time we run the modelling script
 # Add to df
 df <- cbind(df, scales$scores)
@@ -140,8 +141,8 @@ df <- df[!(rowSums(miss)/ncol(df)) > partic_NA_tres_perc,
 desc <- descriptives(df)
 
 # Drop testing cases
-df_test <- df[!df$train,]
-df_train <- df[df$train,]
+df_test <- df[!df$train, ]
+df_train <- df[df$train, ]
 
 library(missRanger)
 set.seed(4639)
