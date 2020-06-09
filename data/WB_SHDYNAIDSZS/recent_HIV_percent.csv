@@ -47,7 +47,7 @@
 "Estonia","EST",2018,0.9
 "Eswatini","SWZ",2018,27.3
 "Ethiopia","ETH",2018,1
-"Euro area","EMU",2018,0.243554199134488
+"Euro area","EMU",2018,0.243576666673208
 "European Union","EUU",2018,0.218814833959648
 "Finland","FIN",2018,0.1
 "Fragile and conflict affected situations","FCS",2018,1.31960700015155
@@ -63,13 +63,13 @@
 "Guyana","GUY",2018,1.4
 "Haiti","HTI",2018,2
 "Heavily indebted poor countries (HIPC)","HPC",2018,2.4212426637416
-"High income","HIC",2016,0.288464443547177
+"High income","HIC",2016,0.288445653777288
 "Honduras","HND",2018,0.3
 "Hungary","HUN",2018,0.1
 "Iceland","ISL",2018,0.1
-"IDA blend","IDB",2018,1.52789321755106
-"IDA only","IDX",2018,1.73170489251013
-"IDA total","IDA",2018,1.66264952234523
+"IDA blend","IDB",2018,1.5293892919753
+"IDA only","IDX",2018,1.73169468366044
+"IDA total","IDA",2018,1.66322296775184
 "Indonesia","IDN",2018,0.4
 "Iran, Islamic Rep.","IRN",2018,0.1
 "Ireland","IRL",2018,0.2
@@ -87,7 +87,7 @@
 "Latin America & Caribbean (excluding high income)","LAC",2018,0.435508469340047
 "Latin America & the Caribbean (IDA & IBRD countries)","TLA",2018,0.442094935003466
 "Latvia","LVA",2018,0.4
-"Least developed countries: UN classification","LDC",2018,1.79958497277034
+"Least developed countries: UN classification","LDC",2018,1.79958497277035
 "Lebanon","LBN",2018,0.1
 "Lesotho","LSO",2018,23.6
 "Liberia","LBR",2018,1.3
@@ -101,7 +101,7 @@
 "Mauritania","MRT",2018,0.2
 "Mauritius","MUS",2018,1.3
 "Mexico","MEX",2018,0.2
-"Middle East & North Africa","MEA",2018,0.109040880806431
+"Middle East & North Africa","MEA",2018,0.109040656468285
 "Middle East & North Africa (excluding high income)","MNA",2018,0.105407157041857
 "Middle East & North Africa (IDA & IBRD countries)","TMN",2018,0.105407157041857
 "Moldova","MDA",2018,0.6
@@ -120,9 +120,9 @@
 "North America","NAC",2016,0.4
 "North Macedonia","MKD",2018,0.1
 "Norway","NOR",2018,0.1
-"OECD members","OED",2016,0.2726548419724
+"OECD members","OED",2016,0.272633946359133
 "Oman","OMN",2018,0.2
-"Other small states","OSS",2018,8.68953925980765
+"Other small states","OSS",2018,8.68955138885113
 "Pakistan","PAK",2018,0.1
 "Panama","PAN",2018,0.9
 "Papua New Guinea","PNG",2018,0.8
@@ -130,7 +130,7 @@
 "Peru","PER",2018,0.3
 "Philippines","PHL",2018,0.1
 "Portugal","PRT",2018,0.5
-"Post-demographic dividend","PST",2016,0.315179459049729
+"Post-demographic dividend","PST",2016,0.315168990647458
 "Pre-demographic dividend","PRE",2018,2.65169331525239
 "Romania","ROU",2018,0.1
 "Rwanda","RWA",2018,2.5
@@ -140,7 +140,7 @@
 "Singapore","SGP",2018,0.2
 "Slovak Republic","SVK",2018,0.1
 "Slovenia","SVN",2018,0.1
-"Small states","SST",2018,7.31248858481148
+"Small states","SST",2018,7.31250114608514
 "Somalia","SOM",2018,0.1
 "South Africa","ZAF",2018,20.4
 "South Sudan","SSD",2018,2.5

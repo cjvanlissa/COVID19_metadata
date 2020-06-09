@@ -1,46 +1,46 @@
-"country","countryiso3","latest.year_Value.28134","latest.value_Value.28134"
-"Aruba","ABW",2015,0.999779999256134
-"Afghanistan","AFG",2015,0.46382001042366
+"country","countryiso3","latest.year_value_adult_literacy_rate.28134","latest.value_value_adult_literacy_rate.28134"
+"Aruba","ABW",2018,1.00013
+"Afghanistan","AFG",2018,0.53727
 "Angola","AGO",2015,0.741069972515106
-"Albania","ALB",2015,0.983759999275208
+"Albania","ALB",2018,0.99236
 "Andorra","AND",2016,1
-"United Arab Emirates","ARE",2015,1.02945005893707
-"Argentina","ARG",2016,1.00038
-"Armenia","ARM",2015,0.99915999174118
+"United Arab Emirates","ARE",2015,1.02746
+"Argentina","ARG",2018,1.00126
+"Armenia","ARM",2017,0.99871
 "American Samoa","ASM",NA,NA
 "Antigua and Barbuda","ATG",2015,1.01037
 "Australia","AUS",NA,NA
 "Austria","AUT",NA,NA
-"Azerbaijan","AZE",2016,0.99855
-"Burundi","BDI",2015,0.940150022506714
+"Azerbaijan","AZE",2017,0.99858
+"Burundi","BDI",2017,0.80245
 "Belgium","BEL",NA,NA
-"Benin","BEN",2015,0.547160029411316
-"Burkina Faso","BFA",2015,0.595899999141693
-"Bangladesh","BGD",2017,0.92581
+"Benin","BEN",2018,0.57565
+"Burkina Faso","BFA",2018,0.65278
+"Bangladesh","BGD",2018,0.92843
 "Bulgaria","BGR",2015,0.993269979953766
-"Bahrain","BHR",2016,0.96954
+"Bahrain","BHR",2018,0.96138
 "Bosnia and Herzegovina","BIH",2015,0.978569984436035
-"Belarus","BLR",2015,0.998820006847382
+"Belarus","BLR",2018,0.99931
 "Belize","BLZ",2015,1.01320004463196
 "Bolivia","BOL",2015,0.91774
-"Brazil","BRA",2015,1.00674
+"Brazil","BRA",2018,1.00447
 "Barbados","BRB",NA,NA
-"Brunei Darussalam","BRN",2015,0.975910007953644
-"Bhutan","BTN",2015,0.77470999956131
+"Brunei Darussalam","BRN",2018,0.98213
+"Bhutan","BTN",2017,0.76091
 "Botswana","BWA",2015,1.02279996871948
-"Central African Republic","CAF",2015,0.480263978242874
+"Central African Republic","CAF",2018,0.52018
 "Canada","CAN",NA,NA
 "Switzerland","CHE",NA,NA
-"Chile","CHL",2015,0.99711
-"China","CHN",2015,0.962379992008209
-"Cote d'Ivoire","CIV",2015,0.614260017871857
-"Cameroon","CMR",2015,0.84877997636795
+"Chile","CHL",2017,0.99848
+"China","CHN",2018,0.96641
+"Cote d'Ivoire","CIV",2018,0.75478
+"Cameroon","CMR",2018,0.86637
 "Congo, Dem. Rep.","COD",2016,0.7512
-"Congo, Rep.","COG",2015,0.843150019645691
-"Colombia","COL",2016,1.00517
-"Comoros","COM",2015,0.90556001663208
+"Congo, Rep.","COG",2018,0.86689
+"Colombia","COL",2018,1.00492
+"Comoros","COM",2018,0.8192
 "Cabo Verde","CPV",2015,0.89476
-"Costa Rica","CRI",2015,1.00129997730255
+"Costa Rica","CRI",2018,1.00125
 "Cuba","CUB",2015,1.0011500120163
 "Cayman Islands","CYM",NA,NA
 "Cyprus","CYP",2015,0.991760015487671
@@ -48,144 +48,146 @@
 "Germany","DEU",NA,NA
 "Denmark","DNK",NA,NA
 "Dominican Republic","DOM",2016,0.99969
-"Algeria","DZA",2015,0.848190009593964
-"Ecuador","ECU",2016,0.97768
+"Algeria","DZA",2018,0.86159
+"Ecuador","ECU",2017,0.98195
 "Egypt, Arab Rep.","EGY",2017,0.85634
-"Eritrea","ERI",2015,0.797249972820282
-"Spain","ESP",2016,0.98846
+"Eritrea","ERI",2018,0.81716
+"Spain","ESP",2018,0.99038
 "Estonia","EST",2015,0.99958997964859
-"Ethiopia","ETH",2015,0.715250015258789
+"Ethiopia","ETH",2017,0.74987
 "Finland","FIN",NA,NA
-"Fiji","FJI",NA,NA
+"Fiji","FJI",2017,1.00007
 "France","FRA",NA,NA
-"Gabon","GAB",2015,0.95073002576828
+"Gabon","GAB",2018,0.97171
 "United Kingdom","GBR",NA,NA
-"Georgia","GEO",2015,0.999450027942657
-"Ghana","GHA",2015,0.869750022888184
+"Georgia","GEO",2017,0.99856
+"Ghana","GHA",2018,0.89165
 "Guinea","GIN",2015,0.60044002532959
-"Gambia, The","GMB",2015,0.745270013809204
+"Gambia, The","GMB",2015,0.67312
 "Guinea-Bissau","GNB",2015,0.671410024166107
 "Equatorial Guinea","GNQ",2015,0.954209983348846
-"Greece","GRC",2015,0.965089976787567
+"Greece","GRC",2018,0.9887
 "Grenada","GRD",NA,NA
 "Greenland","GRL",2015,1
 "Guatemala","GTM",2015,0.872600018978119
 "Guam","GUM",2015,1.00030994415283
 "Guyana","GUY",2015,1.03951001167297
 "Hong Kong SAR, China","HKG",NA,NA
-"Honduras","HND",2016,0.99872
+"Honduras","HND",2018,1.00147
 "Croatia","HRV",2015,0.992649972438812
-"Haiti","HTI",2015,0.887899994850159
+"Haiti","HTI",2016,0.89312
 "Hungary","HUN",2015,0.999750018119812
-"Indonesia","IDN",2016,0.96308
-"India","IND",2015,0.778209984302521
+"Indonesia","IDN",2018,0.96569
+"India","IND",2018,0.79875
 "Ireland","IRL",NA,NA
 "Iran, Islamic Rep.","IRN",2016,0.89414
-"Iraq","IRQ",2015,0.862519979476929
+"Iraq","IRQ",2017,0.8761
 "Iceland","ISL",NA,NA
 "Israel","ISR",NA,NA
-"Italy","ITA",2015,0.995310008525848
+"Italy","ITA",2018,0.99616
 "Jamaica","JAM",2015,1.10885000228882
-"Jordan","JOR",2015,0.989650011062622
+"Jordan","JOR",2018,0.99207
 "Japan","JPN",NA,NA
-"Kazakhstan","KAZ",2015,0.999689996242523
-"Kenya","KEN",2015,0.924290001392365
-"Kyrgyz Republic","KGZ",2015,0.997330009937286
+"Kazakhstan","KAZ",2018,0.99909
+"Kenya","KEN",2018,0.91999
+"Kyrgyz Republic","KGZ",2018,0.99822
 "Cambodia","KHM",2015,0.86712
 "Korea, Rep.","KOR",NA,NA
 "Kuwait","KWT",2018,0.98178
 "Lao PDR","LAO",2015,0.8825
-"Lebanon","LBN",2015,0.9583899974823
-"Liberia","LBR",2015,0.525709986686707
+"Lebanon","LBN",2018,0.96335
+"Liberia","LBR",2017,0.54377
 "Libya","LBY",2015,0.88467001914978
-"Sri Lanka","LKA",2017,0.97838
+"Sri Lanka","LKA",2018,0.97869
 "Lesotho","LSO",2015,1.26005005836487
 "Lithuania","LTU",2015,1.00039994716644
 "Luxembourg","LUX",NA,NA
-"Latvia","LVA",2015,1.00032997131348
+"Latvia","LVA",2018,1.00038
 "Macao SAR, China","MAC",2016,0.96788
-"Morocco","MAR",2015,0.757740020751953
+"Morocco","MAR",2018,0.77539
 "Moldova","MDA",2015,0.997009992599487
-"Madagascar","MDG",2015,0.938139975070953
-"Maldives","MDV",2015,0.990580022335052
-"Mexico","MEX",2016,0.98042
+"Madagascar","MDG",2018,0.93671
+"Maldives","MDV",2016,1.00838
+"Mexico","MEX",2018,0.98312
 "Marshall Islands","MHL",2015,0.99875807762146
 "Macedonia, FYR","MKD",2015,0.980099976062775
-"Mali","MLI",2015,0.49252
-"Malta","MLT",2015,1.03312003612518
+"Mali","MLI",2018,0.55723
+"Malta","MLT",2018,1.03203
 "Myanmar","MMR",2016,0.89796
-"Montenegro","MNE",2015,0.98566997051239
-"Mongolia","MNG",2015,1.00381994247437
-"Mozambique","MOZ",2015,0.60858
-"Mauritania","MRT",2015,0.664430022239685
-"Mauritius","MUS",2016,0.95332
+"Montenegro","MNE",2018,0.98814
+"Mongolia","MNG",2018,1.00471
+"Mozambique","MOZ",2017,0.69278
+"Mauritania","MRT",2017,0.68008
+"Mauritius","MUS",2018,0.95725
 "Malawi","MWI",2015,0.79141
-"Malaysia","MYS",2016,0.9457
-"Namibia","NAM",2015,0.995999991893768
+"Malaysia","MYS",2018,0.97276
+"Namibia","NAM",2018,0.99792
 "New Caledonia","NCL",2015,0.991729974746704
 "Niger","NER",2015,0.403800010681152
-"Nigeria","NGA",2015,0.718039989471436
-"Nicaragua","NIC",2015,1.00435996055603
+"Nigeria","NGA",2018,0.73898
+"Nicaragua","NIC",2015,1.00413
 "Netherlands","NLD",NA,NA
 "Norway","NOR",NA,NA
-"Nepal","NPL",2015,0.722209990024567
+"Nepal","NPL",2018,0.75994
 "New Zealand","NZL",NA,NA
-"Oman","OMN",2017,0.95732
-"Pakistan","PAK",2015,0.614160001277924
-"Panama","PAN",2015,0.987060010433197
-"Peru","PER",2017,0.94054
-"Philippines","PHL",2015,1.00863003730774
+"Oman","OMN",2018,0.95571
+"Pakistan","PAK",2017,0.65341
+"Panama","PAN",2018,0.98867
+"Peru","PER",2018,0.94421
+"Philippines","PHL",2015,1.00121
 "Palau","PLW",2015,0.99512
 "Papua New Guinea","PNG",2015,0.949479997158051
 "Poland","POL",2015,0.997529983520508
 "Puerto Rico","PRI",2017,1
 "Korea, Dem. People’s Rep.","PRK",2015,1
-"Portugal","PRT",2015,0.971390008926392
-"Paraguay","PRY",2016,0.98281
-"West Bank and Gaza","PSE",2016,0.96552
-"Qatar","QAT",2016,1.01427
-"Romania","ROU",2015,0.993629992008209
-"Russian Federation","RUS",2015,0.9998499751091
-"Rwanda","RWA",2015,0.914210021495819
-"Saudi Arabia","SAU",2015,0.947300016880035
-"Sudan","SDN",2015,0.82846999168396
+"Portugal","PRT",2018,0.97657
+"Paraguay","PRY",2018,0.98963
+"West Bank and Gaza","PSE",2018,0.97045
+"Qatar","QAT",2017,1.01682
+"Romania","ROU",2018,0.99487
+"Russian Federation","RUS",2018,1.00009
+"Rwanda","RWA",2018,0.89473
+"Saudi Arabia","SAU",2017,0.95472
+"Sudan","SDN",2018,0.85678
 "Senegal","SEN",2017,0.61406
-"Singapore","SGP",2016,0.96671
+"Singapore","SGP",2018,0.97034
 "Solomon Islands","SLB",NA,NA
-"Sierra Leone","SLE",2015,0.646730005741119
-"El Salvador","SLV",2017,0.95633
+"Sierra Leone","SLE",2018,0.67481
+"El Salvador","SLV",2018,0.95754
+"San Marino","SMR",2018,0.9997
+"Somalia","SOM",NA,NA
 "Serbia","SRB",2016,0.98722
-"South Sudan","SSD",2015,0.657029986381531
-"Sao Tome and Principe","STP",2015,0.919730007648468
-"Suriname","SUR",2015,0.988039970397949
+"South Sudan","SSD",2018,0.71686
+"Sao Tome and Principe","STP",2018,0.93088
+"Suriname","SUR",2018,0.96501
 "Slovak Republic","SVK",NA,NA
 "Slovenia","SVN",2015,0.999660015106201
 "Sweden","SWE",NA,NA
 "Swaziland","SWZ",2015,1.00065004825592
-"Seychelles","SYC",2015,1.0110000371933
+"Seychelles","SYC",2018,1.00984
 "Syrian Arab Republic","SYR",2015,0.879119992256165
 "Chad","TCD",2016,0.44544
 "Togo","TGO",2015,0.66324
-"Thailand","THA",2015,0.96337
+"Thailand","THA",2018,0.97086
 "Tajikistan","TJK",2015,0.999109983444214
 "Turkmenistan","TKM",2015,0.998700022697449
-"Timor-Leste","TLS",2015,0.868399977684021
-"Tonga","TON",2015,1.00097000598907
+"Timor-Leste","TLS",2018,0.89345
+"Tonga","TON",2018,1.00125
 "Trinidad and Tobago","TTO",2015,0.994499981403351
 "Tunisia","TUN",2015,0.811789989471436
-"Turkey","TUR",2016,0.94723
+"Turkey","TUR",2017,0.94615
 "Tanzania","TZA",2015,0.87848
-"Uganda","UGA",2015,0.824970006942749
+"Uganda","UGA",2018,0.85702
 "Ukraine","UKR",2015,0.999459981918335
-"Uruguay","URY",2017,1.00743
+"Uruguay","URY",2018,1.00647
 "United States","USA",NA,NA
-"Uzbekistan","UZB",2016,0.99984
+"Uzbekistan","UZB",2018,0.99986
 "St. Vincent and the Grenadines","VCT",NA,NA
 "Venezuela, RB","VEN",2016,1.0018
-"Vietnam","VNM",2015,0.964330017566681
-"Vanuatu","VUT",2015,0.967899978160858
-"Samoa","WSM",2015,1.00215995311737
+"Vietnam","VNM",2018,0.97035
+"Vanuatu","VUT",2018,0.98188
+"Samoa","WSM",2018,1.00292
 "Yemen, Rep.","YEM",2015,0.645500004291534
-"South Africa","ZAF",2015,0.97916
-"Zambia","ZMB",2015,0.897700011730194
+"South Africa","ZAF",2017,0.9861
+"Zambia","ZMB",2018,0.91702
 "Zimbabwe","ZWE",2015,0.963150024414063

@@ -68,9 +68,9 @@
 "Eswatini","SWZ",NA,NA
 "Ethiopia","ETH",2015,0.3
 "Euro area","EMU",2013,6.16749081248063
-"Europe & Central Asia","ECS",2013,5.92492146211432
-"Europe & Central Asia (excluding high income)","ECA",2013,6.3536554875275
-"Europe & Central Asia (IDA & IBRD countries)","TEC",2013,6.36194887522994
+"Europe & Central Asia","ECS",2013,5.92503058136171
+"Europe & Central Asia (excluding high income)","ECA",2013,6.35463530944861
+"Europe & Central Asia (IDA & IBRD countries)","TEC",2013,6.36284728788407
 "European Union","EUU",2013,6.10828282710878
 "Fiji","FJI",NA,NA
 "Finland","FIN",2015,4.4
@@ -90,7 +90,7 @@
 "Guyana","GUY",2014,1.6
 "Haiti","HTI",2013,0.7
 "Heavily indebted poor countries (HIPC)","HPC",NA,NA
-"High income","HIC",2013,4.11059905053985
+"High income","HIC",2013,4.11069396287238
 "Honduras","HND",2014,0.7
 "Hong Kong SAR, China","HKG",NA,NA
 "Hungary","HUN",2013,7
@@ -168,7 +168,7 @@
 "North America","NAC",2013,2.9
 "North Macedonia","MKD",2013,4.4
 "Norway","NOR",2013,3.9
-"OECD members","OED",2013,3.81428042462959
+"OECD members","OED",2013,3.81434264538212
 "Oman","OMN",2014,1.6
 "Pacific island small states","PSS",NA,NA
 "Pakistan","PAK",2014,0.6
@@ -180,7 +180,7 @@
 "Philippines","PHL",NA,NA
 "Poland","POL",2013,6.5
 "Portugal","PRT",2013,3.4
-"Post-demographic dividend","PST",2013,4.60721290884284
+"Post-demographic dividend","PST",2013,4.60735749887723
 "Pre-demographic dividend","PRE",NA,NA
 "Puerto Rico","PRI",NA,NA
 "Qatar","QAT",2014,1.2

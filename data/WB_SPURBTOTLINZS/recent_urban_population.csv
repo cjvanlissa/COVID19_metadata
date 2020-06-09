@@ -39,7 +39,7 @@
 "Caribbean small states","CSS",2018,51.1993615776132
 "Cayman Islands","CYM",2018,100
 "Central African Republic","CAF",2018,41.364
-"Central Europe and the Baltics","CEB",2018,62.3320760627627
+"Central Europe and the Baltics","CEB",2018,62.3343027704912
 "Chad","TCD",2018,23.059
 "Channel Islands","CHI",2018,30.914
 "Chile","CHL",2018,87.564
@@ -59,8 +59,8 @@
 "Djibouti","DJI",2018,77.777
 "Dominica","DMA",2018,70.483
 "Dominican Republic","DOM",2018,81.074
-"Early-demographic dividend","EAR",2018,45.1312566986719
-"East Asia & Pacific","EAS",2018,59.0527886714373
+"Early-demographic dividend","EAR",2018,45.1312421450518
+"East Asia & Pacific","EAS",2018,59.0518757457621
 "East Asia & Pacific (excluding high income)","EAP",2018,55.6335882382637
 "East Asia & Pacific (IDA & IBRD countries)","TEA",2018,55.5550920185359
 "Ecuador","ECU",2018,63.821
@@ -71,10 +71,10 @@
 "Estonia","EST",2018,68.88
 "Eswatini","SWZ",2018,23.799
 "Ethiopia","ETH",2018,20.763
-"Euro area","EMU",2018,76.9917327106284
-"Europe & Central Asia","ECS",2018,72.1835105010589
-"Europe & Central Asia (excluding high income)","ECA",2018,66.9473805143823
-"Europe & Central Asia (IDA & IBRD countries)","TEC",2018,66.2868323125935
+"Euro area","EMU",2018,76.9921885291402
+"Europe & Central Asia","ECS",2018,72.2106557702371
+"Europe & Central Asia (excluding high income)","ECA",2018,66.9965095029021
+"Europe & Central Asia (IDA & IBRD countries)","TEC",2018,66.3302930568427
 "European Union","EUU",2018,74.515699074244
 "Faroe Islands","FRO",2018,42.064
 "Fiji","FJI",2018,56.248
@@ -98,16 +98,16 @@
 "Guyana","GUY",2018,26.606
 "Haiti","HTI",2018,55.278
 "Heavily indebted poor countries (HIPC)","HPC",2018,36.0084652627508
-"High income","HIC",2018,81.3349783647456
+"High income","HIC",2018,81.3341475969985
 "Honduras","HND",2018,57.096
 "Hong Kong SAR, China","HKG",2018,100
 "Hungary","HUN",2018,71.351
-"IBRD only","IBD",2018,55.0124279996674
+"IBRD only","IBD",2018,55.0124131601244
 "Iceland","ISL",2018,93.813
-"IDA & IBRD total","IBT",2018,50.4222017748257
-"IDA blend","IDB",2018,42.3804250236419
-"IDA only","IDX",2018,34.3159699173835
-"IDA total","IDA",2018,37.0518650600215
+"IDA & IBRD total","IBT",2018,50.423178642916
+"IDA blend","IDB",2018,42.3800488701496
+"IDA only","IDX",2018,34.31598307609
+"IDA total","IDA",2018,37.0490017917212
 "India","IND",2018,34.03
 "Indonesia","IDN",2018,55.325
 "Iran, Islamic Rep.","IRN",2018,74.898
@@ -127,8 +127,8 @@
 "Kuwait","KWT",2018,100
 "Kyrgyz Republic","KGZ",2018,36.351
 "Lao PDR","LAO",2018,35.004
-"Late-demographic dividend","LTE",2018,62.4450990246255
-"Latin America & Caribbean","LCN",2018,80.5832909863671
+"Late-demographic dividend","LTE",2018,62.452346578963
+"Latin America & Caribbean","LCN",2018,80.5832903322107
 "Latin America & Caribbean (excluding high income)","LAC",2018,80.4016255969999
 "Latin America & the Caribbean (IDA & IBRD countries)","TLA",2018,80.6014123164288
 "Latvia","LVA",2018,68.142
@@ -139,9 +139,9 @@
 "Libya","LBY",2018,80.102
 "Liechtenstein","LIE",2018,14.338
 "Lithuania","LTU",2018,67.679
-"Low & middle income","LMY",2018,50.3278442398155
+"Low & middle income","LMY",2018,50.3288202035298
 "Low income","LIC",2018,32.5722038899212
-"Lower middle income","LMC",2018,40.5078897764183
+"Lower middle income","LMC",2018,40.5072906912504
 "Luxembourg","LUX",2018,90.981
 "Macao SAR, China","MAC",2018,100
 "Madagascar","MDG",2018,37.191
@@ -155,10 +155,10 @@
 "Mauritius","MUS",2018,40.793
 "Mexico","MEX",2018,80.156
 "Micronesia, Fed. Sts.","FSM",2018,22.703
-"Middle East & North Africa","MEA",2018,65.3719743231147
+"Middle East & North Africa","MEA",2018,65.3719857239942
 "Middle East & North Africa (excluding high income)","MNA",2018,61.5905475175283
-"Middle East & North Africa (IDA & IBRD countries)","TMN",2018,61.4145429982846
-"Middle income","MIC",2018,52.5342574698536
+"Middle East & North Africa (IDA & IBRD countries)","TMN",2018,61.4145429982845
+"Middle income","MIC",2018,52.5356860680875
 "Moldova","MDA",2018,42.629
 "Monaco","MCO",2018,100
 "Mongolia","MNG",2018,68.445
@@ -175,13 +175,13 @@
 "Nicaragua","NIC",2018,58.522
 "Niger","NER",2018,16.425
 "Nigeria","NGA",2018,50.344
-"North America","NAC",2018,82.1731548388538
+"North America","NAC",2018,82.1730480810329
 "North Macedonia","MKD",2018,57.963
 "Northern Mariana Islands","MNP",2018,91.618
 "Norway","NOR",2018,82.248
-"OECD members","OED",2018,80.5933075710504
+"OECD members","OED",2018,80.5921940473204
 "Oman","OMN",2018,84.539
-"Other small states","OSS",2018,62.1180381474502
+"Other small states","OSS",2018,62.1185434877544
 "Pacific island small states","PSS",2018,38.7813441179116
 "Pakistan","PAK",2018,36.666
 "Palau","PLW",2018,79.93
@@ -192,7 +192,7 @@
 "Philippines","PHL",2018,46.907
 "Poland","POL",2018,60.058
 "Portugal","PRT",2018,65.211
-"Post-demographic dividend","PST",2018,81.2806947844979
+"Post-demographic dividend","PST",2018,81.2799492001056
 "Pre-demographic dividend","PRE",2018,41.2269515142477
 "Puerto Rico","PRI",2018,93.578
 "Qatar","QAT",2018,99.135
@@ -211,7 +211,7 @@
 "Sint Maarten (Dutch part)","SXM",2018,100
 "Slovak Republic","SVK",2018,53.726
 "Slovenia","SVN",2018,54.541
-"Small states","SST",2018,58.7244240705329
+"Small states","SST",2018,58.7249093600458
 "Solomon Islands","SLB",2018,23.749
 "Somalia","SOM",2018,44.971
 "South Africa","ZAF",2018,66.355
@@ -248,7 +248,7 @@
 "United Arab Emirates","ARE",2018,86.522
 "United Kingdom","GBR",2018,83.398
 "United States","USA",2018,82.256
-"Upper middle income","UMC",2018,66.2333682980853
+"Upper middle income","UMC",2018,66.2334324582539
 "Uruguay","URY",2018,95.334
 "Uzbekistan","UZB",2018,50.478
 "Vanuatu","VUT",2018,25.274
@@ -256,7 +256,7 @@
 "Vietnam","VNM",2018,35.919
 "Virgin Islands (U.S.)","VIR",2018,95.721
 "West Bank and Gaza","PSE",2018,76.164
-"World","WLD",2018,55.2705785486132
+"World","WLD",2018,55.2699975866733
 "Yemen, Rep.","YEM",2018,36.642
 "Zambia","ZMB",2018,43.521
 "Zimbabwe","ZWE",2018,32.209

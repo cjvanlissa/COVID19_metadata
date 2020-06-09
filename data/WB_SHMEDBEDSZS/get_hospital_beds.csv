@@ -68,9 +68,9 @@
 "Eswatini","SWZ",NA,NA,NA
 "Ethiopia","ETH",NA,NA,0.3
 "Euro area","EMU",6.16749081248063,NA,NA
-"Europe & Central Asia","ECS",5.92492146211432,NA,NA
-"Europe & Central Asia (excluding high income)","ECA",6.3536554875275,NA,NA
-"Europe & Central Asia (IDA & IBRD countries)","TEC",6.36194887522994,NA,NA
+"Europe & Central Asia","ECS",5.92503058136171,NA,NA
+"Europe & Central Asia (excluding high income)","ECA",6.35463530944861,NA,NA
+"Europe & Central Asia (IDA & IBRD countries)","TEC",6.36284728788407,NA,NA
 "European Union","EUU",6.10828282710878,NA,NA
 "Fiji","FJI",NA,NA,NA
 "Finland","FIN",4.9,NA,4.4
@@ -90,7 +90,7 @@
 "Guyana","GUY",NA,1.6,NA
 "Haiti","HTI",0.7,NA,NA
 "Heavily indebted poor countries (HIPC)","HPC",NA,NA,NA
-"High income","HIC",4.11059905053985,NA,NA
+"High income","HIC",4.11069396287238,NA,NA
 "Honduras","HND",0.7,0.7,NA
 "Hong Kong SAR, China","HKG",NA,NA,NA
 "Hungary","HUN",7,NA,NA
@@ -168,7 +168,7 @@
 "North America","NAC",2.9,NA,NA
 "North Macedonia","MKD",4.4,NA,NA
 "Norway","NOR",3.9,NA,NA
-"OECD members","OED",3.81428042462959,NA,NA
+"OECD members","OED",3.81434264538212,NA,NA
 "Oman","OMN",1.7,1.6,NA
 "Pacific island small states","PSS",NA,NA,NA
 "Pakistan","PAK",0.6,0.6,NA
@@ -180,7 +180,7 @@
 "Philippines","PHL",NA,NA,NA
 "Poland","POL",6.5,NA,NA
 "Portugal","PRT",3.4,NA,NA
-"Post-demographic dividend","PST",4.60721290884284,NA,NA
+"Post-demographic dividend","PST",4.60735749887723,NA,NA
 "Pre-demographic dividend","PRE",NA,NA,NA
 "Puerto Rico","PRI",NA,NA,NA
 "Qatar","QAT",1.4,1.2,NA
