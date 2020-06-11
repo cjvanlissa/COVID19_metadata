@@ -12,9 +12,10 @@ library(glue)
 library(forcats)
 library(wbstats)
 library(lubridate)
+library(dplyr)
 
-# Identify columns with enough data (at least G20)
-enough_data <- function(x) sum(!is.na(x)) >= 20
+# Identify columns with enough data (at least 0)
+enough_data <- function(x) sum(!is.na(x)) >= 0
 # Identify columns with no data
 no_data <- function(x) any(!is.na(x)) 
 
@@ -107,15 +108,22 @@ get_worldbank_open_data <- function(){
 #   file.remove(funzipped)
 # }
 
-get_wb_gov <- function(){
-  print(paste("Processing worldbank data", "GOV ...", sep=" "))
+get_wb_gov <- function() {
+  print(paste("Processing worldbank data", "GOV ...", sep = " "))
   # Download and unzip
-  df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/51/dump.csv")
+  df <-
+    rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/51/dump.csv")
   names(df) <- tolower(names(df))
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   dict <- df[, c("variable", "subindicator type", "indicator")]
-  dict <- dict[!duplicated(dict$variable), ]
-  dict$description <- paste(dict$`subindicator type`, dict$indicator)
+  dict <- dict[!duplicated(dict$variable),]
+  dict$description <-
+    paste(dict$`subindicator type`, dict$indicator)
   dict <- dict[, c(1, 4)]
   
   gov <- select(df, 2, 1, variable, `2013`:`2018`)
@@ -133,8 +141,8 @@ get_wb_gov <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -167,7 +175,12 @@ get_wb_dev <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/56/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -196,8 +209,8 @@ get_wb_dev <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -235,7 +248,12 @@ get_wb_failed <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/97/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -264,8 +282,8 @@ get_wb_failed <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -298,7 +316,12 @@ get_wb_trade <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/513/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -327,8 +350,8 @@ get_wb_trade <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -364,7 +387,12 @@ get_wb_business <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/435/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -393,8 +421,8 @@ get_wb_business <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -433,7 +461,12 @@ get_wb_logistics <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/50/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -462,8 +495,8 @@ get_wb_logistics <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -500,7 +533,12 @@ get_wb_freedom <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/997/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -529,8 +567,8 @@ get_wb_freedom <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -569,7 +607,12 @@ get_wb_governance <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/429/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -598,8 +641,8 @@ get_wb_governance <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -635,7 +678,12 @@ get_wb_institutional_profiles <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/999/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -664,8 +712,8 @@ get_wb_institutional_profiles <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -700,7 +748,12 @@ get_wb_bureaucracy <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/4127/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -729,8 +782,8 @@ get_wb_bureaucracy <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -762,7 +815,12 @@ get_wb_trade_dev <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/513/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -791,8 +849,8 @@ get_wb_trade_dev <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -827,7 +885,12 @@ get_wb_press_free <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/1000/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -856,8 +919,8 @@ get_wb_press_free <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -890,7 +953,12 @@ get_wb_education <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/748/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -919,8 +987,8 @@ get_wb_education <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -951,7 +1019,12 @@ get_wb_gender <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/747/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -980,8 +1053,8 @@ get_wb_gender <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -1017,7 +1090,12 @@ get_wb_tourism <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/78/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -1046,8 +1124,8 @@ get_wb_tourism <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -1083,7 +1161,12 @@ get_wb_wttc <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/79/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -1112,8 +1195,8 @@ get_wb_wttc <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -1146,7 +1229,12 @@ get_wb_pov_equity <- function(){
   df <- rio::import("https://govdata360-backend.worldbank.org/api/v1/datasets/3755/dump.csv")
   names(df) <- tolower(names(df))
   # Concatenate columns 'indicator' and 'subindicator type' as `variable`
-  df$variable <- paste(df$`subindicator type`, df$`indicator id`, sep = ".")
+  df$variable <-
+    tolower(paste(
+      substr(paste(df$`subindicator type`, gsub(" ", "_", df$indicator), sep = "_"), 1, 25),
+      df$`indicator id`,
+      sep = "."
+    ))
   # Create dictionary dict with `variable`
   dict <- df[, c("variable", "subindicator type", "indicator")]
   # Remove duplicated values from dict
@@ -1175,8 +1263,8 @@ get_wb_pov_equity <- function(){
     separate(var, c("type", "var"), "[.]") %>% separate(var, c("code", "year"), "_") %>%
     mutate(country = fct_inorder(country), type = fct_inorder(as.factor(type)), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, type, code) %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(type), ".", as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -1468,8 +1556,8 @@ process_wb <- function(wbId, fileName){
     mutate(country = fct_inorder(country), code = fct_inorder(as.factor(code)), year = as.numeric(year)) %>%
     group_by(country, countryiso3, code)
   recent_data <- recent_data %>%
-    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == max(year[!is.na(value)], na.rm = T)]),
-              latest.year = ifelse(all(is.na(value)), NA, year[year == max(year[!is.na(value)], na.rm = T)])) %>%
+    summarise(latest.value = ifelse(all(is.na(value)), NA, value[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))]),
+              latest.year = ifelse(all(is.na(value)), NA, year[year == suppressWarnings(max(year[!is.na(value)], na.rm = T))])) %>%
     ungroup() %>%
     mutate(var = paste(as.character(code), sep = "")) %>%
     pivot_wider(id_cols = c("country", "countryiso3"), names_from = var, values_from = c("latest.year", "latest.value"))
@@ -1490,4 +1578,5 @@ process_wb <- function(wbId, fileName){
   checkfilewrite(data, directory, paste(fileName, "csv", sep="."))
 }
 
+get_worldbank_open_data()
 
