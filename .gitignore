@@ -19,3 +19,4 @@ RMD30*.csv
 *.csv
 !scale_descriptives.csv
 !split_sample.csv
+.DS_Store
