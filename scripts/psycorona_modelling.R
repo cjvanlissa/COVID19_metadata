@@ -12,45 +12,52 @@ library(ranger)
 library(Matrix)
 library(caret)
 library(worcs)
+library(doParallel)
+library(missRanger)
   
-#source("scripts/psyCorona_exploration.R") # get (subsets of) raw data from exploration script
+
+
+source("scripts/psyCorona_data_cleaning.R") # get (subsets of) raw data from exploration script
 df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
 
+# To efficiently test whether the code works for all dep. variables, we here take a random subset of the data
+# (CHANGE THIS TO THE FULL df_analyse SET LATER)
+df_analyse <- df_analyse[sample(1:nrow(df_analyse), 1000), ]
+
+
 ########## PREPARE DATA ##########
-
-# Removing NA participants & vars
-partic_NA_tres_perc     <- .2 # remove participants that have more than X% NAs
-partic_NA_tres_var      <- .2 # remove features/variables that have more than X% NAs
-
-miss       <- is.na(df_analyse)
-df_analyse <- df_analyse[!(rowSums(miss)/ncol(df_analyse)) > partic_NA_tres_perc,
-                         which((colSums(miss)/nrow(df_analyse)) <= partic_NA_tres_var)]
-
-desc <- descriptives(df_analyse)
-
-# Median/mode substitution until we implement a better single imputation method
-df_analyse[, desc$type == "integer"] <- lapply(desc$name[desc$type == "integer"], function(varname){
-  out <- df_analyse[[varname]]
-  out[is.na(out)] <- desc$mode[desc$name == varname]
-  out
-})
-
-df_analyse[, desc$type == "numeric"] <- lapply(desc$name[desc$type == "numeric"], function(varname){
-  out <- df_analyse[[varname]]
-  out[is.na(out)] <- desc$median[desc$name == varname]
-  out
-})
+# 
+# # Removing NA participants & vars
+# partic_NA_tres_perc     <- .2 # remove participants that have more than X% NAs
+# partic_NA_tres_var      <- .2 # remove features/variables that have more than X% NAs
+# 
+# miss       <- is.na(df_analyse)
+# df_analyse <- df_analyse[!(rowSums(miss)/ncol(df_analyse)) > partic_NA_tres_perc,
+#                           which((colSums(miss)/nrow(df_analyse)) <= partic_NA_tres_var)]
+# 
+# desc <- descriptives(df_analyse)
+# 
+#  # Median/mode substitution until we implement a better single imputation method
+# df_analyse[, desc$type == "integer"] <- lapply(desc$name[desc$type == "integer"], function(varname){
+#    out <- df_analyse[[varname]]
+#    out[is.na(out)] <- desc$mode[desc$name == varname]
+#    out
+# })
+# 
+# df_analyse[, desc$type == "numeric"] <- lapply(desc$name[desc$type == "numeric"], function(varname){
+#    out <- df_analyse[[varname]]
+#    out[is.na(out)] <- desc$median[desc$name == varname]
+#    out
+# })
 
 
 # Impute NAs with missranger - this doesn't work now
 # get number of non NAs per row to use as case.weights
-#non_miss <- rowSums(!is.na(df_analyse))
 # fitting missRanger
-# set.seed(953007)
-# df_analyse_NA_imputed <- missRanger(df_analyse)
-# quick check to see if any NAs are left over
+set.seed(953007)
+df_analyse <- missRanger(df_analyse)
+# # quick check to see if any NAs are left over
 if(anyNA(df_analyse)) stop("Still NAs in df_analyse.")
-
 
 # Clearing environment
 env_obj <- ls()
@@ -58,14 +65,16 @@ env_obj <- env_obj[!env_obj == "df_analyse"]
 do.call(rm, as.list(env_obj))
 gc()
 
+
 ########## ALLOCATING VARIABLES ##########
 
 # Remove variables that we don't use as predictors or dependent variables
-df_analyse <- df_analyse[,-which(names(df_analyse) %in% c("responseid", "recordeddate", "train", "source"))]
+df_analyse <- df_analyse[,-which(names(df_analyse) %in% c("responseid", "recordeddate", "train", 
+                                                          "source", "region"))]
 
 # Making all character variables factors
 df_analyse[, which(sapply(df_analyse, is.character))] <- 
-  lapply(df_analyse[, which(sapply(df_analyse, is.character))], factor)
+  sapply(df_analyse[, which(sapply(df_analyse, is.character))], factor)
 
 # Making all variables with 5 or less unique values factors
 df_analyse[, which(lapply(sapply(df_analyse, unique), length) <= 5)] <- 
@@ -90,19 +99,20 @@ expl_dv <- function(y){
 lapply(dep_vars, expl_dv) 
 
 ########## CARET MODEL COMPARING SETUP ########## 
-
-# To efficiently test whether the code works for all dep. variables, we here take a random subset of the data
-# (CHANGE THIS TO THE FULL df_analyse SET LATER)
 set.seed(953007)
-df_analyse <- df_analyse[sample(1:nrow(df_analyse), 1e3),]
 
 # Model parameters
-cv_split <- trainControl(method = "cv", number = 10, verboseIter = TRUE) # cv split
+cv_split <- trainControl(method = "cv", number = 10, verboseIter = TRUE, allowParallel = TRUE) # cv split
 lambda   <- seq(0.001, 0.1, by = 0.001)                                  # lambda sequence for Lasso
 ntree    <- 50                                                           # number of trees in each RF model
 
 # One function that trains both models (Lasso & Random Forest) on df_analyse and dep. variable (y)
-modelsPsycorona <- function(y){
+modelsPsycorona <- function(y,  run_in_parallel = TRUE, n_cores){
+  
+  if (run_in_parallel) {
+    cl <- makePSOCKcluster(n_cores) # set number of cores
+    registerDoParallel(cl) # register cluster
+  }
   
   modelRes <- list() # object to store results in
   seed     <- 953007 # seed used throughout this function
@@ -181,6 +191,12 @@ modelsPsycorona <- function(y){
   
   modelRes[["rf"]] <- rfRes
   
+  # if running in parallel, stop the cluster now
+  if (run_in_parallel) {
+    stopCluster(cl) # stop cluster
+    registerDoSEQ() # get back to sequential 
+  }
+  
   # Error checks regarding models
   # (1) compare the indices for one of the folds between each models to check if the folds were indeed the same
   if(any(modelRes$lasso$lassoModel$control$index$Fold05 != modelRes$rf$rfModel$control$index$Fold05)) {
@@ -195,8 +211,13 @@ modelsPsycorona <- function(y){
   
 } 
 
+
+# start counting time, to check if parallelisation is working
+ptm <- proc.time()
 # Apply modelsPsycorona to all dependent variables
-models <- lapply(dep_vars, modelsPsycorona)
+models <- lapply(dep_vars, modelsPsycorona, run_in_parallel=TRUE, n_cores = 3)
+# calculate elapsed time
+proc.time() - ptm
 
 ########## EVALUATION ##########
 
