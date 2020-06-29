@@ -1,11 +1,3 @@
-########## TO DO ##########
-
-# TODO: think about what to do with NAs
-# TODO: add ways of measurement (yes/no, Likert, etc.) to comments above variables
-# TODO: merge with metadata
-# TODO: think about other DVs
-# TODO: think about the unbalance in DV
-
 ########## PREPARATION ##########
 library(glmnet)
 library(caTools)
@@ -22,8 +14,9 @@ if(!require("tidySEM")){
 }
 
 ########## READ AND PREPARE DATA ##########
-df <- read.csv("data/RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv", stringsAsFactors = FALSE) # read in raw data
-#df <- read_csv("data/RMD30_Caspar van Lissa_2020-05-13 17-24 CEST.csv") # read in raw data
+source("scripts/psyCorona_data_merging.R") # we use df from this script (also exported as df_raw_merged.csv)
+df <- read.csv("data/df_raw_merged.csv", stringsAsFactors = FALSE)
+# df <- read.csv("data/RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv", stringsAsFactors = FALSE) # read in raw data
 
 # All names to lower, to prevent problems with name matching. Please use only
 # lowercase (capitalization is all over the place in the original data)
@@ -55,15 +48,15 @@ country_percentages <- df %>% group_by(coded_country) %>%
 retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
 df <- df[which(df$coded_country %in% retain_countries),] # removing countries that are < 1% of data
 
-
-# Descriptive stats
-table_descriptives <- descriptives(df)
-
-# Some variables might be spread out over several columns; check codebook
-vars <- grep("_\\d$", table_descriptives$name[table_descriptives$unique < 4], value = TRUE)
-# For example, coronaclose:
-df$coronaclose <- apply(df[, grep("^coronaclose_\\d", names(df))], 1, function(i){which(i == 1)[1]})
-df[, grep("^coronaclose_\\d", names(df))] <- NULL
+# Tim: this gave an error for some reason so commenting it out here
+# # Descriptive stats
+# table_descriptives <- descriptives(df)
+# 
+# # Some variables might be spread out over several columns; check codebook
+# vars <- grep("_\\d$", table_descriptives$name[table_descriptives$unique < 4], value = TRUE)
+# # For example, coronaclose:
+# df$coronaclose <- apply(df[, grep("^coronaclose_\\d", names(df))], 1, function(i){which(i == 1)[1]})
+# df[, grep("^coronaclose_\\d", names(df))] <- NULL
 
 # Recode: 1 = unemployed, 2 = 1-23 hours, 3 = 24-39 etc
 df$employstatus <- apply(df[, c(grep("^employstatus_[45]$", names(df)), grep("^employstatus_[123]$", names(df)))], 1, function(i){which(i == 1)[1]})
@@ -131,23 +124,21 @@ df <- df %>%
 ########## PREPARE DATA ##########
 
 # Removing NA participants & vars
-partic_NA_tres_perc     <- .2 # remove participants that have more than X% NAs
+miss                    <- is.na(df)
 partic_NA_tres_var      <- .2 # remove features/variables that have more than X% NAs
-
-miss       <- is.na(df)
-df <- df[!(rowSums(miss)/ncol(df)) > partic_NA_tres_perc,
-         -which((colSums(miss)/nrow(df)) > partic_NA_tres_var)]
-
-desc <- descriptives(df)
+df                      <- df[, -which((colSums(miss)/nrow(df)) > partic_NA_tres_var)]
+partic_NA_tres_perc     <- .2 # remove participants that have more than X% NAs
+df                      <- df[!(rowSums(miss)/ncol(df)) > partic_NA_tres_perc,]
 
 # Drop testing cases
 df_test <- df[!df$train, ]
 df_train <- df[df$train, ]
 
-library(missRanger)
-set.seed(4639)
-imp <- missRanger(df_train)
-write.csv(imp, "df_train_imputed.csv", row.names = FALSE)
+# We're doing this in the modelling script
+# library(missRanger)
+# set.seed(4639)
+# imp <- missRanger(df_train)
+# write.csv(imp, "df_train_imputed.csv", row.names = FALSE)
 
 write.csv(df_test, "testing.csv", row.names = FALSE)
 write.csv(df_train, "training.csv", row.names = FALSE)

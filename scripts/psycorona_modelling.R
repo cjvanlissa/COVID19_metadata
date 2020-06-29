@@ -14,16 +14,10 @@ library(caret)
 library(worcs)
 library(doParallel)
 library(missRanger)
-  
-
 
 source("scripts/psyCorona_data_cleaning.R") # get (subsets of) raw data from exploration script
 df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
-
-# To efficiently test whether the code works for all dep. variables, we here take a random subset of the data
-# (CHANGE THIS TO THE FULL df_analyse SET LATER)
-df_analyse <- df_analyse[sample(1:nrow(df_analyse), 1000), ]
-
+# df_analyse <- df_analyse[sample(1:nrow(df_analyse), 1e3), ] # random subset for testing
 
 ########## PREPARE DATA ##########
 # 
@@ -107,10 +101,11 @@ lambda   <- seq(0.001, 0.1, by = 0.001)                                  # lambd
 ntree    <- 50                                                           # number of trees in each RF model
 
 # One function that trains both models (Lasso & Random Forest) on df_analyse and dep. variable (y)
-modelsPsycorona <- function(y,  run_in_parallel = TRUE, n_cores){
+modelsPsycorona <- function(y, run_in_parallel = TRUE, n_cores){
   
   if (run_in_parallel) {
     cl <- makePSOCKcluster(n_cores) # set number of cores
+    # cl <- parallel::makeCluster(n_cores, setup_strategy = "sequential") # workaround for MacOS issues
     registerDoParallel(cl) # register cluster
   }
   
@@ -215,7 +210,7 @@ modelsPsycorona <- function(y,  run_in_parallel = TRUE, n_cores){
 # start counting time, to check if parallelisation is working
 ptm <- proc.time()
 # Apply modelsPsycorona to all dependent variables
-models <- lapply(dep_vars, modelsPsycorona, run_in_parallel=TRUE, n_cores = 3)
+models <- lapply(dep_vars, modelsPsycorona, run_in_parallel = TRUE, n_cores = 48) # using 48 cores
 # calculate elapsed time
 proc.time() - ptm
 
@@ -225,90 +220,3 @@ proc.time() - ptm
 models[[1]]$lasso$coefPlotRelevant
 models[[1]]$rf$varImpPlotTop25
 models[[1]]$modelComparison
-
-### FROM HERE THE SCRIPT HAS TO BE UPDATED
-
-# ### Outcome 1: c19perbeh
-# 
-# # Exploring Lasso model
-# plot(m_lasso_c19perbeh)      # choosing the optimal Lambda
-# m_lasso_c19perbeh$lambda.min # chosen lambda
-# 
-# # Evaluating model on training set (cross-validation)
-# m_lasso_c19perbeh$cvm[which(m_lasso_c19perbeh$lambda == m_lasso_c19perbeh$lambda.min)] # mean squared error on train set
-# 
-# # Get the coefficients and make them into a data frame
-# lasso_coefs        <- coef.glmnet(m_lasso_c19perbeh, s = m_lasso_c19perbeh$lambda.min)
-# lasso_coefs_excl   <- lasso_coefs[which(lasso_coefs[,1] == 0), 1]    # these features have been excluded
-# lasso_coefs_select <- lasso_coefs[-(which(lasso_coefs[,1] == 0)), 1] # these features have been selected (= meaningful)
-# sort(abs(lasso_coefs_select), decreasing = TRUE) # coefs sorted according to importance
-# 
-# # Coef plot
-# coefs <- lasso_coefs_select[!names(lasso_coefs_select) == "(Intercept)"]
-# plotdat <- data.frame(var = ordered(names(coefs), levels = names(coefs)[order(abs(coefs))]),
-#            val = abs(coefs),
-#            rank = seq_along(coefs))
-# 
-# ggplot(plotdat,
-#        aes(x = 0, xend = val, y = var, yend = var)) + geom_segment() + geom_point(aes(x = val, y = var))  +theme_bw()
-# 
-# source("scripts/model_accuracy.R")
-# model_accuracy(m_lasso_c19perbeh, 
-#                observed = y_train_c19perbeh,
-#                olddata = x_train_c19perbeh)
-# 
-# 
-# res <- ranger(y = y_train_c19perbeh, x = x_train_c19perbeh, importance = "permutation")
-# VarImpPlot(res)
-# 
-# 
-# # CJ: Don't run this code yet, BUT it fails because different variables are selected in train and test. 
-# # We should make ALL variable selection decisions in the exploration script, not in the modeling script.
-# # df_testing <- read.csv("testing.csv", stringsAsFactors = FALSE)
-# # ndat <- sparse.model.matrix(c19perbeh ~ ., data = df_testing)
-# # all(colnames(ndat) %in% colnames(x_train_c19perbeh))
-# # colnames(ndat)[!colnames(ndat) %in% colnames(x_train_c19perbeh)]
-# # ndat <- ndat[, match(colnames(x_train_c19perbeh), colnames(ndat))]
-# 
-# model_accuracy(m_lasso_c19perbeh, 
-#                newdata = ndat,
-#                observed = y_train_c19perbeh,
-#                olddata = x_train_c19perbeh)
-# # coefs_df <- data.frame(var_name = names(lasso_coefs[,1]), coef = unname(lasso_coefs[,1]))
-# # 
-# # # plot coefficients above .3
-# # coefs_df %>% filter(abs(coef) > 0.3) %>% 
-# #   ggplot(aes(x=var_name, y=coef)) +
-# #   geom_bar(stat="identity") +
-# #   theme(axis.text.x = element_text(angle = 90, hjust = 1))
-# 
-# ### ARCHIVED CODE
-# 
-# # # I chose to set a "coronaKnow" variable which is 1 if the participants knows anyone with corona (including oneself)
-# # # and is 0 if they do not. It's arguable if this is best, but gives us the most positive cases to work with.
-# # df_mod_final <- df_analyse %>% mutate(knowcorona = factor(coronaclose == 6, labels = c("Yes", "No")))
-# 
-# # create final data set for modelling and assign train, test, or validation set
-# # CJ: We're already working with the training data.
-# # set.seed(953007)
-# # df_mod_final <- df_mod %>% 
-# #   plyr::select(-coronaclose_1,-coronaclose_2,  -coronaclose_3,  -coronaclose_4,  -coronaclose_5, -coronaclose_6) %>% 
-# #   mutate_at(vars_to_encode[12:17], funs(factor(.))) %>% 
-# #   mutate(set = sample.int(3, nrow(df_mod), replace = TRUE, prob = c(p_train, p_test, p_validation)))
-# 
-# # # ...
-# # mean(predict(knowcorona_mod_lasso, newx = m_train, type="class", 
-# #              s = knowcorona_mod_lasso$lambda.1se) == y_train) # train set
-# # 
-# # lasso_preds <- predict(knowcorona_mod_lasso, newx=m_train, type="class",
-# #                        s=knowcorona_mod_lasso$lambda.1se)
-# # 
-# # lasso_preds_processed <- as.factor(unname(lasso_preds[,1]))
-# # 
-# # # Accuracy, precision, recall, F1...
-# # precision <- posPredValue(lasso_preds_processed, y_train, positive="1")
-# # precision
-# # recall <- sensitivity(lasso_preds_processed, y_train, positive="1")
-# # recall
-# # F1 <- (2 * precision * recall) / (precision + recall)
-# # F1

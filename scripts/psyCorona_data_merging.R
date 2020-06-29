@@ -1,18 +1,11 @@
-##########
-
 ########## TO DO ##########
 
 # TODO: 
-
 # google_mobility/mobility_March_29_2020.csv: Replace the current end Mar data with response date specific values
-
 # OWID_Tests/OurWorldInData_Tests.csv: Replace the current end Mar data with response date specific values
-
 # WB_DEV/recent_world_development_indicators.csv: Select relevant variables
-
 # WB_GOV/wb_government_effectiveness.csv: Select relevant variables
-
-# WB_INSTITUTIONAL/recent_institutional_profiles.csv: 
+# WB_INSTITUTIONAL/recent_institutional_profiles.csv:
 
 ########## Packages ##########
 library(dplyr)
@@ -270,6 +263,8 @@ add_dict_entries_from_dictionary_and_vars_spec <- function(dict, df, dict_path, 
 }
 
 ########## PREPARATION ##########
+
+na_percentage <- .2
 
 data_path <- "data"
 input_filename <- "RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv"
