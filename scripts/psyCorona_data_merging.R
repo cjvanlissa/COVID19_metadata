@@ -1,16 +1,35 @@
+##########
+
 ########## TO DO ##########
 
 # TODO: 
-# google_mobility/mobility_March_29_2020.csv: Replace the current end Mar data with response date specific values
+
 # OWID_Tests/OurWorldInData_Tests.csv: Replace the current end Mar data with response date specific values
-# WB_DEV/recent_world_development_indicators.csv: Select relevant variables
+
+# WB_DEV/recent_world_development_indicators.csv: Select relevant variables and add scaling
+
 # WB_GOV/wb_government_effectiveness.csv: Select relevant variables
-# WB_INSTITUTIONAL/recent_institutional_profiles.csv:
+
 
 ########## Packages ##########
 library(dplyr)
 library(countrycode)
 library(tidyr)
+
+########## SETTINGS ##########
+
+# Percentage of NA which is accepted for important variables.Otherwise variable is dropped
+important_perc <- 100
+# Percentage of NA which is accepted for medium important variables.Otherwise variable is dropped
+medium_perc <- 66
+# Percentage of NA which is accepted for low important variables.Otherwise variable is dropped
+low_perc <- 33
+
+data_path <- "data"
+input_filename <- "RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv"
+#input_filename <- "RMD30_small.csv"
+output_filename <- "df_raw_merged.csv"
+#output_filename <- "df_raw_merged_small.csv"
 
 ########## FUNCTIONS ##########
 
@@ -244,7 +263,6 @@ add_dict_entries_from_vars_spec <- function(dict, df, source, vars_spec){
   dict_temp <- dict_temp[dict_temp$variable %in% names(df),]
   rbind(dict, dict_temp)
 }
-
 #
 add_dict_entries_from_dictionary_and_vars_spec <- function(dict, df, dict_path, source, vars_spec){
   dict_temp1 <- read.csv(dict_path, stringsAsFactors = FALSE)
@@ -261,16 +279,6 @@ add_dict_entries_from_dictionary_and_vars_spec <- function(dict, df, dict_path, 
   dict_temp <- dict_temp[dict_temp$variable %in% names(df),]
   rbind(dict, dict_temp)
 }
-
-########## PREPARATION ##########
-
-na_percentage <- .2
-
-data_path <- "data"
-input_filename <- "RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv"
-#input_filename <- "RMD30_small.csv"
-output_filename <- "df_raw_merged.csv"
-#output_filename <- "df_raw_merged_small.csv"
 df <- suppressWarnings(read.csv(paste(data_path, input_filename, sep = "/"), stringsAsFactors = FALSE))
 names(df) <- tolower(names(df)) 
 df$startdate <- as.POSIXct(df$startdate)
@@ -280,7 +288,7 @@ dict <- data.frame(variable=character(), description=character(), source=charact
 ########## MERGE DATA ###########################################################################
 
 ########## FCTB_POPULATION #################################################################
-# Population estimates.
+# Population estimates. 
 # Required also for calculating values per capita for other data sources
 
 if (T) {
@@ -307,7 +315,6 @@ if (T) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -320,12 +327,11 @@ if (T) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
-if (active) {
+if (active){
   # data path
   file_path <- paste(data_path, "CSSE/CSSE.csv", sep = "/")
-  
   df %>%
     merge_file_by_countryiso3(file_path, na_percentage) %>%
     replace_date_variables_with_dayno(
@@ -335,7 +341,6 @@ if (active) {
       prefix_regexp_w_group = "([^.]*)[.].*"
     ) %>%
     replace_dated_variables_based_on_response_date() -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_for_timed_variable(df, "^confirmed", basename(file_path)) %>%
@@ -344,13 +349,13 @@ if (active) {
 }
 
 ########## OxCGRT ##########################################################################
-# The Oxford COVID-19 Government Response Tracker.
+# The Oxford COVID-19 Government Response Tracker. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -358,13 +363,11 @@ if (active) {
     paste(data_path,
           "OxCGRT/OxCGRT_Oxford_regulation_policies.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
           "FCTB_POPULATION/data_dictionary.csv",
           sep = "/")
-  
   df %>%
     merge_file_by_countryiso3(file_path, na_percentage) %>%
     replace_date_variables_with_dayno(
@@ -374,7 +377,6 @@ if (active) {
       prefix_regexp_w_group = "(^.*)_.*"
     ) %>%
     replace_dated_variables_based_on_response_date() -> df
-
   # add dict entries
   dict %>%
     add_dict_entries_for_timed_variable(df, "^school.closing", basename(file_path)) %>%
@@ -396,20 +398,19 @@ if (active) {
 }
 
 ########## FCTB_AIRPORTS ###################################################################
-# This entry gives the total number of airports or airfields recognizable from the air.
+# This entry gives the total number of airports or airfields recognizable from the air. 
 # Per 1,000,000 people.
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- medium_perc
 
 if (active) {
   # data path
   file_path <-
     paste(data_path, "FCTB_AIRPORTS/recent_fctb_airports.csv", sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -427,20 +428,19 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_BIRTH_RATE #################################################################
-# Birth rate compares the average annual number of births during a year per 1,000 persons.
+# Birth rate compares the average annual number of births during a year per 1,000 persons. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -448,7 +448,6 @@ if (active) {
     paste(data_path,
           "FCTB_BIRTH_RATE/recent_fctb_birth_rate.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -466,20 +465,19 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_CHILDREN_UNDERWEIGHT #########################################################
-# Children under the age of 5 years underweight gives the percent of children under five considered to be underweight.
+# Children under the age of 5 years underweight gives the percent of children under five considered to be underweight. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -489,7 +487,6 @@ if (active) {
       "FCTB_CHILDREN_UNDERWEIGHT/recent_fctb_children_underweight.csv",
       sep = "/"
     )
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -507,7 +504,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -520,7 +516,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -528,7 +524,6 @@ if (active) {
     paste(data_path,
           "FCTB_DEATH_RATE/recent_fctb_death_rate.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -546,7 +541,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -559,7 +553,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -569,7 +563,6 @@ if (active) {
       "FCTB_EDUCATION_EXPENDITURES/recent_fctb_education_expenditures.csv",
       sep = "/"
     )
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -587,7 +580,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -600,7 +592,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- low_perc
 
 if (active) {
   # data path
@@ -608,7 +600,6 @@ if (active) {
     paste(data_path,
           "FCTB_FERTILITY_RATE/recent_fctb_fertility_rate.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -626,11 +617,11 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
+
 
 ########## FCTB_HEALTH_EXPENDITURES #########################################################
 # Health expenditures provides the total expenditure on health as a percentage of GDP.
@@ -639,7 +630,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -649,7 +640,6 @@ if (active) {
       "FCTB_HEALTH_EXPENDITURES/recent_fctb_health_expenditures.csv",
       sep = "/"
     )
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -667,7 +657,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -681,7 +670,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -689,7 +678,6 @@ if (active) {
     paste(data_path,
           "FCTB_HIV_DEATHS/recent_fctb_hiv_deaths.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -707,7 +695,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -720,7 +707,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -728,7 +715,6 @@ if (active) {
     paste(data_path,
           "FCTB_HIV_RATE_ADULT/recent_fctb_hiv_rate_adult.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -746,7 +732,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -759,7 +744,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -767,7 +752,6 @@ if (active) {
     paste(data_path,
           "FCTB_HIV_RATE_ALL/recent_fctb_hiv_rate_all.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -785,21 +769,20 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_INFANT_MORTALITY #########################################################
-# Infant mortality rate compares the number of deaths of infants under one year old in a
-# given year per 1,000 live births in the same year.
+# Infant mortality rate compares the number of deaths of infants under one year old in a 
+# given year per 1,000 live births in the same year. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -807,7 +790,6 @@ if (active) {
     paste(data_path,
           "FCTB_INFANT_MORTALITY/recent_fctb_infant_mortality.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -825,7 +807,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -838,7 +819,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -846,7 +827,6 @@ if (active) {
     paste(data_path,
           "FCTB_LIFE_EXPECTANCY/recent_fctb_life_expectancy.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -864,20 +844,19 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_MATERNAL_MORTALITY #########################################################
-# The annual number of female deaths per 100,000 live births.
+# The annual number of female deaths per 100,000 live births. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -885,7 +864,6 @@ if (active) {
     paste(data_path,
           "FCTB_MATERNAL_MORTALITY/recent_fctb_maternal_mortality.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -903,26 +881,24 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_MEDIAN #########################################################
-# Median age.
+# Median age. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- medium_perc
 
 if (active) {
   # data path
   file_path <-
     paste(data_path, "FCTB_MEDIAN/recent_fctb_median.csv", sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -940,22 +916,21 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_MERCHANT_MARINE #################################################
-# Merchant marine compares all ships engaged in the carriage of goods; or all
-# commercial vessels (as opposed to all nonmilitary ships), which excludes tugs, fishing vessels, offshore oil rigs, etc.
+# Merchant marine compares all ships engaged in the carriage of goods; or all 
+# commercial vessels (as opposed to all nonmilitary ships), which excludes tugs, fishing vessels, offshore oil rigs, etc. 
 # Per 1,000,000 people.
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- low_perc
 
 if (active) {
   # data path
@@ -963,7 +938,6 @@ if (active) {
     paste(data_path,
           "FCTB_MERCHANT_MARINE/recent_fctb_merchant_marine.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -981,21 +955,20 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_MIGRATION_RATE #################################################
-# Net migration rate compares the difference between the number of persons
+# Net migration rate compares the difference between the number of persons 
 # entering and leaving a country during the year per 1,000 persons.
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1003,7 +976,6 @@ if (active) {
     paste(data_path,
           "FCTB_MIGRATION_RATE/recent_fctb_migration_rate.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1021,27 +993,25 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_OBESITY ########################################################
-# Obesity - adult prevalence rate gives the percent of a country's population
+# Obesity - adult prevalence rate gives the percent of a country's population 
 # considered to be obese.
 
 # activate F set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- low_perc
 
 if (active) {
   # data path
   file_path <-
     paste(data_path, "FCTB_OBESITY/recent_fctb_obesity.csv", sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1059,22 +1029,21 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## FCTB_POPULATION_GROWTH ########################################################
-# Population growth rate compares the average annual percent change in populations, resulting
-# from a surplus (or deficit) of births over deaths and the balance of migrants entering and
+# Population growth rate compares the average annual percent change in populations, resulting 
+# from a surplus (or deficit) of births over deaths and the balance of migrants entering and 
 # leaving a country. The rate may be positive or negative.
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- low_perc
 
 if (active) {
   # data path
@@ -1082,7 +1051,6 @@ if (active) {
     paste(data_path,
           "FCTB_POPULATION_GROWTH/recent_fctb_population_growth.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1100,7 +1068,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1114,13 +1081,12 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
   file_path <-
     paste(data_path, "FCTB_RAILWAYS/recent_fctb_railways.csv", sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1138,7 +1104,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1152,13 +1117,12 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
   file_path <-
     paste(data_path, "FCTB_ROADWAYS/recent_fctb_roadways.csv", sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1176,7 +1140,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1189,7 +1152,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -1197,7 +1160,6 @@ if (active) {
     paste(data_path,
           "FCTB_UNEMPLOYMENT_YOUTH/recent_fctb_unemployment_youth.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1215,7 +1177,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1229,7 +1190,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- low_perc
 
 if (active) {
   # data path
@@ -1237,7 +1198,6 @@ if (active) {
     paste(data_path,
           "FCTB_WATERWAYS/recent_fctb_waterways.csv",
           sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
@@ -1255,7 +1215,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1268,7 +1227,7 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1286,20 +1245,19 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_vars_spec(df, basename(file_path), vars_spec) -> dict
 }
 
-########## google_mobility ##################################################################
-# Retail & recreation: Mobility trends for places like restaurants, cafes, shopping centers,
+########## google_mobility ############################################################################
+# Retail & recreation: Mobility trends for places like restaurants, cafes, shopping centers, 
 # theme parks, museums, libraries, and movie theaters.
-# Grocery & pharmacy: Mobility trends for places like grocery markets, food warehouses,
+# Grocery & pharmacy: Mobility trends for places like grocery markets, food warehouses, 
 # farmers markets, specialty food shops, drug stores, and pharmacies.
-# Parks: Mobility trends for places like local parks, national parks, public beaches,
+# Parks: Mobility trends for places like local parks, national parks, public beaches, 
 # marinas, dog parks, plazas, and public gardens.
-# Transit stations: Mobility trends for places like public transport hubs such as subway,
+# Transit stations: Mobility trends for places like public transport hubs such as subway, 
 # bus, and train stations.
 # Residential: Mobility trends for places of residence.
 # Workplaces: Mobility trends for places of work.
@@ -1308,47 +1266,21 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 20
+na_percentage <- important_perc
 
-if (active) {
-  # data path
-  file_path <-
-    paste(data_path,
-          "google_mobility/mobility_March_29_2020.csv",
-          sep = "/")
-  
-  # column specifications
-  var <-
-    c(
-      "retail_recreation",
-      "grocery_pharmacy",
-      "parks",
-      "transit_stations",
-      "workplaces",
-      "residential"
-    )
-  name <-
-    c(
-      "retail_recreation",
-      "grocery_pharmacy",
-      "parks",
-      "transit_stations",
-      "workplaces",
-      "residential"
-    )
-  scale <- c(F, F, F, F, F, F)
-  vars_spec <- data.frame(var, name, scale)
-  
-  # merge data
+if (active){
+  file_path <- paste(data_path, "google_mobility/google_mobility.csv", sep = "/")
   df %>%
-    merge_file_by_countryiso3_variables(file_path,
-                                        vars_spec,
-                                        na_percentage) -> df
-  
-  # add dict entries
-  dict %>%
-    add_dict_entries_from_vars_spec(df, basename(file_path), vars_spec) -> dict
+    merge_file_by_countryiso3(file_path, na_percentage) %>%
+    replace_date_variables_with_dayno(
+      date_regexp = "[0-9][0-9][0-9][0-9][.][0-9][0-9][.][0-9][0-9]",
+      date_regexp_w_groups = ".*[_]([0-9][0-9][0-9][0-9])[.]([0-9][0-9])[.]([0-9][0-9])",
+      date_subst_posix = "\\1/\\2/\\3",
+      prefix_regexp_w_group = "([^.]*)[_].*"
+    ) %>%
+    replace_dated_variables_based_on_response_date() -> df
 }
+
 
 ########## OWID_Tests ##################################################################
 # Global health security capabilities in 195 countries.
@@ -1357,10 +1289,9 @@ if (active) {
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
-  # data path
   file_path <-
     paste(data_path, "OWID_Tests/OurWorldInData_Tests.csv", sep = "/")
   
@@ -1375,23 +1306,19 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
-  # add dict entries
-  dict %>%
-    add_dict_entries_from_vars_spec(df, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_BUREAUCRACY ##################################################################
-# The Worldwide Bureaucracy Indicators (WWBI) is a dataset on public sector employment and
-# wages that can help researchers and development practitioners gain a better understanding
-# of the personnel dimensions of state capability, the footprint of the public sector on the
-# overall labor market, and the fiscal implications of the government wage bill.
+# The Worldwide Bureaucracy Indicators (WWBI) is a dataset on public sector employment and 
+# wages that can help researchers and development practitioners gain a better understanding 
+# of the personnel dimensions of state capability, the footprint of the public sector on the 
+# overall labor market, and the fiscal implications of the government wage bill. 
 
 # activate data set?
 active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1405,7 +1332,6 @@ if (active) {
     paste(data_path,
           "WB_BUREAUCRACY/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "Number.of.employees")
@@ -1419,24 +1345,23 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_BUSINESS ##################################################################
-# The Doing Business project provides objective measures of business regulations and their
-# enforcement across 190 economies. Economies are ranked on their ease of doing business,
-# from 1-190. The rankings are determined by sorting the aggregate scores (formerly called
-# distance to frontier) on 10 topics, each consisting of several indicators, giving equal
-# weight to each topic.
+# The Doing Business project provides objective measures of business regulations and their 
+# enforcement across 190 economies. Economies are ranked on their ease of doing business, 
+# from 1-190. The rankings are determined by sorting the aggregate scores (formerly called 
+# distance to frontier) on 10 topics, each consisting of several indicators, giving equal 
+# weight to each topic. 
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -1446,9 +1371,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_BUSINESS/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1462,7 +1386,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1472,10 +1395,10 @@ if (active) {
 # World development indicators
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -1487,12 +1410,12 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_DEV/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
-  spec <- get_column_specifications_from_recent_file(file_path,
-                                                     "xxxxx")
+  spec <- get_column_specifications_from_recent_file(
+    file_path, 
+    "xxxx")
   var <- spec$var
   name <- spec$name
   scale <- spec$scale
@@ -1503,7 +1426,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1513,10 +1435,10 @@ if (active) {
 # Education indicators
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1528,9 +1450,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_EDUCATION/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1544,7 +1465,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1554,10 +1474,10 @@ if (active) {
 # Population density is midyear population divided by land area in square kilometers.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1569,9 +1489,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_ENPOPDNST/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1585,7 +1504,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1595,10 +1513,10 @@ if (active) {
 # Population living in slums (% of urban population).
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1610,9 +1528,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_ENPOPSLUMURZS/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1626,7 +1543,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1636,10 +1552,10 @@ if (active) {
 # Worldbank failed state index.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1651,9 +1567,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_FAILED/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1667,7 +1582,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1677,10 +1591,10 @@ if (active) {
 # Consumer price index reflects changes in the cost to the average consumer of acquiring a basket of goods and services.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -1702,20 +1616,16 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
-  # add dict entries
-  dict %>%
-    add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_FREEDOM ##################################################################
 # Political rights and civil liberties.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1725,9 +1635,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_FREEDOM/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1741,22 +1650,18 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
-  # add dict entries
-  dict %>%
-    add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_GENDER ##################################################################
-# The Gender Statistics database is a comprehensive source for the latest sex-disaggregated
-# data and gender statistics covering demography, education, health, access to economic
+# The Gender Statistics database is a comprehensive source for the latest sex-disaggregated 
+# data and gender statistics covering demography, education, health, access to economic 
 # opportunities, public life and decision-making, and agency.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -1766,9 +1671,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_GENDER/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1782,7 +1686,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1792,10 +1695,10 @@ if (active) {
 # Governance consists of the traditions and institutions by which authority in a country is exercised.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1807,9 +1710,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_GOV/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1823,21 +1725,20 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_GOVERNANCE ##################################################################
-# The Global Indicators of Regulatory Governance present new measures of transparency, civic
+# The Global Indicators of Regulatory Governance present new measures of transparency, civic 
 # participation and government accountability across the life cycle of regulations.
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1849,9 +1750,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_GOVERNANCE/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1865,23 +1765,22 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_INSTITUTIONAL ##################################################################
-# The CPIA rates countries against a set of 16 criteria grouped in four clusters: (i) economic
-# management; (ii) structural policies; (iii) policies for social inclusion and equity; and (iv)
-# public sector management and institutions. The criteria are focused on balancing the capture
+# The CPIA rates countries against a set of 16 criteria grouped in four clusters: (i) economic 
+# management; (ii) structural policies; (iii) policies for social inclusion and equity; and (iv) 
+# public sector management and institutions. The criteria are focused on balancing the capture 
 # of the key factors that foster growth and poverty reduction
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- important_perc
 
 if (active) {
   # data path
@@ -1893,9 +1792,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_INSTITUTIONAL/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1909,7 +1807,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1920,7 +1817,7 @@ if (active) {
 # Per 1,000,000 people
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
 na_percentage <- 100
@@ -1929,11 +1826,10 @@ if (active) {
   # data path
   file_path <-
     paste(data_path, "WB_ISAIRDPRT/recent_air_departures.csv", sep = "/")
-  
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_ISAIRDPRT/data_dictionary.csv",
           sep = "/")
   
   # get column specifications
@@ -1948,7 +1844,6 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
@@ -1958,10 +1853,10 @@ if (active) {
 # Mobile cellular subscriptions (per 100 people)
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -1973,9 +1868,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_ITCELSETSP2/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -1989,25 +1883,24 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
   # add dict entries
   dict %>%
     add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
 ########## WB_LOGISTICS ##################################################################
-# The Logistics Performance Index overall score reflects perceptions of a country's logistics
-# performance based on the efficiency of the customs clearance process, quality of trade-
-# and transport-related infrastructure, ease of arranging competitively priced international
-# shipments, quality of logistics services, ability to track and trace consignments, and
-# frequency with which shipments reach the consignee within the scheduled time.
-# The index ranges from 1 to 5, with a higher score More...
+# The Logistics Performance Index overall score reflects perceptions of a country's logistics 
+# performance based on the efficiency of the customs clearance process, quality of trade- 
+# and transport-related infrastructure, ease of arranging competitively priced international 
+# shipments, quality of logistics services, ability to track and trace consignments, and 
+# frequency with which shipments reach the consignee within the scheduled time. 
+# The index ranges from 1 to 5, with a higher score 
 
 # activate data set?
-active <- F
+active <- T
 
 # drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
-na_percentage <- 100
+na_percentage <- medium_perc
 
 if (active) {
   # data path
@@ -2019,9 +1912,8 @@ if (active) {
   # dict path
   dict_path <-
     paste(data_path,
-          "FCTB_POPULATION/data_dictionary.csv",
+          "WB_LOGISTICS/data_dictionary.csv",
           sep = "/")
-  
   # get column specifications
   spec <-
     get_column_specifications_from_recent_file(file_path, "xxxxx")
@@ -2035,13 +1927,864 @@ if (active) {
     merge_file_by_countryiso3_variables(file_path,
                                         vars_spec,
                                         na_percentage) -> df
-  
-  # add dict entries
-  dict %>%
-    add_dict_entries_from_dictionary_and_vars_spec(df, dict_path, basename(file_path), vars_spec) -> dict
 }
 
+########## WB_NEIMPGNFSZS ##################################################################
+# Imports of goods and services (% of GDP)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_NEIMPGNFSZS/recent_imports_goods.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_NE.IMP.GNFS.ZS")
+  name <- c("imports_percent")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_NYGDPPCAPCD ##################################################################
+# GDP per capita (current US$). World Bank national accounts data, and OECD National
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_NYGDPPCAPCD/recent_GDP_capita.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_NY.GDP.PCAP.CD")
+  name <- c("gdp_per_capita")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_POV_EQUITY ##################################################################
+# The Poverty and Equity Data Portal is the World Bank Group's comprehensive source for the 
+# latest data on poverty, inequality, ...
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_POV_EQUITY/recent_poverty_equity_data.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_PRESS_FREE ##################################################################
+# Press freedom rank and index
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_PRESS_FREE/recent_press_freedom_index.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_SEADTLITRZS ##################################################################
+# Literacy rate, adult total (% of people ages 15 and above)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SEADTLITRZS/recent_literacy_total.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SE.ADT.LITR.ZS")
+  name <- c("literacy_rate")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SEXPDPRIMPCZS ##################################################################
+# Expenditure on primary education (% of government expenditure on education)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SEXPDPRIMPCZS/recent_education_student_primary.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SE.XPD.PRIM.PC.ZS")
+  name <- c("education_primary_precent")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_SEXPDSECOPCZS ##################################################################
+# Expenditure on secondary education (% of government expenditure on education)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SEXPDSECOPCZS/recent_education_student_secondary.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SE.XPD.SECO.PC.ZS")
+  name <- c("education_sceondary_precent")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_SEXPDTERTPCZS ##################################################################
+# Expenditure on tertiary education (% of government expenditure on education)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SEXPDTERTPCZS/recent_education_student_tertiary.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SE.XPD.TERT.PC.ZS")
+  name <- c("education_tertiary_precent")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_SEXPDTOTLGDZS ##################################################################
+# Government expenditure on education, total (% of government expenditure)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SEXPDTOTLGDZS/recent_education_total.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SE.XPD.TOTL.GD.ZS")
+  name <- c("education_precent")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+########## WB_SHDYNAIDSZS ##################################################################
+# Prevalence of HIV, total (% of population ages 15-49)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SHDYNAIDSZS/recent_HIV_percent.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SH.DYN.AIDS.ZS")
+  name <- c("prevalence_hiv_percent")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SHDYNMORT ##################################################################
+# Mortality rate under 5
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SHDYNMORT/recent_mortality_rate.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SH.DYN.MORT")
+  name <- c("mortality_rate_under_5")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SHMEDBEDSZS ##################################################################
+# Hospital beds per 1000 people
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SHMEDBEDSZS/recent_get_hospital_beds.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SH.MED.BEDS.ZS")
+  name <- c("hospital_beds")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SHTBSINCD ##################################################################
+# Incidence of tuberculosis (per 100,000 people)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SHTBSINCD/recent_incidence_tuberculosis.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SH.TBS.INCD")
+  name <- c("incidents_tubercolosis")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SIPOVDDAY ##################################################################
+# Population below $1.90 a day is the percentage of the population living on less than $1.90 a day
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SIPOVDDAY/recent_poverty_headcount.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SI.POV.DDAY")
+  name <- c("poverty_percentage")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SLEMPVULNFEZS ##################################################################
+# Female employment to population ratio, 15+
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SLEMPVULNFEZS/recent_employment_female.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SL.EMP.VULN.FE.ZS")
+  name <- c("female_employment")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SLEMPVULNMAZS ##################################################################
+# Male employment to population ratio, 15+
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SLEMPVULNMAZS/recent_employment_male.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SL.EMP.VULN.MA.ZS")
+  name <- c("male_employment")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SLUEMTOTLZS ##################################################################
+# Total employment to population ratio, 15+
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SLUEMTOTLZS/recent_employment_total.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SL.UEM.TOTL.ZS")
+  name <- c("total_employment")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SMPOPNETM ##################################################################
+# Net migration is the net total of migrants (relevant to population)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SMPOPNETM/recent_net_migration.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SM.POP.NETM")
+  name <- c("net_migrants")
+  scale <- c(T)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SPADOTFRT ##################################################################
+# Adolescent fertility rate (births per 1000 women ages 15-19) 
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- low_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SPADOTFRT/recent_adolescent_fertilty.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SP.ADO.TFRT")
+  name <- c("adolescent_fertility")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SPDYNLE00IN ##################################################################
+# Life expectancy at birth 
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SPDYNLE00IN/recent_life_expectancy.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SP.DYN.LE00.IN")
+  name <- c("life_expectancy")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SPPOP65UPTOZS ##################################################################
+# Population ages 65 and above (% of total population)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SPPOP65UPTOZS/recent_population_65_up.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SP.POP.65UP.TO.ZS")
+  name <- c("population_65+")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SPPOP1564TOZS ##################################################################
+# Population 15-65 (% of total population)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SPPOP1564TOZS/recent_population_15_64.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_SP.POP.1564.TO.ZS")
+  name <- c("population_15-65")
+  scale <- c(F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SPRURTOTLZS ##################################################################
+# Rural population refers to people living in rural areas (%)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SPRURTOTLZS/recent_rural_population_percent.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_SPURBTOTLINZS ##################################################################
+# Urban population (%)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_SPURBTOTLINZS/recent_urban_population.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_STINTXPNDMPZS ##################################################################
+# International tourism, expenditures (current US$)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_STINTXPNDMPZS/recent_intl_tourism_expenditures.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_ST.INT.XPND.MP.ZS")
+  name <- c("tourism_expeditures")
+  scale <- c(T)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_TOURISM ##################################################################
+# Urban population (%)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_TOURISM/recent_travel_tourism_competitiveness.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_TRADE ##################################################################
+# Trade (% of GDP)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_TRADE/recent_trade_and_development.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_TXVALTRVLZSWT ##################################################################
+# Travel services (% of service exports)
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_TXVALTRVLZSWT/recent_travel_services.csv", sep = "/")
+  
+  # get column specifications
+  var <- c("latest.value_TX.VAL.TRVL.ZS.WT")
+  name <- c("travel_services")
+  scale <- c(T)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_WDI ##################################################################
+# World development indicators
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_WDI/recent_wdi.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WB_WTTC ##################################################################
+# World Travel & Tourism Counsil data
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- medium_perc
+
+if (active) {
+  file_path <-
+    paste(data_path, "WB_WTTC/recent_world_travel_tourism_counsil.csv", sep = "/")
+  
+  # get column specifications
+  spec <- get_column_specifications_from_recent_file(file_path, "xxxxx")
+  var <- spec$var
+  name <- spec$name
+  scale <- spec$scale
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+
+########## WHO OECD Health Infrastructure ##################################################################
+
+# activate data set?
+active <- T
+
+# drop merged columns with more na values than na_percentage of rows (specify 100 to ignore)
+na_percentage <- important_perc
+
+if (active) {
+  # data path
+  file_path <-
+    paste(data_path,
+          "WHO_OECD/WHO_OECD_health_infrastructure.csv",
+          sep = "/")
+  
+  # column specifications
+  var <-
+    c(
+      "hospitals_per_1mil",
+      "hospital_beds_per_1000",
+      "doctors_per_10k",
+      "nurses_and_midwifery_per_10k",
+      "che_perc_of_gdp_2017",
+      "world_pop_2016_thousands"
+    )
+  name <-
+    c(
+      "hospitals_per_1mil",
+      "hospital_beds_per_1000",
+      "doctors_per_10k",
+      "nurses_and_midwifery_per_10k",
+      "che_perc_of_gdp_2017",
+      "world_pop_2016_thousands"
+    )
+  scale <- c(F, F, F, F, F, F)
+  vars_spec <- data.frame(var, name, scale)
+  
+  # merge data
+  df %>%
+    merge_file_by_countryiso3_variables(file_path,
+                                        vars_spec,
+                                        na_percentage) -> df
+}
+
+message("Number of variables:", length(names(df)))
 ########## WRITE_RESULT ###################################################################
 write.csv(df, paste(data_path, output_filename, sep = "/"), row.names = FALSE)
-write.csv(dict, paste(data_path, "data_dictionary_merged.csv", sep ="/"), row.names = FALSE)
 
