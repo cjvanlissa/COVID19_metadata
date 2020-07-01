@@ -18,14 +18,14 @@ library(data.table)
 # format of date is in date_regexp and date_subst_posix for use in gsub
 # format of complete variable is in date_regexp_w_groups and prefix_regexp_w_group
 replace_date_variables_with_dayno <- function(df, date_regexp, date_regexp_w_groups, date_subst_posix, prefix_regexp_w_group){
-  for (col in names(df)){
-    if (isTRUE(grep(date_regexp, col)==1)){
-      dayno <- calc_dayno(as.POSIXct(gsub(date_regexp_w_groups, date_subst_posix, col, perl=T)))
-      col_type <- gsub(prefix_regexp_w_group, "\\1", col, perl=T)
-      new_col <- paste(col_type, dayno, sep =".")
-      colnames(df)[which(names(df) == col)] <- paste("&", new_col, sep=".")
-    }
-  }
+  date_vars <- grepl(paste0(date_regexp, "$"), names(df))
+  the_dates <- names(df)[date_vars]
+  splits <- strsplit(the_dates, ".", fixed = TRUE)
+  dayno <- calc_dayno(as.POSIXct(sapply(splits, `[[`, 2), format = "%m_%d_%Y"))
+  
+  col_type <- sapply(splits, `[[`, 1)
+  new_col <- paste("&", col_type, dayno, sep =".")
+  names(df)[date_vars] <- new_col
   df
 }
 
@@ -33,6 +33,8 @@ replace_date_variables_with_dayno <- function(df, date_regexp, date_regexp_w_gro
 replace_dated_variables_based_on_response_date <- function(df){
   # get the respective dated variables
   n <- names(df)
+  dat_vars <- startsWith(n, "&")
+  browser()
   dated_variable_names <- unique(gsub("^&[.](.*)[.][0-9]+", "\\1", n[grep("&[.].*", n, perl = T)]))
   
   # for each row win data frame
