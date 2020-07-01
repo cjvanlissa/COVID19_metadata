@@ -148,13 +148,15 @@ merge_file_by_countryiso3_variables <- function(df, file_path, vars_spec, na_per
     }
   }
   
+  # remove 'country' variable from df_dat
+  df_dat <- df_dat[,!(names(df_dat) %in% c("country"))]
+  browser()
+  # From here on, df_dat will be a data.table
+  
   if(!is.data.table(df_dat)){
     df_dat <- as.data.table(df_dat)
   }
   
-  # remove 'country' variable from df_dat
-  df_dat <- df_dat[,!(names(df_dat) %in% c("country"))]
-  browser()
   # scale by 1,000,000 population
   if (!is.null(vars_spec)){
     cols <- vars_spec$name[vars_spec$scale]
