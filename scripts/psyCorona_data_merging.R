@@ -33,9 +33,9 @@ replace_date_variables_with_dayno <- function(df, date_regexp, date_regexp_w_gro
 replace_dated_variables_based_on_response_date <- function(df){
   # get the respective dated variables
   n <- names(df)
-  dat_vars <- startsWith(n, "&")
+  dat_vars <- names(df)[startsWith(n, "&")]
   browser()
-  dated_variable_names <- unique(gsub("^&[.](.*)[.][0-9]+", "\\1", n[grep("&[.].*", n, perl = T)]))
+  dated_variable_names <- unique(sapply(strsplit(dat_vars, ".", fixed = TRUE), `[[`, 2))
   
   # for each row win data frame
   for (row in 1:nrow(df)) {
