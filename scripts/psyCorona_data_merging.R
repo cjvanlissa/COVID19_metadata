@@ -11,7 +11,7 @@
 library(dplyr)
 library(countrycode)
 library(tidyr)
-
+library(data.table)
 ########## FUNCTIONS ##########
 
 # replace date part of variable with day no: 'var.date' will be renamed to '&.var.dayno
@@ -117,7 +117,7 @@ merge_file_by_countryiso3_variables <- function(df, file_path, vars_spec, na_per
   missing_countries_df <- unique(subset(df,is.na(df$countryiso3))$coded_country) 
   message("Removed rows from df for the following countries without ISO3 code:")
   message(subset(df,is.na(df$countryiso3))$coded_country)
-  df <- subset(df,!is.na(df$countryiso3))
+  df <- df[!is.na(df$countryiso3), ]
   
   df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
   
@@ -164,7 +164,17 @@ merge_file_by_countryiso3_variables <- function(df, file_path, vars_spec, na_per
   df_dat <- df_dat[,!(names(df_dat) %in% c("country"))]
 
   # merge
+  if(!is.data.table(df)){
+    df <- as.data.table(df)
+  }
+  if(!is.data.table(df_dat)){
+    df_dat <- as.data.table(df_dat)
+  }
   df <- merge(df, df_dat, all.x = T, by = "countryiso3")
+  
+  setkey(df, countryiso3)
+  setkey(df_dat, countryiso3)
+  df<-df_dat[df]
 
   # scale by 1,000,000 population
   if (!is.null(vars_spec))
