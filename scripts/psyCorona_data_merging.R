@@ -106,18 +106,6 @@ merge_file_by_countryiso3 <- function(df, file_path, na_percentage){
 # based on PsyCorona-DataCleaning merge_file_by_countryiso3
 merge_file_by_countryiso3_variables <- function(df, file_path, vars_spec, na_percentage){
   message("\n*** Merging ", file_path, " with percentage ", na_percentage)
-  # ISO3 country code (incl XKV for Kosovo)
-  if(is.null(df[["countryiso3"]])){
-    df$countryiso3 <- ifelse(df$coded_country == "Kosovo", 
-                             "XKV", 
-                             countrycode::countrycode(df$coded_country, origin = "country.name", destination = "iso3c", warn = FALSE))
-  }
-
-  # remove rows witout countryiso3
-  missing_countries_df <- unique(subset(df,is.na(df$countryiso3))$coded_country) 
-  message("Removed rows from df for the following countries without ISO3 code:")
-  message(subset(df,is.na(df$countryiso3))$coded_country)
-  df <- df[!is.na(df$countryiso3), ]
   
   df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
   
@@ -125,9 +113,9 @@ merge_file_by_countryiso3_variables <- function(df, file_path, vars_spec, na_per
   if (!is.null(vars_spec)) {
     # select specified columns only
     df_dat <-
-      df_dat[append(c("country", "countryiso3"), as.vector(vars_spec$var))]
+      df_dat[c("country", "countryiso3", as.vector(vars_spec$var))]
     # rename columns
-    names(df_dat) <- append(c("country", "countryiso3"), as.vector(vars_spec$name))
+    names(df_dat) <- c("country", "countryiso3", as.vector(vars_spec$name))
   }
   
   # add XKV as current Kosovo ISO3 code 
@@ -160,46 +148,45 @@ merge_file_by_countryiso3_variables <- function(df, file_path, vars_spec, na_per
     }
   }
   
+  if(!is.data.table(df_dat)){
+    df_dat <- as.data.table(df_dat)
+  }
+  
   # remove 'country' variable from df_dat
   df_dat <- df_dat[,!(names(df_dat) %in% c("country"))]
+  browser()
+  # scale by 1,000,000 population
+  if (!is.null(vars_spec)){
+    cols <- vars_spec$name[vars_spec$scale]
+    if(length(cols) > 0){
+      df_dat[ , (cols) := lapply(.SD, `/`, df$population.2119), .SDcols = cols]
+    }
+  }
+
+  # drop df_dat columns with more than na_percentage of NAs
+  keep_columns <- colSums(is.na(df_dat))/nrow(df_dat) <= na_percentage
+  if (sum(!keep_columns) > 0) {
+    message(
+      "The following columns are dropped because of too many NAs (percentage is ",
+      na_percentage,
+      "): ",
+      paste(names(df_dat)[!keep_columns],  collapse = "  ")
+    )
+    cols <- names(df_dat)[!keep_columns]
+    df_dat[, (cols) := NULL]
+  }
+  
 
   # merge
   if(!is.data.table(df)){
     df <- as.data.table(df)
   }
-  if(!is.data.table(df_dat)){
-    df_dat <- as.data.table(df_dat)
-  }
-  df <- merge(df, df_dat, all.x = T, by = "countryiso3")
-  
+
+  #df <- merge(df, df_dat, all.x = T, by = "countryiso3")
+
   setkey(df, countryiso3)
   setkey(df_dat, countryiso3)
-  df<-df_dat[df]
-
-  # scale by 1,000,000 population
-  if (!is.null(vars_spec))
-  {
-    for (row in 1:nrow(vars_spec)) {
-      if (vars_spec[row, "scale"]) {
-        df[, grepl(vars_spec[row, "name"], names(df))] <-
-          df[, grepl(vars_spec[row, "name"], names(df))] * 1000000 / df$population.2119
-      }
-    }
-  }
-  
-  # drop df_dat columns with more than na_percentage of NAs
-  keep_columns <-
-    colSums(is.na(df)) <= na_percentage / 100 * nrow(df) + .001 |
-    !(names(df) %in% names(df_dat))
-  if (length(names(df[!keep_columns])) > 0) {
-    message(
-      "The following columns are dropped because of too many NAs (percentage is ",
-      na_percentage,
-      "): ",
-      paste(names(df[!keep_columns]),  collapse = "  ")
-    )
-  }
-  df[, keep_columns | (names(df) %in% c("countryiso3"))]
+  return(df_dat[df])
 }
 
 calc_dayno <- function(posixdate){
@@ -286,6 +273,23 @@ names(df) <- tolower(names(df))
 df$startdate <- as.POSIXct(df$startdate)
 df$dayresponse <- calc_dayno(as.POSIXct(df$startdate))
 dict <- data.frame(variable=character(), description=character(), source=character(), calc.per.capita=integer())
+
+
+# Originally in merging function: -----------------------------------------
+
+# ISO3 country code (incl XKV for Kosovo)
+if(is.null(df[["countryiso3"]])){
+  df$countryiso3 <- ifelse(df$coded_country == "Kosovo", 
+                           "XKV", 
+                           countrycode::countrycode(df$coded_country, origin = "country.name", destination = "iso3c", warn = FALSE))
+}
+
+# remove rows witout countryiso3
+missing_countries_df <- unique(subset(df,is.na(df$countryiso3))$coded_country) 
+message("Removed rows from df for the following countries without ISO3 code:")
+message(subset(df,is.na(df$countryiso3))$coded_country)
+df <- df[!is.na(df$countryiso3), ]
+
 
 ########## MERGE DATA ###########################################################################
 
