@@ -15,19 +15,22 @@ library(data.table)
 ########## FUNCTIONS ##########
 
 merge_cj <- function(df, df_dat, date_regexp = "\\d{2}_\\d{2}_\\d{4}$"){
+  if(!is.data.table(df)){ 
+    df <- data.table(df)
+  }
   if(!is.data.table(df_dat)){ 
     df_dat <- data.table(df_dat)
   }
-  
+  df_dat[, c("country", "region") := NULL]
   date_vars <- grepl(date_regexp, names(df_dat))
   the_dates <- names(df_dat)[date_vars]
   
-  if(any(!date_vars)){
+  if(any(!(date_vars | names(df_dat) == "countryiso3"))){
     df_nondated <- df_dat[, .SD, .SDcols =unique(c("countryiso3", names(df_dat)[!date_vars]))]
     df <- merge(df, df_nondated, by = "countryiso3", all.x = TRUE)
   }
   if(any(date_vars)){
-    df_dated <- df_dat[, c("countryiso3", the_dates)]
+    df_dated <- df_dat[, .SD, .SDcols = c("countryiso3", the_dates)]
     df_dated <- pivot_longer(df_dated, cols = names(df_dated)[-1], names_sep = "\\.", names_to = c("variable", "date"))
     df_dated <- data.table(df_dated)
     df_dated <- na.omit(df_dated)
@@ -330,6 +333,17 @@ df <- df[!is.na(df$countryiso3), ]
 
 ########## MERGE DATA ###########################################################################
 
+file_path <-
+  paste(data_path,
+        "FCTB_POPULATION/recent_fctb_population.csv",
+        sep = "/")
+df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
+names(df_dat)[4] <- "population"
+df <- merge_cj(df, df_dat[, c("countryiso3", "population")])
+
+df_dat <- read.csv(paste(data_path, "CSSE/CSSE.csv", sep = "/"), stringsAsFactors = FALSE)
+names(df_dat)
+df <- merge_cj(df, df_dat)
 ########## FCTB_POPULATION #################################################################
 # Population estimates.
 # Required also for calculating values per capita for other data sources
@@ -342,6 +356,7 @@ if (T) {
           sep = "/")
   df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
   names(df_dat)[4] <- "population"
+  df <- merge_cj(df, df_dat[, c("countryiso3", "population")])
   
   # dict path
   dict_path <-
