@@ -21,7 +21,12 @@ merge_cj <- function(df, df_dat, date_regexp = "\\d{2}_\\d{2}_\\d{4}$"){
   if(!is.data.table(df_dat)){ 
     df_dat <- data.table(df_dat)
   }
-  df_dat[, c("country", "region") := NULL]
+  rem_cols <- c("country", "region")
+  rem_cols <- rem_cols[rem_cols %in% names(df_dat)]
+  if(length(rem_cols) > 0){
+    df_dat[, (rem_cols) := NULL]
+  }
+  
   date_vars <- grepl(date_regexp, names(df_dat))
   the_dates <- names(df_dat)[date_vars]
   
@@ -344,6 +349,14 @@ df <- merge_cj(df, df_dat[, c("countryiso3", "population")])
 df_dat <- read.csv(paste(data_path, "CSSE/CSSE.csv", sep = "/"), stringsAsFactors = FALSE)
 names(df_dat)
 df <- merge_cj(df, df_dat)
+
+df_dat <- read.csv(paste(data_path,
+                         "OxCGRT/OxCGRT_Oxford_regulation_policies.csv",
+                         sep = "/"), stringsAsFactors = FALSE)
+names(df_dat)
+df <- merge_cj(df, df_dat)
+
+
 ########## FCTB_POPULATION #################################################################
 # Population estimates.
 # Required also for calculating values per capita for other data sources
