@@ -14,6 +14,26 @@ library(tidyr)
 library(data.table)
 ########## FUNCTIONS ##########
 
+merge_cj <- function(df, file_path, date_regexp = "\\d{2}_\\d{2}_\\d{4}$"){
+  df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
+  date_vars <- grepl(date_regexp, names(df_dat))
+  the_dates <- names(df_dat)[date_vars]
+  df_dated <- df_dat[, c("countryiso3", the_dates)]
+  df_dated <- pivot_longer(df_dated, cols = names(df_dated)[-1], names_sep = "\\.", names_to = c("variable", "date"))
+  df_dated <- data.table(df_dated)
+  df_dated <- na.omit(df_dated)
+  nreps <- length(unique(df_dated$variable))
+  
+  df_skeleton <- df[rep(1:nrow(df), nreps), c("countryiso3", "date","rownum")]
+  df_skeleton[, "variable" := rep(unique(df_dated$variable), each = nrow(df))]
+  df_skeleton[df_dated, "value" := i.value, on = c(countryiso3="countryiso3", date="date", variable = "variable")]
+  df_skeleton[, c("countryiso3", "date") := NULL]
+  df_skeleton <- na.omit(df_skeleton)
+  df_skeleton <- dcast(df_skeleton, rownum ~ variable, value.var = "value")
+  
+  return(merge(df, df_skeleton, by = "rownum", all.x = TRUE))
+}
+
 # replace date part of variable with day no: 'var.date' will be renamed to '&.var.dayno
 # format of date is in date_regexp and date_subst_posix for use in gsub
 # format of complete variable is in date_regexp_w_groups and prefix_regexp_w_group
@@ -275,7 +295,9 @@ output_filename <- "df_raw_merged.csv"
 df <- suppressWarnings(read.csv(paste(data_path, input_filename, sep = "/"), stringsAsFactors = FALSE))
 names(df) <- tolower(names(df)) 
 df$startdate <- as.POSIXct(df$startdate)
+df$date <- format(df$startdate, "%d_%m_%Y")
 df$dayresponse <- calc_dayno(as.POSIXct(df$startdate))
+df$rownum <- 1:nrow(df)
 dict <- data.frame(variable=character(), description=character(), source=character(), calc.per.capita=integer())
 
 
@@ -344,8 +366,10 @@ if (active) {
   # data path
   file_path <- paste(data_path, "CSSE/CSSE.csv", sep = "/")
   
+  
+  
   df %>%
-    merge_file_by_countryiso3(file_path, na_percentage) %>%
+    merge_file_by_countryiso3(file_path, na_percentage) -> tmp %>%
     replace_date_variables_with_dayno(
       date_regexp = "[0-9][0-9]_[0-9][0-9]_[0-9][0-9][0-9][0-9]",
       date_regexp_w_groups = "[^.]*[.]([0-9][0-9])_([0-9][0-9])_([0-9][0-9][0-9][0-9])",
