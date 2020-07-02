@@ -14,24 +14,35 @@ library(tidyr)
 library(data.table)
 ########## FUNCTIONS ##########
 
-merge_cj <- function(df, file_path, date_regexp = "\\d{2}_\\d{2}_\\d{4}$"){
-  df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
+merge_cj <- function(df, df_dat, date_regexp = "\\d{2}_\\d{2}_\\d{4}$"){
+  if(!is.data.table(df_dat)){ 
+    df_dat <- data.table(df_dat)
+  }
+  
   date_vars <- grepl(date_regexp, names(df_dat))
   the_dates <- names(df_dat)[date_vars]
-  df_dated <- df_dat[, c("countryiso3", the_dates)]
-  df_dated <- pivot_longer(df_dated, cols = names(df_dated)[-1], names_sep = "\\.", names_to = c("variable", "date"))
-  df_dated <- data.table(df_dated)
-  df_dated <- na.omit(df_dated)
-  nreps <- length(unique(df_dated$variable))
   
-  df_skeleton <- df[rep(1:nrow(df), nreps), c("countryiso3", "date","rownum")]
-  df_skeleton[, "variable" := rep(unique(df_dated$variable), each = nrow(df))]
-  df_skeleton[df_dated, "value" := i.value, on = c(countryiso3="countryiso3", date="date", variable = "variable")]
-  df_skeleton[, c("countryiso3", "date") := NULL]
-  df_skeleton <- na.omit(df_skeleton)
-  df_skeleton <- dcast(df_skeleton, rownum ~ variable, value.var = "value")
+  if(any(!date_vars)){
+    df_nondated <- df_dat[, .SD, .SDcols =unique(c("countryiso3", names(df_dat)[!date_vars]))]
+    df <- merge(df, df_nondated, by = "countryiso3", all.x = TRUE)
+  }
+  if(any(date_vars)){
+    df_dated <- df_dat[, c("countryiso3", the_dates)]
+    df_dated <- pivot_longer(df_dated, cols = names(df_dated)[-1], names_sep = "\\.", names_to = c("variable", "date"))
+    df_dated <- data.table(df_dated)
+    df_dated <- na.omit(df_dated)
+    nreps <- length(unique(df_dated$variable))
+    
+    df_skeleton <- df[rep(1:nrow(df), nreps), c("countryiso3", "date","rownum")]
+    df_skeleton[, "variable" := rep(unique(df_dated$variable), each = nrow(df))]
+    df_skeleton[df_dated, "value" := i.value, on = c(countryiso3="countryiso3", date="date", variable = "variable")]
+    df_skeleton[, c("countryiso3", "date") := NULL]
+    df_skeleton <- na.omit(df_skeleton)
+    df_skeleton <- dcast(df_skeleton, rownum ~ variable, value.var = "value")
+    df <- merge(df, df_skeleton, by = "rownum", all.x = TRUE)
+  }
   
-  return(merge(df, df_skeleton, by = "rownum", all.x = TRUE))
+  return(df)
 }
 
 # replace date part of variable with day no: 'var.date' will be renamed to '&.var.dayno
@@ -329,6 +340,8 @@ if (T) {
     paste(data_path,
           "FCTB_POPULATION/recent_fctb_population.csv",
           sep = "/")
+  df_dat <- read.csv(file_path, stringsAsFactors = FALSE)
+  names(df_dat)[4] <- "population"
   
   # dict path
   dict_path <-
