@@ -15,7 +15,7 @@ library(worcs)
 library(doParallel)
 library(missRanger)
 
-source("scripts/psyCorona_data_cleaning.R") # get (subsets of) raw data from exploration script
+#source("scripts/psyCorona_data_cleaning.R") # get (subsets of) raw data from exploration script
 df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
 # df_analyse <- df_analyse[sample(1:nrow(df_analyse), 1e3), ] # random subset for testing
 
@@ -44,27 +44,61 @@ df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
 #    out
 # })
 
+vars <- c("countryiso3", "date", "affanx", 
+          "affbor", "affcalm", "affcontent", "affdepr", "affenerg", "affexc", 
+          "affnerv", "affexh", "affinsp", "affrel", "plrac19", "plraeco", 
+          "isofriends_inperson", "isoothppl_inperson", "isoimmi_inperson", 
+          "isofriends_online", "isoothppl_online", "isoimmi_online", "persrelsat", 
+          "discpers", "happy", "lifesat", "mlq", "tightnorms", "tightloose", 
+          "tighttreat", "c19know", "c19hope", "c19eff", "c19normshould", 
+          "c19normdo", "c19isstrict", "c19ispunish", "c19isorg", "extc19msg", 
+          "csqc19contract", "csqecosuffer", "csqcancpln", "csqlife", "ecoknow", 
+          "ecohope", "ecoeff", "houseleave", "houseleavewhy_1", "houseleavewhy_2", 
+          "houseleavewhy_4", "houseleavewhy_7", "houseleavewhy_6", "tempfocpast", 
+          "tempfocpres", "tempfocfut", "feelingtherm", "idoverlap", "relyesno", 
+          "countrycitizen", "citizen", "immigrant", "gender", "age", "edu", 
+          "source", "coronaclose", 
+          "employstatus", "disc", "jbinsec", "pfs", "fail", "lone", "probsolving", 
+          "posrefocus", "c19proso", "c19perbeh", "c19rca", "ecoproso", 
+          "ecorca", "migrantthreat", "neuro", "para", "consp", 
+          "population", "cancelpublicevents_flag", "closepublictransport_flag", 
+          "contacttracing", "containmenthealthindex", "containmenthealthindexfordisplay", 
+          "debtcontractrelief", "economicsupportindex", "economicsupportindexfordisplay", 
+          "emergencyinvestmentinhealthcare", "fiscalmeasures", "governmentresponseindex", 
+          "governmentresponseindexfordisplay", "internationalsupport", 
+          "internationaltravelcontrols", "investmentinvaccines", "publicinformationcampaigns_flag", 
+          "restrictionsongatherings_flag", "restrictionsoninternalmovement_flag", 
+          "schoolclosing_flag", "stayathomerequirements_flag", "stringencyindex", 
+          "stringencylegacyindex", "stringencylegacyindexfordisplay", "testingpolicy", 
+          "workplaceclosing_flag", "ghsscore", "airdepartures", "tourismexpenditures", 
+          "doctors_per_10k", "nurses_and_midwifery_per_10k", "che_perc_of_gdp_2017", 
+          "controlcorruption", "ruleoflaw", "politicalstability", "voiceaccountability", 
+          "govteffectiveness", "regulatoryquality")
+df_analyse$startdate <- as.POSIXct(df_analyse$startdate)
+df_analyse$date <- as.integer(as.numeric(df_analyse$startdate - as.POSIXct("2020-01-01 00:00:00")))
 
+df_analyse <- df_analyse[, vars]
 # Impute NAs with missranger - this doesn't work now
 # get number of non NAs per row to use as case.weights
 # fitting missRanger
 set.seed(953007)
-df_analyse <- missRanger(df_analyse)
+imp <- missRanger(df_analyse)
+write.csv(imp, "df_analyse_imputed.csv", row.names = FALSE)
 # # quick check to see if any NAs are left over
-if(anyNA(df_analyse)) stop("Still NAs in df_analyse.")
-
-# Clearing environment
-env_obj <- ls()
-env_obj <- env_obj[!env_obj == "df_analyse"]
-do.call(rm, as.list(env_obj))
-gc()
-
+if(anyNA(imp)) stop("Still NAs in df_analyse.")
+df_analyse <- imp
 
 ########## ALLOCATING VARIABLES ##########
 
 # Remove variables that we don't use as predictors or dependent variables
 df_analyse <- df_analyse[,-which(names(df_analyse) %in% c("responseid", "recordeddate", "train", 
                                                           "source", "region"))]
+
+df_analyse <- df_analyse[, -which(names(df_analyse) %in% as.character(desc$name[desc$unique< 2]))]
+
+#desc <- descriptives(df_analyse)
+#sapply(df_analyse[, which(names(df_analyse) %in% as.character(desc$name[desc$unique< 3]))], table)
+
 
 # Making all character variables factors
 df_analyse[, which(sapply(df_analyse, is.character))] <- 
@@ -73,6 +107,8 @@ df_analyse[, which(sapply(df_analyse, is.character))] <-
 # Making all variables with 5 or less unique values factors
 df_analyse[, which(lapply(sapply(df_analyse, unique), length) <= 5)] <- 
   lapply(df_analyse[, which(lapply(sapply(df_analyse, unique), length) <= 5)], factor)
+
+
 
 # Structure overview
 str(df_analyse)
@@ -98,10 +134,13 @@ set.seed(953007)
 # Model parameters
 cv_split <- trainControl(method = "cv", number = 10, verboseIter = TRUE, allowParallel = TRUE) # cv split
 lambda   <- seq(0.001, 0.1, by = 0.001)                                  # lambda sequence for Lasso
-ntree    <- 50                                                           # number of trees in each RF model
+ntree    <- 1000                                                           # number of trees in each RF model
 
 # One function that trains both models (Lasso & Random Forest) on df_analyse and dep. variable (y)
-modelsPsycorona <- function(y, run_in_parallel = TRUE, n_cores){
+modelsPsycorona <- function(y, data, run_in_parallel = TRUE, n_cores){
+  browser()
+  X <- data[, !names(data) == y]
+  Y <- data[[y]]
   
   if (run_in_parallel) {
     cl <- makePSOCKcluster(n_cores) # set number of cores
@@ -116,7 +155,9 @@ modelsPsycorona <- function(y, run_in_parallel = TRUE, n_cores){
   lassoRes <- list() # object to store Lasso results in
   
   set.seed(seed)
-  lassoRes[["lassoModel"]] <- caret::train(formula(paste(y, "~.", sep = "")), data = df_analyse, method = "glmnet",
+  X_las <- model.matrix(~., X)[, -1]
+  lassoRes[["lassoModel"]] <- caret::train(x = X_las, y = Y,
+                                           method = "glmnet",
                                            trControl = cv_split, family = "gaussian",
                                            tuneGrid = expand.grid(alpha = 1, lambda = lambda), verbose = TRUE)
   
@@ -157,7 +198,14 @@ modelsPsycorona <- function(y, run_in_parallel = TRUE, n_cores){
   mtry  <- round(sqrt(ncol(df_analyse))) # number of variables to try in each tree
 
   set.seed(seed)
-  rfRes[["rfModel"]] <- caret::train(formula(paste(y, "~.", sep = "")), data = df_analyse, method = "rf", ntree = ntree,
+  mlr::makeRegrTask()
+  tuneRanger::tuneRanger()
+  tmp <- ranger(paste0(dep_vars[1], "~", paste0(names(df_analyse[!names(df_analyse) %in% dep_vars]), collapse = "+")), data = df_analyse, importance = "permutation")
+  tmp$r.squared
+  
+  VarImpPlot(tmp)
+  
+  rfRes[["rfModel"]] <- caret::train(formula(paste(y, "~.", sep = "")), data = df_analyse, method = "ranger", ntree = ntree,
                                      tuneGrid = data.frame(mtry = mtry), trControl = cv_split, verbose = T)
   
   caret_rf_imp      <- varImp(rfRes$rfModel, scale = FALSE)
@@ -209,8 +257,9 @@ modelsPsycorona <- function(y, run_in_parallel = TRUE, n_cores){
 
 # start counting time, to check if parallelisation is working
 ptm <- proc.time()
+
 # Apply modelsPsycorona to all dependent variables
-models <- lapply(dep_vars, modelsPsycorona, run_in_parallel = TRUE, n_cores = 48) # using 48 cores
+models <- lapply(dep_vars[1], modelsPsycorona, df_analyse, run_in_parallel = TRUE, n_cores = 44) # using 48 cores
 # calculate elapsed time
 proc.time() - ptm
 
