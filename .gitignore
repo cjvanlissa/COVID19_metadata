@@ -20,3 +20,6 @@ RMD30*.csv
 !scale_descriptives.csv
 !split_sample.csv
 .DS_Store
+*.RData
+models.RData
+.RData
