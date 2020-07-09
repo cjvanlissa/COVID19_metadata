@@ -24,6 +24,7 @@ model_accuracy <-
            ymean = NULL,
            olddata = NULL,
            ...) {
+
     switch(
       class(fit)[1],
       rma.uni = {
@@ -37,12 +38,17 @@ model_accuracy <-
           predicted <- predict(fit, newmods = as.matrix(newdata))$pred
         }
       },
-      
       MetaForest = {
         if (is.null(newdata)) {
           predicted <- fit$predictions
         } else {
-          #colnames(newdata) <- NULL
+          predicted <- predict(fit, data = newdata)$predictions
+        }
+      },
+      ranger = {
+        if (is.null(newdata)) {
+          predicted <- fit$predictions
+        } else {
           predicted <- predict(fit, data = newdata)$predictions
         }
       },
@@ -86,7 +92,21 @@ model_accuracy <-
           }
         }
       },
-      
+      elnet = {
+        if (is.null(newdata)) {
+          if(!hasArg("s")){
+            predicted	<- predict(fit, newx = as.matrix(olddata), s= fit[["lambda.1se"]], ...)[,1]
+          } else {
+            predicted	<- predict(fit, newx = as.matrix(olddata), ...)[, 1]
+          }
+        } else {
+          if(!hasArg("s")){
+            predicted	<- predict(fit, newx = as.matrix(newdata), s= fit[["lambda.1se"]], ...)[, 1]
+          } else {
+            predicted	<- predict(fit, newx = as.matrix(newdata), ...)[, 1]
+          }
+        }
+      },
       {
         if (is.null(newdata)) {
           predicted	<- predict(fit, olddata, ...)
@@ -108,7 +128,7 @@ model_accuracy <-
     
     r.2	<- 1 - SS.residual / SS.total
     mse	<- SS.residual / length(observed)
-    sd(predicted)
+    
     if (sd(predicted) == 0) {
       r.actual.pred <- 0
     } else{

@@ -15,38 +15,14 @@ library(worcs)
 library(doParallel)
 library(missRanger)
 source("scripts/varimpplot_lasso.R")
+source("scripts/model_accuracy.R")
 run_everything <- FALSE
 
 if(run_everything){
   #source("scripts/psyCorona_data_cleaning.R") # get (subsets of) raw data from exploration script
-  df_analyse <- read.csv("training.csv", stringsAsFactors = FALSE)
-  # df_analyse <- df_analyse[sample(1:nrow(df_analyse), 1e3), ] # random subset for testing
-  
-  ########## PREPARE DATA ##########
-  # 
-  # # Removing NA participants & vars
-  # partic_NA_tres_perc     <- .2 # remove participants that have more than X% NAs
-  # partic_NA_tres_var      <- .2 # remove features/variables that have more than X% NAs
-  # 
-  # miss       <- is.na(df_analyse)
-  # df_analyse <- df_analyse[!(rowSums(miss)/ncol(df_analyse)) > partic_NA_tres_perc,
-  #                           which((colSums(miss)/nrow(df_analyse)) <= partic_NA_tres_var)]
-  # 
-  # desc <- descriptives(df_analyse)
-  # 
-  #  # Median/mode substitution until we implement a better single imputation method
-  # df_analyse[, desc$type == "integer"] <- lapply(desc$name[desc$type == "integer"], function(varname){
-  #    out <- df_analyse[[varname]]
-  #    out[is.na(out)] <- desc$mode[desc$name == varname]
-  #    out
-  # })
-  # 
-  # df_analyse[, desc$type == "numeric"] <- lapply(desc$name[desc$type == "numeric"], function(varname){
-  #    out <- df_analyse[[varname]]
-  #    out[is.na(out)] <- desc$median[desc$name == varname]
-  #    out
-  # })
-  
+  df_training <- read.csv("training.csv", stringsAsFactors = FALSE)
+  df_testing <- read.csv("testing.csv", stringsAsFactors = FALSE)
+
   vars <- c("countryiso3", "date", "affanx", 
             "affbor", "affcalm", "affcontent", "affdepr", "affenerg", "affexc", 
             "affnerv", "affexh", "affinsp", "affrel", "plrac19", "plraeco", 
@@ -77,79 +53,98 @@ if(run_everything){
             "doctors_per_10k", "nurses_and_midwifery_per_10k", "che_perc_of_gdp_2017", 
             "controlcorruption", "ruleoflaw", "politicalstability", "voiceaccountability", 
             "govteffectiveness", "regulatoryquality")
-  df_analyse$startdate <- as.POSIXct(df_analyse$startdate)
-  df_analyse$date <- as.integer(as.numeric(df_analyse$startdate - as.POSIXct("2020-01-01 00:00:00")))
+  df_training$startdate <- as.POSIXct(df_training$startdate)
+  df_testing$startdate <- as.POSIXct(df_testing$startdate)
+  df_training$date <- as.integer(as.numeric(df_training$startdate - as.POSIXct("2020-01-01 00:00:00")))
+  df_testing$date <- as.integer(as.numeric(df_testing$startdate - as.POSIXct("2020-01-01 00:00:00")))
   
-  df_analyse <- df_analyse[, vars]
-  # Impute NAs with missranger - this doesn't work now
-  # get number of non NAs per row to use as case.weights
-  # fitting missRanger
+  df_training <- df_training[, vars]
+  df_testing <- df_testing[, vars]
+  
+  desc <- descriptives(df_training)
+  write.csv(desc, "results/descriptives_df_analyze.csv", row.names = FALSE)
+  if(any(desc$unique < 2)){
+    drop_vars <- which(names(df_training) %in% as.character(desc$name[desc$unique< 2]))
+    df_training <- df_training[, -drop_vars]
+    df_testing <- df_testing[, -drop_vars]
+  }
+  
+  desc <- descriptives(df_testing)
+  write.csv(desc, "results/descriptives_df_testing.csv", row.names = FALSE)
+  
+  # Impute NAs with missranger
   set.seed(953007)
-  imp <- missRanger(df_analyse)
-  write.csv(imp, "df_analyse_imputed.csv", row.names = FALSE)
-  # # quick check to see if any NAs are left over
-  if(anyNA(imp)) stop("Still NAs in df_analyse.")
-  df_analyse <- imp
+  imp <- missRanger(df_training)
+  # Remove variables that we don't use as predictors or dependent variables
+  imp <- imp[,-which(names(imp) %in% c("responseid", "recordeddate", "train", "source", "region", "publicinformationcampaigns_flag"))]
+  write.csv(imp, "df_training_imputed.csv", row.names = FALSE)
+  df_training <- imp
+  imp <- missRanger(df_testing)
+  # Remove variables that we don't use as predictors or dependent variables
+  imp <- imp[,-which(names(imp) %in% c("responseid", "recordeddate", "train", "source", "region", "publicinformationcampaigns_flag"))]
+  write.csv(imp, "df_testing_imputed.csv", row.names = FALSE)
+  df_testing <- imp
+  
 } else {
-  df_analyse <- read.csv("df_analyse_imputed.csv", stringsAsFactors = FALSE)
+  df_training <- read.csv("df_training_imputed.csv", stringsAsFactors = FALSE)
+  df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
 }
+
 
 ########## ALLOCATING VARIABLES ##########
 
-# Remove variables that we don't use as predictors or dependent variables
-df_analyse <- df_analyse[,-which(names(df_analyse) %in% c("responseid", "recordeddate", "train", 
-                                                          "source", "region", "publicinformationcampaigns_flag"))]
-
-df_analyse <- df_analyse[, -which(names(df_analyse) %in% as.character(desc$name[desc$unique< 2]))]
-
-#desc <- descriptives(df_analyse)
-#sapply(df_analyse[, which(names(df_analyse) %in% as.character(desc$name[desc$unique< 3]))], table)
-
-
 # Making all character variables factors
-df_analyse[, which(sapply(df_analyse, is.character))] <- 
-  sapply(df_analyse[, which(sapply(df_analyse, is.character))], factor)
+df_training[which(sapply(df_training, is.character))] <- 
+  lapply(df_training[which(sapply(df_training, is.character))], factor)
+
+df_testing[which(sapply(df_testing, is.character))] <- 
+  lapply(df_testing[which(sapply(df_testing, is.character))], factor)
+
 
 # Making all variables with 5 or less unique values factors
-df_analyse[, which(lapply(sapply(df_analyse, unique), length) <= 5)] <- 
-  lapply(df_analyse[, which(lapply(sapply(df_analyse, unique), length) <= 5)], factor)
+df_training[which(lapply(sapply(df_training, unique), length) <= 5)] <- 
+  lapply(df_training[which(lapply(sapply(df_training, unique), length) <= 5)], factor)
+df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
+  lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
 
-
+names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing))]
 
 # Structure overview
-str(df_analyse)
+#str(df_training)
 
 # Defining dependent variables
-dep_vars <- c("c19eff", "ecorca", "c19proso", "ecoproso", "isofriends_inperson", "c19perbeh")
+dep_vars <- c("c19eff", "ecorca", "consp", "c19proso", "ecoproso", "isofriends_inperson", "c19perbeh")
 
-# Exploring dependent variables (data frame x, dep. variable y)
-expl_dv <- function(y){
-  res <- list()
-  
-  res[["type"]]      <- typeof(df_analyse[, which(names(df_analyse) == y)])
-  res[["unique"]]    <- unique(df_analyse[, which(names(df_analyse) == y)])
-  # res[["histogram"]] <- hist(df_analyse$c19eff)
-  
-  return(res)
-}
-lapply(dep_vars, expl_dv) 
+# # Exploring dependent variables (data frame x, dep. variable y)
+# expl_dv <- function(y){
+#   res <- list()
+#   
+#   res[["type"]]      <- typeof(df_training[, which(names(df_training) == y)])
+#   res[["unique"]]    <- unique(df_training[, which(names(df_training) == y)])
+#   # res[["histogram"]] <- hist(df_training$c19eff)
+#   
+#   return(res)
+# }
+# lapply(dep_vars, expl_dv) 
 
 ########## CARET MODEL COMPARING SETUP ########## 
 set.seed(953007)
 
 # Model parameters
 #cv_split <- trainControl(method = "cv", number = 10, verboseIter = TRUE, allowParallel = TRUE) # cv split
-cv_folds <- sample.int(10, size = nrow(df_analyse), replace = TRUE)
+cv_folds <- sample.int(10, size = nrow(df_training), replace = TRUE)
 cv_split <- trainControl(method = "cv", number = 10, index = lapply(1:max(cv_folds), function(i){which(cv_folds == i)}), verboseIter = TRUE, allowParallel = TRUE) # cv split
-lambda   <- seq(0.001, 0.1, by = 0.001)                                  # lambda sequence for Lasso
 ntree    <- 1000                                                           # number of trees in each RF model
 
-# One function that trains both models (Lasso & Random Forest) on df_analyse and dep. variable (y)
-model_crosssectional <- function(y, data, run_in_parallel = TRUE, n_cores){
-  
-  X <- data[, !names(data) == y]
+# One function that trains both models (Lasso & Random Forest) on df_training and dep. variable (y)
+model_crosssectional <- function(y, data = df_training, run_in_parallel = TRUE, n_cores){
+  X <- df_training[, !names(df_training) == y]
   X_las <- model.matrix(~., X)[, -1]
-  Y <- data[[y]]
+  Y <- df_training[[y]]
+  
+  X_test <- df_testing[, !names(df_testing) == y]
+  X_las_test <- model.matrix(~., X_test)[, -1]
+  Y_test <- df_testing[[y]]
   
   modelRes <- list() # object to store results in
 
@@ -184,34 +179,44 @@ model_crosssectional <- function(y, data, run_in_parallel = TRUE, n_cores){
   lassoRes[["varImpPlot"]] <- VarImpPlot.glmnet(lassoRes$final_model)
   
   ggsave(
-    filename = paste0("lasso_", y, ".png"),
+    filename = paste0("results/lasso_", y, ".png"),
     lassoRes[["varImpPlot"]],
     device = "png")
-  svg(filename = paste0("lasso_", y, ".svg"))
+  svg(filename = paste0("results/lasso_", y, ".svg"))
   lassoRes[["varImpPlot"]]
   dev.off()
-  
-  
+  lassoRes[["fit"]] <- c(lassoRes$lasso_model$lambda.1se,
+                         lassoRes$lasso_model$cvm[which(lassoRes$lasso_model$lambda == lassoRes$lasso_model$lambda.1se)],
+                         model_accuracy(lassoRes$final_model,
+                                               olddata = X_las,
+                                               observed = Y,
+                                               ymean = mean(Y, na.rm = TRUE), s = lassoRes$lasso_model$lambda.1se),
+                         model_accuracy(lassoRes$final_model,
+                                               newdata = X_las_test,
+                                               observed = Y_test,
+                                               ymean = mean(Y, na.rm = TRUE), s = lassoRes$lasso_model$lambda.1se))
+
+  names(lassoRes$fit) <- c("lambda.1se", "mse", paste0("train_", c("r2", "mse", "r_actual_pred")), paste0("test_", c("r2", "mse", "r_actual_pred")))  
   modelRes[["lasso"]] <- lassoRes
   
   ### Model 2/2: Random Forest
   rfRes <- list()                        # list to store Random Forest results in
-  mtry  <- round(sqrt(ncol(df_analyse))) # number of variables to try in each tree
-  
-  task <- mlr::makeRegrTask(data = data, target = y)
-  res <- tuneRanger::tuneRanger(task, num.trees = 1000, tune.parameters = c("mtry", "min.node.size"))
+  mtry  <- round(sqrt(ncol(df_training))) # number of variables to try in each tree
+
+  task <- mlr::makeRegrTask(data = df_training, target = y) # Has a "blocking" argument for grouped CV
+  res <- tuneRanger::tuneRanger(task, num.trees = ntree, tune.parameters = c("mtry", "min.node.size"))
   rfRes[["rf_model"]] <- res
   
-  res_final <- ranger(paste0(y, "~."), num.trees = 1000,
+  res_final <- ranger(paste0(y, "~."), num.trees = ntree,
                       min.node.size = res$recommended.pars$min.node.size,
                       mtry = res$recommended.pars$mtry,
-                      data = df_analyse, importance = "permutation")
+                      data = df_training, importance = "permutation")
   
   rfRes[["final_model"]] <- res_final
   rfRes[["cv_model"]] <- caret::train(formula(paste(y, "~.", sep = "")),
-                                      data = df_analyse,
+                                      data = df_training,
                                       method = "ranger",
-                                      num.trees = 1000,
+                                      num.trees = ntree,
                                       tuneGrid = data.frame(mtry = res$recommended.pars$mtry,
                                                             splitrule = "variance",
                                                             min.node.size = res$recommended.pars$min.node.size
@@ -226,17 +231,30 @@ model_crosssectional <- function(y, data, run_in_parallel = TRUE, n_cores){
   rfRes[["varImpPlot"]] <- VarImpPlot(res_final)
 
   ggsave(
-    filename = paste0("rf_", y, ".png"),
-    lassoRes[["varImpPlot"]],
+    filename = paste0("results/rf_", y, ".png"),
+    rfRes[["varImpPlot"]],
     device = "png")
-  svg(filename = paste0("rf_", y, ".svg"))
+  svg(filename = paste0("results/rf_", y, ".svg"))
   rfRes[["varImpPlot"]]
   dev.off()
+
+  
+  rfRes[["fit"]] <- c(unlist(res$recommended.pars[c("mtry", "min.node.size", "mse")]),
+                         model_accuracy(rfRes$final_model,
+                                        olddata = df_training,
+                                        observed = Y,
+                                        ymean = mean(Y, na.rm = TRUE)),
+                         model_accuracy(rfRes$final_model,
+                                        newdata = df_testing,
+                                        observed = Y_test,
+                                        ymean = mean(Y, na.rm = TRUE)))
+  
+  names(rfRes$fit) <- c("mtry", "min.node.size", "mse", paste0("train_", c("r2", "mse", "r_actual_pred")), paste0("test_", c("r2", "mse", "r_actual_pred")))  
   
   modelRes[["rf"]] <- rfRes
   
 
-  saveRDS(modelRes, paste0("res_", y, ".RData"))
+  saveRDS(modelRes, paste0("results/res_", y, ".RData"))
   modelRes$lasso[c("lasso_model", "optLambda", "exclPreds", "selPreds")] <- NULL
   modelRes$rf[c("rf_model")] <- NULL
   return(modelRes)
@@ -248,22 +266,15 @@ model_crosssectional <- function(y, data, run_in_parallel = TRUE, n_cores){
 ptm <- proc.time()
 
 # Apply modelsPsycorona to all dependent variables
-models <- lapply(dep_vars[1], model_crosssectional, df_analyse, run_in_parallel = TRUE, n_cores = 44) # using 48 cores
+models <- lapply(dep_vars, model_crosssectional, df_training, run_in_parallel = TRUE, n_cores = 44) # using 48 cores
 # calculate elapsed time
 proc.time() - ptm
 
-lapply(1:length(varnum), function(varnum){
-  thisvar <- dep_vars[varnum]
-  ggsave(
-    filename = paste0("lasso_", thisvar, ".png"),
-    p <- VarImpPlot.glmnet(models[[1]]$lasso$final_model)+ylab(""),
-    device = "png")
-  ggsave(
-    filename = paste0("rf_", thisvar, ".png"),
-    VarImpPlot(models[[1]]$rf$final_model),
-    device = "png")
-  
-})
+# lapply(1:length(models), function(varnum){
+#   thisvar <- dep_vars[varnum]
+#   c(models[[varnum]]$lasso$final_model$ , models[[varnum]]$lasso$fit_training, models[[varnum]]$lasso$fit_testing
+#   
+# })
 
 model_longitudinal <- function(y, data, run_in_parallel = TRUE, n_cores){
   browser()
@@ -323,17 +334,17 @@ model_longitudinal <- function(y, data, run_in_parallel = TRUE, n_cores){
   
   ### Model 2/2: Random Forest
   rfRes <- list()                        # list to store Random Forest results in
-  mtry  <- round(sqrt(ncol(df_analyse))) # number of variables to try in each tree
+  mtry  <- round(sqrt(ncol(df_training))) # number of variables to try in each tree
   
   set.seed(seed)
   mlr::makeRegrTask()
   tuneRanger::tuneRanger()
-  tmp <- ranger(paste0(dep_vars[1], "~", paste0(names(df_analyse[!names(df_analyse) %in% dep_vars]), collapse = "+")), data = df_analyse, importance = "permutation")
+  tmp <- ranger(paste0(dep_vars[1], "~", paste0(names(df_training[!names(df_training) %in% dep_vars]), collapse = "+")), data = df_training, importance = "permutation")
   tmp$r.squared
   
   VarImpPlot(tmp)
   
-  rfRes[["rf_model"]] <- caret::train(formula(paste(y, "~.", sep = "")), data = df_analyse, method = "ranger", ntree = ntree,
+  rfRes[["rf_model"]] <- caret::train(formula(paste(y, "~.", sep = "")), data = df_training, method = "ranger", ntree = ntree,
                                      tuneGrid = data.frame(mtry = mtry), trControl = cv_split, verbose = T)
   
   caret_rf_imp      <- varImp(rfRes$rf_model, scale = FALSE)
