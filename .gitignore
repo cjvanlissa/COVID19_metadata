@@ -23,3 +23,4 @@ RMD30*.csv
 *.RData
 models.RData
 .RData
+!results/fit_table.csv

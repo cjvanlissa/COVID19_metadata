@@ -270,6 +270,17 @@ models <- lapply(dep_vars, model_crosssectional, df_training, run_in_parallel = 
 # calculate elapsed time
 proc.time() - ptm
 
+saveRDS(models, "results/models.RData")
+
+f <- list.files("results", "res.+RData", full.names = TRUE)
+fit_table <- sapply(f, function(thisfile){
+  tmp <- readRDS(thisfile)
+  names(tmp$lasso$fit) <- paste0("lasso_", names(tmp$lasso$fit))
+  names(tmp$rf$fit) <- paste0("rf_", names(tmp$rf$fit))
+  c(DV = gsub(".+_(.+)\\.RData", "\\1", thisfile), tmp$lasso$fit, tmp$rf$fit)
+})
+
+write.csv(t(fit_table), "results/fit_table.csv", row.names = FALSE)
 # lapply(1:length(models), function(varnum){
 #   thisvar <- dep_vars[varnum]
 #   c(models[[varnum]]$lasso$final_model$ , models[[varnum]]$lasso$fit_training, models[[varnum]]$lasso$fit_testing
