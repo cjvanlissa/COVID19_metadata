@@ -273,7 +273,8 @@ proc.time() - ptm
 saveRDS(models, "results/models.RData")
 
 f <- list.files("results", "res.+RData", full.names = TRUE)
-fit_table <- sapply(f, function(thisfile){
+
+sapply(f, function(thisfile){
   tmp <- readRDS(thisfile)
   names(tmp$lasso$fit) <- paste0("lasso_", names(tmp$lasso$fit))
   names(tmp$rf$fit) <- paste0("rf_", names(tmp$rf$fit))
@@ -281,11 +282,14 @@ fit_table <- sapply(f, function(thisfile){
 })
 
 write.csv(t(fit_table), "results/fit_table.csv", row.names = FALSE)
-# lapply(1:length(models), function(varnum){
-#   thisvar <- dep_vars[varnum]
-#   c(models[[varnum]]$lasso$final_model$ , models[[varnum]]$lasso$fit_training, models[[varnum]]$lasso$fit_testing
-#   
-# })
+
+fit_table <- sapply(f, function(thisfile){
+  tmp <- readRDS(thisfile)
+  ggsave(
+    filename = paste0("results/lasso_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
+    VarImpPlot(tmp$lasso$final_model),
+    device = "png")
+})
 
 model_longitudinal <- function(y, data, run_in_parallel = TRUE, n_cores){
   browser()
