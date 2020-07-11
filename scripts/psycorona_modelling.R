@@ -106,8 +106,10 @@ df_training[which(lapply(sapply(df_training, unique), length) <= 5)] <-
   lapply(df_training[which(lapply(sapply(df_training, unique), length) <= 5)], factor)
 df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
   lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
-
-names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing))]
+# for(i in 1:118){
+#   df_testing[[i]] <- do.call(paste0("as.", class(df_training[[i]])[1]), list(df_testing[[i]]))
+# }
+names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing[1:118]))]
 
 # Structure overview
 #str(df_training)
@@ -274,7 +276,7 @@ saveRDS(models, "results/models.RData")
 
 f <- list.files("results", "res.+RData", full.names = TRUE)
 
-sapply(f, function(thisfile){
+fit_table <- sapply(f, function(thisfile){
   tmp <- readRDS(thisfile)
   names(tmp$lasso$fit) <- paste0("lasso_", names(tmp$lasso$fit))
   names(tmp$rf$fit) <- paste0("rf_", names(tmp$rf$fit))
@@ -283,13 +285,30 @@ sapply(f, function(thisfile){
 
 write.csv(t(fit_table), "results/fit_table.csv", row.names = FALSE)
 
-fit_table <- sapply(f, function(thisfile){
+sapply(f, function(thisfile){
   tmp <- readRDS(thisfile)
   ggsave(
     filename = paste0("results/lasso_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     VarImpPlot(tmp$lasso$final_model),
     device = "png")
 })
+df_representative <- read.csv("df_testing_source.csv", stringsAsFactors = FALSE)
+df_representative <- df_representative[df_representative$source %in% c(6, 7, 8), ]
+repr_table <- sapply(f, function(thisfile){
+  tmp <- readRDS(thisfile)
+  y <- gsub(".+?_(.+)\\.RData", "\\1", thisfile)
+  out <- tryCatch({model_accuracy(tmp$rf$final_model,
+                   newdata = df_representative[, -which(names(df_representative) == y)],
+                   observed = df_representative[[y]],
+                   ymean = mean(df_training[[y]], na.rm = TRUE))}, error = function(e){
+                     browser()
+                     c(r2 = NA, mse = NA, r_actual_pred = NA)
+                   })
+  names(out) <- paste0("representative_", names(out))
+  out
+})
+
+write.csv(repr_table, "results/representative_fit.csv")
 
 model_longitudinal <- function(y, data, run_in_parallel = TRUE, n_cores){
   browser()
