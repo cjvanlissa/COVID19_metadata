@@ -25,3 +25,4 @@ models.RData
 .RData
 !results/fit_table.csv
 !results/representative_fit.csv
+!variable_names.csv
