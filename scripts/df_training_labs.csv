@@ -1,119 +1,119 @@
-"X","lab"
-"affanx","anxious"
-"affbor","bored"
-"affcalm","calm"
-"affcontent","content"
-"affdepr","depressed"
-"affenerg","energetic"
-"affexc","excited"
-"affnerv","nervous"
-"affexh","exhausted"
-"affinsp","inspired"
-"affrel","relaxed"
-"plrac19","months.infected"
-"plraeco","months.worse.due.situation"
-"isofriends_inperson","days.contact.relatives.friends"
-"isoothppl_inperson","days.contact.outside.househ"
-"isoimmi_inperson","days.contact.immigrants.outside"
-"isofriends_online","days.contact.relatives.online"
-"isoothppl_online","days.contact.online.video.7.general"
-"isoimmi_online","days.contact.online.video.7.immigrants"
-"persrelsat","relationships.satisfied.general.personal"
-"discpers","discuss.matters.anyone.personal"
-"happy","happy.say.general"
-"lifesat","satisfied.general.life"
-"mlq","purpose.clear.sense.life"
-"tightnorms","norms.flexible.rigid.characteristics"
-"tightloose","loose.tight.characteristics.now"
-"tighttreat","conform.norms"
-"c19know","outbreak.commonly.referred.recent"
-"c19hope","coronavirus.will.improve.improve.c19Hope"
-"c19eff","fight.able"
-"c19normshould","in.social.distancing.distancing.c19NormShould"
-"c19normdo","in.social.distancing.distancing.c19NormDo"
-"c19isstrict","developing.strict.rules.communityâ"
-"c19ispunish","deviate.place.punishing.put"
-"c19isorg","organized.responding.well.communityâ"
-"extc19msg","extentâ.unambiguous.messages.clear"
-"csqc19contract","contracting.virus.disturbing.find"
-"csqecosuffer","consequences.negative.suffering.disturbing"
-"csqcancpln","cancellation.plans.disturbing.find"
-"csqlife","changing.routines.disturbing.find"
-"ecoknow","potential.knowledgeable.economic.consequences"
-"ecohope","coronavirus.will.improve.improve.ecoHope"
-"ecoeff","fight.able.economic.consequences"
-"houseleave","home.leave.often"
-"houseleavewhy_1","work"
-"houseleavewhy_2","run.errands"
-"houseleavewhy_4","meeting.seeing.cinema.family"
-"houseleavewhy_7","alone.walk.leisure.purposes"
-"houseleavewhy_6","other.please.specify.specify.houseLeaveWhy_6"
-"tempfocpast","replay.memories.mind"
-"tempfocpres","focus.happening.life"
-"tempfocfut","store.future"
-"feelingtherm","rate.migrants.come"
-"idoverlap","represents.closeness.picture.best"
-"relyesno","religious"
-"countrycitizen","citizen"
-"citizen","birth.since.citizen"
-"immigrant","immigrant.consider"
-"gender","gender"
-"age","age"
-"edu","highest.level.education"
-"countryiso3",NA
-"date",NA
-"coronaclose",NA
-"employstatus",NA
-"disc",NA
-"jbinsec",NA
-"pfs",NA
-"fail",NA
-"lone",NA
-"probsolving",NA
-"posrefocus",NA
-"c19proso",NA
-"c19perbeh",NA
-"c19rca",NA
-"ecoproso",NA
-"ecorca",NA
-"migrantthreat",NA
-"neuro",NA
-"para",NA
-"consp",NA
-"population",NA
-"cancelpublicevents_flag",NA
-"closepublictransport_flag",NA
-"contacttracing",NA
-"containmenthealthindex",NA
-"containmenthealthindexfordisplay",NA
-"debtcontractrelief",NA
-"economicsupportindex",NA
-"economicsupportindexfordisplay",NA
-"emergencyinvestmentinhealthcare",NA
-"fiscalmeasures",NA
-"governmentresponseindex",NA
-"governmentresponseindexfordisplay",NA
-"internationalsupport",NA
-"internationaltravelcontrols",NA
-"investmentinvaccines",NA
-"restrictionsongatherings_flag",NA
-"restrictionsoninternalmovement_flag",NA
-"schoolclosing_flag",NA
-"stayathomerequirements_flag",NA
-"stringencyindex",NA
-"stringencylegacyindex",NA
-"stringencylegacyindexfordisplay",NA
-"testingpolicy",NA
-"workplaceclosing_flag",NA
-"ghsscore",NA
-"airdepartures",NA
-"tourismexpenditures",NA
-"doctors_per_10k",NA
-"nurses_and_midwifery_per_10k",NA
-"che_perc_of_gdp_2017",NA
-"controlcorruption",NA
-"ruleoflaw",NA
-"politicalstability",NA
-"voiceaccountability",NA
-"govteffectiveness",NA
-"regulatoryquality",NA
+X,lab
+affanx,anxious
+affbor,bored
+affcalm,calm
+affcontent,content
+affdepr,depressed
+affenerg,energetic
+affexc,excited
+affnerv,nervous
+affexh,exhausted
+affinsp,inspired
+affrel,relaxed
+plrac19,Infection risk
+plraeco,Economic risk
+isofriends_inperson,Contact friends
+isoothppl_inperson,Contact people
+isoimmi_inperson,Contact immigrants
+isofriends_online,Online friends
+isoothppl_online,Online people
+isoimmi_online,Online immigrants
+persrelsat,Relat. Satis.
+discpers,Close friend
+happy,Happiness
+lifesat,Life satisfaction
+mlq,Sense of purpose
+tightnorms,Rigid norms
+tightloose,Loose norms
+tighttreat,Conform norms
+c19know,COVID knowledge
+c19hope,COVID hopeful
+c19eff,COVID efficacy
+c19normshould,Should social distance
+c19normdo,Do social distance
+c19isstrict,Strict measures
+c19ispunish,Punitive measures
+c19isorg,Organized measures
+extc19msg,Clear messages
+csqc19contract,Consequence contracting
+csqecosuffer,Consequence economic
+csqcancpln,Consequence cancel
+csqlife,Consequence routines
+ecoknow,Econ. knowledge
+ecohope,Econ. hope
+ecoeff,Econ. efficacy
+houseleave,home.leave.often
+houseleavewhy_1,Leave for work
+houseleavewhy_2,Leave for errands
+houseleavewhy_4,Leave for meeting
+houseleavewhy_7,Leave for leisure
+houseleavewhy_6,Leave for other
+tempfocpast,Focus past
+tempfocpres,Focus present
+tempfocfut,Focus future
+feelingtherm,Feeling migrants
+idoverlap,National identity
+relyesno,Religious
+countrycitizen,Is citizen
+citizen,Natural born
+immigrant,Is immigrant
+gender,Gender
+age,Age
+edu,Education
+countryiso3,Country
+date,Date
+coronaclose,COVID close
+employstatus,Employ. Status
+disc,Soc. Discontent
+jbinsec,Job insecurity
+pfs,Financial worries
+fail,Struggling
+lone,Loneliness
+probsolving,Problem solving
+posrefocus,Refocus attention
+c19proso,COVID prosocial
+c19perbeh,COVID personal safety
+c19rca,COVID restrictive measures
+ecoproso,Econ. prosocial
+ecorca,Econ. restrictive measures
+migrantthreat,Migrant threat
+neuro,Neuroticism
+para,Paranoia
+consp,Conspiracy
+population,C_Population size
+cancelpublicevents_flag,C_Cancel events
+closepublictransport_flag,C_Close transport
+contacttracing,C_Contact tracing
+containmenthealthindex,C_Containment health index
+containmenthealthindexfordisplay,C_Containment health index2
+debtcontractrelief,C_Debt relief
+economicsupportindex,C_Economic support index
+economicsupportindexfordisplay,C_Economic support index2
+emergencyinvestmentinhealthcare,C_Invest healthcare
+fiscalmeasures,C_Fiscal measures
+governmentresponseindex,C_Govt. response
+governmentresponseindexfordisplay,C_Govt. response2
+internationalsupport,C_International support
+internationaltravelcontrols,C_Intl. travel restrictions
+investmentinvaccines,C_Invest vaccines
+restrictionsongatherings_flag,C_restrict gatherings
+restrictionsoninternalmovement_flag,C_restrict mobility
+schoolclosing_flag,C_school close
+stayathomerequirements_flag,C_stay home
+stringencyindex,C_stringency
+stringencylegacyindex,C_stringency legacy
+stringencylegacyindexfordisplay,C_stringency legacy2
+testingpolicy,C_testing
+workplaceclosing_flag,C_close workplace
+ghsscore,C_GHS
+airdepartures,C_air travel
+tourismexpenditures,C_tourism expenditures
+doctors_per_10k,C_doctors per 10k
+nurses_and_midwifery_per_10k,C_nurses per 10k
+che_perc_of_gdp_2017,C_health expenditures
+controlcorruption,C_control corruption
+ruleoflaw,C_rule of law
+politicalstability,C_political stability
+voiceaccountability,C_accountability
+govteffectiveness,C_govt. effectiveness
+regulatoryquality,C_regulatory quality
