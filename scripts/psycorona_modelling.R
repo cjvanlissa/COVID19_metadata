@@ -1,8 +1,3 @@
-########## TO DO's ##########
-
-# TODO: update evaluation, try different eval metrics
-# TODO: come up with good solution on deciding which predictors are most important based on Lasso and RF
-
 ########## PREPARATION ##########
 
 # library(tidyverse)
@@ -41,14 +36,14 @@ if(run_everything){
             "posrefocus", "c19proso", "c19perbeh", "c19rca", "ecoproso", 
             "ecorca", "migrantthreat", "neuro", "para", "consp", 
             "population", "cancelpublicevents_flag", "closepublictransport_flag", 
-            "contacttracing", "containmenthealthindex", "containmenthealthindexfordisplay", 
-            "debtcontractrelief", "economicsupportindex", "economicsupportindexfordisplay", 
+            "contacttracing", "containmenthealthindex", 
+            "debtcontractrelief", "economicsupportindex",
             "emergencyinvestmentinhealthcare", "fiscalmeasures", "governmentresponseindex", 
-            "governmentresponseindexfordisplay", "internationalsupport", 
+            "internationalsupport", 
             "internationaltravelcontrols", "investmentinvaccines", "publicinformationcampaigns_flag", 
             "restrictionsongatherings_flag", "restrictionsoninternalmovement_flag", 
             "schoolclosing_flag", "stayathomerequirements_flag", "stringencyindex", 
-            "stringencylegacyindex", "stringencylegacyindexfordisplay", "testingpolicy", 
+            "testingpolicy", 
             "workplaceclosing_flag", "ghsscore", "airdepartures", "tourismexpenditures", 
             "doctors_per_10k", "nurses_and_midwifery_per_10k", "che_perc_of_gdp_2017", 
             "controlcorruption", "ruleoflaw", "politicalstability", "voiceaccountability", 
@@ -109,7 +104,7 @@ df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <-
 # for(i in 1:118){
 #   df_testing[[i]] <- do.call(paste0("as.", class(df_training[[i]])[1]), list(df_testing[[i]]))
 # }
-names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing[1:118]))]
+names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing[1:113]))]
 
 # Structure overview
 #str(df_training)
@@ -117,17 +112,6 @@ names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_tra
 # Defining dependent variables
 dep_vars <- c("c19eff", "ecorca", "consp", "c19proso", "ecoproso", "isofriends_inperson", "c19perbeh")
 
-# # Exploring dependent variables (data frame x, dep. variable y)
-# expl_dv <- function(y){
-#   res <- list()
-#   
-#   res[["type"]]      <- typeof(df_training[, which(names(df_training) == y)])
-#   res[["unique"]]    <- unique(df_training[, which(names(df_training) == y)])
-#   # res[["histogram"]] <- hist(df_training$c19eff)
-#   
-#   return(res)
-# }
-# lapply(dep_vars, expl_dv) 
 
 ########## CARET MODEL COMPARING SETUP ########## 
 set.seed(953007)
@@ -177,16 +161,6 @@ model_crosssectional <- function(y, data = df_training, run_in_parallel = TRUE, 
   lassoRes[["exclPreds"]] <- lassoRes$varimp[which(lassoRes$varimp[,2] == 0), 1]   # these features have been excluded
   lassoRes[["selPreds"]]  <- lassoRes$varimp[-(which(lassoRes$varimp[,2] == 0)), ] # these features have been retained
   
-  # Coef plot
-  lassoRes[["varImpPlot"]] <- VarImpPlot.glmnet(lassoRes$final_model)
-  
-  ggsave(
-    filename = paste0("results/lasso_", y, ".png"),
-    lassoRes[["varImpPlot"]],
-    device = "png")
-  svg(filename = paste0("results/lasso_", y, ".svg"))
-  lassoRes[["varImpPlot"]]
-  dev.off()
   lassoRes[["fit"]] <- c(lassoRes$lasso_model$lambda.1se,
                          lassoRes$lasso_model$cvm[which(lassoRes$lasso_model$lambda == lassoRes$lasso_model$lambda.1se)],
                          model_accuracy(lassoRes$final_model,
@@ -229,17 +203,6 @@ model_crosssectional <- function(y, data = df_training, run_in_parallel = TRUE, 
   rfRes[["varimp"]] <- data.frame(Variable = names(res_final$variable.importance),
                                   importance = res_final$variable.importance)
   rfRes[["varimp"]] <- rfRes[["varimp"]][order(rfRes[["varimp"]]$importance, decreasing = TRUE), ]
-  # Coef plot
-  rfRes[["varImpPlot"]] <- VarImpPlot(res_final)
-
-  ggsave(
-    filename = paste0("results/rf_", y, ".png"),
-    rfRes[["varImpPlot"]],
-    device = "png")
-  svg(filename = paste0("results/rf_", y, ".svg"))
-  rfRes[["varImpPlot"]]
-  dev.off()
-
   
   rfRes[["fit"]] <- c(unlist(res$recommended.pars[c("mtry", "min.node.size", "mse")]),
                          model_accuracy(rfRes$final_model,
@@ -272,7 +235,7 @@ models <- lapply(dep_vars, model_crosssectional, df_training, run_in_parallel = 
 # calculate elapsed time
 proc.time() - ptm
 
-saveRDS(models, "results/models.RData")
+saveRDS(models, "results/models_22-7.RData")
 
 f <- list.files("results", "res.+RData", full.names = TRUE)
 
@@ -292,6 +255,66 @@ sapply(f, function(thisfile){
     VarImpPlot(tmp$lasso$final_model),
     device = "png")
 })
+
+
+# WATCH OUT: CLEARS THE WORKING ENVIRONMENT -------------------------------
+rm(ls())
+# WATCH OUT: CLEARS THE WORKING ENVIRONMENT -------------------------------
+
+library(ggplot2)
+library(metaforest)
+source("scripts/varimpplot_lasso.R")
+df_training <- read.csv("df_training_imputed.csv", stringsAsFactors = FALSE)
+f <- list.files("results", "res.+RData", full.names = TRUE)
+df_vars <- read.csv("scripts/df_training_labs.csv", stringsAsFactors = F)
+var_rename <- tolower(df_vars$lab)
+names(var_rename) <- df_vars$X
+
+# Renamed plots
+for(thisfile in f[2:7]){
+  tmp <- readRDS(thisfile)
+  res <- tmp$rf$final_model
+  cur_env <- ls()
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  rm(list = cur_env)
+  VI <- res$variable.importance
+  names(VI) <- var_rename[names(VI)]
+  ggsave(
+    filename = paste0("results/rf_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
+    VarImpPlot.numeric(VI),
+    device = "png")
+  
+  cur_env <- ls()
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  rm(list = cur_env)
+  vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
+  gc()
+  
+  p <- tryCatch({metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(25, 3000))},
+                error = function(e){
+                  gc()
+                  metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(25, 1500))
+                })
+  ggsave(
+    filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
+    p,
+    device = "png")
+  cur_env <- ls()
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  rm(list = cur_env)
+  vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
+  gc()
+  for(thisvar in vars){
+    p <- metaforest::PartialDependence(res, vars = thisvar, data = df_training, label_elements = var_rename, resolution = c(25, 3000))
+    ggsave(
+      filename = paste0("results/pdp_individual/rf_pdp_", thisvar, "_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
+      p,
+      device = "png")
+  }
+  
+}
+
+
 df_representative <- read.csv("df_testing_source.csv", stringsAsFactors = FALSE)
 df_representative <- df_representative[df_representative$source %in% c(6, 7, 8), ]
 repr_table <- sapply(f, function(thisfile){
