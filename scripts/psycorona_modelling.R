@@ -17,7 +17,8 @@ if(run_everything){
   #source("scripts/psyCorona_data_cleaning.R") # get (subsets of) raw data from exploration script
   df_training <- read.csv("training.csv", stringsAsFactors = FALSE)
   df_testing <- read.csv("testing.csv", stringsAsFactors = FALSE)
-
+  representative <- df_testing$source %in% c(6:8)
+  yaml::write_yaml(representative, "results/representative.yml")
   vars <- c("countryiso3", "date", "affanx", 
             "affbor", "affcalm", "affcontent", "affdepr", "affenerg", "affexc", 
             "affnerv", "affexh", "affinsp", "affrel", "plrac19", "plraeco", 
@@ -271,7 +272,7 @@ var_rename <- tolower(df_vars$lab)
 names(var_rename) <- df_vars$X
 
 # Renamed plots
-for(thisfile in f[2:7]){
+for(thisfile in f){
   tmp <- readRDS(thisfile)
   res <- tmp$rf$final_model
   cur_env <- ls()
@@ -290,11 +291,7 @@ for(thisfile in f[2:7]){
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()
   
-  p <- tryCatch({metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(25, 3000))},
-                error = function(e){
-                  gc()
-                  metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(25, 1500))
-                })
+  p <- metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(27, 100))
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     p,
@@ -305,7 +302,12 @@ for(thisfile in f[2:7]){
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()
   for(thisvar in vars){
-    p <- metaforest::PartialDependence(res, vars = thisvar, data = df_training, label_elements = var_rename, resolution = c(25, 3000))
+    cur_env <- ls()
+    cur_env <- cur_env[!cur_env %in% c("vars", "thisvar", "res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+    rm(list = cur_env)
+    gc()
+    
+    p <- metaforest::PartialDependence(res, vars = thisvar, data = df_training, label_elements = var_rename, resolution = c(27, 100))
     ggsave(
       filename = paste0("results/pdp_individual/rf_pdp_", thisvar, "_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
       p,
@@ -314,9 +316,17 @@ for(thisfile in f[2:7]){
   
 }
 
+representative <- yaml::read_yaml(representative, "results/representative.yml")
+df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
+df_testing[which(sapply(df_testing, is.character))] <- 
+  lapply(df_testing[which(sapply(df_testing, is.character))], factor)
 
-df_representative <- read.csv("df_testing_source.csv", stringsAsFactors = FALSE)
-df_representative <- df_representative[df_representative$source %in% c(6, 7, 8), ]
+df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
+  lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
+df_representative <- df_testing[representative, ]
+
+source("scripts/model_accuracy.R")
+
 repr_table <- sapply(f, function(thisfile){
   tmp <- readRDS(thisfile)
   y <- gsub(".+?_(.+)\\.RData", "\\1", thisfile)
