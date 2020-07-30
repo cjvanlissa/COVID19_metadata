@@ -27,3 +27,4 @@ models.RData
 !results/representative_fit.csv
 !variable_names.csv
 !df_training_labs.csv
+!fit_paper.csv
