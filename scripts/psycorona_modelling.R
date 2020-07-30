@@ -284,6 +284,7 @@ for(thisfile in f){
   res <- tmp$rf$final_model
   
   # Lasso plot
+  source("scripts/varimpplot_lasso.R")
   p <- VarImpPlot(tmp$lasso$final_model)
   ggsave(
     filename = paste0("results/lasso_", dvname, ".png"),
