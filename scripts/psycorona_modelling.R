@@ -311,36 +311,72 @@ for(thisfile in f){
   # Write to file  
   write.table(t(fits), "results/fit_table.csv", append = TRUE, row.names = FALSE, col.names = FALSE, sep = ",")
 
-  cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
-  rm(list = cur_env)
-  VI <- res$variable.importance
-  names(VI) <- var_rename[names(VI)]
-  p <- VarImpPlot.numeric(VI)
-  ggsave(
-    filename = paste0("results/rf_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
-    VarImpPlot.numeric(VI),
-    device = "png")
+  # cur_env <- ls()
+  # cur_env <- cur_env[!cur_env %in% c("res", "df_training", "dvname", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  # rm(list = cur_env)
   
   cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "dvname", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
   rm(list = cur_env)
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()
   
-  p <- metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(27, 100))
+  # Partial dependence plot
+  p <- metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(27, 100), save_direction = "directions.csv")
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     p,
     device = "png")
+  svg(paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".svg"))
+  eval(p)
+  dev.off()
+  # Variable importance plot
+  dirs <- read.csv("directions.csv", header = FALSE, stringsAsFactors = FALSE)
+  dirs$V5 <- apply(dirs[, c(2,4)], 1, function(i){
+    if(sum(i == 0) == 2){
+      "Other"
+    } else {
+      if(sum(i == 0) == 1){
+        c("Negative", "Positive")[which(!i == 0)]
+      } else {
+        if(any(prop.table(i) > .6)){
+          c("Negative", "Positive")[(i[1] < i[2])+1]
+        } else {
+          "Other"
+        }
+      }
+    }
+  })
+
+  VI <- sort(res$variable.importance, decreasing = TRUE)[1:30]
+  VI <- data.frame(Variable = var_rename[names(VI)], Importance = VI, Direction = dirs$V5[match(names(VI), dirs$V1)])
+  VI$Variable <- ordered(VI$Variable, levels = rev(VI$Variable))
+  p <- ggplot(VI, aes_string(y = "Variable", x = "Importance")) + 
+    geom_segment(aes_string(x = 0, xend = "Importance", 
+                            y = "Variable", yend = "Variable"), colour = "grey50", 
+                 linetype = 2) + geom_vline(xintercept = 0, colour = "grey50", 
+                                            linetype = 1) + xlab("Permutation Importance") + 
+    theme_bw() + theme(panel.grid.major.x = element_blank(), 
+                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank()) + 
+    geom_point(aes_string(fill = "Direction"), shape = 21, size = 2) + 
+      scale_fill_manual(values = c("Positive" = "white", "Negative" = "black", "Other" = "gray70")) + 
+      theme(legend.position = c(0.92, 0.13))
+  ggsave(
+    filename = paste0("results/varimp_rf_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
+    p,
+    device = "png")
+  svg(paste0("results/varimp_rf_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".svg"))
+  eval(p)
+  dev.off()
+  
   cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "dvname", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
   rm(list = cur_env)
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()
   for(thisvar in vars){
     cur_env <- ls()
-    cur_env <- cur_env[!cur_env %in% c("vars", "thisvar", "res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+    cur_env <- cur_env[!cur_env %in% c("vars", "thisvar", "dvname", "res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
     rm(list = cur_env)
     gc()
     
@@ -350,149 +386,31 @@ for(thisfile in f){
       p,
       device = "png")
   }
-  
 }
 
-representative <- yaml::read_yaml(representative, "results/representative.yml")
-df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
-df_testing[which(sapply(df_testing, is.character))] <- 
-  lapply(df_testing[which(sapply(df_testing, is.character))], factor)
-
-df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
-  lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
-df_representative <- df_testing[representative, ]
-
-source("scripts/model_accuracy.R")
-
-repr_table <- sapply(f, function(thisfile){
-  tmp <- readRDS(thisfile)
-  y <- gsub(".+?_(.+)\\.RData", "\\1", thisfile)
-  out <- tryCatch({model_accuracy(tmp$rf$final_model,
-                   newdata = df_representative[, -which(names(df_representative) == y)],
-                   observed = df_representative[[y]],
-                   ymean = mean(df_training[[y]], na.rm = TRUE))}, error = function(e){
-                     browser()
-                     c(r2 = NA, mse = NA, r_actual_pred = NA)
-                   })
-  names(out) <- paste0("representative_", names(out))
-  out
-})
-
-write.csv(repr_table, "results/representative_fit.csv")
-
-model_longitudinal <- function(y, data, run_in_parallel = TRUE, n_cores){
-  browser()
-  X <- data[, !names(data) == y]
-  Y <- data[[y]]
-  
-  if (run_in_parallel) {
-    cl <- makePSOCKcluster(n_cores) # set number of cores
-    # cl <- parallel::makeCluster(n_cores, setup_strategy = "sequential") # workaround for MacOS issues
-    registerDoParallel(cl) # register cluster
-  }
-  
-  modelRes <- list() # object to store results in
-  seed     <- 953007 # seed used throughout this function
-  
-  ### Model 1/2: Lasso
-  lassoRes <- list() # object to store Lasso results in
-  
-  set.seed(seed)
-  X_las <- model.matrix(~., X)[, -1]
-  lassoRes[["lasso_model"]] <- caret::train(x = X_las, y = Y,
-                                           method = "glmnet",
-                                           trControl = cv_split, family = "gaussian",
-                                           tuneGrid = expand.grid(alpha = 1, lambda = lambda), verbose = TRUE)
-  
-  lassoRes[["optLambda"]]  <- lassoRes$lasso_model$bestTune$lambda # optimal lambda
-  
-  # Lasso coefficients
-  lasso_coef_names    <- rownames(coef(lassoRes$lasso_model$final_model, lassoRes$lasso_model$bestTune$lambda))[-1]
-  lasso_coef_values   <- abs(as.vector(coef(lassoRes$lasso_model$final_model, lassoRes$lasso_model$bestTune$lambda))[-1])
-  lassoRes[["coefs"]] <- data.frame(coef_names = lasso_coef_names[order(abs(lasso_coef_values), decreasing=TRUE)],
-                                    coef_values = lasso_coef_values[order(abs(lasso_coef_values), decreasing=TRUE)])
-  
-  lassoRes[["exclPreds"]] <- lassoRes$coefs[which(lassoRes$coefs[,2] == 0), 1]   # these features have been excluded
-  lassoRes[["selPreds"]]  <- lassoRes$coefs[-(which(lassoRes$coefs[,2] == 0)), ] # these features have been retained
-  
-  # Coef plot
-  lassoRes[["coefPlot"]] <- 
-    ggplot(lassoRes$coefs, aes(x = 0, xend = coef_values, y = reorder(coef_names, coef_values), yend = coef_names)) +
-    geom_segment() +
-    geom_point(aes(x = coef_values, y = coef_names)) +
-    xlab("Coefficient") +
-    ylab("") +
-    theme_bw()
-  
-  # Coef plot with only selected (meaningful) variables
-  lassoRes[["coefPlotRelevant"]] <- 
-    ggplot(lassoRes$coefs[which(lassoRes$coefs$coef_names %in% lassoRes$selPreds$coef_names),], 
-           aes(x = 0, xend = coef_values, y = reorder(coef_names, coef_values), yend = coef_names)) +
-    geom_segment() +
-    geom_point(aes(x = coef_values, y = coef_names)) +
-    xlab("Coefficient") +
-    ylab("") +
-    theme_bw()
-  
-  modelRes[["lasso"]] <- lassoRes
-  
-  ### Model 2/2: Random Forest
-  rfRes <- list()                        # list to store Random Forest results in
-  mtry  <- round(sqrt(ncol(df_training))) # number of variables to try in each tree
-  
-  set.seed(seed)
-  mlr::makeRegrTask()
-  tuneRanger::tuneRanger()
-  tmp <- ranger(paste0(dep_vars[1], "~", paste0(names(df_training[!names(df_training) %in% dep_vars]), collapse = "+")), data = df_training, importance = "permutation")
-  tmp$r.squared
-  
-  VarImpPlot(tmp)
-  
-  rfRes[["rf_model"]] <- caret::train(formula(paste(y, "~.", sep = "")), data = df_training, method = "ranger", ntree = ntree,
-                                     tuneGrid = data.frame(mtry = mtry), trControl = cv_split, verbose = T)
-  
-  caret_rf_imp      <- varImp(rfRes$rf_model, scale = FALSE)
-  rf_varImp_names   <- rownames(caret_rf_imp$importance)       # coef names
-  rf_varImp_values  <- unname(unlist(caret_rf_imp$importance)) # coef values 
-  rfRes[["varImp"]] <- data.frame(coef_names = rf_varImp_names[order(abs(rf_varImp_values), decreasing=TRUE)],
-                                  coef_values = rf_varImp_values[order(abs(rf_varImp_values), decreasing=TRUE)])
-  
-  # Coef plot
-  rfRes[["varImpPlot"]] <- 
-    ggplot(rfRes$varImp, aes(x = 0, xend = coef_values, y = reorder(coef_names, coef_values), yend = coef_names)) + 
-    geom_segment() +
-    geom_point(aes(x = coef_values, y = coef_names)) +
-    xlab("Variable Importance") +
-    ylab("") +
-    theme_bw()
-  
-  # Coef plot top 25
-  rfRes[["varImpPlotTop25"]] <- 
-    ggplot(rfRes$varImp[1:25,], aes(x = 0, xend = coef_values, y = reorder(coef_names,coef_values), yend=coef_names)) + 
-    geom_segment() +
-    geom_point(aes(x = coef_values, y = coef_names)) +
-    xlab("Variable Importance") +
-    ylab("") +
-    theme_bw()
-  
-  modelRes[["rf"]] <- rfRes
-  
-  # if running in parallel, stop the cluster now
-  if (run_in_parallel) {
-    stopCluster(cl) # stop cluster
-    registerDoSEQ() # get back to sequential 
-  }
-  
-  # Error checks regarding models
-  # (1) compare the indices for one of the folds between each models to check if the folds were indeed the same
-  if(any(modelRes$lasso$lasso_model$control$index$Fold05 != modelRes$rf$rf_model$control$index$Fold05)) {
-    break ("Lasso and RF cv folds not equal")
-  }
-  
-  ### Model comparison
-  comparison_results <- resamples(list(Lasso = lassoRes$lasso_model, RandomForest = rfRes$rf_model)) # collect resamples
-  modelRes[["modelComparison"]] <- summary(comparison_results) # get the summary of the comparison
-  
-  return(modelRes)
-  
-} 
+# representative <- yaml::read_yaml(representative, "results/representative.yml")
+# df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
+# df_testing[which(sapply(df_testing, is.character))] <- 
+#   lapply(df_testing[which(sapply(df_testing, is.character))], factor)
+# 
+# df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
+#   lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
+# df_representative <- df_testing[representative, ]
+# 
+# source("scripts/model_accuracy.R")
+# 
+# repr_table <- sapply(f, function(thisfile){
+#   tmp <- readRDS(thisfile)
+#   y <- gsub(".+?_(.+)\\.RData", "\\1", thisfile)
+#   out <- tryCatch({model_accuracy(tmp$rf$final_model,
+#                    newdata = df_representative[, -which(names(df_representative) == y)],
+#                    observed = df_representative[[y]],
+#                    ymean = mean(df_training[[y]], na.rm = TRUE))}, error = function(e){
+#                      browser()
+#                      c(r2 = NA, mse = NA, r_actual_pred = NA)
+#                    })
+#   names(out) <- paste0("representative_", names(out))
+#   out
+# })
+# 
+# write.csv(repr_table, "results/representative_fit.csv")
