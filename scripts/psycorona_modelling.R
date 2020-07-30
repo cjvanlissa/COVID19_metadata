@@ -389,29 +389,38 @@ for(thisfile in f){
   }
 }
 
-# representative <- yaml::read_yaml(representative, "results/representative.yml")
-# df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
-# df_testing[which(sapply(df_testing, is.character))] <- 
-#   lapply(df_testing[which(sapply(df_testing, is.character))], factor)
-# 
-# df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
-#   lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
-# df_representative <- df_testing[representative, ]
-# 
-# source("scripts/model_accuracy.R")
-# 
-# repr_table <- sapply(f, function(thisfile){
-#   tmp <- readRDS(thisfile)
-#   y <- gsub(".+?_(.+)\\.RData", "\\1", thisfile)
-#   out <- tryCatch({model_accuracy(tmp$rf$final_model,
-#                    newdata = df_representative[, -which(names(df_representative) == y)],
-#                    observed = df_representative[[y]],
-#                    ymean = mean(df_training[[y]], na.rm = TRUE))}, error = function(e){
-#                      browser()
-#                      c(r2 = NA, mse = NA, r_actual_pred = NA)
-#                    })
-#   names(out) <- paste0("representative_", names(out))
-#   out
-# })
-# 
-# write.csv(repr_table, "results/representative_fit.csv")
+
+f <- list.files("results", "res.+RData", full.names = TRUE)
+representative <- yaml::read_yaml("results/representative.yml")
+df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
+df_testing[which(sapply(df_testing, is.character))] <-
+  lapply(df_testing[which(sapply(df_testing, is.character))], factor)
+
+df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <-
+  lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
+df_training <- read.csv("df_training_imputed.csv", stringsAsFactors = FALSE)
+df_training[which(sapply(df_training, is.character))] <-
+  lapply(df_training[which(sapply(df_training, is.character))], factor)
+
+df_training[which(lapply(sapply(df_training, unique), length) <= 5)] <-
+  lapply(df_training[which(lapply(sapply(df_training, unique), length) <= 5)], factor)
+df_representative <- df_testing[representative, ]
+
+source("scripts/model_accuracy.R")
+
+repr_table <- sapply(f, function(thisfile){
+  #thisfile = f[1]
+  tmp <- readRDS(thisfile)
+  y <- gsub(".+?_(.+)\\.RData", "\\1", thisfile)
+  out <- tryCatch({model_accuracy(tmp$rf$final_model,
+                   newdata = df_representative[, -which(names(df_representative) == y)],
+                   observed = df_representative[[y]],
+                   ymean = mean(df_training[[y]], na.rm = TRUE))}, error = function(e){
+                     browser()
+                     c(r2 = NA, mse = NA, r_actual_pred = NA)
+                   })
+  names(out) <- paste0("representative_", names(out))
+  out
+})
+
+write.csv(repr_table, "results/representative_fit.csv")
