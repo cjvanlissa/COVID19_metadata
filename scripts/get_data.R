@@ -12,9 +12,40 @@ library(glue)
 library(forcats)
 library(wbstats)
 library(lubridate)
-source("scripts/get_google_mobility.R")
-source("scripts/get_wb_open_data.R")
-source("scripts/get_world_factbook_data.R")
+
+unzip_from_web <- function(this_url){
+  timeout_option <- getOption('timeout')
+  options(timeout=500)
+  f <- file.path(tempdir(), 'tmp.zip')
+  download.file(this_url, destfile = f, mode = "wb", method = "libcurl")
+  results <- utils::unzip(zipfile = f, exdir = tempdir())
+  file.remove(f)
+  options(timeout=timeout_option)
+  return(results)
+}
+
+data_dict <- function(df, item, description, others = NULL){
+  dict <- df[, c(item, description, others)]
+  names(dict)[1:2] <- c("variable", "description")
+  dict
+}
+
+checkfilewrite <- function(df, the_dir, the_file){
+  if(!dir.exists(file.path("data", the_dir))) dir.create(file.path("data", the_dir))
+  if(!file.exists(file.path("data", the_dir, the_file))){
+    write.csv(df, file.path("data", the_dir, the_file), row.names = FALSE)
+  } else {
+    old_sum <- tools::md5sum(file.path("data", the_dir, the_file))
+    write.csv(df, file.path("data", the_dir, "XXXTMPXXX.csv"), row.names = FALSE)
+    new_sum <- tools::md5sum(file.path("data", the_dir, "XXXTMPXXX.csv"))
+    if(old_sum == new_sum){
+      file.remove(file.path("data", the_dir, "XXXTMPXXX.csv"))
+    } else {
+      file.remove(file.path("data", the_dir, the_file))
+      file.rename(file.path("data", the_dir, "XXXTMPXXX.csv"), file.path("data", the_dir, the_file))
+    }
+  }
+}
 
 get_csse <- function(){
   # Go to temporary directory for git repository
@@ -278,43 +309,12 @@ get_GHS <- function(){
   file.remove(funzipped)
 }
 
-
-unzip_from_web <- function(this_url){
-  timeout_option <- getOption('timeout')
-  options(timeout=500)
-  f <- file.path(tempdir(), 'tmp.zip')
-  download.file(this_url, destfile = f, mode = "wb", method = "libcurl")
-  results <- utils::unzip(zipfile = f, exdir = tempdir())
-  file.remove(f)
-  options(timeout=timeout_option)
-  return(results)
-}
-
-data_dict <- function(df, item, description, others = NULL){
-  dict <- df[, c(item, description, others)]
-  names(dict)[1:2] <- c("variable", "description")
-  dict
-}
-
-checkfilewrite <- function(df, the_dir, the_file){
-  if(!dir.exists(file.path("data", the_dir))) dir.create(file.path("data", the_dir))
-  if(!file.exists(file.path("data", the_dir, the_file))){
-    write.csv(df, file.path("data", the_dir, the_file), row.names = FALSE)
-  } else {
-    old_sum <- tools::md5sum(file.path("data", the_dir, the_file))
-    write.csv(df, file.path("data", the_dir, "XXXTMPXXX.csv"), row.names = FALSE)
-    new_sum <- tools::md5sum(file.path("data", the_dir, "XXXTMPXXX.csv"))
-    if(old_sum == new_sum){
-      file.remove(file.path("data", the_dir, "XXXTMPXXX.csv"))
-    } else {
-      file.remove(file.path("data", the_dir, the_file))
-      file.rename(file.path("data", the_dir, "XXXTMPXXX.csv"), file.path("data", the_dir, the_file))
-    }
-  }
-}
-
 initialize_database <- function(){
   get_csse()
   get_OxCGRT()
   get_google_mobility()
 }
+
+source("scripts/get_google_mobility.R")
+source("scripts/get_wb_open_data.R")
+source("scripts/get_world_factbook_data.R")

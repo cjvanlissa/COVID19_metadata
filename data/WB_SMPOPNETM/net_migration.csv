@@ -67,7 +67,7 @@
 "Ethiopia","ETH",150002
 "Euro area","EMU",4446572
 "Europe & Central Asia","ECS",7894029
-"Europe & Central Asia (excluding high income)","ECA",1510981
+"Europe & Central Asia (excluding high income)","ECA",1880978
 "Europe & Central Asia (IDA & IBRD countries)","TEC",1324001
 "European Union","EUU",4281648
 "Fiji","FJI",-31008
@@ -89,16 +89,16 @@
 "Guyana","GUY",-30001
 "Haiti","HTI",-175000
 "Heavily indebted poor countries (HIPC)","HPC",-1462971
-"High income","HIC",16214522
+"High income","HIC",15844525
 "Honduras","HND",-34000
 "Hong Kong SAR, China","HKG",146542
 "Hungary","HUN",29999
-"IBRD only","IBD",-6044978
+"IBRD only","IBD",-6056175
 "Iceland","ISL",1900
 "IDA & IBRD total","IBT",-15664439
-"IDA blend","IDB",-2271334
+"IDA blend","IDB",-2260137
 "IDA only","IDX",-7348127
-"IDA total","IDA",-9619461
+"IDA total","IDA",-9608264
 "India","IND",-2663434
 "Indonesia","IDN",-494777
 "Iran, Islamic Rep.","IRN",-274998
@@ -128,9 +128,9 @@
 "Liberia","LBR",-25000
 "Libya","LBY",-9997
 "Lithuania","LTU",-163902
-"Low & middle income","LMY",-16223828
-"Low income","LIC",-3804104
-"Lower middle income","LMC",-10442155
+"Low & middle income","LMY",-15853831
+"Low income","LIC",-4052273
+"Lower middle income","LMC",-10239143
 "Luxembourg","LUX",48704
 "Macao SAR, China","MAC",25000
 "Madagascar","MDG",-7500
@@ -146,7 +146,7 @@
 "Middle East & North Africa","MEA",-1194318
 "Middle East & North Africa (excluding high income)","MNA",-3197316
 "Middle East & North Africa (IDA & IBRD countries)","TMN",-3144500
-"Middle income","MIC",-12419724
+"Middle income","MIC",-11801558
 "Moldova","MDA",-6935
 "Mongolia","MNG",-4262
 "Montenegro","MNE",-2400
@@ -164,7 +164,7 @@
 "North America","NAC",5984188
 "North Macedonia","MKD",-4999
 "Norway","NOR",140000
-"OECD members","OED",15385726
+"OECD members","OED",16409707
 "Oman","OMN",437000
 "Other small states","OSS",470312
 "Pacific island small states","PSS",-63416
@@ -227,7 +227,7 @@
 "United Arab Emirates","ARE",2e+05
 "United Kingdom","GBR",1303250
 "United States","USA",4774029
-"Upper middle income","UMC",-1977569
+"Upper middle income","UMC",-1562415
 "Uruguay","URY",-15000
 "Uzbekistan","UZB",-44314
 "Vanuatu","VUT",600

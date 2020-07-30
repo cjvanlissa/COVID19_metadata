@@ -72,7 +72,7 @@
 "Ethiopia","ETH",2017,37.2180716971189
 "Euro area","EMU",2018,122.563302238318
 "Europe & Central Asia","ECS",2018,123.783821073712
-"Europe & Central Asia (excluding high income)","ECA",2018,125.569287028786
+"Europe & Central Asia (excluding high income)","ECA",2018,126.042455477403
 "Europe & Central Asia (IDA & IBRD countries)","TEC",2018,126.163567671504
 "European Union","EUU",2018,122.737839323369
 "Faroe Islands","FRO",2018,117.104150772213
@@ -97,16 +97,16 @@
 "Guyana","GUY",2017,82.9710715124184
 "Haiti","HTI",2018,57.5289184439915
 "Heavily indebted poor countries (HIPC)","HPC",2018,73.1428850456878
-"High income","HIC",2018,127.815544987891
+"High income","HIC",2018,127.655998668578
 "Honduras","HND",2018,79.1503164216989
 "Hong Kong SAR, China","HKG",2018,269.975378913769
 "Hungary","HUN",2018,103.445171614234
-"IBRD only","IBD",2018,109.080969448113
+"IBRD only","IBD",2018,109.079089642772
 "Iceland","ISL",2018,126.13709598382
 "IDA & IBRD total","IBT",2018,102.72494762774
-"IDA blend","IDB",2018,81.6527189308872
+"IDA blend","IDB",2018,81.3018723172824
 "IDA only","IDX",2018,82.3843972561062
-"IDA total","IDA",2018,82.1122992745348
+"IDA total","IDA",2018,81.9851853264912
 "India","IND",2018,86.9425631882511
 "Indonesia","IDN",2018,119.338721930265
 "Iran, Islamic Rep.","IRN",2018,108.462393753912
@@ -126,7 +126,7 @@
 "Kuwait","KWT",2018,171.605332157691
 "Kyrgyz Republic","KGZ",2018,138.566060123445
 "Lao PDR","LAO",2018,51.8633770383574
-"Late-demographic dividend","LTE",2018,122.195042628976
+"Late-demographic dividend","LTE",2018,122.195042628975
 "Latin America & Caribbean","LCN",2018,103.110587910797
 "Latin America & Caribbean (excluding high income)","LAC",2018,101.430459876389
 "Latin America & the Caribbean (IDA & IBRD countries)","TLA",2018,104.13615360634
@@ -138,9 +138,9 @@
 "Libya","LBY",2017,91.47929619902
 "Liechtenstein","LIE",2018,124.695331047217
 "Lithuania","LTU",2018,163.870345672525
-"Low & middle income","LMY",2018,102.259190921745
-"Low income","LIC",2018,66.0158356410244
-"Lower middle income","LMC",2018,95.5979989757924
+"Low & middle income","LMY",2018,102.204785503226
+"Low income","LIC",2018,60.4038821727271
+"Lower middle income","LMC",2018,94.3238621808888
 "Luxembourg","LUX",2018,132.164933098329
 "Macao SAR, China","MAC",2018,345.324522351481
 "Madagascar","MDG",2018,40.5703412338433
@@ -155,9 +155,9 @@
 "Mexico","MEX",2018,95.2316028013075
 "Micronesia, Fed. Sts.","FSM",2017,20.7376703541212
 "Middle East & North Africa","MEA",2018,105.948293727399
-"Middle East & North Africa (excluding high income)","MNA",2018,99.8617862894694
+"Middle East & North Africa (excluding high income)","MNA",2018,99.8617862894693
 "Middle East & North Africa (IDA & IBRD countries)","TMN",2018,99.9911233962077
-"Middle income","MIC",2018,105.612136014527
+"Middle income","MIC",2018,105.651771351256
 "Moldova","MDA",2018,88.0139508344637
 "Monaco","MCO",2018,84.5070058425107
 "Mongolia","MNG",2018,133.178338636863
@@ -178,7 +178,7 @@
 "North Macedonia","MKD",2018,94.5343086775195
 "Northern Mariana Islands","MNP",NA,NA
 "Norway","NOR",2018,107.173711615032
-"OECD members","OED",2018,121.150764070407
+"OECD members","OED",2018,121.472685476871
 "Oman","OMN",2018,133.366290690516
 "Other small states","OSS",2018,122.035056656136
 "Pacific island small states","PSS",2017,85.8729645924855
@@ -223,7 +223,7 @@
 "St. Lucia","LCA",2018,101.679595797437
 "St. Vincent and the Grenadines","VCT",2018,96.0657284663055
 "Sub-Saharan Africa","SSF",2018,82.3960843471537
-"Sub-Saharan Africa (excluding high income)","SSA",2018,82.385415415239
+"Sub-Saharan Africa (excluding high income)","SSA",2018,82.2910409369187
 "Sub-Saharan Africa (IDA & IBRD countries)","TSS",2018,82.3960843471537
 "Sudan","SDN",2018,72.0079141595118
 "Suriname","SUR",2018,130.604697998229
@@ -247,7 +247,7 @@
 "United Arab Emirates","ARE",2018,208.504833215467
 "United Kingdom","GBR",2018,118.365129179661
 "United States","USA",2018,129.014007543009
-"Upper middle income","UMC",2018,117.010702901838
+"Upper middle income","UMC",2018,117.108276168728
 "Uruguay","URY",2018,149.904226528107
 "Uzbekistan","UZB",2018,71.5173712822209
 "Vanuatu","VUT",2018,85.9054257209239

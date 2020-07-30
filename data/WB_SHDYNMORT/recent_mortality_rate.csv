@@ -66,7 +66,7 @@
 "Ethiopia","ETH",2018,55.2
 "Euro area","EMU",2018,3.5948586203905
 "Europe & Central Asia","ECS",2018,8.7
-"Europe & Central Asia (excluding high income)","ECA",2018,12.7200017989125
+"Europe & Central Asia (excluding high income)","ECA",2018,12.8943126485775
 "Europe & Central Asia (IDA & IBRD countries)","TEC",2018,12.1977269910188
 "European Union","EUU",2018,3.88719573394755
 "Fiji","FJI",2018,25.6
@@ -89,12 +89,12 @@
 "High income","HIC",2018,5
 "Honduras","HND",2018,17.6
 "Hungary","HUN",2018,4.3
-"IBRD only","IBD",2018,23.0250286311968
+"IBRD only","IBD",2018,23.0144856122453
 "Iceland","ISL",2018,2
 "IDA & IBRD total","IBT",2018,41.8759374113113
-"IDA blend","IDB",2018,85.2531884307356
+"IDA blend","IDB",2018,85.7180017326694
 "IDA only","IDX",2018,62.2384249470843
-"IDA total","IDA",2018,70.1472897767837
+"IDA total","IDA",2018,70.2715667475204
 "India","IND",2018,36.6
 "Indonesia","IDN",2018,25
 "Iran, Islamic Rep.","IRN",2018,14.4
@@ -124,7 +124,7 @@
 "Liberia","LBR",2018,70.9
 "Libya","LBY",2018,12
 "Lithuania","LTU",2018,4
-"Low & middle income","LMY",2018,41.9689010582912
+"Low & middle income","LMY",2018,42.0231320083961
 "Low income","LIC",2018,68.1
 "Lower middle income","LMC",2018,49.1
 "Luxembourg","LUX",2018,2.4
@@ -142,7 +142,7 @@
 "Middle East & North Africa","MEA",2018,21.9
 "Middle East & North Africa (excluding high income)","MNA",2018,23.6521521478456
 "Middle East & North Africa (IDA & IBRD countries)","TMN",2018,23.7057656061518
-"Middle income","MIC",2018,35.8156167748367
+"Middle income","MIC",2018,36.1002711526528
 "Moldova","MDA",2018,15.8
 "Monaco","MCO",2018,3.2
 "Mongolia","MNG",2018,16.3
@@ -161,7 +161,7 @@
 "North America","NAC",2018,6.4
 "North Macedonia","MKD",2018,9.9
 "Norway","NOR",2018,2.5
-"OECD members","OED",2018,6.43274209312498
+"OECD members","OED",2018,6.80134081058211
 "Oman","OMN",2018,11.4
 "Other small states","OSS",2018,48.7308603468436
 "Pacific island small states","PSS",2018,24.2510866574966
@@ -204,7 +204,7 @@
 "St. Lucia","LCA",2018,16.6
 "St. Vincent and the Grenadines","VCT",2018,16.4
 "Sub-Saharan Africa","SSF",2018,77.5
-"Sub-Saharan Africa (excluding high income)","SSA",2018,77.4816145481853
+"Sub-Saharan Africa (excluding high income)","SSA",2018,77.5026194892553
 "Sub-Saharan Africa (IDA & IBRD countries)","TSS",2018,77.4789533817993
 "Sudan","SDN",2018,60.5
 "Suriname","SUR",2018,18.9

@@ -90,16 +90,16 @@
 "Guyana","GUY",2018,5.88842
 "Haiti","HTI",2018,2.78047
 "Heavily indebted poor countries (HIPC)","HPC",2018,4.01379
-"High income","HIC",2016,5.11332
+"High income","HIC",2016,5.0136
 "Honduras","HND",2018,6.0812
 "Hong Kong SAR, China","HKG",2018,3.32259
 "Hungary","HUN",2016,4.71078
-"IBRD only","IBD",2013,4.12402
+"IBRD only","IBD",2016,4.34481
 "Iceland","ISL",2016,7.45988
 "IDA & IBRD total","IBT",2017,4.072325
-"IDA blend","IDB",2018,4.12844
+"IDA blend","IDB",2018,3.882415
 "IDA only","IDX",2018,4.03814
-"IDA total","IDA",2018,4.08329
+"IDA total","IDA",2018,4.03814
 "India","IND",2013,3.84467
 "Indonesia","IDN",2015,3.5836
 "Iran, Islamic Rep.","IRN",2018,3.95536
@@ -129,9 +129,9 @@
 "Libya","LBY",NA,NA
 "Liechtenstein","LIE",NA,NA
 "Lithuania","LTU",2016,4.00847
-"Low & middle income","LMY",2017,4.05887
-"Low income","LIC",2018,3.86729
-"Lower middle income","LMC",2017,4.582105
+"Low & middle income","LMY",2017,4.0451
+"Low income","LIC",2018,3.23481
+"Lower middle income","LMC",2018,4.08329
 "Luxembourg","LUX",2015,3.95519
 "Macao SAR, China","MAC",2017,2.70008
 "Madagascar","MDG",2018,3.23481
@@ -148,7 +148,7 @@
 "Middle East & North Africa","MEA",NA,NA
 "Middle East & North Africa (excluding high income)","MNA",NA,NA
 "Middle East & North Africa (IDA & IBRD countries)","TMN",NA,NA
-"Middle income","MIC",2017,4.33953
+"Middle income","MIC",2017,4.43051
 "Moldova","MDA",2018,5.51108
 "Monaco","MCO",2017,1.46121
 "Mongolia","MNG",2017,4.08578
@@ -165,7 +165,7 @@
 "North America","NAC",2014,4.96174
 "North Macedonia","MKD",NA,NA
 "Norway","NOR",2016,7.9761
-"OECD members","OED",2016,5.11332
+"OECD members","OED",2016,5.011575
 "Oman","OMN",2013,4.97011
 "Other small states","OSS",2014,3.35425
 "Pakistan","PAK",2017,2.89952
@@ -208,7 +208,7 @@
 "St. Lucia","LCA",2018,3.67959
 "St. Vincent and the Grenadines","VCT",2018,5.68122
 "Sub-Saharan Africa","SSF",2018,4.60449
-"Sub-Saharan Africa (excluding high income)","SSA",2018,4.60449
+"Sub-Saharan Africa (excluding high income)","SSA",2018,4.486325
 "Sub-Saharan Africa (IDA & IBRD countries)","TSS",2018,4.60449
 "Sudan","SDN",NA,NA
 "Sweden","SWE",2016,7.66993
@@ -230,7 +230,7 @@
 "Ukraine","UKR",2017,5.41226
 "United Kingdom","GBR",2016,5.48697
 "United States","USA",2014,4.96174
-"Upper middle income","UMC",2016,3.81294
+"Upper middle income","UMC",2013,4.100435
 "Uruguay","URY",2017,4.8403
 "Uzbekistan","UZB",2017,5.28134
 "Vanuatu","VUT",2017,4.69537

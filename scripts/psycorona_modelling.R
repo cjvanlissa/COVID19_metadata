@@ -36,7 +36,9 @@ if(run_everything){
             "employstatus", "disc", "jbinsec", "pfs", "fail", "lone", "probsolving", 
             "posrefocus", "c19proso", "c19perbeh", "c19rca", "ecoproso", 
             "ecorca", "migrantthreat", "neuro", "para", "consp", 
-            "population", "cancelpublicevents_flag", "closepublictransport_flag", 
+            "population", 
+            "confirmed", "deaths", "recovered",
+            "cancelpublicevents_flag", "closepublictransport_flag", 
             "contacttracing", "containmenthealthindex", 
             "debtcontractrelief", "economicsupportindex",
             "emergencyinvestmentinhealthcare", "fiscalmeasures", "governmentresponseindex", 
@@ -105,7 +107,7 @@ df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <-
 # for(i in 1:118){
 #   df_testing[[i]] <- do.call(paste0("as.", class(df_training[[i]])[1]), list(df_testing[[i]]))
 # }
-names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing[1:113]))]
+names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_training, y = df_testing[1:116]))]
 
 # Structure overview
 #str(df_training)
@@ -236,27 +238,6 @@ models <- lapply(dep_vars, model_crosssectional, df_training, run_in_parallel = 
 # calculate elapsed time
 proc.time() - ptm
 
-saveRDS(models, "results/models_22-7.RData")
-
-f <- list.files("results", "res.+RData", full.names = TRUE)
-
-fit_table <- sapply(f, function(thisfile){
-  tmp <- readRDS(thisfile)
-  names(tmp$lasso$fit) <- paste0("lasso_", names(tmp$lasso$fit))
-  names(tmp$rf$fit) <- paste0("rf_", names(tmp$rf$fit))
-  c(DV = gsub(".+_(.+)\\.RData", "\\1", thisfile), tmp$lasso$fit, tmp$rf$fit)
-})
-
-write.csv(t(fit_table), "results/fit_table.csv", row.names = FALSE)
-
-sapply(f, function(thisfile){
-  tmp <- readRDS(thisfile)
-  ggsave(
-    filename = paste0("results/lasso_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
-    VarImpPlot(tmp$lasso$final_model),
-    device = "png")
-})
-
 
 # WATCH OUT: CLEARS THE WORKING ENVIRONMENT -------------------------------
 rm(ls())
@@ -265,28 +246,84 @@ rm(ls())
 library(ggplot2)
 library(metaforest)
 source("scripts/varimpplot_lasso.R")
+source("scripts/model_accuracy.R")
+
+# Prepare training data
 df_training <- read.csv("df_training_imputed.csv", stringsAsFactors = FALSE)
 f <- list.files("results", "res.+RData", full.names = TRUE)
 df_vars <- read.csv("scripts/df_training_labs.csv", stringsAsFactors = F)
 var_rename <- tolower(df_vars$lab)
 names(var_rename) <- df_vars$X
 
+# Prepare (representative) testing data
+representative <- yaml::read_yaml("results/representative.yml")
+df_testing <- read.csv("df_testing_imputed.csv", stringsAsFactors = FALSE)
+df_testing[which(sapply(df_testing, is.character))] <- 
+  lapply(df_testing[which(sapply(df_testing, is.character))], factor)
+
+df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)] <- 
+  lapply(df_testing[which(lapply(sapply(df_testing, unique), length) <= 5)], factor)
+df_representative <- df_testing[representative, ]
+
+# Prepare empty fits table
+write.table(
+  t(c("DV", "lasso_lambda.1se", "lasso_mse", "lasso_train_r2", "lasso_train_mse", 
+    "lasso_train_r_actual_pred", "lasso_test_r2", "lasso_test_mse", 
+    "lasso_test_r_actual_pred", "rf_mtry", "rf_min.node.size", "rf_mse", 
+    "rf_train_r2", "rf_train_mse", "rf_train_r_actual_pred", "rf_test_r2", 
+    "rf_test_mse", "rf_test_r_actual_pred", "representative_r2", 
+    "representative_mse", "representative_r_actual_pred")),
+  "results/fit_table.csv",
+  sep = ",",
+  append = FALSE, row.names = FALSE, col.names = FALSE)
+
 # Renamed plots
 for(thisfile in f){
+  dvname <- gsub(".+_(.+)\\.RData", "\\1", thisfile)
   tmp <- readRDS(thisfile)
   res <- tmp$rf$final_model
+  
+  # Lasso plot
+  p <- VarImpPlot(tmp$lasso$final_model)
+  ggsave(
+    filename = paste0("results/lasso_", dvname, ".png"),
+    p,
+    device = "png")
+  
+  # Fit table
+
+  # Fits in RData
+  names(tmp$lasso$fit) <- paste0("lasso_", names(tmp$lasso$fit))
+  names(tmp$rf$fit) <- paste0("rf_", names(tmp$rf$fit))
+  
+  # Representative fits
+  out <- tryCatch({model_accuracy(tmp$rf$final_model,
+                                  newdata = df_representative[, -which(names(df_representative) == dvname)],
+                                  observed = df_representative[[dvname]],
+                                  ymean = mean(df_training[[dvname]], na.rm = TRUE))}, error = function(e){
+                                    c(r2 = NA, mse = NA, r_actual_pred = NA)
+                                  })
+  names(out) <- paste0("representative_", names(out))
+  
+  
+  fits <- c(DV = gsub(".+_(.+)\\.RData", "\\1", thisfile), tmp$lasso$fit, tmp$rf$fit, out)
+  
+  # Write to file  
+  write.table(t(fits), "results/fit_table.csv", append = TRUE, row.names = FALSE, col.names = FALSE, sep = ",")
+
   cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
   rm(list = cur_env)
   VI <- res$variable.importance
   names(VI) <- var_rename[names(VI)]
+  p <- VarImpPlot.numeric(VI)
   ggsave(
     filename = paste0("results/rf_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     VarImpPlot.numeric(VI),
     device = "png")
   
   cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
   rm(list = cur_env)
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()
@@ -297,13 +334,13 @@ for(thisfile in f){
     p,
     device = "png")
   cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
   rm(list = cur_env)
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()
   for(thisvar in vars){
     cur_env <- ls()
-    cur_env <- cur_env[!cur_env %in% c("vars", "thisvar", "res", "df_training", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+    cur_env <- cur_env[!cur_env %in% c("vars", "thisvar", "res", "df_training", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
     rm(list = cur_env)
     gc()
     

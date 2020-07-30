@@ -134,6 +134,13 @@ df[unlist(scales_list)] <- NULL
 
 # Startdate to numeric
 df$startdate <- as.POSIXct(df$startdate)
+
+p <- ggplot(df, aes(x = startdate)) + geom_histogram() + theme_bw() + labs(x =  "Date", y = "Participants")
+ggsave("date_distribution.png", p, device = "png")
+svg("date_distribution.svg")
+eval(p)
+dev.off()
+
 #df$time_ago <- as.numeric(df$startdate-Sys.time())
 #df$startdate <- NULL
 
@@ -184,8 +191,12 @@ df <- merge_dat(df, df_dat[, c("countryiso3", "population")])
 
 # CSSE
 df_dat <- read.csv(paste("data", "CSSE/CSSE.csv", sep = "/"), stringsAsFactors = FALSE)
+all_miss <- rowSums(is.na(df_dat)) == (ncol(df_dat)-3)
+names(df_dat) <- gsub("\\.(\\d+)_(\\d+)", "\\.\\2_\\1", names(df_dat))
+
 scale_these <- c(scale_these, "confirmed", "deaths", "recovered")
 df <- merge_dat(df, df_dat)
+
 
 df_dat <- read.csv(file.path("data",
                          "OxCGRT/OxCGRT_Oxford_regulation_policies.csv"), stringsAsFactors = FALSE)
@@ -193,6 +204,8 @@ df_dat <- df_dat[, !(startsWith(names(df_dat), "legacy") |
                        startsWith(names(df_dat), "confirmedcases")|
                        startsWith(names(df_dat), "confirmeddeaths")|
                        startsWith(names(df_dat), "stringencyindexfordisplay"))]
+
+
 vars <- unique(gsub("_\\d{4}\\.\\d{2}\\.\\d{2}$", "", names(df_dat)))
 vars <- vars[!vars %in% gsub("_flag", "", vars[endsWith(vars, "flag")])]
 keep_these <- apply(sapply(vars, startsWith, x = names(df_dat)), 1, any)
@@ -253,4 +266,5 @@ df_train <- df[df$train, ]
 # write.csv(imp, "df_train_imputed.csv", row.names = FALSE)
 
 write.csv(df_test, "testing.csv", row.names = FALSE)
+
 write.csv(df_train, "training.csv", row.names = FALSE)

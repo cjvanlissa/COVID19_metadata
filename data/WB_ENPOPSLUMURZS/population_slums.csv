@@ -32,7 +32,7 @@
 "Djibouti","DJI",65.6
 "Dominica","DMA",NA
 "Dominican Republic","DOM",12.1
-"Early-demographic dividend","EAR",27.0384934402143
+"Early-demographic dividend","EAR",27.0365098415163
 "East Asia & Pacific","EAS",25.7938114421832
 "East Asia & Pacific (excluding high income)","EAP",25.7938114421832
 "East Asia & Pacific (IDA & IBRD countries)","TEA",25.7938114421832
@@ -53,13 +53,13 @@
 "Guinea-Bissau","GNB",82.3
 "Guyana","GUY",33.1
 "Haiti","HTI",74.4
-"Heavily indebted poor countries (HIPC)","HPC",62.0610720994296
+"Heavily indebted poor countries (HIPC)","HPC",62.0610720994295
 "Honduras","HND",27.5
-"IBRD only","IBD",23.5344372408156
-"IDA & IBRD total","IBT",29.7620906739567
-"IDA blend","IDB",47.2575955831377
+"IBRD only","IBD",23.5517435940763
+"IDA & IBRD total","IBT",29.7615150858276
+"IDA blend","IDB",47.3071395916395
 "IDA only","IDX",59.8202119809219
-"IDA total","IDA",55.1111455628681
+"IDA total","IDA",55.1613775712645
 "India","IND",24
 "Indonesia","IDN",21.8
 "Iran, Islamic Rep.","IRN",NA
@@ -70,17 +70,17 @@
 "Korea, Dem. People’s Rep.","PRK",NA
 "Lao PDR","LAO",31.4
 "Late-demographic dividend","LTE",23.9295584860171
-"Latin America & Caribbean","LCN",20.4104674325914
-"Latin America & Caribbean (excluding high income)","LAC",20.3769035618107
-"Latin America & the Caribbean (IDA & IBRD countries)","TLA",20.4104674325914
+"Latin America & Caribbean","LCN",20.4001478499385
+"Latin America & Caribbean (excluding high income)","LAC",20.3664949291668
+"Latin America & the Caribbean (IDA & IBRD countries)","TLA",20.4001478499385
 "Least developed countries: UN classification","LDC",62.750263054409
 "Lebanon","LBN",NA
 "Lesotho","LSO",50.8
 "Liberia","LBR",65.7
 "Libya","LBY",NA
-"Low & middle income","LMY",29.7661646662697
-"Low income","LIC",64.6222125057205
-"Lower middle income","LMC",32.1752305946691
+"Low & middle income","LMY",29.7655889816648
+"Low income","LIC",68.3898872740002
+"Lower middle income","LMC",33.4418059497151
 "Madagascar","MDG",77.2
 "Malawi","MWI",66.7
 "Mali","MLI",56.3
@@ -89,7 +89,7 @@
 "Middle East & North Africa","MEA",NA
 "Middle East & North Africa (excluding high income)","MNA",NA
 "Middle East & North Africa (IDA & IBRD countries)","TMN",NA
-"Middle income","MIC",27.1133643036178
+"Middle income","MIC",27.0409210586658
 "Mongolia","MNG",42.7
 "Morocco","MAR",13.1
 "Mozambique","MOZ",80.3
@@ -131,10 +131,10 @@
 "Tunisia","TUN",8
 "Turkey","TUR",11.9
 "Uganda","UGA",53.6
-"Upper middle income","UMC",23.0593801564599
+"Upper middle income","UMC",22.9389525537561
 "Venezuela, RB","VEN",NA
 "Vietnam","VNM",27.2
-"World","WLD",29.7620906739567
+"World","WLD",29.7615150858276
 "Yemen, Rep.","YEM",60.8
 "Zambia","ZMB",54
 "Zimbabwe","ZWE",25.1

@@ -3,11 +3,11 @@
 "Angola","AGO",2016,80.9,NA,NA,NA,NA
 "Albania","ALB",NA,NA,NA,NA,NA,NA
 "Argentina","ARG",NA,NA,NA,NA,NA,NA
-"Armenia","ARM",NA,NA,NA,NA,NA,NA
+"Armenia","ARM",2016,80.3,NA,NA,NA,NA
 "Australia","AUS",NA,NA,NA,NA,NA,NA
 "Austria","AUT",NA,NA,NA,NA,NA,NA
 "Azerbaijan","AZE",NA,NA,NA,NA,NA,NA
-"Burundi","BDI",NA,NA,NA,NA,NA,NA
+"Burundi","BDI",2017,69.3,NA,NA,NA,NA
 "Belgium","BEL",NA,NA,NA,NA,NA,NA
 "Benin","BEN",NA,NA,NA,NA,NA,NA
 "Burkina Faso","BFA",NA,NA,NA,NA,NA,NA
@@ -52,10 +52,10 @@
 "Guyana","GUY",NA,NA,NA,NA,NA,NA
 "Hong Kong SAR, China","HKG",NA,NA,NA,NA,NA,NA
 "Honduras","HND",NA,NA,NA,NA,NA,NA
-"Haiti","HTI",NA,NA,NA,NA,NA,NA
+"Haiti","HTI",2017,82.5,NA,NA,NA,NA
 "Hungary","HUN",NA,NA,NA,NA,NA,NA
-"Indonesia","IDN",NA,NA,NA,NA,NA,NA
-"India","IND",NA,NA,NA,NA,NA,NA
+"Indonesia","IDN",2017,76.3,NA,NA,NA,NA
+"India","IND",2016,73.4,NA,NA,NA,NA
 "Ireland","IRL",NA,NA,NA,NA,NA,NA
 "Iran, Islamic Rep.","IRN",NA,NA,NA,NA,NA,NA
 "Iraq","IRQ",NA,NA,NA,NA,NA,NA
@@ -76,14 +76,14 @@
 "Morocco","MAR",NA,NA,NA,NA,NA,NA
 "Moldova","MDA",NA,NA,NA,NA,NA,NA
 "Madagascar","MDG",NA,NA,NA,NA,NA,NA
-"Maldives","MDV",NA,NA,NA,NA,NA,NA
+"Maldives","MDV",2017,86.8,NA,NA,NA,NA
 "Mexico","MEX",NA,NA,2014,29.5219895,2014,9.7649549
 "Macedonia, FYR","MKD",NA,NA,2014,4.27,2014,1.38
 "Mali","MLI",NA,NA,NA,NA,NA,NA
 "Malta","MLT",NA,NA,NA,NA,NA,NA
 "Myanmar","MMR",2016,74.3,NA,NA,NA,NA
 "Mongolia","MNG",NA,NA,NA,NA,NA,NA
-"Mozambique","MOZ",NA,NA,NA,NA,NA,NA
+"Mozambique","MOZ",2015,75.5,NA,NA,NA,NA
 "Mauritius","MUS",NA,NA,NA,NA,NA,NA
 "Malawi","MWI",2016,55.4,NA,NA,NA,NA
 "Malaysia","MYS",NA,NA,NA,NA,NA,NA
@@ -93,13 +93,14 @@
 "Nicaragua","NIC",NA,NA,NA,NA,NA,NA
 "Netherlands","NLD",NA,NA,NA,NA,NA,NA
 "Norway","NOR",NA,NA,NA,NA,NA,NA
-"Nepal","NPL",NA,NA,NA,NA,NA,NA
+"Nepal","NPL",2016,53,NA,NA,NA,NA
 "New Zealand","NZL",NA,NA,NA,NA,NA,NA
 "Oman","OMN",NA,NA,NA,NA,NA,NA
 "Pakistan","PAK",NA,NA,NA,NA,NA,NA
 "Panama","PAN",NA,NA,NA,NA,NA,NA
 "Peru","PER",NA,NA,NA,NA,NA,NA
-"Philippines","PHL",NA,NA,NA,NA,NA,NA
+"Philippines","PHL",2017,89.1,NA,NA,NA,NA
+"Papua New Guinea","PNG",NA,NA,NA,NA,NA,NA
 "Poland","POL",NA,NA,NA,NA,NA,NA
 "Portugal","PRT",NA,NA,2015,17.8113542,2015,10.2414028
 "Paraguay","PRY",NA,NA,2016,14.5250208,2016,4.2704121
@@ -108,7 +109,7 @@
 "Romania","ROU",NA,NA,NA,NA,NA,NA
 "Russian Federation","RUS",NA,NA,2014,18.4027778,2014,8.125
 "Rwanda","RWA",2015,73.2,NA,NA,NA,NA
-"Senegal","SEN",2014,18.7,NA,NA,NA,NA
+"Senegal","SEN",2017,21,NA,NA,NA,NA
 "Sierra Leone","SLE",NA,NA,NA,NA,NA,NA
 "El Salvador","SLV",NA,NA,NA,NA,NA,NA
 "Serbia","SRB",NA,NA,2015,19.1675585,2015,8.6903803
@@ -119,17 +120,17 @@
 "Chad","TCD",2015,39.8,NA,NA,NA,NA
 "Togo","TGO",2014,47.2,NA,NA,NA,NA
 "Thailand","THA",NA,NA,2015,11.8333333,2015,3.75
-"Tajikistan","TJK",NA,NA,NA,NA,NA,NA
+"Tajikistan","TJK",2017,37.5,NA,NA,NA,NA
 "Turkmenistan","TKM",NA,NA,NA,NA,NA,NA
-"Timor-Leste","TLS",NA,NA,NA,NA,NA,NA
+"Timor-Leste","TLS",2016,93.7,NA,NA,NA,NA
 "Tunisia","TUN",NA,NA,NA,NA,NA,NA
 "Turkey","TUR",NA,NA,2015,19.1511724,2015,3.7057481
 "Tanzania","TZA",2016,46,2014,16.4583333,2014,4.2361111
-"Uganda","UGA",NA,NA,NA,NA,NA,NA
+"Uganda","UGA",2016,63.7,NA,NA,NA,NA
 "Ukraine","UKR",NA,NA,NA,NA,NA,NA
 "Uruguay","URY",NA,NA,NA,NA,NA,NA
 "United States","USA",NA,NA,2016,15.9166667,2016,9.7916667
 "Yemen, Rep.","YEM",NA,NA,NA,NA,NA,NA
-"South Africa","ZAF",NA,NA,NA,NA,NA,NA
+"South Africa","ZAF",2016,91.9,NA,NA,NA,NA
 "Zambia","ZMB",2014,66.3,NA,NA,NA,NA
 "Zimbabwe","ZWE",2015,86.8,NA,NA,NA,NA

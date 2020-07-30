@@ -77,14 +77,13 @@
 "Guinea-Bissau","GNB",NA,NA
 "Guyana","GUY",NA,NA
 "Heavily indebted poor countries (HIPC)","HPC",2013,10.67458
-"High income","HIC",2016,20.32099
+"High income","HIC",2016,20.29085
 "Honduras","HND",2013,21.43893
 "Hong Kong SAR, China","HKG",2018,14.82783
 "Hungary","HUN",2016,19.06479
 "IBRD only","IBD",NA,NA
 "Iceland","ISL",2016,22.10298
 "IDA & IBRD total","IBT",NA,NA
-"IDA blend","IDB",NA,NA
 "IDA only","IDX",2013,10.30013
 "IDA total","IDA",NA,NA
 "India","IND",2013,9.79172
@@ -113,7 +112,7 @@
 "Liechtenstein","LIE",NA,NA
 "Lithuania","LTU",2016,19.49595
 "Low & middle income","LMY",NA,NA
-"Low income","LIC",2013,10.67458
+"Low income","LIC",NA,NA
 "Luxembourg","LUX",2015,19.6895
 "Macao SAR, China","MAC",NA,NA
 "Madagascar","MDG",NA,NA
@@ -143,7 +142,7 @@
 "Niger","NER",2017,13.30223
 "North America","NAC",2016,19.85908
 "Norway","NOR",2016,21.70425
-"OECD members","OED",2016,20.29085
+"OECD members","OED",2016,20.279965
 "Oman","OMN",2016,31.77481
 "Other small states","OSS",2014,13.33654
 "Pakistan","PAK",2015,8.09756

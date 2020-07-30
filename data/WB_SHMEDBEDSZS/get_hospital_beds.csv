@@ -5,7 +5,7 @@
 "Andorra","AND",NA,NA,NA
 "Angola","AGO",NA,NA,NA
 "Antigua and Barbuda","ATG",3.9,3.8,NA
-"Arab World","ARB",1.15189919300725,1.62452358185493,NA
+"Arab World","ARB",1.15189918671102,1.62452358057313,NA
 "Argentina","ARG",4.9,5,NA
 "Armenia","ARM",4.1,NA,4.2
 "Australia","AUS",NA,3.8,NA
@@ -68,9 +68,9 @@
 "Eswatini","SWZ",NA,NA,NA
 "Ethiopia","ETH",NA,NA,0.3
 "Euro area","EMU",6.16749081248063,NA,NA
-"Europe & Central Asia","ECS",5.92503058136171,NA,NA
-"Europe & Central Asia (excluding high income)","ECA",6.35463530944861,NA,NA
-"Europe & Central Asia (IDA & IBRD countries)","TEC",6.36284728788407,NA,NA
+"Europe & Central Asia","ECS",5.9250309927928,NA,NA
+"Europe & Central Asia (excluding high income)","ECA",6.35754377903486,NA,NA
+"Europe & Central Asia (IDA & IBRD countries)","TEC",6.36284790763261,NA,NA
 "European Union","EUU",6.10828282710878,NA,NA
 "Fiji","FJI",NA,NA,NA
 "Finland","FIN",4.9,NA,4.4
@@ -90,7 +90,7 @@
 "Guyana","GUY",NA,1.6,NA
 "Haiti","HTI",0.7,NA,NA
 "Heavily indebted poor countries (HIPC)","HPC",NA,NA,NA
-"High income","HIC",4.11069396287238,NA,NA
+"High income","HIC",4.16303937024607,NA,NA
 "Honduras","HND",0.7,0.7,NA
 "Hong Kong SAR, China","HKG",NA,NA,NA
 "Hungary","HUN",7,NA,NA
@@ -120,9 +120,9 @@
 "Kyrgyz Republic","KGZ",4.5,NA,NA
 "Lao PDR","LAO",NA,NA,NA
 "Late-demographic dividend","LTE",NA,NA,NA
-"Latin America & Caribbean","LCN",2.13931163133949,2.17327725929248,NA
-"Latin America & Caribbean (excluding high income)","LAC",2.12930928378679,2.16290513214949,NA
-"Latin America & the Caribbean (IDA & IBRD countries)","TLA",2.07488509973306,2.08967547696012,NA
+"Latin America & Caribbean","LCN",2.13931163133949,2.17552044810434,NA
+"Latin America & Caribbean (excluding high income)","LAC",2.12930928378679,2.16516032319828,NA
+"Latin America & the Caribbean (IDA & IBRD countries)","TLA",2.07488509973306,2.09185793414075,NA
 "Latvia","LVA",5.8,NA,NA
 "Least developed countries: UN classification","LDC",NA,NA,NA
 "Lebanon","LBN",2.9,2.9,NA
@@ -146,7 +146,7 @@
 "Mauritius","MUS",NA,NA,NA
 "Mexico","MEX",1.6,NA,1.5
 "Micronesia, Fed. Sts.","FSM",NA,NA,NA
-"Middle East & North Africa","MEA",1.31563228854746,1.62848507118594,NA
+"Middle East & North Africa","MEA",1.31563228373799,1.62848507014646,NA
 "Middle East & North Africa (excluding high income)","MNA",1.16300785053231,1.51669671692738,NA
 "Middle East & North Africa (IDA & IBRD countries)","TMN",1.16300785053231,1.51669671692738,NA
 "Middle income","MIC",NA,NA,NA
@@ -168,7 +168,7 @@
 "North America","NAC",2.9,NA,NA
 "North Macedonia","MKD",4.4,NA,NA
 "Norway","NOR",3.9,NA,NA
-"OECD members","OED",3.81434264538212,NA,NA
+"OECD members","OED",3.70524087483816,NA,NA
 "Oman","OMN",1.7,1.6,NA
 "Pacific island small states","PSS",NA,NA,NA
 "Pakistan","PAK",0.6,0.6,NA
@@ -180,7 +180,7 @@
 "Philippines","PHL",NA,NA,NA
 "Poland","POL",6.5,NA,NA
 "Portugal","PRT",3.4,NA,NA
-"Post-demographic dividend","PST",4.60735749887723,NA,NA
+"Post-demographic dividend","PST",4.60735776535194,NA,NA
 "Pre-demographic dividend","PRE",NA,NA,NA
 "Puerto Rico","PRI",NA,NA,NA
 "Qatar","QAT",1.4,1.2,NA
