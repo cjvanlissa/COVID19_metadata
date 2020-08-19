@@ -28,3 +28,5 @@ models.RData
 !variable_names.csv
 !df_training_labs.csv
 !fit_paper.csv
+*.docx
+*.tmp

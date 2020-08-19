@@ -85,7 +85,7 @@ df <- df[which(df$coded_country %in% retain_countries),] # removing countries th
 
 # Descriptive stats
 table_descriptives <- tidySEM::descriptives(df)
-# 
+
 # # Some variables might be spread out over several columns; check codebook
 # vars <- grep("_\\d$", names(df), value = TRUE)
 # # For example, coronaclose:
@@ -129,6 +129,11 @@ write.csv(scales$descriptives, "scale_descriptives.csv", row.names = FALSE)
 # View(scales$descriptives) # commenting this out so it doesn't open every time we run the modelling script
 # Add to df
 df <- cbind(df, scales$scores[scales$descriptives$Reliability > .65])
+
+# Save descriptives
+desc <- tidySEM::descriptives(df)
+write.csv(desc, "descriptives_itemscales.csv", row.names = FALSE)
+
 # Remove items
 df[unlist(scales_list)] <- NULL
 
@@ -197,7 +202,7 @@ names(df_dat) <- gsub("\\.(\\d+)_(\\d+)", "\\.\\2_\\1", names(df_dat))
 scale_these <- c(scale_these, "confirmed", "deaths", "recovered")
 df <- merge_dat(df, df_dat)
 
-
+# Oxford policy tracker
 df_dat <- read.csv(file.path("data",
                          "OxCGRT/OxCGRT_Oxford_regulation_policies.csv"), stringsAsFactors = FALSE)
 df_dat <- df_dat[, !(startsWith(names(df_dat), "legacy") |
@@ -254,6 +259,11 @@ thres_miss_col      <- .2 # remove features/variables that have more than X% NAs
 df                      <- df[, which((colSums(miss)/nrow(df)) > thres_miss_col) := NULL]
 thres_miss_row     <- 40/ncol(df) # remove participants that have more than X% NAs
 df                      <- df[!(rowSums(miss)/ncol(df)) > thres_miss_row, ]
+
+# Store descriptives
+desc <- tidySEM::descriptives(df)
+write.csv(desc, "descriptives_finaldata.csv", row.names = FALSE)
+
 
 # Drop testing cases
 df_test <- df[!df$train, ]
