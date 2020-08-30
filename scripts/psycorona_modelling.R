@@ -11,6 +11,8 @@ library(doParallel)
 library(missRanger)
 source("scripts/varimpplot_lasso.R")
 source("scripts/model_accuracy.R")
+source("scripts/get_signs.R")
+
 run_everything <- FALSE
 
 if(run_everything){
@@ -323,7 +325,12 @@ for(thisfile in f){
   gc()
   
   # Partial dependence plot
-  p <- metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(27, 100), save_direction = "directions.csv")
+  p <- metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(27, 100), output = "list")
+  the_signs <- t(get_signs(pdps))
+  write.csv(the_signs, paste0("results/signs_", dvname, ".csv"), row.names = FALSE)
+  browser()
+  
+  
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     p,

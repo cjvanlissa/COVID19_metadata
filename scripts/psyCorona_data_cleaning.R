@@ -83,6 +83,18 @@ country_percentages <- df %>% group_by(coded_country) %>%
 retain_countries <- country_percentages$coded_country[country_percentages$perc_of_resp > 1]
 df <- df[which(df$coded_country %in% retain_countries),] # removing countries that are < 1% of data
 
+# Summary table of samples & countries that remained in the data after cleaning
+country_desc <- data.frame(t(sapply(unique(df$coded_country), function(thecountry){
+  c(thecountry,
+    prop.table((table(c(1:3, df$gender[df$coded_country == thecountry]))-1)),
+    prop.table(table(c(1:7, df$edu[df$coded_country == thecountry]))-1),
+    prop.table(table(c(FALSE, TRUE, (df$source > 5))[df$coded_country == thecountry])-1)[2]
+  )
+})))
+names(country_desc) <- c("Country", paste0("Gender ", 1:3), paste0("Education ", 1:7), "Representative")
+country_desc[-1] <- lapply(country_desc[-1], as.numeric)
+
+
 # Descriptive stats
 table_descriptives <- tidySEM::descriptives(df)
 
