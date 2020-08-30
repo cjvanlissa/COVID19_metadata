@@ -51,7 +51,7 @@ merge_dat <- function(df, df_dat, date_regexp = "\\d{2}_\\d{2}_\\d{4}$"){
 }
 
 ########## READ AND PREPARE DATA ##########
-df <- read.csv("data/RMD30_Caspar van Lissa_2020-05-27 20-33 CEST.csv", stringsAsFactors = FALSE) # read in raw data
+df <- read.csv("data/RMD30_Caspar van Lissa_2020-07-07 16-53 CEST.csv", stringsAsFactors = FALSE) # read in raw data
 
 # All names to lower, to prevent problems with name matching. Please use only
 # lowercase (capitalization is all over the place in the original data)
@@ -135,6 +135,8 @@ rev <- c("jbinsec02", "disc03", "bor03")
 df$bor03 <- 4-df$bor03
 df$jbinsec02 <- -1*df$jbinsec02
 df$disc03 <- -1*df$disc03
+df$neuro03 <- -1*df$neuro03
+
 # Create the scales
 scales <- create_scales(df, keys.list = scales_list)
 write.csv(scales$descriptives, "scale_descriptives.csv", row.names = FALSE)
