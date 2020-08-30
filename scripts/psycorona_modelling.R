@@ -11,7 +11,6 @@ library(doParallel)
 library(missRanger)
 source("scripts/varimpplot_lasso.R")
 source("scripts/model_accuracy.R")
-source("scripts/get_signs.R")
 
 run_everything <- FALSE
 
@@ -57,7 +56,7 @@ if(run_everything){
   df_testing$startdate <- as.POSIXct(df_testing$startdate)
   df_training$date <- as.integer(as.numeric(df_training$startdate - as.POSIXct("2020-01-01 00:00:00")))
   df_testing$date <- as.integer(as.numeric(df_testing$startdate - as.POSIXct("2020-01-01 00:00:00")))
-  
+  #vars[!vars %in% names(df_training)]
   df_training <- df_training[, vars]
   df_testing <- df_testing[, vars]
   
@@ -116,7 +115,6 @@ names(df_testing)[!(mapply(function(x,y){class(x)[1] == class(y)[1]}, x = df_tra
 
 # Defining dependent variables
 dep_vars <- c("c19eff", "ecorca", "consp", "c19proso", "ecoproso", "isofriends_inperson", "c19perbeh")
-
 
 ########## CARET MODEL COMPARING SETUP ########## 
 set.seed(953007)
@@ -242,7 +240,7 @@ proc.time() - ptm
 
 
 # WATCH OUT: CLEARS THE WORKING ENVIRONMENT -------------------------------
-rm(ls())
+do.call(rm, as.list(ls()))
 # WATCH OUT: CLEARS THE WORKING ENVIRONMENT -------------------------------
 
 library(ggplot2)
@@ -253,6 +251,7 @@ source("scripts/model_accuracy.R")
 # Prepare training data
 df_training <- read.csv("df_training_imputed.csv", stringsAsFactors = FALSE)
 f <- list.files("results", "res.+RData", full.names = TRUE)
+
 df_vars <- read.csv("scripts/df_training_labs.csv", stringsAsFactors = F)
 var_rename <- tolower(df_vars$lab)
 names(var_rename) <- df_vars$X
@@ -325,12 +324,12 @@ for(thisfile in f){
   gc()
   
   # Partial dependence plot
-  p <- metaforest::PartialDependence(res, vars = vars, data = df_training, label_elements = var_rename, resolution = c(27, 100), output = "list")
-  the_signs <- t(get_signs(pdps))
+  p <- PartialDependence(res, vars = vars, data = df_training, output = "list", label_elements = var_rename, resolution = c(27, 100))
+  saveRDS(p, paste0("results/pdp_", dvname, ".RData"))
+  source("scripts/get_signs.R")
+  the_signs <- t(get_signs(p))
   write.csv(the_signs, paste0("results/signs_", dvname, ".csv"), row.names = FALSE)
-  browser()
-  
-  
+  p <- metaforest:::merge_plots(p)
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     p,

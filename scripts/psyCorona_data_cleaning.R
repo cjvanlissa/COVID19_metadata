@@ -142,7 +142,7 @@ scales <- create_scales(df, keys.list = scales_list)
 write.csv(scales$descriptives, "scale_descriptives.csv", row.names = FALSE)
 # View(scales$descriptives) # commenting this out so it doesn't open every time we run the modelling script
 # Add to df
-df <- cbind(df, scales$scores[scales$descriptives$Reliability > .65])
+df <- cbind(df, scales$scores[scales$descriptives$Reliability >= .65])
 
 # Save descriptives
 desc <- tidySEM::descriptives(df)
