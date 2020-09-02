@@ -329,6 +329,9 @@ for(thisfile in f){
   source("scripts/get_signs.R")
   the_signs <- t(get_signs(p))
   write.csv(the_signs, paste0("results/signs_", dvname, ".csv"), row.names = FALSE)
+  
+  # Reduce font size
+  p <- lapply(p, function(x){ x + theme(strip.text.x = element_text(size = 7))})
   p <- metaforest:::merge_plots(p)
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
@@ -338,24 +341,12 @@ for(thisfile in f){
   eval(p)
   dev.off()
   # Variable importance plot
-  dirs <- read.csv("directions.csv", header = FALSE, stringsAsFactors = FALSE)
-  dirs$V5 <- apply(dirs[, c(2,4)], 1, function(i){
-    if(sum(i == 0) == 2){
-      "Other"
-    } else {
-      if(sum(i == 0) == 1){
-        c("Negative", "Positive")[which(!i == 0)]
-      } else {
-        if(any(prop.table(i) > .6)){
-          c("Negative", "Positive")[(i[1] < i[2])+1]
-        } else {
-          "Other"
-        }
-      }
-    }
-  })
+  dirs <- read.csv(paste0("results/signs_", dvname, ".csv"), header = FALSE, stringsAsFactors = FALSE)
+  dirs$V5[dirs$V5 %in% c("Positive monotonous", "Mostly positive")] <- "Positive"
+  dirs$V5[dirs$V5 %in% c("Negative monotonous", "Mostly negative")] <- "Negative"
 
   VI <- sort(res$variable.importance, decreasing = TRUE)[1:30]
+  
   VI <- data.frame(Variable = var_rename[names(VI)], Importance = VI, Direction = dirs$V5[match(names(VI), dirs$V1)])
   VI$Variable <- ordered(VI$Variable, levels = rev(VI$Variable))
   p <- ggplot(VI, aes_string(y = "Variable", x = "Importance")) + 
