@@ -421,3 +421,11 @@ repr_table <- sapply(f, function(thisfile){
 })
 
 write.csv(repr_table, "results/representative_fit.csv")
+
+tab <- read.csv("results/fit_table.csv", stringsAsFactors = FALSE)
+repr_table <- data.frame(t(repr_table))
+tab[names(repr_table)] <- NULL
+repr_table$DV <- gsub(".+_(.+)\\.RData", "\\1", rownames(repr_table))
+tab <- merge(tab, repr_table, by = "DV")
+
+write.csv(tab, "results/fit_table.csv", row.names = FALSE)
