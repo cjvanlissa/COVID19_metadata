@@ -342,9 +342,12 @@ for(thisfile in f){
     ))
   })
   # Reduce font size
-  p <- lapply(p, function(x){ x + theme(strip.text.x = element_text(size = 6))})
-  
-
+  p <- lapply(p, function(x){ x + theme(strip.text.x = element_text(size = 5),
+                                        axis.text.x = element_text(size = 5),
+                                        axis.text.y = element_text(size = 5))})
+  if("countryiso3" %in% vars){
+    p[[which(vars == "countryiso3")]] <- p[[which(vars == "countryiso3")]] + theme(axis.text.x = element_text(angle=90, size = 3))
+  }  
   p <- metaforest:::merge_plots(p)
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
