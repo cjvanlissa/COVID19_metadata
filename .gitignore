@@ -30,3 +30,4 @@ models.RData
 !fit_paper.csv
 *.docx
 *.tmp
+!table1.csv

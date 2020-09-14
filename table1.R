@@ -1,11 +1,11 @@
 df_training <- read.csv("df_training_imputed.csv", stringsAsFactors = FALSE)
 desc <- read.csv("scale_descriptives.csv", stringsAsFactors = FALSE)
+desc_item <- read.csv("descriptives_finaldata.csv", stringsAsFactors = FALSE)
 desc <- desc[desc$Subscale %in% names(df_training), ]
 desc$type <- "numeric"
 names(desc)[1] <- "name"
 names(desc)[!names(desc) %in% names(desc_item)]
 
-desc_item <- read.csv("descriptives_finaldata.csv", stringsAsFactors = FALSE)
 total_n <- desc_item$n[which.min(desc_item$missing)]
 # desc$missing <- 1-(desc$n/total_n)
 # desc$unique <- NA
@@ -19,7 +19,6 @@ scales <- desc_item[desc_item$name %in% desc$name, ]
 scales_desc <- desc[desc$name %in% desc_item$name, ]
 scales <- scales[, c("name", names(scales)[!names(scales) %in% names(desc)])]
 scales <- merge(scales, scales_desc, by = "name")
-
 
 desc_item <- desc_item[!desc_item$name %in% desc$name, ]
 desc_item <- desc_item[desc_item$name %in% names(df_training), ]
@@ -58,6 +57,6 @@ tab$id <- NULL
 tab <- tab[order(tab$rank), ]
 write.csv(tab, "table1.csv", row.names = F)
 
-summary(lm(c19perbeh ~ age, df_training))
+#summary(lm(c19perbeh ~ age, df_training))
 
-df_training$gender
+#df_training$gender
