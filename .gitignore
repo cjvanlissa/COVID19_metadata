@@ -30,6 +30,10 @@ models.RData
 !fit_paper.csv
 *.docx
 *.tmp
+<<<<<<< HEAD
 !results/*.csv
 !results/signs_c19eff.csv
 !table_country.csv
+=======
+!table1.csv
+>>>>>>> 137eae01ad278b8c124b46c75abace3d0f6f15c9
