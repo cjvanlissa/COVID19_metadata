@@ -324,14 +324,27 @@ for(thisfile in f){
   gc()
   
   # Partial dependence plot
-  p <- PartialDependence(res, vars = vars, data = df_training, output = "list", label_elements = var_rename, resolution = c(27, 100))
-  saveRDS(p, paste0("results/pdp_", dvname, ".RData"))
-  source("scripts/get_signs.R")
-  the_signs <- t(get_signs(p))
-  write.csv(the_signs, paste0("results/signs_", dvname, ".csv"), row.names = FALSE)
+  if(run_everything){
+    p <- PartialDependence(res, vars = vars, data = df_training, output = "list", label_elements = var_rename, resolution = c(27, 100))
+    saveRDS(p, paste0("results/pdp_", dvname, ".RData"))
+    source("scripts/get_signs.R")
+    the_signs <- t(get_signs(p))
+    write.csv(the_signs, paste0("results/signs_", dvname, ".csv"), row.names = FALSE)
+  } else {
+    p <- readRDS(paste0("results/pdp_", dvname, ".RData"))
+    the_signs <- read.csv(paste0("results/signs_", dvname, ".csv"), stringsAsFactors = FALSE)
+  }
   
+  # Number variables
+  p <- lapply(1:length(p), function(i){
+    p[[i]]+facet_grid(.~Variable, labeller = labeller(
+      Variable = setNames(paste0(i, ". ", var_rename[vars[i]]), var_rename[vars[i]])
+    ))
+  })
   # Reduce font size
-  p <- lapply(p, function(x){ x + theme(strip.text.x = element_text(size = 7))})
+  p <- lapply(p, function(x){ x + theme(strip.text.x = element_text(size = 6))})
+  
+
   p <- metaforest:::merge_plots(p)
   ggsave(
     filename = paste0("results/rf_partialdependence_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
@@ -347,7 +360,7 @@ for(thisfile in f){
 
   VI <- sort(res$variable.importance, decreasing = TRUE)[1:30]
   
-  VI <- data.frame(Variable = var_rename[names(VI)], Importance = VI, Direction = dirs$V5[match(names(VI), dirs$V1)])
+  VI <- data.frame(Variable = paste0(1:30, ". ", var_rename[names(VI)]), Importance = VI, Direction = dirs$V5[match(names(VI), dirs$V1)])
   VI$Variable <- ordered(VI$Variable, levels = rev(VI$Variable))
   p <- ggplot(VI, aes_string(y = "Variable", x = "Importance")) + 
     geom_segment(aes_string(x = 0, xend = "Importance", 
@@ -355,10 +368,12 @@ for(thisfile in f){
                  linetype = 2) + geom_vline(xintercept = 0, colour = "grey50", 
                                             linetype = 1) + xlab("Permutation Importance") + 
     theme_bw() + theme(panel.grid.major.x = element_blank(), 
-                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank()) + 
+                       panel.grid.minor.x = element_blank(),
+                       axis.title.y = element_blank(),
+                       axis.text.y = element_text(hjust=0)) + 
     geom_point(aes_string(fill = "Direction"), shape = 21, size = 2) + 
       scale_fill_manual(values = c("Positive" = "white", "Negative" = "black", "Other" = "gray70")) + 
-      theme(legend.position = c(0.92, 0.13))
+      theme(legend.position = c(0.92, 0.2))
   ggsave(
     filename = paste0("results/varimp_rf_", gsub(".+_(.+)\\.RData", "\\1", thisfile), ".png"),
     p,
