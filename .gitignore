@@ -30,3 +30,6 @@ models.RData
 !fit_paper.csv
 *.docx
 *.tmp
+!results/*.csv
+!results/signs_c19eff.csv
+!table_country.csv
