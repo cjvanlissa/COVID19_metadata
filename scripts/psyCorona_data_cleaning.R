@@ -96,6 +96,8 @@ names(country_desc) <- c("Country", "n", paste0("Gender ", 1:3), paste0("Educati
 country_desc[-1] <- lapply(country_desc[-1], as.numeric)
 write.csv(country_desc, "table_country.csv", row.names = FALSE)
 
+cat("N =", sum(country_desc$n), "across", nrow(country_desc), "countries.")
+
 # Descriptive stats
 table_descriptives <- tidySEM::descriptives(df)
 

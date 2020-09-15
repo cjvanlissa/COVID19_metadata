@@ -318,7 +318,7 @@ for(thisfile in f){
   # rm(list = cur_env)
   
   cur_env <- ls()
-  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "dvname", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric")]
+  cur_env <- cur_env[!cur_env %in% c("res", "df_training", "dvname", "df_representative", "f", "thisfile", "var_rename", "VarImpPlot", "VarImpPlot.numeric", "run_everything")]
   rm(list = cur_env)
   vars <- names(head(res$variable.importance[order(res$variable.importance, decreasing = TRUE)], 30))
   gc()

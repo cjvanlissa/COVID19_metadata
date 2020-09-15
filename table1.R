@@ -60,3 +60,9 @@ write.csv(tab, "table1.csv", row.names = F)
 #summary(lm(c19perbeh ~ age, df_training))
 
 #df_training$gender
+
+sapply(unique(df_training$countryiso3), function(x){
+  #x = df_training$countryiso3[1]
+  c(n = sum(df_training$countryiso3 == x),
+    table(df_training$age[df_training$countryiso3 == x]))
+})
