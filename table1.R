@@ -66,3 +66,16 @@ sapply(unique(df_training$countryiso3), function(x){
   c(n = sum(df_training$countryiso3 == x),
     table(df_training$age[df_training$countryiso3 == x]))
 })
+
+if(FALSE){
+  pontus <- read.csv("Table S3_14-October_PL_cj.csv", stringsAsFactors = F, check.names = F)
+  names(pontus)[1] <- "Label"
+  order_vars <- names(pontus)
+  tab <- read.csv("table1.csv", stringsAsFactors = F, check.names = F)
+  names(tab)[match(c("name", "label", "rank", "Items", "Reliability", "Interpret", "n"), names(tab))] <- c("Variable Shortname", "Label", "Rank", "# Items", "Reliability (alpha)", "Interpretation of alpha", "N with data")
+  tab[c("Description")] <- NULL
+  pontus <- pontus[c("Variable Shortname", names(pontus)[!names(pontus) %in% names(tab)])]
+  pontus <- merge(pontus, tab, by = "Variable Shortname", all.x = TRUE)
+  pontus <- pontus[order(pontus$Rank, decreasing = FALSE), order_vars]
+  write.csv(pontus, "Table S3_14-October_PL_cj_updated.csv", na = "", row.names = FALSE)
+}
