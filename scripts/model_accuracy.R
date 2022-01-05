@@ -45,6 +45,13 @@ model_accuracy <-
           predicted <- predict(fit, data = newdata)$predictions
         }
       },
+      lm = {
+        if (is.null(newdata)) {
+          predicted <- fit$fitted.values
+        } else {
+          predicted <- predict(fit, newdata = newdata)
+        }
+      },
       ranger = {
         if (is.null(newdata)) {
           predicted <- fit$predictions
