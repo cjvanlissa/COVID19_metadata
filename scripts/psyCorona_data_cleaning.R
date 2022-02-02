@@ -124,7 +124,7 @@ df[not_all_missing, startsWith(names(df), "houseleavewhy")] <- matrix(as.numeric
 
 # here I remove all of the columns that are not needed for analysis. I also remove the "ranking" features as I am not 
 # sure how to use them in analysis. (MAYBE RE-ADD LATER)
-df <- df %>% select(-enddate, -recordeddate, -polorx, -polory, -polorcat, -language, -contains("rank"))
+df <- df %>% select(-enddate, -recordeddate, -polorcat, -language, -contains("rank"))
 
 # Create scales -----------------------------------------------------------
 
